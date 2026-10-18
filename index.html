@@ -370,6 +370,11 @@
               <i class="fa-brands fa-line"></i> LINEで在庫・お車相談
             </a>
           </div>
+          <!-- App-Style Slide-Up Hint Pill -->
+          <div class="hero-slide-hint-pill" id="heroSlideHint" role="button" tabindex="0">
+            <span class="pill-arrow"><i class="fa-solid fa-chevron-up"></i></span>
+            <span class="pill-text">下から上にスライドでクイックメニュー展開</span>
+          </div>
         </div>
 
         <div class="hero-visual-block">
@@ -415,6 +420,133 @@
         <a href="stock.html" class="news-more pc-only">一覧を見る <i class="fa-solid fa-chevron-right"></i></a>
       </div>
     </div>
+
+    <!-- ==================== APP-STYLE QUICK INTERACTIVE TABS ==================== -->
+    <section class="app-tabs-section section-space bg-warm">
+      <div class="container">
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">QUICK FIND</span>
+          <h2 class="main-heading">ワンタップでサクサク探せる</h2>
+          <p class="heading-lead">知りたい情報をタップしてすぐ切り替えられます</p>
+        </div>
+
+        <div class="app-tabs-wrap">
+          <!-- Tab Navigation Buttons -->
+          <div class="app-tab-buttons" role="tablist">
+            <button type="button" class="tab-btn active" data-tab="tab-stock" role="tab" aria-selected="true">
+              <i class="fa-solid fa-car"></i> 人気の軽・良質車
+            </button>
+            <button type="button" class="tab-btn" data-tab="tab-order" role="tab" aria-selected="false">
+              <i class="fa-solid fa-magnifying-glass"></i> 全国注文販売
+            </button>
+            <button type="button" class="tab-btn" data-tab="tab-service" role="tab" aria-selected="false">
+              <i class="fa-solid fa-wrench"></i> 車検・高価買取
+            </button>
+            <button type="button" class="tab-btn" data-tab="tab-about" role="tab" aria-selected="false">
+              <i class="fa-solid fa-handshake"></i> 親身なアットホーム
+            </button>
+          </div>
+
+          <!-- Panel 1: Stock Cars -->
+          <div class="tab-content-panel active" id="tab-stock" role="tabpanel">
+            <div class="tab-card-body" style="background:var(--white); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); border:1px solid var(--border-warm);">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                  <h3 style="font-family:var(--font-round); font-size:1.25rem; font-weight:800; color:var(--navy); margin-bottom:4px;">
+                    <i class="fa-solid fa-car" style="color:var(--primary);"></i> 厳選した良質中古車（総額明朗会計）
+                  </h3>
+                  <p style="font-size:0.85rem; color:var(--muted-text);">予算50万前後の手頃な軽自動車からファミリー向けミニバンまで多数！</p>
+                </div>
+                <a href="stock.html" class="btn btn-primary" style="padding:8px 18px; font-size:0.85rem;">全在庫を見る <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:14px;">
+                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+                  <span style="background:var(--primary); color:#fff; font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:999px;">軽自動車</span>
+                  <h4 style="font-family:var(--font-round); font-size:1rem; margin:8px 0 4px; color:var(--navy);">ホンダ N-BOX / タント等</h4>
+                  <p style="font-size:0.8rem; color:var(--body-text);">スライドドアで子育て・通勤に大人気</p>
+                  <div style="font-family:var(--font-round); font-weight:900; color:var(--primary-dark); font-size:1.1rem; margin-top:8px;">支払総額 58万円〜</div>
+                </div>
+                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+                  <span style="background:#3182CE; color:#fff; font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:999px;">コンパクト</span>
+                  <h4 style="font-family:var(--font-round); font-size:1rem; margin:8px 0 4px; color:var(--navy);">トヨタ アクア / ノート等</h4>
+                  <p style="font-size:0.8rem; color:var(--body-text);">低燃費＆取り回し抜群の定番人気車</p>
+                  <div style="font-family:var(--font-round); font-weight:900; color:var(--primary-dark); font-size:1.1rem; margin-top:8px;">支払総額 65万円〜</div>
+                </div>
+                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+                  <span style="background:#38A169; color:#fff; font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:999px;">ミニバン</span>
+                  <h4 style="font-family:var(--font-round); font-size:1rem; margin:8px 0 4px; color:var(--navy);">セレナ / ヴォクシー等</h4>
+                  <p style="font-size:0.8rem; color:var(--body-text);">広々3列シートで家族ドライブに最適</p>
+                  <div style="font-family:var(--font-round); font-weight:900; color:var(--primary-dark); font-size:1.1rem; margin-top:8px;">支払総額 88万円〜</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Custom Order -->
+          <div class="tab-content-panel" id="tab-order" role="tabpanel">
+            <div class="tab-card-body" style="background:var(--white); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); border:1px solid var(--border-warm);">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                  <h3 style="font-family:var(--font-round); font-size:1.25rem; font-weight:800; color:var(--navy); margin-bottom:4px;">
+                    <i class="fa-solid fa-magnifying-glass" style="color:#3182CE;"></i> 全国オークションから希望の1台を探す
+                  </h3>
+                  <p style="font-size:0.85rem; color:var(--muted-text);">「この色がいい」「予算〇〇万円以内で」など、店主が直接オークションから仕入れます！</p>
+                </div>
+                <a href="contact.html#line" class="btn btn-line-hero" style="padding:8px 18px; font-size:0.85rem;"><i class="fa-brands fa-line"></i> LINEで探してもらう</a>
+              </div>
+              <div style="background:#F7FAFC; border-radius:var(--radius-md); padding:16px; border:1px dashed #CBD5E0;">
+                <p style="font-size:0.88rem; color:var(--body-text); line-height:1.7;">
+                  毎週数万台が出品される全国の中古車オークション会場から、プロの目利きで修復歴なし・状態の良いクルマを直接セレクト。店頭にないお車でも妥協せずにお届けできます。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Services -->
+          <div class="tab-content-panel" id="tab-service" role="tabpanel">
+            <div class="tab-card-body" style="background:var(--white); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); border:1px solid var(--border-warm);">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                  <h3 style="font-family:var(--font-round); font-size:1.25rem; font-weight:800; color:var(--navy); margin-bottom:4px;">
+                    <i class="fa-solid fa-wrench" style="color:#38A169;"></i> 車検・整備点検・愛車買取
+                  </h3>
+                  <p style="font-size:0.85rem; color:var(--muted-text);">買っていただいた後も安心。地域のかかりつけ車屋さんとしてサポート！</p>
+                </div>
+                <a href="service.html" class="btn btn-outline" style="padding:8px 18px; font-size:0.85rem;">サービス詳細 <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md);">
+                  <strong style="color:var(--navy); font-size:0.95rem;"><i class="fa-solid fa-clipboard-check" style="color:var(--primary);"></i> 安心の車検整備</strong>
+                  <p style="font-size:0.8rem; color:var(--muted-text); margin-top:4px;">事前の見積もりで不要な部品交換は一切なし。明朗価格で安心です。</p>
+                </div>
+                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md);">
+                  <strong style="color:var(--navy); font-size:0.95rem;"><i class="fa-solid fa-hand-holding-dollar" style="color:var(--primary);"></i> 高価買取・下取り</strong>
+                  <p style="font-size:0.8rem; color:var(--muted-text); margin-top:4px;">中間マージンをカットした直販店だからこその高額査定をご提示します。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: About Us -->
+          <div class="tab-content-panel" id="tab-about" role="tabpanel">
+            <div class="tab-card-body" style="background:var(--white); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); border:1px solid var(--border-warm);">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                  <h3 style="font-family:var(--font-round); font-size:1.25rem; font-weight:800; color:var(--navy); margin-bottom:4px;">
+                    <i class="fa-solid fa-handshake" style="color:var(--primary);"></i> 押し売りゼロ、親身＆アットホーム
+                  </h3>
+                  <p style="font-size:0.85rem; color:var(--muted-text);">車に詳しくない方、女性やお年寄りも安心してお越しください。</p>
+                </div>
+                <a href="about.html" class="btn btn-outline" style="padding:8px 18px; font-size:0.85rem;">社長紹介を見る <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+              <p style="font-size:0.88rem; color:var(--body-text); line-height:1.7;">
+                「大手中古車店だと緊張する…」「予算が少ないと相手にされないかも…」そんな心配は一切無用です。Car Mate Coreはお客様の味方として、本当に納得できる車選びを誠心誠意お手伝いします。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ==================== ABOUT SUMMARY SECTION ==================== -->
     <section class="about-summary section-space">
@@ -831,20 +963,194 @@
     </div>
   </footer>
 
-  <!-- ==================== MOBILE FIXED BOTTOM BAR ==================== -->
-  <aside class="mobile-sticky-bar sp-only">
-    <a href="tel:000-000-0000" class="sticky-btn sticky-tel">
+  <!-- ==================== APP-STYLE SMART BOTTOM DOCK ==================== -->
+  <aside class="smart-bottom-dock" id="smartBottomDock">
+    <a href="tel:000-000-0000" class="dock-item dock-tel" aria-label="電話で相談">
       <i class="fa-solid fa-phone"></i>
-      <span>電話で相談</span>
+      <span>電話相談</span>
     </a>
-    <a href="contact.html#line" class="sticky-btn sticky-line">
+    <button type="button" class="dock-item dock-slide-trigger" id="dockSlideTrigger" aria-label="メニューを引き出す">
+      <i class="fa-solid fa-chevron-up"></i>
+      <span>メニュー</span>
+    </button>
+    <a href="contact.html#line" class="dock-item dock-line" aria-label="LINEで相談">
       <i class="fa-brands fa-line"></i>
-      <span>LINEで在庫相談</span>
+      <span>LINE相談</span>
     </a>
   </aside>
 
-  <!-- Mobile Drawer Toggle Script -->
+  <!-- ==================== SLIDE-UP BOTTOM SHEET (PANEL) ==================== -->
+  <div class="sheet-backdrop" id="sheetBackdrop"></div>
+  <div class="app-bottom-sheet" id="appBottomSheet" role="dialog" aria-modal="true" aria-label="クイックメニュー">
+    <!-- Drag Handle Area (Touch & Swipe Up/Down Target) -->
+    <div class="sheet-handle-wrap" id="sheetHandle">
+      <div class="sheet-handle-bar"></div>
+      <span class="sheet-handle-hint"><i class="fa-solid fa-arrows-up-down"></i> スライドで開閉</span>
+    </div>
+
+    <!-- Sheet Header -->
+    <div class="sheet-header">
+      <div class="sheet-title-group">
+        <img src="images/logo.jpg" alt="Car Mate Core">
+        <h3 class="sheet-title">Car Mate Core クイックメニュー</h3>
+      </div>
+      <button type="button" class="btn-sheet-close" id="btnSheetClose" aria-label="閉じる">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Sheet Scrollable Body -->
+    <div class="sheet-body">
+      <!-- 1. Quick Actions Grid -->
+      <div class="sheet-quick-grid">
+        <a href="stock.html" class="sheet-quick-card">
+          <div class="quick-card-icon"><i class="fa-solid fa-car"></i></div>
+          <span class="quick-card-title">新着在庫を見る</span>
+          <span class="quick-card-desc">軽・ファミリーカー写真付</span>
+        </a>
+        <a href="stock.html#order" class="sheet-quick-card">
+          <div class="quick-card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <span class="quick-card-title">全国注文販売</span>
+          <span class="quick-card-desc">予算に合わせてお探し</span>
+        </a>
+        <a href="service.html#inspection" class="sheet-quick-card">
+          <div class="quick-card-icon"><i class="fa-solid fa-wrench"></i></div>
+          <span class="quick-card-title">車検・メンテナンス</span>
+          <span class="quick-card-desc">明朗会計・安心点検</span>
+        </a>
+        <a href="service.html#buy" class="sheet-quick-card">
+          <div class="quick-card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <span class="quick-card-title">愛車高価買取</span>
+          <span class="quick-card-desc">査定無料・迅速対応</span>
+        </a>
+      </div>
+
+      <!-- 2. Immediate Contact Row -->
+      <div class="sheet-contact-box">
+        <h4>お気軽にご相談ください</h4>
+        <div class="sheet-btn-row">
+          <a href="contact.html#line" class="btn-sheet-line">
+            <i class="fa-brands fa-line"></i> LINEで在庫相談
+          </a>
+          <a href="tel:000-000-0000" class="btn-sheet-tel">
+            <i class="fa-solid fa-phone"></i> 000-000-0000
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Navigation Links List -->
+      <ul class="sheet-menu-list">
+        <li>
+          <a href="index.html">
+            <span><i class="fa-solid fa-house"></i> ホーム</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="about.html">
+            <span><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="stock.html">
+            <span><i class="fa-solid fa-car-side"></i> 在庫一覧＆注文販売</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="service.html">
+            <span><i class="fa-solid fa-screwdriver-wrench"></i> サービス案内（車検・買取）</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="flow.html">
+            <span><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="contact.html">
+            <span><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Interactive Scripts (Bottom Sheet & Touch Swipes) -->
   <script>
+    // Bottom Sheet Control Elements
+    const dockTrigger = document.getElementById('dockSlideTrigger');
+    const heroSlideHint = document.getElementById('heroSlideHint');
+    const bottomSheet = document.getElementById('appBottomSheet');
+    const sheetBackdrop = document.getElementById('sheetBackdrop');
+    const btnSheetClose = document.getElementById('btnSheetClose');
+    const sheetHandle = document.getElementById('sheetHandle');
+
+    // Open Bottom Sheet
+    function openBottomSheet() {
+      bottomSheet.classList.add('open');
+      sheetBackdrop.classList.add('active');
+      document.body.classList.add('no-scroll');
+    }
+
+    // Close Bottom Sheet
+    function closeBottomSheet() {
+      bottomSheet.classList.remove('open');
+      sheetBackdrop.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+
+    if (dockTrigger) dockTrigger.addEventListener('click', openBottomSheet);
+    if (heroSlideHint) heroSlideHint.addEventListener('click', openBottomSheet);
+    if (btnSheetClose) btnSheetClose.addEventListener('click', closeBottomSheet);
+    if (sheetBackdrop) sheetBackdrop.addEventListener('click', closeBottomSheet);
+
+    // ================= Touch / Swipe Gestures =================
+    // 1. Swipe DOWN on sheet handle or header to CLOSE
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    if (sheetHandle) {
+      sheetHandle.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      sheetHandle.addEventListener('touchend', (e) => {
+        touchEndY = e.changedTouches[0].clientY;
+        if (touchEndY - touchStartY > 40) {
+          // Swiped down
+          closeBottomSheet();
+        }
+      }, { passive: true });
+    }
+
+    // 2. Global Swipe UP from bottom area of screen to OPEN sheet
+    let globalTouchStartY = 0;
+    let globalTouchStartX = 0;
+
+    window.addEventListener('touchstart', (e) => {
+      globalTouchStartY = e.touches[0].clientY;
+      globalTouchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      const diffY = globalTouchStartY - e.changedTouches[0].clientY;
+      const diffX = Math.abs(globalTouchStartX - e.changedTouches[0].clientX);
+
+      // If user swipes UP by more than 60px near the bottom 30% of the screen
+      const windowHeight = window.innerHeight;
+      if (globalTouchStartY > windowHeight * 0.65 && diffY > 60 && diffX < 80) {
+        if (!bottomSheet.classList.contains('open')) {
+          openBottomSheet();
+        }
+      }
+    }, { passive: true });
+
+    // ================= Mobile Drawer Navigation =================
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
 
@@ -855,7 +1161,6 @@
         document.body.classList.toggle('no-scroll');
       });
 
-      // Close drawer on link click
       mobileDrawer.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           hamburgerBtn.classList.remove('active');
@@ -865,12 +1170,30 @@
       });
     }
 
+    // ================= Interactive App Tab Switcher =================
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-content-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-tab');
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+        }
+      });
+    });
+
     // Replay Welcome Drive Animation
     function replayWelcomeDrive() {
       const stage = document.getElementById('welcomeStage');
       if (stage) {
         stage.classList.remove('anim-active');
-        void stage.offsetWidth; // Force DOM reflow
+        void stage.offsetWidth;
         stage.classList.add('anim-active');
       }
     }
