@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在庫情報＆オークション注文販売 | Car Mate Core（カーメイト コア）</title>
+  <meta name="description" content="Car Mate Coreの在庫車ラインナップ（軽自動車・ファミリーカー・低価格車）。店頭にない車も全国の業者オークションからご予算に合わせてお探しします！">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-topbar pc-only">
+      <div class="container topbar-inner">
+        <p class="topbar-tagline">軽自動車・ファミリーカー・低価格車まで、あなたの街の親身な車屋さん</p>
+        <div class="topbar-links">
+          <span><i class="fa-regular fa-clock"></i> 営業時間 10:00〜19:00（水曜定休）</span>
+          <span><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-inner">
+        <div class="header-logo">
+          <a href="index.html" class="logo-link">
+            <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="header-logo-img">
+            <div class="logo-text-group">
+              <span class="logo-sub">地域密着・アットホーム中古車販売</span>
+              <span class="logo-main">Car Mate Core</span>
+            </div>
+          </a>
+        </div>
+
+        <nav class="global-nav pc-only">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">ホーム</a></li>
+            <li class="nav-item"><a href="about.html">当店について</a></li>
+            <li class="nav-item current"><a href="stock.html">在庫・注文</a></li>
+            <li class="nav-item"><a href="service.html">サービス</a></li>
+            <li class="nav-item"><a href="flow.html">購入の流れ</a></li>
+            <li class="nav-item"><a href="contact.html">アクセス</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:000-000-0000" class="header-tel pc-only">
+            <span class="tel-label"><i class="fa-solid fa-phone"></i> お電話でのご相談</span>
+            <span class="tel-number">000-000-0000</span>
+          </a>
+          <a href="contact.html#line" class="btn btn-header-line">
+            <i class="fa-brands fa-line"></i> <span>LINE在庫相談</span>
+          </a>
+          <button type="button" class="hamburger-btn sp-only" id="hamburgerBtn" aria-label="メニューを開く">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-inner">
+        <ul class="drawer-nav">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
+          <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
+          <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
+          <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
+        </ul>
+        <div class="drawer-contact">
+          <a href="tel:000-000-0000" class="btn btn-drawer-tel"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+          <a href="contact.html#line" class="btn btn-drawer-line"><i class="fa-brands fa-line"></i> LINEで気軽に相談</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PAGE HERO & BREADCRUMB ==================== -->
+  <div class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title">在庫情報＆全国注文販売</h1>
+      <p class="page-hero-sub">INVENTORY & CUSTOM ORDER</p>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><i class="fa-solid fa-chevron-right"></i></li>
+        <li>在庫・注文</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="section-space">
+    <div class="container">
+      <!-- Intro Notice -->
+      <div class="summary-card text-center" style="margin-bottom: 40px; padding: 30px 20px;">
+        <span class="sub-heading">安心の全車総額表示</span>
+        <h2 style="font-family: var(--font-round); font-size: 1.4rem; color: var(--navy); margin-bottom: 10px;">
+          店頭在庫はすべて自社点検・徹底ルームクリーニング済み！
+        </h2>
+        <p class="text-muted" style="font-size: 0.9rem;">
+          ※店頭在庫の入れ替わりが早いため、気になる車両がございましたらLINEまたはお電話にてお気軽にお問い合わせください。
+        </p>
+      </div>
+
+      <!-- Inventory Grid -->
+      <div class="car-cards-grid">
+        <!-- Car 1: タント -->
+        <article class="car-card">
+          <div class="car-card-badge badge-kei">軽自動車</div>
+          <div class="car-card-image">
+            <div class="car-img-placeholder"><i class="fa-solid fa-car"></i><span>写真準備中</span></div>
+          </div>
+          <div class="car-card-body">
+            <span class="car-maker">ダイハツ</span>
+            <h3 class="car-model-name">タント カスタム X</h3>
+            <div class="car-specs"><span>2018年</span><span>4.8万km</span><span>車検整備付</span></div>
+            <div class="car-price-row">
+              <div class="price-item"><span class="price-title">総額（税込）</span><span class="price-num">58.8<small>万円</small></span></div>
+              <div class="price-sub">本体 50万円</div>
+            </div>
+            <ul class="car-equipment">
+              <li><i class="fa-solid fa-circle-check"></i> 両側パワースライドドア</li>
+              <li><i class="fa-solid fa-circle-check"></i> ナビ・バックカメラ・ETC</li>
+            </ul>
+            <a href="contact.html#line" class="btn btn-car-inquiry"><i class="fa-brands fa-line"></i> 在庫・状態をLINEで聞く</a>
+          </div>
+        </article>
+
+        <!-- Car 2: N-BOX -->
+        <article class="car-card">
+          <div class="car-card-badge badge-kei">軽自動車</div>
+          <div class="car-card-image">
+            <div class="car-img-placeholder"><i class="fa-solid fa-car"></i><span>写真準備中</span></div>
+          </div>
+          <div class="car-card-body">
+            <span class="car-maker">ホンダ</span>
+            <h3 class="car-model-name">N-BOX G・Lパッケージ</h3>
+            <div class="car-specs"><span>2016年</span><span>5.5万km</span><span>車検2年付</span></div>
+            <div class="car-price-row">
+              <div class="price-item"><span class="price-title">総額（税込）</span><span class="price-num">49.8<small>万円</small></span></div>
+              <div class="price-sub">本体 42万円</div>
+            </div>
+            <ul class="car-equipment">
+              <li><i class="fa-solid fa-circle-check"></i> 片側電動スライドドア</li>
+              <li><i class="fa-solid fa-circle-check"></i> スマートキー・プッシュスタート</li>
+            </ul>
+            <a href="contact.html#line" class="btn btn-car-inquiry"><i class="fa-brands fa-line"></i> 在庫・状態をLINEで聞く</a>
+          </div>
+        </article>
+
+        <!-- Car 3: セレナ -->
+        <article class="car-card">
+          <div class="car-card-badge badge-family">ファミリーカー</div>
+          <div class="car-card-image">
+            <div class="car-img-placeholder"><i class="fa-solid fa-van-shuttle"></i><span>写真準備中</span></div>
+          </div>
+          <div class="car-card-body">
+            <span class="car-maker">日産</span>
+            <h3 class="car-model-name">セレナ ハイウェイスター</h3>
+            <div class="car-specs"><span>2017年</span><span>6.2万km</span><span>車検2年付</span></div>
+            <div class="car-price-row">
+              <div class="price-item"><span class="price-title">総額（税込）</span><span class="price-num">89.8<small>万円</small></span></div>
+              <div class="price-sub">本体 78万円</div>
+            </div>
+            <ul class="car-equipment">
+              <li><i class="fa-solid fa-circle-check"></i> プロパイロット搭載</li>
+              <li><i class="fa-solid fa-circle-check"></i> 後席フリップダウンモニター</li>
+            </ul>
+            <a href="contact.html#line" class="btn btn-car-inquiry"><i class="fa-brands fa-line"></i> 在庫・状態をLINEで聞く</a>
+          </div>
+        </article>
+
+        <!-- Car 4: フリード -->
+        <article class="car-card">
+          <div class="car-card-badge badge-family">ファミリーカー</div>
+          <div class="car-card-image">
+            <div class="car-img-placeholder"><i class="fa-solid fa-van-shuttle"></i><span>写真準備中</span></div>
+          </div>
+          <div class="car-card-body">
+            <span class="car-maker">ホンダ</span>
+            <h3 class="car-model-name">フリード G ジャストセレクション</h3>
+            <div class="car-specs"><span>2015年</span><span>6.8万km</span><span>車検整備付</span></div>
+            <div class="car-price-row">
+              <div class="price-item"><span class="price-title">総額（税込）</span><span class="price-num">55.0<small>万円</small></span></div>
+              <div class="price-sub">本体 46万円</div>
+            </div>
+            <ul class="car-equipment">
+              <li><i class="fa-solid fa-circle-check"></i> ちょうどいい7人乗り</li>
+              <li><i class="fa-solid fa-circle-check"></i> 両側スライドドア・純正ナビ</li>
+            </ul>
+            <a href="contact.html#line" class="btn btn-car-inquiry"><i class="fa-brands fa-line"></i> 在庫・状態をLINEで聞く</a>
+          </div>
+        </article>
+
+        <!-- Car 5: ワゴンR -->
+        <article class="car-card">
+          <div class="car-card-badge badge-lowprice">お値打ち良質車</div>
+          <div class="car-card-image">
+            <div class="car-img-placeholder"><i class="fa-solid fa-tags"></i><span>写真準備中</span></div>
+          </div>
+          <div class="car-card-body">
+            <span class="car-maker">スズキ</span>
+            <h3 class="car-model-name">ワゴンR FXリミテッド</h3>
+            <div class="car-specs"><span>2015年</span><span>7.1万km</span><span>車検整備付</span></div>
+            <div class="car-price-row">
+              <div class="price-item"><span class="price-title">総額（税込）</span><span class="price-num">29.8<small>万円</small></span></div>
+              <div class="price-sub">本体 23万円</div>
+            </div>
+            <ul class="car-equipment">
+              <li><i class="fa-solid fa-circle-check"></i> スマートキー・点検整備済み</li>
+              <li><i class="fa-solid fa-circle-check"></i> 即納可能・練習用にも最適</li>
+            </ul>
+            <a href="contact.html#line" class="btn btn-car-inquiry"><i class="fa-brands fa-line"></i> 在庫・状態をLINEで聞く</a>
+          </div>
+        </article>
+
+        <!-- Car 6: ミライース -->
+        <article class="car-card">
+          <div class="car-card-badge badge-lowprice">お値打ち良質車</div>
+          <div class="car-card-image">
+            <div class="car-img-placeholder"><i class="fa-solid fa-tags"></i><span>写真準備中</span></div>
+          </div>
+          <div class="car-card-body">
+            <span class="car-maker">ダイハツ</span>
+            <h3 class="car-model-name">ミライース L</h3>
+            <div class="car-specs"><span>2016年</span><span>5.9万km</span><span>車検2年付</span></div>
+            <div class="car-price-row">
+              <div class="price-item"><span class="price-title">総額（税込）</span><span class="price-num">25.0<small>万円</small></span></div>
+              <div class="price-sub">本体 18万円</div>
+            </div>
+            <ul class="car-equipment">
+              <li><i class="fa-solid fa-circle-check"></i> 驚きの低燃費！通勤に最適</li>
+              <li><i class="fa-solid fa-circle-check"></i> エアコン・パワステ・安心整備</li>
+            </ul>
+            <a href="contact.html#line" class="btn btn-car-inquiry"><i class="fa-brands fa-line"></i> 在庫・状態をLINEで聞く</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Custom Order Section -->
+      <div class="custom-order-detail bg-warm" style="border: 2px solid var(--border-warm); border-radius: var(--radius-lg); padding: 40px 24px; margin-top: 60px;">
+        <div class="text-center" style="margin-bottom: 30px;">
+          <span class="sub-heading">CUSTOM ORDER</span>
+          <h2 class="main-heading">店頭にない車も全国からお探しします！</h2>
+          <p class="heading-lead">
+            「希望の車種や色が店頭にない…」「予算〇〇万円以内で状態のいい車が欲しい」という方は、<br>
+            全国の業者専用オークション（毎週数万台出品）から店主が直接お探しする<strong>「注文販売」</strong>をご利用ください！
+          </p>
+        </div>
+
+        <div class="flow-steps-grid" style="margin-bottom: 30px;">
+          <div class="flow-step-item">
+            <div class="step-badge">STEP 1</div>
+            <h4>ご希望の条件をヒアリング</h4>
+            <p>車種、予算、色、走行距離などLINEやお電話でお伝えください。</p>
+          </div>
+          <div class="flow-step-item">
+            <div class="step-badge">STEP 2</div>
+            <h4>候補車両のご提案</h4>
+            <p>出品票・写真・状態データをもとにプロの目利きでご提案します。</p>
+          </div>
+          <div class="flow-step-item">
+            <div class="step-badge">STEP 3</div>
+            <h4>オークションで仕入れ</h4>
+            <p>ご納得いただいた予算内で当店が責任を持って落札・仕入れます。</p>
+          </div>
+          <div class="flow-step-item">
+            <div class="step-badge">STEP 4</div>
+            <h4>自社点検・整備してご納車</h4>
+            <p>隅々まで点検・整備・クリーニングを行い、ピカピカにしてお届け！</p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="contact.html#line" class="btn btn-line-hero">
+            <i class="fa-brands fa-line"></i> LINEで探してほしい車を相談する
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-main-inner">
+      <div class="footer-col-brand">
+        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
+        <p class="footer-intro">
+          「車に詳しくなくても大丈夫！」<br>
+          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする街のアットホームな中古車店です。
+        </p>
+        <div class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</p>
+          <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
+          <p><i class="fa-regular fa-clock"></i> 10:00〜19:00（水曜定休）</p>
+        </div>
+      </div>
+      <div class="footer-col-nav">
+        <h4 class="footer-nav-title">サイトマップ</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">当店について・社長紹介</a></li>
+          <li><a href="stock.html">在庫情報＆注文販売</a></li>
+          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
+          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html">店舗案内・アクセス</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-cta">
+        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
+        <p class="footer-cta-text">LINEまたはお電話でお気軽にご連絡ください。</p>
+        <a href="contact.html#line" class="btn btn-footer-line"><i class="fa-brands fa-line"></i> LINE公式アカウント</a>
+        <a href="tel:000-000-0000" class="footer-tel-link"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="mobile-sticky-bar sp-only">
+    <a href="tel:000-000-0000" class="sticky-btn sticky-tel"><i class="fa-solid fa-phone"></i><span>電話で相談</span></a>
+    <a href="contact.html#line" class="sticky-btn sticky-line"><i class="fa-brands fa-line"></i><span>LINEで在庫相談</span></a>
+  </aside>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileDrawer.classList.toggle('open');
+        document.body.classList.toggle('no-scroll');
+      });
+    }
+  </script>
+</body>
+</html>

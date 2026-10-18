@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご購入の流れ・安心保証 | Car Mate Core（カーメイト コア）</title>
+  <meta name="description" content="Car Mate Coreのお車ご購入の流れ。ご相談から現車確認、お見積もり、納車前点検、納車後の安心アフター保証まで親切丁寧にサポート。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .flow-timeline {
+      max-width: 860px;
+      margin: 0 auto 60px;
+      position: relative;
+    }
+    .timeline-item {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      position: relative;
+    }
+    @media (min-width: 769px) {
+      .timeline-item {
+        grid-template-columns: 140px 1fr;
+        padding: 36px 32px;
+      }
+    }
+    .timeline-badge-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-light);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+      border: 1px solid var(--border-warm);
+    }
+    .timeline-step-label {
+      font-family: var(--font-round);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+    .timeline-step-num {
+      font-family: var(--font-round);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      margin-top: 4px;
+    }
+    .timeline-content-col h3 {
+      font-family: var(--font-round);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .document-box {
+      background: var(--bg-warm);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      border: 1px solid var(--border-warm);
+      margin-top: 20px;
+    }
+    .document-box h4 {
+      font-family: var(--font-round);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .document-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      font-size: 0.88rem;
+    }
+    @media (min-width: 769px) {
+      .document-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    .document-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .document-list i {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-topbar pc-only">
+      <div class="container topbar-inner">
+        <p class="topbar-tagline">軽自動車・ファミリーカー・低価格車まで、あなたの街の親身な車屋さん</p>
+        <div class="topbar-links">
+          <span><i class="fa-regular fa-clock"></i> 営業時間 10:00〜19:00（水曜定休）</span>
+          <span><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-inner">
+        <div class="header-logo">
+          <a href="index.html" class="logo-link">
+            <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="header-logo-img">
+            <div class="logo-text-group">
+              <span class="logo-sub">地域密着・アットホーム中古車販売</span>
+              <span class="logo-main">Car Mate Core</span>
+            </div>
+          </a>
+        </div>
+
+        <nav class="global-nav pc-only">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">ホーム</a></li>
+            <li class="nav-item"><a href="about.html">当店について</a></li>
+            <li class="nav-item"><a href="stock.html">在庫・注文</a></li>
+            <li class="nav-item"><a href="service.html">サービス</a></li>
+            <li class="nav-item current"><a href="flow.html">購入の流れ</a></li>
+            <li class="nav-item"><a href="contact.html">アクセス</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:000-000-0000" class="header-tel pc-only">
+            <span class="tel-label"><i class="fa-solid fa-phone"></i> お電話でのご相談</span>
+            <span class="tel-number">000-000-0000</span>
+          </a>
+          <a href="contact.html#line" class="btn btn-header-line">
+            <i class="fa-brands fa-line"></i> <span>LINE在庫相談</span>
+          </a>
+          <button type="button" class="hamburger-btn sp-only" id="hamburgerBtn" aria-label="メニューを開く">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-inner">
+        <ul class="drawer-nav">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
+          <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
+          <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
+          <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
+        </ul>
+        <div class="drawer-contact">
+          <a href="tel:000-000-0000" class="btn btn-drawer-tel"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+          <a href="contact.html#line" class="btn btn-drawer-line"><i class="fa-brands fa-line"></i> LINEで気軽に相談</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PAGE HERO & BREADCRUMB ==================== -->
+  <div class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title">ご購入の流れ・安心保証</h1>
+      <p class="page-hero-sub">PURCHASE FLOW & WARRANTY</p>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><i class="fa-solid fa-chevron-right"></i></li>
+        <li>購入の流れ</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="section-space">
+    <div class="container">
+      <div class="section-title-wrap text-center" style="margin-bottom: 50px;">
+        <span class="sub-heading">STEP BY STEP</span>
+        <h2 class="main-heading">初めての方でも迷わない！ご購入の4ステップ</h2>
+        <p class="heading-lead">お問い合わせからご納車、そして購入後のアフターケアまで、店主がマンツーマンで丁寧にご案内いたします。</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="flow-timeline">
+        <!-- Step 1 -->
+        <div class="timeline-item">
+          <div class="timeline-badge-col">
+            <span class="timeline-step-label">STEP</span>
+            <span class="timeline-step-num">01</span>
+          </div>
+          <div class="timeline-content-col">
+            <h3>ご相談・お問い合わせ</h3>
+            <p>
+              まずはLINE、お電話、または店頭にてお気軽にご連絡ください。<br>
+              「こんな車を探している」「予算〇〇万円以内で乗れる車はある？」「今乗っている車を下取りしてほしい」など、どんな些細なことでも結構です。無理な営業は一切ありませんのでご安心ください。
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item">
+          <div class="timeline-badge-col">
+            <span class="timeline-step-label">STEP</span>
+            <span class="timeline-step-num">02</span>
+          </div>
+          <div class="timeline-content-col">
+            <h3>現車の確認・ご試乗（または候補車のご提案）</h3>
+            <p>
+              店頭の在庫車をじっくりご覧いただき、エンジン音や室内の清潔感をご確認いただけます。ご希望に応じて敷地内での試乗も可能です。<br>
+              店頭にない車種の場合は、全国オークションから写真や状態評価票を取り寄せてご提案いたします。
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item">
+          <div class="timeline-badge-col">
+            <span class="timeline-step-label">STEP</span>
+            <span class="timeline-step-num">03</span>
+          </div>
+          <div class="timeline-content-col">
+            <h3>明朗なお見積もり・ご契約手続き</h3>
+            <p>
+              車両価格だけでなく、登録諸費用や税金を含めた「乗り出し総額」のお見積書を作成します。後から増える費用は一切ありません。<br>
+              お見積もりにご納得いただけましたらご契約となります。各種オートローンや頭金なしプランも柔軟に対応可能です。
+            </p>
+            <div class="document-box">
+              <h4><i class="fa-solid fa-file-lines"></i> ご契約時に必要なもの（目安）</h4>
+              <ul class="document-list">
+                <li><i class="fa-solid fa-check"></i> <strong>軽自動車</strong>：住民票（発行から3ヶ月以内）、認印</li>
+                <li><i class="fa-solid fa-check"></i> <strong>普通車</strong>：印鑑証明書、実印、車庫証明</li>
+                <li><i class="fa-solid fa-check"></i> <strong>下取り車がある場合</strong>：車検証、自賠責保険証</li>
+                <li><i class="fa-solid fa-check"></i> <strong>ローン利用時</strong>：銀行口座情報、銀行届出印</li>
+              </ul>
+              <small class="text-muted" style="display: block; margin-top: 8px;">※書類の取得方法や車庫証明の書き方も親身にサポートしますのでご安心ください。</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-item">
+          <div class="timeline-badge-col">
+            <span class="timeline-step-label">STEP</span>
+            <span class="timeline-step-num">04</span>
+          </div>
+          <div class="timeline-content-col">
+            <h3>徹底整備・ルームクリーニング・ご納車</h3>
+            <p>
+              自社点検・整備を行い、オイル等の消耗品をチェック・交換します。最後に外装の洗車と車内の徹底除菌・クリーニングを行い、ピカピカの状態で店頭にてお引き渡しいたします。（ご希望に応じてご自宅への納車も承ります）
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warranty Section -->
+      <div class="summary-card text-center" style="margin-top: 40px;">
+        <span class="sub-heading">AFTER SUPPORT</span>
+        <h2 class="main-heading">納車後も安心！Car Mate Coreのアフター保証</h2>
+        <p class="heading-lead" style="margin-bottom: 24px;">
+          中古車だからこそ、購入後の安心感が何よりも重要です。当店では納車後も責任を持ってお付き合いいたします。
+        </p>
+        <div class="summary-points">
+          <div class="point-box">
+            <div class="point-num"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4>安心の保証付き販売</h4>
+            <p>全車、万が一の初期トラブルにも迅速に対応する保証プランをご用意しています。</p>
+          </div>
+          <div class="point-box">
+            <div class="point-num"><i class="fa-solid fa-oil-can"></i></div>
+            <h4>定期メンテナンスもお任せ</h4>
+            <p>オイル交換やタイヤ空気圧点検など、日常のメンテナンスもお気軽にお立ち寄りください。</p>
+          </div>
+          <div class="point-box">
+            <div class="point-num"><i class="fa-solid fa-phone-volume"></i></div>
+            <h4>いつでも相談できる安心感</h4>
+            <p>「変な音がする」「警告灯がついた」など困った時は、LINEですぐに店主に相談できます。</p>
+          </div>
+        </div>
+        <div style="margin-top: 30px;">
+          <a href="contact.html#line" class="btn btn-primary-hero">
+            <i class="fa-brands fa-line"></i> LINEで店主に相談する
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-main-inner">
+      <div class="footer-col-brand">
+        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
+        <p class="footer-intro">
+          「車に詳しくなくても大丈夫！」<br>
+          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする街のアットホームな中古車店です。
+        </p>
+        <div class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</p>
+          <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
+          <p><i class="fa-regular fa-clock"></i> 10:00〜19:00（水曜定休）</p>
+        </div>
+      </div>
+      <div class="footer-col-nav">
+        <h4 class="footer-nav-title">サイトマップ</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">当店について・社長紹介</a></li>
+          <li><a href="stock.html">在庫情報＆注文販売</a></li>
+          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
+          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html">店舗案内・アクセス</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-cta">
+        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
+        <p class="footer-cta-text">LINEまたはお電話でお気軽にご連絡ください。</p>
+        <a href="contact.html#line" class="btn btn-footer-line"><i class="fa-brands fa-line"></i> LINE公式アカウント</a>
+        <a href="tel:000-000-0000" class="footer-tel-link"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="mobile-sticky-bar sp-only">
+    <a href="tel:000-000-0000" class="sticky-btn sticky-tel"><i class="fa-solid fa-phone"></i><span>電話で相談</span></a>
+    <a href="contact.html#line" class="sticky-btn sticky-line"><i class="fa-brands fa-line"></i><span>LINEで在庫相談</span></a>
+  </aside>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileDrawer.classList.toggle('open');
+        document.body.classList.toggle('no-scroll');
+      });
+    }
+  </script>
+</body>
+</html>

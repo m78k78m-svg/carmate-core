@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>店舗案内・アクセス・お問い合わせ | Car Mate Core（カーメイト コア）</title>
+  <meta name="description" content="Car Mate Core（カーメイト コア）の店舗情報、アクセス、公式LINE相談、お問い合わせフォーム。営業時間10:00〜19:00（水曜定休）。駐車場完備。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 24px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+    @media (min-width: 769px) {
+      .contact-form-card { padding: 50px 48px; }
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-label {
+      display: block;
+      font-family: var(--font-round);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .label-required {
+      background: #E53E3E;
+      color: var(--white);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      margin-left: 6px;
+    }
+    .label-optional {
+      background: var(--muted-text);
+      color: var(--white);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      margin-left: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-base);
+      font-size: 1rem;
+      color: var(--dark-text);
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.15);
+    }
+    textarea.form-control {
+      min-height: 140px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-topbar pc-only">
+      <div class="container topbar-inner">
+        <p class="topbar-tagline">軽自動車・ファミリーカー・低価格車まで、あなたの街の親身な車屋さん</p>
+        <div class="topbar-links">
+          <span><i class="fa-regular fa-clock"></i> 営業時間 10:00〜19:00（水曜定休）</span>
+          <span><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-inner">
+        <div class="header-logo">
+          <a href="index.html" class="logo-link">
+            <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="header-logo-img">
+            <div class="logo-text-group">
+              <span class="logo-sub">地域密着・アットホーム中古車販売</span>
+              <span class="logo-main">Car Mate Core</span>
+            </div>
+          </a>
+        </div>
+
+        <nav class="global-nav pc-only">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">ホーム</a></li>
+            <li class="nav-item"><a href="about.html">当店について</a></li>
+            <li class="nav-item"><a href="stock.html">在庫・注文</a></li>
+            <li class="nav-item"><a href="service.html">サービス</a></li>
+            <li class="nav-item"><a href="flow.html">購入の流れ</a></li>
+            <li class="nav-item current"><a href="contact.html">アクセス</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:000-000-0000" class="header-tel pc-only">
+            <span class="tel-label"><i class="fa-solid fa-phone"></i> お電話でのご相談</span>
+            <span class="tel-number">000-000-0000</span>
+          </a>
+          <a href="contact.html#line" class="btn btn-header-line">
+            <i class="fa-brands fa-line"></i> <span>LINE在庫相談</span>
+          </a>
+          <button type="button" class="hamburger-btn sp-only" id="hamburgerBtn" aria-label="メニューを開く">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-inner">
+        <ul class="drawer-nav">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
+          <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
+          <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
+          <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
+        </ul>
+        <div class="drawer-contact">
+          <a href="tel:000-000-0000" class="btn btn-drawer-tel"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+          <a href="contact.html#line" class="btn btn-drawer-line"><i class="fa-brands fa-line"></i> LINEで気軽に相談</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PAGE HERO & BREADCRUMB ==================== -->
+  <div class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title">店舗案内・アクセス・お問い合わせ</h1>
+      <p class="page-hero-sub">SHOP INFO & CONTACT</p>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><i class="fa-solid fa-chevron-right"></i></li>
+        <li>店舗案内・お問い合わせ</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="section-space">
+    <div class="container">
+
+      <!-- LINE CTA Box -->
+      <section id="line" class="cta-banner-box" style="margin-bottom: 60px;">
+        <span class="cta-badge"><i class="fa-brands fa-line"></i> 最もスピーディー＆気軽！</span>
+        <h2 class="cta-banner-title">公式LINEなら写真の送受信もラクラク！<br>店主が直接お答えします</h2>
+        <p class="cta-banner-desc">
+          「在庫車の詳しい写真が見たい」「予算〇〇万円で探して」「今乗っている車の査定をしてほしい」など、<br class="pc-only">
+          チャット感覚でいつでもお気軽にメッセージをお送りください。
+        </p>
+        <div class="cta-banner-buttons">
+          <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line-banner">
+            <i class="fa-brands fa-line"></i> LINEで友だち追加して相談する
+          </a>
+          <a href="tel:000-000-0000" class="btn btn-tel-banner">
+            <i class="fa-solid fa-phone"></i> 000-000-0000
+          </a>
+        </div>
+        <p class="cta-banner-note"><i class="fa-solid fa-lock"></i> しつこい営業配信や押し売りは一切ございません。</p>
+      </section>
+
+      <!-- Shop Info & Map Section -->
+      <section style="margin-bottom: 60px;">
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">SHOP INFO</span>
+          <h2 class="main-heading">店舗案内・アクセス</h2>
+        </div>
+
+        <div class="shop-grid">
+          <div class="shop-table-card">
+            <table class="shop-info-table">
+              <tr>
+                <th>店名</th>
+                <td>Car Mate Core（カーメイト コア）</td>
+              </tr>
+              <tr>
+                <th>代表者</th>
+                <td>代表（社長）</td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td>〒000-0000 〇〇県〇〇市〇〇町1-2-3</td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td><a href="tel:000-000-0000" class="link-tel">000-000-0000</a></td>
+              </tr>
+              <tr>
+                <th>営業時間</th>
+                <td>10:00〜19:00</td>
+              </tr>
+              <tr>
+                <th>定休日</th>
+                <td>水曜日（事前にご予約いただければ定休日のご来店も柔軟に対応いたします）</td>
+              </tr>
+              <tr>
+                <th>駐車場</th>
+                <td>店舗敷地内にお客様専用駐車場完備（無料）</td>
+              </tr>
+              <tr>
+                <th>業務内容</th>
+                <td>中古車・新車販売、オークション注文販売、車検整備、板金修理、愛車買取、オートローン取扱</td>
+              </tr>
+              <tr>
+                <th>古物商許可</th>
+                <td>〇〇県公安委員会 第000000000000号</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="shop-map-card">
+            <div class="map-placeholder-box">
+              <i class="fa-solid fa-location-dot fa-3x"></i>
+              <p>Googleマップ埋め込みスペース<br><small>※店舗の所在地に合わせてiframeマップを設置できます</small></p>
+            </div>
+            <div class="shop-access-guide">
+              <h4><i class="fa-solid fa-car"></i> お車でのアクセス</h4>
+              <p>〇〇バイパス「〇〇交差点」より北へ3分。オレンジ色の看板が目印です。</p>
+              <h4 style="margin-top: 10px;"><i class="fa-solid fa-train"></i> 電車・バスでのアクセス</h4>
+              <p>〇〇線「〇〇駅」より車で5分。（駅までの無料送迎も承りますのでお気軽にお申し付けください）</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Web Contact Form -->
+      <section>
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">MAIL CONTACT</span>
+          <h2 class="main-heading">お問い合わせメールフォーム</h2>
+          <p class="heading-lead">メールでのご連絡をご希望の方は、下記フォームよりお気軽にお問い合わせください。</p>
+        </div>
+
+        <div class="contact-form-card">
+          <form action="#" method="POST" onsubmit="alert('お問い合わせありがとうございます。担当者より折り返しご連絡いたします。（※デモ送信用です）'); return false;">
+            <div class="form-group">
+              <label class="form-label" for="userName">お名前 <span class="label-required">必須</span></label>
+              <input type="text" id="userName" name="userName" class="form-control" placeholder="例：山田 太郎" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="userTel">お電話番号 <span class="label-required">必須</span></label>
+              <input type="tel" id="userTel" name="userTel" class="form-control" placeholder="例：090-0000-0000" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="userEmail">メールアドレス <span class="label-required">必須</span></label>
+              <input type="email" id="userEmail" name="userEmail" class="form-control" placeholder="例：sample@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactType">お問い合わせ項目 <span class="label-required">必須</span></label>
+              <select id="contactType" name="contactType" class="form-control" required>
+                <option value="">選択してください</option>
+                <option value="在庫車について">在庫車両についてのお問い合わせ</option>
+                <option value="注文販売のご相談">注文販売（お車探し）のご相談</option>
+                <option value="車検・点検・整備">車検・点検・オイル交換について</option>
+                <option value="愛車の買取・下取り">愛車の下取り・査定について</option>
+                <option value="その他">その他のお問い合わせ</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="userMessage">ご相談・ご要望内容 <span class="label-optional">任意</span></label>
+              <textarea id="userMessage" name="userMessage" class="form-control" placeholder="ご希望の予算、車種、年式、ご質問などを自由にご記入ください。"></textarea>
+            </div>
+
+            <div class="text-center" style="margin-top: 30px;">
+              <button type="submit" class="btn btn-primary-hero" style="width: 100%; max-width: 360px;">
+                <i class="fa-solid fa-paper-plane"></i> 上記の内容で送信する
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-main-inner">
+      <div class="footer-col-brand">
+        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
+        <p class="footer-intro">
+          「車に詳しくなくても大丈夫！」<br>
+          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする街のアットホームな中古車店です。
+        </p>
+        <div class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</p>
+          <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
+          <p><i class="fa-regular fa-clock"></i> 10:00〜19:00（水曜定休）</p>
+        </div>
+      </div>
+      <div class="footer-col-nav">
+        <h4 class="footer-nav-title">サイトマップ</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">当店について・社長紹介</a></li>
+          <li><a href="stock.html">在庫情報＆注文販売</a></li>
+          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
+          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html">店舗案内・アクセス</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-cta">
+        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
+        <p class="footer-cta-text">LINEまたはお電話でお気軽にご連絡ください。</p>
+        <a href="contact.html#line" class="btn btn-footer-line"><i class="fa-brands fa-line"></i> LINE公式アカウント</a>
+        <a href="tel:000-000-0000" class="footer-tel-link"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="mobile-sticky-bar sp-only">
+    <a href="tel:000-000-0000" class="sticky-btn sticky-tel"><i class="fa-solid fa-phone"></i><span>電話で相談</span></a>
+    <a href="contact.html#line" class="sticky-btn sticky-line"><i class="fa-brands fa-line"></i><span>LINEで在庫相談</span></a>
+  </aside>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileDrawer.classList.toggle('open');
+        document.body.classList.toggle('no-scroll');
+      });
+    }
+  </script>
+</body>
+</html>

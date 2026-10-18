@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中古車販売 Car Mate Core（カーメイト コア）| 親身＆アットホームな街の車屋さん</title>
+  <meta name="description" content="軽自動車・ファミリーカー・格安良質車まで幅広く取り扱い！車の知識ゼロでも安心、社長が親身に相談に乗るアットホームな中古車店「Car Mate Core（カーメイト コア）」。総額明朗会計・注文販売・車検整備・高価買取。">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== SITE HEADER ==================== -->
+  <header class="site-header">
+    <!-- Top Utility Bar (PC) -->
+    <div class="header-topbar pc-only">
+      <div class="container topbar-inner">
+        <p class="topbar-tagline">軽自動車・ファミリーカー・低価格車まで、あなたの街の親身な車屋さん</p>
+        <div class="topbar-links">
+          <span><i class="fa-regular fa-clock"></i> 営業時間 10:00〜19:00（水曜定休）</span>
+          <span><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="header-main">
+      <div class="container header-inner">
+        <!-- Logo -->
+        <div class="header-logo">
+          <a href="index.html" class="logo-link">
+            <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="header-logo-img">
+            <div class="logo-text-group">
+              <span class="logo-sub">地域密着・アットホーム中古車販売</span>
+              <span class="logo-main">Car Mate Core</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Global Navigation (PC) -->
+        <nav class="global-nav pc-only">
+          <ul class="nav-list">
+            <li class="nav-item current"><a href="index.html">ホーム</a></li>
+            <li class="nav-item"><a href="about.html">当店について</a></li>
+            <li class="nav-item"><a href="stock.html">在庫・注文</a></li>
+            <li class="nav-item"><a href="service.html">サービス</a></li>
+            <li class="nav-item"><a href="flow.html">購入の流れ</a></li>
+            <li class="nav-item"><a href="contact.html">アクセス</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="tel:000-000-0000" class="header-tel pc-only">
+            <span class="tel-label"><i class="fa-solid fa-phone"></i> お電話でのご相談</span>
+            <span class="tel-number">000-000-0000</span>
+          </a>
+          <a href="contact.html#line" class="btn btn-header-line">
+            <i class="fa-brands fa-line"></i> <span>LINE在庫相談</span>
+          </a>
+          <!-- Mobile Hamburger Button -->
+          <button type="button" class="hamburger-btn sp-only" id="hamburgerBtn" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-inner">
+        <ul class="drawer-nav">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
+          <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
+          <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
+          <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
+        </ul>
+        <div class="drawer-contact">
+          <a href="tel:000-000-0000" class="btn btn-drawer-tel">
+            <i class="fa-solid fa-phone"></i> 000-000-0000
+          </a>
+          <a href="contact.html#line" class="btn btn-drawer-line">
+            <i class="fa-brands fa-line"></i> LINEで気軽に相談
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION (HOMEPAGE BANNER) ==================== -->
+    <section class="hp-hero">
+      <div class="container">
+        <!-- Top Full-Width Welcome Driving Stage (SVG Cartoon Animation) -->
+        <div class="welcome-stage-container" id="welcomeStage">
+          <!-- 1. Full-Width HD Logo Banner (Expands on Car Brake) -->
+          <div class="fullwidth-logo-banner">
+            <div class="logo-shine-wrap">
+              <img src="images/logo_hd.png" alt="Car Mate Core カーメイト コア 公式ロゴ" class="fullwidth-logo-img">
+              <div class="fullwidth-shine-light"></div>
+            </div>
+          </div>
+
+          <!-- 2. SVG Character Short Animation Stage -->
+          <div class="svg-anime-stage-wrapper">
+            <div class="svg-anime-container">
+              <svg class="svg-anime-scene" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Celica Red Gradient -->
+                  <linearGradient id="celicaRed" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FF3823"/>
+                    <stop offset="60%" stop-color="#D91E18"/>
+                    <stop offset="100%" stop-color="#9C100B"/>
+                  </linearGradient>
+                  <!-- Glass Gradient -->
+                  <linearGradient id="windowGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#DDF3FF" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#A2D2FF" stop-opacity="0.75"/>
+                  </linearGradient>
+                  <!-- Chrome Silver -->
+                  <linearGradient id="chromeSilver" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFFFF"/>
+                    <stop offset="50%" stop-color="#CBD5E0"/>
+                    <stop offset="100%" stop-color="#718096"/>
+                  </linearGradient>
+                  <!-- Tire Dark -->
+                  <radialGradient id="tireGrad" cx="50%" cy="50%" r="50%">
+                    <stop offset="40%" stop-color="#1A202C"/>
+                    <stop offset="85%" stop-color="#2D3748"/>
+                    <stop offset="100%" stop-color="#111827"/>
+                  </radialGradient>
+                  <!-- Gold Hub -->
+                  <circle id="wheelSpoke" cx="0" cy="0" r="18" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="2"/>
+                </defs>
+
+                <!-- Road Surface -->
+                <rect x="0" y="235" width="640" height="18" rx="9" fill="#CBD5E0"/>
+                <line x1="10" y1="244" x2="630" y2="244" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="24 16"/>
+
+                <!-- Exhaust Smoke Clouds (Left side) -->
+                <g class="smoke-cloud smoke-1"><circle cx="70" cy="225" r="9" fill="#E2E8F0" opacity="0.75"/></g>
+                <g class="smoke-cloud smoke-2"><circle cx="45" cy="220" r="13" fill="#E2E8F0" opacity="0.6"/></g>
+                <g class="smoke-cloud smoke-3"><circle cx="15" cy="214" r="17" fill="#E2E8F0" opacity="0.4"/></g>
+
+                <!-- ================= CAR & CHARACTERS GROUP ================= -->
+                <g class="celica-drive-actor" id="celicaActor">
+                  <!-- Ground Shadow -->
+                  <ellipse cx="280" cy="235" rx="190" ry="12" fill="#1A2849" opacity="0.28" class="car-ground-shadow"/>
+
+                  <!-- Main Celica Body with Suspension Bounce -->
+                  <g class="car-chassis-bounce">
+
+                    <!-- Back Passengers & Interior (Drawn inside windows) -->
+                    <!-- Owner (Red Jumpsuit & Top-Knot Hair) - Driver Position (Right side in Japan / RHD) -->
+                    <g class="character-owner">
+                      <!-- Body: Red Jumpsuit -->
+                      <path d="M 330 115 Q 345 105 365 115 L 375 145 L 320 145 Z" fill="#D91E18"/>
+                      <path d="M 345 110 L 345 140" stroke="#9C100B" stroke-width="2"/>
+                      <!-- Neck & Face -->
+                      <rect x="338" y="98" width="12" height="12" fill="#FBD38D" rx="3"/>
+                      <ellipse cx="344" cy="85" rx="14" ry="16" fill="#FBD38D"/>
+                      <!-- Smiling Face -->
+                      <circle cx="340" cy="82" r="2" fill="#2D3748"/>
+                      <circle cx="348" cy="82" r="2" fill="#2D3748"/>
+                      <path d="M 341 89 Q 344 94 348 89" stroke="#744210" stroke-width="2" fill="none" stroke-linecap="round"/>
+                      <!-- Beard stubble / jawline -->
+                      <path d="M 336 92 Q 344 98 352 92" stroke="#CBD5E0" stroke-width="1.5" fill="none"/>
+                      <!-- Hair: Shaved sides + Top-Knot (お団子ヘア) -->
+                      <path d="M 330 80 Q 338 68 358 80 Q 355 72 344 70 Q 335 72 330 80 Z" fill="#2D3748"/>
+                      <!-- Top Bun (お団子) -->
+                      <circle cx="344" cy="62" r="9" fill="#1A202C"/>
+                      <ellipse cx="344" cy="69" rx="7" ry="3" fill="#D69E2E"/> <!-- Hair band -->
+                      <!-- Waving Arm (Driver) -->
+                      <g class="owner-wave-arm">
+                        <path d="M 358 120 Q 375 110 380 95" stroke="#D91E18" stroke-width="8" stroke-linecap="round" fill="none"/>
+                        <circle cx="380" cy="93" r="5" fill="#FBD38D"/> <!-- Hand -->
+                      </g>
+                    </g>
+
+                    <!-- Wife (Half-up Hair, Gentle Smile) - Passenger Position (Left/Center) -->
+                    <g class="character-wife">
+                      <!-- Body -->
+                      <path d="M 275 118 Q 290 108 305 118 L 312 145 L 268 145 Z" fill="#ED8936"/>
+                      <!-- Neck & Face -->
+                      <rect x="284" y="100" width="10" height="10" fill="#FEEBC8" rx="2"/>
+                      <ellipse cx="289" cy="88" rx="12" ry="14" fill="#FEEBC8"/>
+                      <!-- Gentle Eyes & Smile -->
+                      <path d="M 283 85 Q 286 82 288 85" stroke="#2D3748" stroke-width="2" fill="none"/>
+                      <path d="M 291 85 Q 294 82 296 85" stroke="#2D3748" stroke-width="2" fill="none"/>
+                      <path d="M 286 92 Q 289 96 292 92" stroke="#DD6B20" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                      <!-- Blush -->
+                      <circle cx="282" cy="89" r="2.5" fill="#FEB2B2" opacity="0.8"/>
+                      <circle cx="296" cy="89" r="2.5" fill="#FEB2B2" opacity="0.8"/>
+                      <!-- Hair: Half-up (ハーフアップ髪型) -->
+                      <path d="M 276 96 C 274 80 278 72 289 72 C 300 72 304 80 302 96 C 298 90 294 86 289 86 C 284 86 280 90 276 96 Z" fill="#2C1810"/>
+                      <!-- Half-up Bun / Tied section in back -->
+                      <ellipse cx="289" cy="71" rx="6" ry="5" fill="#1A0F0A"/>
+                      <rect x="286" y="74" width="6" height="3" rx="1" fill="#FF7A00"/>
+                      <!-- Waving Hand (Wife) -->
+                      <g class="wife-wave-hand">
+                        <path d="M 302 120 Q 315 112 318 102" stroke="#ED8936" stroke-width="6" stroke-linecap="round" fill="none"/>
+                        <circle cx="319" cy="100" r="4.5" fill="#FEEBC8"/>
+                      </g>
+                    </g>
+
+                    <!-- French Bulldog Dog (Green Shirt with Paw Print) -->
+                    <g class="character-dog">
+                      <!-- Leaning out of window / hood -->
+                      <!-- Dog Body: Green Shirt -->
+                      <path d="M 215 130 Q 230 120 245 130 L 250 150 L 210 150 Z" fill="#2F855A"/>
+                      <!-- Paw Print on Shirt (お写真の緑の服の足跡) -->
+                      <ellipse cx="230" cy="136" rx="3.5" ry="3" fill="#FFFFFF"/>
+                      <circle cx="226" cy="132" r="1.5" fill="#FFFFFF"/>
+                      <circle cx="230" cy="130.5" r="1.5" fill="#FFFFFF"/>
+                      <circle cx="234" cy="132" r="1.5" fill="#FFFFFF"/>
+                      <!-- French Bulldog Head (Dark Brindle / Black) -->
+                      <ellipse cx="228" cy="112" rx="17" ry="15" fill="#2D3748"/>
+                      <!-- Wrinkly Muzzle -->
+                      <ellipse cx="228" cy="118" rx="11" ry="8" fill="#1A202C"/>
+                      <polygon points="225,115 231,115 228,118" fill="#4A5568"/> <!-- Nose -->
+                      <path d="M 224 121 Q 228 123 232 121" stroke="#E2E8F0" stroke-width="1.5" fill="none"/>
+                      <!-- Big Cute Round Eyes -->
+                      <circle cx="220" cy="110" r="3.5" fill="#000000"/>
+                      <circle cx="221" cy="109" r="1.2" fill="#FFFFFF"/>
+                      <circle cx="236" cy="110" r="3.5" fill="#000000"/>
+                      <circle cx="237" cy="109" r="1.2" fill="#FFFFFF"/>
+                      <!-- Big Bat Ears (コウモリ耳 - フレブルの特徴) -->
+                      <g class="dog-ears-wiggle">
+                        <!-- Left Ear -->
+                        <path d="M 214 105 C 205 92 205 78 214 82 C 219 85 220 98 221 103 Z" fill="#2D3748"/>
+                        <path d="M 213 100 C 208 92 209 83 214 85 C 217 87 217 95 218 99 Z" fill="#FEB2B2"/>
+                        <!-- Right Ear -->
+                        <path d="M 242 105 C 251 92 251 78 242 82 C 237 85 236 98 235 103 Z" fill="#2D3748"/>
+                        <path d="M 243 100 C 248 92 247 83 242 85 C 239 87 239 95 238 99 Z" fill="#FEB2B2"/>
+                      </g>
+                      <!-- Wagging Tail -->
+                      <path d="M 208 142 Q 200 138 202 132" stroke="#2D3748" stroke-width="4.5" stroke-linecap="round" fill="none" class="dog-tail-wag"/>
+                      <!-- Front Paws resting on car door -->
+                      <ellipse cx="218" cy="148" rx="4.5" ry="3.5" fill="#1A202C"/>
+                      <ellipse cx="238" cy="148" rx="4.5" ry="3.5" fill="#1A202C"/>
+
+                      <!-- "ワン！" Bark Balloon -->
+                      <g class="dog-bark-svg">
+                        <rect x="228" y="66" width="46" height="24" rx="12" fill="#FFB703" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"/>
+                        <polygon points="236,88 244,88 238,94" fill="#FFB703"/>
+                        <text x="251" y="82" font-family="'M PLUS Rounded 1c', sans-serif" font-weight="900" font-size="12" fill="#1A2849" text-anchor="middle">ワン！</text>
+                      </g>
+                    </g>
+
+                    <!-- Red Celica 1st Gen Body (初代セリカ リフトバック赤) -->
+                    <!-- Roof & Pillars -->
+                    <path d="M 200 148 L 245 105 L 375 105 L 420 148 Z" fill="url(#celicaRed)" stroke="#9C100B" stroke-width="2"/>
+                    <!-- Window Frames & Glass -->
+                    <path d="M 212 145 L 250 110 L 305 110 L 305 145 Z" fill="url(#windowGlass)" stroke="#2D3748" stroke-width="2.5"/> <!-- Rear/Mid Window -->
+                    <path d="M 312 145 L 312 110 L 368 110 L 405 145 Z" fill="url(#windowGlass)" stroke="#2D3748" stroke-width="2.5"/> <!-- Front Windshield -->
+                    <!-- Center B-Pillar with classic Celica vertical slats -->
+                    <rect x="306" y="109" width="6" height="36" fill="#1A202C"/>
+                    <line x1="228" y1="125" x2="238" y2="125" stroke="#FFFFFF" stroke-width="1.5" opacity="0.6"/> <!-- Celica LB Rear Louver style -->
+
+                    <!-- Main Lower Body (Sleek Long-Nose Fastback) -->
+                    <path d="M 90 185 
+                             Q 105 145 140 145 
+                             L 435 145 
+                             Q 460 145 470 170 
+                             L 472 188 
+                             L 458 192 
+                             L 100 192 Z" 
+                          fill="url(#celicaRed)" stroke="#780A06" stroke-width="2.5"/>
+
+                    <!-- Celica Side White Racing Stripe (初代セリカGT特有のサイドストライプ) -->
+                    <path d="M 105 180 L 465 180" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+                    <text x="280" y="179" font-family="'Arial Black', sans-serif" font-weight="900" font-size="6" fill="#1A2849" letter-spacing="1">CELICA GT</text>
+
+                    <!-- Front Hood & Classic Nose Shape -->
+                    <path d="M 435 145 L 475 170 L 478 185 L 435 185 Z" fill="#D91E18"/>
+                    <!-- Classic Dual Round Headlights (丸目4灯ヘッドライト) -->
+                    <circle cx="470" cy="173" r="5" fill="#FFFBEB" stroke="#4A5568" stroke-width="1.5"/>
+                    <circle cx="463" cy="173" r="4.5" fill="#FFFBEB" stroke="#4A5568" stroke-width="1.5"/>
+                    <ellipse cx="468" cy="172" rx="2" ry="1.5" fill="#FFFFFF"/> <!-- Light glow -->
+                    <!-- Chrome Front Bumper -->
+                    <path d="M 462 184 L 480 184 L 478 190 L 460 190 Z" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="1.5"/>
+
+                    <!-- Rear Tail & Chrome Bumper -->
+                    <rect x="92" y="170" width="8" height="12" rx="2" fill="#E53E3E" stroke="#1A202C" stroke-width="1.2"/> <!-- Tail light -->
+                    <path d="M 86 184 L 104 184 L 102 190 L 88 190 Z" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="1.5"/>
+                    <!-- Chrome Side Mirror -->
+                    <ellipse cx="410" cy="142" rx="4" ry="2.5" fill="url(#chromeSilver)"/>
+                    <line x1="410" y1="144" x2="408" y2="147" stroke="#4A5568" stroke-width="1.5"/>
+
+                    <!-- Wheel Well Cutouts -->
+                    <path d="M 130 192 A 28 28 0 0 1 186 192 Z" fill="#1A202C"/>
+                    <path d="M 370 192 A 28 28 0 0 1 426 192 Z" fill="#1A202C"/>
+                  </g> <!-- /car-chassis-bounce -->
+
+                  <!-- ================= WHEELS (Rotate on drive) ================= -->
+                  <!-- Rear Wheel -->
+                  <g class="celica-wheel wheel-rear" transform="translate(158, 194)">
+                    <circle cx="0" cy="0" r="26" fill="url(#tireGrad)" stroke="#111827" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="17" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="1.5"/>
+                    <!-- 8-Spoke Classic Alloy Wheel (回転するスポーク) -->
+                    <line x1="-14" y1="0" x2="14" y2="0" stroke="#2D3748" stroke-width="3"/>
+                    <line x1="0" y1="-14" x2="0" y2="14" stroke="#2D3748" stroke-width="3"/>
+                    <line x1="-10" y1="-10" x2="10" y2="10" stroke="#2D3748" stroke-width="3"/>
+                    <line x1="-10" y1="10" x2="10" y2="-10" stroke="#2D3748" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="5" fill="#D69E2E" stroke="#1A202C" stroke-width="1"/> <!-- Gold Center Cap -->
+                  </g>
+
+                  <!-- Front Wheel -->
+                  <g class="celica-wheel wheel-front" transform="translate(398, 194)">
+                    <circle cx="0" cy="0" r="26" fill="url(#tireGrad)" stroke="#111827" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="17" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="1.5"/>
+                    <line x1="-14" y1="0" x2="14" y2="0" stroke="#2D3748" stroke-width="3"/>
+                    <line x1="0" y1="-14" x2="0" y2="14" stroke="#2D3748" stroke-width="3"/>
+                    <line x1="-10" y1="-10" x2="10" y2="10" stroke="#2D3748" stroke-width="3"/>
+                    <line x1="-10" y1="10" x2="10" y2="-10" stroke="#2D3748" stroke-width="3"/>
+                    <circle cx="0" cy="0" r="5" fill="#D69E2E" stroke="#1A202C" stroke-width="1"/>
+                  </g>
+
+                </g> <!-- /celica-drive-actor -->
+              </svg>
+
+              <!-- Family Welcome Balloon Banner Below SVG -->
+              <div class="crew-welcome-balloon">
+                <span class="balloon-accent">＼ 初代セリカ赤＆愛犬と家族でお待ちしています！ ／</span>
+                <span class="balloon-text">「アットホームな車屋 Car Mate Core へようこそ！何でも気軽に相談してね！」</span>
+              </div>
+
+              <!-- Replay Animation Button -->
+              <button type="button" class="btn-replay-animation" onclick="replayWelcomeDrive()" title="アニメーションをもう一度見る">
+                <i class="fa-solid fa-rotate-right"></i> アニメをもう一度見る
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-text-block">
+          <div class="hero-subbadge">
+            <i class="fa-solid fa-heart"></i> 車の知識ゼロでも安心！押し売り一切なし
+          </div>
+          <h1 class="hero-main-copy">
+            あなたのご予算に<br>
+            <span class="text-orange">一番ちょうどいい1台</span>を、<br>
+            店主が親身にお探しします。
+          </h1>
+          <p class="hero-description">
+            通勤にぴったりの軽自動車から、ご家族の思い出を作るファミリーカー、すぐ乗れる低価格車まで。<br class="pc-only">
+            「Car Mate Core（カーメイト コア）」は、お客様とのお付き合いを大切にする地域密着の中古車店です。
+          </p>
+          <div class="hero-merits">
+            <span class="merit-tag"><i class="fa-solid fa-check"></i> 総額明朗会計</span>
+            <span class="merit-tag"><i class="fa-solid fa-check"></i> 丁寧な自社点検整備</span>
+            <span class="merit-tag"><i class="fa-solid fa-check"></i> 全国オークション注文販売</span>
+          </div>
+          <div class="hero-button-group">
+            <a href="stock.html" class="btn btn-primary-hero">
+              <i class="fa-solid fa-car"></i> 在庫一覧を見る
+            </a>
+            <a href="contact.html#line" class="btn btn-line-hero">
+              <i class="fa-brands fa-line"></i> LINEで在庫・お車相談
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-block">
+          <div class="hero-badge-card">
+            <div class="card-corner-ribbon">地域密着</div>
+            <div class="owner-illustration-wrap">
+              <div class="owner-icon-circle">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+              <div class="owner-bubble">
+                <p>「大手さんでは聞きづらい小さなことでも、何でも気軽に相談してくださいね！」</p>
+                <span class="bubble-sign">— 代表（社長）</span>
+              </div>
+            </div>
+            <div class="hero-stats-grid">
+              <div class="stat-item">
+                <span class="stat-label">押し売り</span>
+                <span class="stat-value">0%</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">総額表示</span>
+                <span class="stat-value">100%</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">親身さ</span>
+                <span class="stat-value">全力!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ==================== NEWS TICKER ==================== -->
+    <div class="news-ticker-section">
+      <div class="container news-ticker-inner">
+        <div class="news-badge"><i class="fa-solid fa-bullhorn"></i> お知らせ</div>
+        <div class="news-content">
+          <span class="news-date">2026.10.15</span>
+          <a href="stock.html" class="news-link">【新着在庫】大人気の軽自動車・コンパクトカーが新入荷しました！詳しくはこちら</a>
+        </div>
+        <a href="stock.html" class="news-more pc-only">一覧を見る <i class="fa-solid fa-chevron-right"></i></a>
+      </div>
+    </div>
+
+    <!-- ==================== ABOUT SUMMARY SECTION ==================== -->
+    <section class="about-summary section-space">
+      <div class="container">
+        <div class="summary-card">
+          <div class="summary-header text-center">
+            <span class="sub-heading">ABOUT US</span>
+            <h2 class="main-heading">Car Mate Coreが大切にしていること</h2>
+            <p class="heading-lead">「自分の家族に乗せたい車かどうか」それだけを基準に厳選しています</p>
+          </div>
+          <div class="summary-body">
+            <div class="summary-text">
+              <p>
+                Car Mate Core（カーメイト コア）のホームページへようこそ！<br>
+                当店は、大手中古車店のような派手なショールームや大量販売の仕組みはありません。その代わり、<strong>「お客様一人ひとりとじっくり向き合い、ご予算と暮らしに本当に合った1台をトコトン親身に探すこと」</strong>を何よりも大切にしています。
+              </p>
+              <p>
+                「車に詳しくない」「予算が少ないから恥ずかしい」「強引な営業をされたら嫌だな」という方にこそ、安心して頼っていただけるお店でありたいと考えています。
+              </p>
+              <div class="summary-points">
+                <div class="point-box">
+                  <div class="point-num">01</div>
+                  <h4>強引な営業は一切なし</h4>
+                  <p>お客様の生活に合わない車は、プロとして「やめた方がいい」と正直にお伝えします。</p>
+                </div>
+                <div class="point-box">
+                  <div class="point-num">02</div>
+                  <h4>不透明な諸費用ゼロ</h4>
+                  <p>税金・整備・諸費用をすべて含んだ「安心の総額明示」を徹底しています。</p>
+                </div>
+                <div class="point-box">
+                  <div class="point-num">03</div>
+                  <h4>買ってからも安心</h4>
+                  <p>日頃のオイル交換、点検、車検、急なトラブルも地域のかかりつけ医として対応します。</p>
+                </div>
+              </div>
+              <div class="text-center summary-btn-wrap">
+                <a href="about.html" class="btn btn-outline-orange">
+                  当店について・社長メッセージを詳しく見る <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FEATURED INVENTORY ==================== -->
+    <section class="featured-inventory section-space bg-warm">
+      <div class="container">
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">INVENTORY</span>
+          <h2 class="main-heading">おすすめ・新着在庫車両</h2>
+          <p class="heading-lead">軽自動車・ファミリーカー・低価格車まで、自社点検済みの良質車をラインナップ</p>
+        </div>
+
+        <div class="car-cards-grid">
+          <!-- Car 1: 軽自動車 -->
+          <article class="car-card">
+            <div class="car-card-badge badge-kei">人気の軽自動車</div>
+            <div class="car-card-image">
+              <div class="car-img-placeholder">
+                <i class="fa-solid fa-car"></i>
+                <span>車両写真準備中</span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <span class="car-maker">ダイハツ</span>
+              <h3 class="car-model-name">タント カスタム X</h3>
+              <div class="car-specs">
+                <span>年式: 2018年</span>
+                <span>走行: 4.8万km</span>
+                <span>車検: 整備付</span>
+              </div>
+              <div class="car-price-row">
+                <div class="price-item">
+                  <span class="price-title">支払総額（税込）</span>
+                  <span class="price-num">58.8<small>万円</small></span>
+                </div>
+                <div class="price-sub">車両本体 50万円</div>
+              </div>
+              <ul class="car-equipment">
+                <li><i class="fa-solid fa-circle-check"></i> 両側パワースライドドア</li>
+                <li><i class="fa-solid fa-circle-check"></i> ナビ・バックカメラ・ETC</li>
+              </ul>
+              <a href="contact.html#line" class="btn btn-car-inquiry">
+                <i class="fa-brands fa-line"></i> この車の在庫・状態を聞く
+              </a>
+            </div>
+          </article>
+
+          <!-- Car 2: ファミリーカー -->
+          <article class="car-card">
+            <div class="car-card-badge badge-family">ファミリーに最適</div>
+            <div class="car-card-image">
+              <div class="car-img-placeholder">
+                <i class="fa-solid fa-van-shuttle"></i>
+                <span>車両写真準備中</span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <span class="car-maker">日産</span>
+              <h3 class="car-model-name">セレナ ハイウェイスター</h3>
+              <div class="car-specs">
+                <span>年式: 2017年</span>
+                <span>走行: 6.2万km</span>
+                <span>車検: 2年付</span>
+              </div>
+              <div class="car-price-row">
+                <div class="price-item">
+                  <span class="price-title">支払総額（税込）</span>
+                  <span class="price-num">89.8<small>万円</small></span>
+                </div>
+                <div class="price-sub">車両本体 78万円</div>
+              </div>
+              <ul class="car-equipment">
+                <li><i class="fa-solid fa-circle-check"></i> プロパイロット搭載</li>
+                <li><i class="fa-solid fa-circle-check"></i> 後席フリップダウンモニター</li>
+              </ul>
+              <a href="contact.html#line" class="btn btn-car-inquiry">
+                <i class="fa-brands fa-line"></i> この車の在庫・状態を聞く
+              </a>
+            </div>
+          </article>
+
+          <!-- Car 3: 低価格車 -->
+          <article class="car-card">
+            <div class="car-card-badge badge-lowprice">すぐ乗れるお値打ち車</div>
+            <div class="car-card-image">
+              <div class="car-img-placeholder">
+                <i class="fa-solid fa-tags"></i>
+                <span>車両写真準備中</span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <span class="car-maker">スズキ</span>
+              <h3 class="car-model-name">ワゴンR FXリミテッド</h3>
+              <div class="car-specs">
+                <span>年式: 2015年</span>
+                <span>走行: 7.1万km</span>
+                <span>車検: 整備付</span>
+              </div>
+              <div class="car-price-row">
+                <div class="price-item">
+                  <span class="price-title">支払総額（税込）</span>
+                  <span class="price-num">29.8<small>万円</small></span>
+                </div>
+                <div class="price-sub">車両本体 23万円</div>
+              </div>
+              <ul class="car-equipment">
+                <li><i class="fa-solid fa-circle-check"></i> スマートキー・プッシュスタート</li>
+                <li><i class="fa-solid fa-circle-check"></i> 点検整備済み・即納可能</li>
+              </ul>
+              <a href="contact.html#line" class="btn btn-car-inquiry">
+                <i class="fa-brands fa-line"></i> この車の在庫・状態を聞く
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Custom Order Banner -->
+        <div class="order-banner">
+          <div class="order-banner-content">
+            <span class="banner-badge"><i class="fa-solid fa-magnifying-glass"></i> 店頭にないお車もお任せください！</span>
+            <h3 class="banner-title">全国オークションから「ご希望の1台」をお探しします（注文販売）</h3>
+            <p class="banner-desc">
+              「この色・グレードに乗りたい」「総額〇〇万円以内で状態が良い軽を探してほしい」など、ご希望をお聞かせください。毎週数万台の中から店主が厳選してご提案します。
+            </p>
+          </div>
+          <div class="banner-action">
+            <a href="stock.html" class="btn btn-banner-action">
+              在庫・注文販売の詳細を見る <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section class="services-section section-space">
+      <div class="container">
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">OUR SERVICES</span>
+          <h2 class="main-heading">Car Mate Coreのサービス</h2>
+          <p class="heading-lead">お車の購入から、日常の点検・車検・万が一の修理、愛車の手放しまでトータルサポート</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-car-side"></i></div>
+            <h3 class="service-name">中古車・新車販売</h3>
+            <p class="service-text">軽自動車からファミリーカー、低価格良質車まで。総額表示で安心して選べる厳選中古車を取り揃えています。</p>
+            <a href="service.html#sales" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-magnifying-glass-location"></i></div>
+            <h3 class="service-name">全国オークション注文販売</h3>
+            <p class="service-text">全国の業者専用オークションから、お客様のご予算と条件にぴったり合う1台をプロの目利きで仕入れます。</p>
+            <a href="service.html#order" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
+            <h3 class="service-name">車検・点検・オイル交換</h3>
+            <p class="service-text">購入後のメンテナンスもお任せください。親身で分かりやすい説明と良心的な価格でしっかり点検いたします。</p>
+            <a href="service.html#maintenance" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+            <h3 class="service-name">キズ・ヘコミ板金修理</h3>
+            <p class="service-text">うっかり擦ってしまったキズやヘコミもきれいに修復。ご予算に応じた最適な修理方法をご提案します。</p>
+            <a href="service.html#repair" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <h3 class="service-name">愛車の高価買取・下取り</h3>
+            <p class="service-text">大手買取店で値段がつかなかった古いお車や走行距離の多い車でも、しっかり査定してお引き取りします。</p>
+            <a href="service.html#buy" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <h3 class="service-name">各種オートローン・保険</h3>
+            <p class="service-text">頭金ゼロからの分割払いや月々の支払いを抑えるプランをご提案。ローン審査がご不安な方もご相談ください。</p>
+            <a href="service.html#loan" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FLOW SUMMARY ==================== -->
+    <section class="flow-summary section-space bg-warm">
+      <div class="container">
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">FLOW</span>
+          <h2 class="main-heading">お車選びから納車までの流れ</h2>
+          <p class="heading-lead">初めての方でも安心！4つの簡単ステップで納車までしっかりサポートします</p>
+        </div>
+
+        <div class="flow-steps-grid">
+          <div class="flow-step-item">
+            <div class="step-badge">STEP 01</div>
+            <div class="step-icon-wrap"><i class="fa-solid fa-comments"></i></div>
+            <h4>ご相談・お問い合わせ</h4>
+            <p>LINE・お電話・ご来店にて、ご希望の車種やご予算をお気軽にお聞かせください。</p>
+          </div>
+
+          <div class="flow-step-item">
+            <div class="step-badge">STEP 02</div>
+            <div class="step-icon-wrap"><i class="fa-solid fa-car-on"></i></div>
+            <h4>現車確認・ご提案</h4>
+            <p>店頭の車をじっくりご覧いただくか、注文販売の場合は条件に合う車をご提案します。</p>
+          </div>
+
+          <div class="flow-step-item">
+            <div class="step-badge">STEP 03</div>
+            <div class="step-icon-wrap"><i class="fa-solid fa-file-signature"></i></div>
+            <h4>お見積もり・ご契約</h4>
+            <p>総額費用を明確にご提示。ご納得いただいた上でご契約手続きに進みます。</p>
+          </div>
+
+          <div class="flow-step-item">
+            <div class="step-badge">STEP 04</div>
+            <div class="step-icon-wrap"><i class="fa-solid fa-key"></i></div>
+            <h4>徹底点検・ご納車</h4>
+            <p>納車前点検・消耗品交換・ルームクリーニングを徹底して行い、安心の笑顔でお渡しします。</p>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 36px;">
+          <a href="flow.html" class="btn btn-outline-orange">
+            ご購入の流れ・安心保証の詳細はこちら <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT / LINE CTA BANNER ==================== -->
+    <section class="hp-cta-banner section-space">
+      <div class="container">
+        <div class="cta-banner-box">
+          <div class="cta-badge"><i class="fa-brands fa-line"></i> 24時間いつでも受付中</div>
+          <h2 class="cta-banner-title">お車の相談・在庫のお問い合わせは<br>公式LINEからお気軽にどうぞ！</h2>
+          <p class="cta-banner-desc">
+            「こんな車ある？」「予算〇〇万円で探せる？」「今乗っている車いくらで売れる？」など、<br class="pc-only">
+            友だち追加してメッセージを送るだけ！店主が親身にお返事いたします。
+          </p>
+          <div class="cta-banner-buttons">
+            <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line-banner">
+              <i class="fa-brands fa-line"></i> LINEで在庫確認・無料相談
+            </a>
+            <a href="tel:000-000-0000" class="btn btn-tel-banner">
+              <i class="fa-solid fa-phone"></i> 000-000-0000
+            </a>
+          </div>
+          <p class="cta-banner-note"><i class="fa-solid fa-lock"></i> しつこい営業連絡や押し売りは一切いたしませんのでご安心ください。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SHOP INFO & ACCESS ==================== -->
+    <section class="hp-shop-info section-space bg-warm">
+      <div class="container">
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">SHOP & ACCESS</span>
+          <h2 class="main-heading">店舗案内・アクセス</h2>
+        </div>
+
+        <div class="shop-grid">
+          <div class="shop-table-card">
+            <table class="shop-info-table">
+              <tr>
+                <th>店名</th>
+                <td>Car Mate Core（カーメイト コア）</td>
+              </tr>
+              <tr>
+                <th>代表者</th>
+                <td>代表（社長）</td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td>〒000-0000 〇〇県〇〇市〇〇町1-2-3<br><small class="text-muted">※最寄り駅より車で5分／お客様専用駐車場完備</small></td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td><a href="tel:000-000-0000" class="link-tel">000-000-0000</a></td>
+              </tr>
+              <tr>
+                <th>営業時間</th>
+                <td>10:00〜19:00</td>
+              </tr>
+              <tr>
+                <th>定休日</th>
+                <td>水曜日（事前にご連絡いただければ時間外や定休日も柔軟に対応します）</td>
+              </tr>
+              <tr>
+                <th>事業内容</th>
+                <td>中古車・新車販売、オークション注文販売、車検・点検・整備、板金修理、愛車買取、オートローン</td>
+              </tr>
+              <tr>
+                <th>古物商許可</th>
+                <td>〇〇県公安委員会 第000000000000号</td>
+              </tr>
+            </table>
+          </div>
+          <div class="shop-map-card">
+            <div class="map-placeholder-box">
+              <i class="fa-solid fa-location-dot fa-3x"></i>
+              <p>Googleマップ埋め込みスペース<br><small>※実際の店舗住所に合わせてiframeマップを設置できます</small></p>
+            </div>
+            <div class="shop-access-guide">
+              <h4><i class="fa-solid fa-car"></i> お車でお越しの方へ</h4>
+              <p>店舗敷地内にお客様専用駐車場がございます。お気軽にお停めください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== SITE FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-main-inner">
+      <div class="footer-col-brand">
+        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
+        <p class="footer-intro">
+          「車に詳しくなくても大丈夫！」<br>
+          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする街のアットホームな中古車店です。
+        </p>
+        <div class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</p>
+          <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
+          <p><i class="fa-regular fa-clock"></i> 10:00〜19:00（水曜定休）</p>
+        </div>
+      </div>
+
+      <div class="footer-col-nav">
+        <h4 class="footer-nav-title">サイトマップ</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">当店について・社長紹介</a></li>
+          <li><a href="stock.html">在庫情報＆注文販売</a></li>
+          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
+          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html">店舗案内・アクセス</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col-cta">
+        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
+        <p class="footer-cta-text">在庫確認、お車探しのご相談、買取査定など、LINEまたはお電話でお気軽にご連絡ください。</p>
+        <a href="contact.html#line" class="btn btn-footer-line">
+          <i class="fa-brands fa-line"></i> LINE公式アカウント
+        </a>
+        <a href="tel:000-000-0000" class="footer-tel-link">
+          <i class="fa-solid fa-phone"></i> 000-000-0000
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MOBILE FIXED BOTTOM BAR ==================== -->
+  <aside class="mobile-sticky-bar sp-only">
+    <a href="tel:000-000-0000" class="sticky-btn sticky-tel">
+      <i class="fa-solid fa-phone"></i>
+      <span>電話で相談</span>
+    </a>
+    <a href="contact.html#line" class="sticky-btn sticky-line">
+      <i class="fa-brands fa-line"></i>
+      <span>LINEで在庫相談</span>
+    </a>
+  </aside>
+
+  <!-- Mobile Drawer Toggle Script -->
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileDrawer.classList.toggle('open');
+        document.body.classList.toggle('no-scroll');
+      });
+
+      // Close drawer on link click
+      mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburgerBtn.classList.remove('active');
+          mobileDrawer.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+        });
+      });
+    }
+
+    // Replay Welcome Drive Animation
+    function replayWelcomeDrive() {
+      const stage = document.getElementById('welcomeStage');
+      if (stage) {
+        stage.classList.remove('anim-active');
+        void stage.offsetWidth; // Force DOM reflow
+        stage.classList.add('anim-active');
+      }
+    }
+  </script>
+</body>
+</html>

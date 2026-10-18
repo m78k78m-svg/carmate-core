@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>当店について・社長紹介 | Car Mate Core（カーメイト コア）</title>
+  <meta name="description" content="Car Mate Core（カーメイト コア）の想いと店主メッセージ。「自分の家族に乗せたい車かどうか」を基準に厳選。押し売りなし、アットホームな地域密着の中古車店です。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .about-lead-box {
+      background: var(--bg-warm);
+      border: 2px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      padding: 36px 24px;
+      margin-bottom: 50px;
+    }
+    @media (min-width: 769px) {
+      .about-lead-box { padding: 50px 40px; }
+    }
+    .about-profile-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    @media (min-width: 992px) {
+      .about-profile-grid {
+        grid-template-columns: 320px 1fr;
+        gap: 48px;
+      }
+    }
+    .profile-photo-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-warm);
+    }
+    .profile-avatar {
+      width: 160px;
+      height: 160px;
+      background: var(--primary-light);
+      border: 4px solid var(--primary);
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-size: 4rem;
+    }
+    .profile-name {
+      font-family: var(--font-round);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .profile-title {
+      font-size: 0.8rem;
+      color: var(--muted-text);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .commit-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: 24px;
+      border-left: 6px solid var(--primary);
+    }
+    .commit-card h3 {
+      font-family: var(--font-round);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-topbar pc-only">
+      <div class="container topbar-inner">
+        <p class="topbar-tagline">軽自動車・ファミリーカー・低価格車まで、あなたの街の親身な車屋さん</p>
+        <div class="topbar-links">
+          <span><i class="fa-regular fa-clock"></i> 営業時間 10:00〜19:00（水曜定休）</span>
+          <span><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-inner">
+        <div class="header-logo">
+          <a href="index.html" class="logo-link">
+            <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="header-logo-img">
+            <div class="logo-text-group">
+              <span class="logo-sub">地域密着・アットホーム中古車販売</span>
+              <span class="logo-main">Car Mate Core</span>
+            </div>
+          </a>
+        </div>
+
+        <nav class="global-nav pc-only">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">ホーム</a></li>
+            <li class="nav-item current"><a href="about.html">当店について</a></li>
+            <li class="nav-item"><a href="stock.html">在庫・注文</a></li>
+            <li class="nav-item"><a href="service.html">サービス</a></li>
+            <li class="nav-item"><a href="flow.html">購入の流れ</a></li>
+            <li class="nav-item"><a href="contact.html">アクセス</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:000-000-0000" class="header-tel pc-only">
+            <span class="tel-label"><i class="fa-solid fa-phone"></i> お電話でのご相談</span>
+            <span class="tel-number">000-000-0000</span>
+          </a>
+          <a href="contact.html#line" class="btn btn-header-line">
+            <i class="fa-brands fa-line"></i> <span>LINE在庫相談</span>
+          </a>
+          <button type="button" class="hamburger-btn sp-only" id="hamburgerBtn" aria-label="メニューを開く">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-inner">
+        <ul class="drawer-nav">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
+          <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
+          <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
+          <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
+        </ul>
+        <div class="drawer-contact">
+          <a href="tel:000-000-0000" class="btn btn-drawer-tel"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+          <a href="contact.html#line" class="btn btn-drawer-line"><i class="fa-brands fa-line"></i> LINEで気軽に相談</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PAGE HERO & BREADCRUMB ==================== -->
+  <div class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title">当店について・代表紹介</h1>
+      <p class="page-hero-sub">ABOUT US & OWNER MESSAGE</p>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><i class="fa-solid fa-chevron-right"></i></li>
+        <li>当店について</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="section-space">
+    <div class="container">
+      <!-- Lead Message -->
+      <div class="about-lead-box text-center">
+        <span class="sub-heading">CONCEPT</span>
+        <h2 class="main-heading">「自分の家族に乗せたい車かどうか」<br>それだけを基準にしています。</h2>
+        <p class="heading-lead" style="margin-top: 16px;">
+          大手チェーンのような立派なショールームはありませんが、<br>
+          お客様一人ひとりとじっくり向き合い、トコトン親身にお手伝いする熱意はどこにも負けません。
+        </p>
+      </div>
+
+      <!-- Profile Grid -->
+      <div class="about-profile-grid">
+        <div class="profile-photo-card">
+          <div class="profile-avatar">
+            <i class="fa-solid fa-user-gear"></i>
+          </div>
+          <span class="profile-title">Car Mate Core 代表</span>
+          <h3 class="profile-name">店主（社長）</h3>
+          <p class="text-muted" style="font-size: 0.85rem; margin-top: 8px;">
+            趣味：愛車のメンテナンス、子供とのお出かけ<br>
+            モットー：正直・親身・笑顔
+          </p>
+        </div>
+
+        <div class="profile-message">
+          <span class="sub-heading">GREETING</span>
+          <h3 style="font-family: var(--font-round); font-size: 1.6rem; color: var(--navy); margin-bottom: 16px;">
+            車に詳しくない方にこそ、気兼ねなく頼れるお店でありたい。
+          </h3>
+          <p style="margin-bottom: 16px;">
+            はじめまして！Car Mate Coreのホームページをご覧いただき誠にありがとうございます。
+          </p>
+          <p style="margin-bottom: 16px;">
+            車は日常の通勤、お買い物、ご家族との大切な思い出を運ぶ、日々の生活に欠かせないパートナーです。しかし中古車を選ぶとき、「騙されないか不安」「車に詳しくないから聞きづらい」「予算が少なくて恥ずかしい」と感じてしまう方がとても多いのが現実です。
+          </p>
+          <p style="margin-bottom: 16px;">
+            私は、そんな不安を一切感じず、まるで親戚のおじちゃんや友達に話すようにリラックスして相談できるお店を作りたいと思い、このCar Mate Coreを立ち上げました。
+          </p>
+          <p style="margin-bottom: 0;">
+            「予算20万円で探してほしい」「とにかく維持費が安い車がいい」など、どんなご相談も大歓迎です。無理な営業は絶対にいたしませんので、お茶を飲む感覚でいつでもお気軽にお声がけください！
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 Commitments -->
+      <div class="commitments-wrap">
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">OUR PROMISE</span>
+          <h2 class="main-heading">Car Mate Coreの3つの約束</h2>
+        </div>
+
+        <div class="commit-card">
+          <h3><i class="fa-solid fa-handshake" style="color: var(--primary);"></i> 1. 押し売り・強引な営業は100%いたしません</h3>
+          <p>「売りたい車」を押し付けるのではなく、お客様のライフスタイルとご予算に合う車だけをご提案します。もしお客様が選ぼうとしている車が用途に合わない場合は、プロの目線から「その車はやめた方がいいです」と本音でお伝えします。</p>
+        </div>
+
+        <div class="commit-card">
+          <h3><i class="fa-solid fa-file-invoice-dollar" style="color: var(--primary);"></i> 2. 不透明な追加費用なし！「総額明示」の徹底</h3>
+          <p>「車体は安かったのに、見積もりを見たら何十万円も諸費用が上乗せされた…」という経験はありませんか？当店では、車検整備代、各種税金、登録諸費用を含めた安心の「乗り出し総額」を最初から明確にご提示します。</p>
+        </div>
+
+        <div class="commit-card">
+          <h3><i class="fa-solid fa-house-chimney-medical" style="color: var(--primary);"></i> 3. 納車後もずっと頼れる「街のかかりつけ店」</h3>
+          <p>車は購入後が本当のスタートです。オイル交換、定期点検、車検、急なキズやヘコミの修理まで、いつでも相談できるアットホームな町のかかりつけ車屋として、末永くサポートさせていただきます。</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center" style="margin-top: 50px;">
+        <a href="contact.html#line" class="btn btn-primary-hero">
+          <i class="fa-brands fa-line"></i> LINEで店主に相談してみる
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-main-inner">
+      <div class="footer-col-brand">
+        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
+        <p class="footer-intro">
+          「車に詳しくなくても大丈夫！」<br>
+          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする街のアットホームな中古車店です。
+        </p>
+        <div class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</p>
+          <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
+          <p><i class="fa-regular fa-clock"></i> 10:00〜19:00（水曜定休）</p>
+        </div>
+      </div>
+      <div class="footer-col-nav">
+        <h4 class="footer-nav-title">サイトマップ</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">当店について・社長紹介</a></li>
+          <li><a href="stock.html">在庫情報＆注文販売</a></li>
+          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
+          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html">店舗案内・アクセス</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-cta">
+        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
+        <p class="footer-cta-text">LINEまたはお電話でお気軽にご連絡ください。</p>
+        <a href="contact.html#line" class="btn btn-footer-line"><i class="fa-brands fa-line"></i> LINE公式アカウント</a>
+        <a href="tel:000-000-0000" class="footer-tel-link"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="mobile-sticky-bar sp-only">
+    <a href="tel:000-000-0000" class="sticky-btn sticky-tel"><i class="fa-solid fa-phone"></i><span>電話で相談</span></a>
+    <a href="contact.html#line" class="sticky-btn sticky-line"><i class="fa-brands fa-line"></i><span>LINEで在庫相談</span></a>
+  </aside>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileDrawer.classList.toggle('open');
+        document.body.classList.toggle('no-scroll');
+      });
+    }
+  </script>
+</body>
+</html>

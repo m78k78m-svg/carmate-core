@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サービス案内（車検・買取・整備） | Car Mate Core（カーメイト コア）</title>
+  <meta name="description" content="Car Mate Coreの充実サービス。中古車・新車販売、オークション注文販売、車検整備、キズ・ヘコミ修理、愛車の高価買取、各種オートローン。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .service-detail-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 24px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+    @media (min-width: 769px) {
+      .service-detail-section { padding: 50px 48px; }
+    }
+    .service-detail-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--border-warm);
+      padding-bottom: 20px;
+    }
+    .detail-icon-circle {
+      width: 70px;
+      height: 70px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+    .service-detail-title {
+      font-family: var(--font-round);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .service-features-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    @media (min-width: 769px) {
+      .service-features-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    .feature-item-box {
+      background: var(--bg-warm);
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-warm);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .feature-item-box i {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="header-topbar pc-only">
+      <div class="container topbar-inner">
+        <p class="topbar-tagline">軽自動車・ファミリーカー・低価格車まで、あなたの街の親身な車屋さん</p>
+        <div class="topbar-links">
+          <span><i class="fa-regular fa-clock"></i> 営業時間 10:00〜19:00（水曜定休）</span>
+          <span><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-inner">
+        <div class="header-logo">
+          <a href="index.html" class="logo-link">
+            <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="header-logo-img">
+            <div class="logo-text-group">
+              <span class="logo-sub">地域密着・アットホーム中古車販売</span>
+              <span class="logo-main">Car Mate Core</span>
+            </div>
+          </a>
+        </div>
+
+        <nav class="global-nav pc-only">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html">ホーム</a></li>
+            <li class="nav-item"><a href="about.html">当店について</a></li>
+            <li class="nav-item"><a href="stock.html">在庫・注文</a></li>
+            <li class="nav-item current"><a href="service.html">サービス</a></li>
+            <li class="nav-item"><a href="flow.html">購入の流れ</a></li>
+            <li class="nav-item"><a href="contact.html">アクセス</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:000-000-0000" class="header-tel pc-only">
+            <span class="tel-label"><i class="fa-solid fa-phone"></i> お電話でのご相談</span>
+            <span class="tel-number">000-000-0000</span>
+          </a>
+          <a href="contact.html#line" class="btn btn-header-line">
+            <i class="fa-brands fa-line"></i> <span>LINE在庫相談</span>
+          </a>
+          <button type="button" class="hamburger-btn sp-only" id="hamburgerBtn" aria-label="メニューを開く">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-inner">
+        <ul class="drawer-nav">
+          <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
+          <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
+          <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
+          <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
+        </ul>
+        <div class="drawer-contact">
+          <a href="tel:000-000-0000" class="btn btn-drawer-tel"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+          <a href="contact.html#line" class="btn btn-drawer-line"><i class="fa-brands fa-line"></i> LINEで気軽に相談</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PAGE HERO & BREADCRUMB ==================== -->
+  <div class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title">サービス</h1>
+      <p class="page-hero-sub">OUR SERVICES</p>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">ホーム</a></li>
+        <li><i class="fa-solid fa-chevron-right"></i></li>
+        <li>サービス</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="section-space">
+    <div class="container">
+      <div class="section-title-wrap text-center" style="margin-bottom: 50px;">
+        <span class="sub-heading">TOTAL SUPPORT</span>
+        <h2 class="main-heading">愛車の購入から日々の点検までトータルでお応えします</h2>
+        <p class="heading-lead">Car Mate Coreでは、車の販売はもちろん、購入後のメンテナンスや買取まで責任を持ってサポートいたします。</p>
+      </div>
+
+      <!-- Service 1: 中古車・新車販売 -->
+      <section id="sales" class="service-detail-section">
+        <div class="service-detail-header">
+          <div class="detail-icon-circle"><i class="fa-solid fa-car-side"></i></div>
+          <div>
+            <span class="sub-heading">SERVICE 01</span>
+            <h3 class="service-detail-title">中古車・新車販売</h3>
+          </div>
+        </div>
+        <p>軽自動車・ミニバン・コンパクトカーから低価格良質車まで幅広く取り扱っております。全車、点検整備付き＆安心の総額表示。初めての車選びでも店主が親身にわかりやすくご案内いたします。</p>
+        <div class="service-features-list">
+          <div class="feature-item-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>不透明な諸費用一切なし</strong><br><small class="text-muted">表示総額でお乗り出しいただけます</small></div>
+          </div>
+          <div class="feature-item-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>自社点検・徹底清掃</strong><br><small class="text-muted">清潔で気持ちよく乗れる状態でお渡しします</small></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Service 2: 全国オークション注文販売 -->
+      <section id="order" class="service-detail-section">
+        <div class="service-detail-header">
+          <div class="detail-icon-circle"><i class="fa-solid fa-magnifying-glass-location"></i></div>
+          <div>
+            <span class="sub-heading">SERVICE 02</span>
+            <h3 class="service-detail-title">全国オークション注文販売</h3>
+          </div>
+        </div>
+        <p>「店頭にない車種が欲しい」「特定のカラーやグレードを探している」というお客様のために、全国の業者専用オートオークションからぴったりの1台をお探しします。出品票や車両状態シートを事前に確認いただき、納得のいくお車だけを仕入れます。</p>
+        <div class="service-features-list">
+          <div class="feature-item-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>毎週数万台から検索可能</strong><br><small class="text-muted">全国ネットワークから最安・良質車を厳選</small></div>
+          </div>
+          <div class="feature-item-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>ご予算に合わせた明朗見積もり</strong><br><small class="text-muted">仕入れ価格＋手数料の透明な料金設定</small></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Service 3: 車検・定期点検・オイル交換 -->
+      <section id="maintenance" class="service-detail-section">
+        <div class="service-detail-header">
+          <div class="detail-icon-circle"><i class="fa-solid fa-wrench"></i></div>
+          <div>
+            <span class="sub-heading">SERVICE 03</span>
+            <h3 class="service-detail-title">車検・点検・オイル交換</h3>
+          </div>
+        </div>
+        <p>「車検代が高くて困っている」「他店で買った車だけど見てもらえる？」という方も大歓迎！過剰な部品交換はせず、お客様のご予算と車の状態に合わせて必要最低限＋安心の点検プランをご提案します。</p>
+        <div class="service-features-list">
+          <div class="feature-item-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>事前の丁寧な見積もり説明</strong><br><small class="text-muted">勝手に部品交換して高額請求することは絶対にありません</small></div>
+          </div>
+          <div class="feature-item-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>オイル交換だけでも大歓迎</strong><br><small class="text-muted">お出かけ前の空気圧チェックなどもお気軽にどうぞ！</small></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Service 4: キズ・ヘコミ板金修理 -->
+      <section id="repair" class="service-detail-section">
+        <div class="service-detail-header">
+          <div class="detail-icon-circle"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+          <div>
+            <span class="sub-heading">SERVICE 04</span>
+            <h3 class="service-detail-title">キズ・ヘコミ板金修理・塗装</h3>
+          </div>
+        </div>
+        <p>バンパーの擦り傷やドアのヘコミなど、気になるキズをスピーディーに修復。「リサイクルパーツを使って安く直したい」「保険を使って綺麗に直したい」など、ご要望に合わせた柔軟な修理プランをご案内します。</p>
+      </section>
+
+      <!-- Service 5: 愛車の高価買取・下取り -->
+      <section id="buy" class="service-detail-section">
+        <div class="service-detail-header">
+          <div class="detail-icon-circle"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <div>
+            <span class="sub-heading">SERVICE 05</span>
+            <h3 class="service-detail-title">愛車の高価買取・無料廃車手続き</h3>
+          </div>
+        </div>
+        <p>大切に乗られてきた愛車を適正価格でしっかり査定・買取いたします。「10万キロ以上走っている」「年式が古くて他店で0円と言われた」「動かない車がある」という場合も、お気軽にご相談ください。</p>
+      </section>
+
+      <!-- Service 6: オートローン・分割払い -->
+      <section id="loan" class="service-detail-section">
+        <div class="service-detail-header">
+          <div class="detail-icon-circle"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <div>
+            <span class="sub-heading">SERVICE 06</span>
+            <h3 class="service-detail-title">各種オートローン・分割払い</h3>
+          </div>
+        </div>
+        <p>頭金ゼロプランや最長84回払いなど、月々のご負担を抑えた柔軟な返済プランを取り扱っております。パート・アルバイト・自営業などで「ローン審査に通るか不安…」という方も、事前に親身にご相談を承ります。</p>
+      </section>
+
+      <div class="text-center" style="margin-top: 40px;">
+        <a href="contact.html#line" class="btn btn-primary-hero">
+          <i class="fa-brands fa-line"></i> サービスに関するご相談をLINEでする
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-main-inner">
+      <div class="footer-col-brand">
+        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
+        <p class="footer-intro">
+          「車に詳しくなくても大丈夫！」<br>
+          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする街のアットホームな中古車店です。
+        </p>
+        <div class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</p>
+          <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
+          <p><i class="fa-regular fa-clock"></i> 10:00〜19:00（水曜定休）</p>
+        </div>
+      </div>
+      <div class="footer-col-nav">
+        <h4 class="footer-nav-title">サイトマップ</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="about.html">当店について・社長紹介</a></li>
+          <li><a href="stock.html">在庫情報＆注文販売</a></li>
+          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
+          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
+          <li><a href="contact.html">店舗案内・アクセス</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-cta">
+        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
+        <p class="footer-cta-text">LINEまたはお電話でお気軽にご連絡ください。</p>
+        <a href="contact.html#line" class="btn btn-footer-line"><i class="fa-brands fa-line"></i> LINE公式アカウント</a>
+        <a href="tel:000-000-0000" class="footer-tel-link"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="mobile-sticky-bar sp-only">
+    <a href="tel:000-000-0000" class="sticky-btn sticky-tel"><i class="fa-solid fa-phone"></i><span>電話で相談</span></a>
+    <a href="contact.html#line" class="sticky-btn sticky-line"><i class="fa-brands fa-line"></i><span>LINEで在庫相談</span></a>
+  </aside>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileDrawer.classList.toggle('open');
+        document.body.classList.toggle('no-scroll');
+      });
+    }
+  </script>
+</body>
+</html>
