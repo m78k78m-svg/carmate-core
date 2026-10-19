@@ -2233,32 +2233,6 @@ ul, ol {
   display: block;
 }
 
-.btn-video-sound-float {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background: rgba(26, 40, 73, 0.85);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(6px);
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-round);
-  font-size: 0.75rem;
-  font-weight: 800;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 10;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease;
-}
-
-.btn-video-sound-float:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-}
 
 .hero-content-container {
   width: 100%;

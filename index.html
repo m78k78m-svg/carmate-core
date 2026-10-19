@@ -103,18 +103,14 @@
 
       <!-- ==================== SLIDE 1: HERO / TOP ==================== -->
       <section class="slider-slide slide-bg-top slide-hero-slide" id="slide-1">
-        <!-- 1. Full-Width Edge-to-Edge Hero Video (100% Width Autoplay, No Logo) -->
+        <!-- 1. Full-Width Edge-to-Edge Hero Video (Autoplay once, No Sound, Keep Last Frame) -->
         <div class="fullwidth-hero-video-wrap" id="heroVideoStage">
-          <video id="heroVideoPlayer" class="fullwidth-hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
+          <video id="heroVideoPlayer" class="fullwidth-hero-video" autoplay muted playsinline webkit-playsinline preload="auto">
             <source src="videos/hero.mp4" type="video/mp4">
             <source src="videos/gemini_generated_video_d22ae132.mp4" type="video/mp4">
             <source src="videos/hero.mov" type="video/quicktime">
             <source src="videos/hero.webm" type="video/webm">
           </video>
-          <!-- Floating Audio Toggle Button -->
-          <button type="button" class="btn-video-sound-float" id="btnVideoSound" aria-label="音声切替">
-            <i class="fa-solid fa-volume-xmark"></i> <span id="soundText">消音中</span>
-          </button>
         </div>
 
         <div class="container hero-content-container" style="max-width:800px; text-align:center; padding: 16px 20px 20px;">
@@ -428,6 +424,67 @@
       });
     });
 
+    // ================= Hero Video Control (No Sound, No Loop, Replay on Return) =================
+    const heroVideo = document.getElementById('heroVideoPlayer');
+
+    if (heroVideo) {
+      // 1. 完全消音（音は流れない）
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.volume = 0;
+      heroVideo.loop = false; // ループしない
+      heroVideo.playsInline = true;
+      heroVideo.setAttribute('muted', '');
+      heroVideo.setAttribute('playsinline', '');
+      heroVideo.setAttribute('webkit-playsinline', '');
+
+      // 2. 開いた瞬間に1回だけ先頭から自動再生
+      const startPlayback = () => {
+        const promise = heroVideo.play();
+        if (promise !== undefined) {
+          promise.catch(() => {
+            const triggerPlay = () => {
+              heroVideo.play();
+              window.removeEventListener('touchstart', triggerPlay);
+              window.removeEventListener('click', triggerPlay);
+            };
+            window.addEventListener('touchstart', triggerPlay, { passive: true, once: true });
+            window.addEventListener('click', triggerPlay, { passive: true, once: true });
+          });
+        }
+      };
+
+      startPlayback();
+
+      // 3. 動画終了時は最後の画面をそのまま維持（endedイベントで何もしない＝最終フレームで静止維持）
+      heroVideo.addEventListener('ended', () => {
+        // 自然に最後の画面のままキープ
+      });
+
+      // 4. 他のページから戻ってきたとき（ブラウザ戻るボタン等）
+      window.addEventListener('pageshow', () => {
+        heroVideo.currentTime = 0;
+        startPlayback();
+      });
+    }
+
+    // ================= Slide Dots & Scroll-Snap Observer =================
+    const slides = document.querySelectorAll('.slider-slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    const sliderContainer = document.getElementById('sliderContainer');
+    let isSlide1Active = true;
+
+    // Click dot to smooth-scroll into slide
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const targetId = dot.getAttribute('data-target');
+        const targetSlide = document.getElementById(targetId);
+        if (targetSlide) {
+          targetSlide.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
     // Observe which slide is active
     if ('IntersectionObserver' in window && sliderContainer) {
       const observer = new IntersectionObserver((entries) => {
@@ -441,6 +498,17 @@
                 dot.classList.remove('active');
               }
             });
+
+            // 画面を切り替えて、またホーム（スライド1）に戻ったときのみ先頭から再開
+            if (currentId === 'slide-1') {
+              if (!isSlide1Active && heroVideo) {
+                heroVideo.currentTime = 0;
+                heroVideo.play().catch(() => {});
+              }
+              isSlide1Active = true;
+            } else {
+              isSlide1Active = false;
+            }
           }
         });
       }, {
@@ -449,68 +517,6 @@
       });
 
       slides.forEach(slide => observer.observe(slide));
-    }
-
-    // ================= Robust Video Autoplay & Controls =================
-    const heroVideo = document.getElementById('heroVideoPlayer');
-    const btnVideoSound = document.getElementById('btnVideoSound');
-    const soundText = document.getElementById('soundText');
-
-    if (heroVideo) {
-      // Force muted and inline playback for mobile browser policy compliance
-      heroVideo.muted = true;
-      heroVideo.defaultMuted = true;
-      heroVideo.playsInline = true;
-      heroVideo.setAttribute('muted', '');
-      heroVideo.setAttribute('playsinline', '');
-      heroVideo.setAttribute('webkit-playsinline', '');
-
-      const startPlayback = () => {
-        const promise = heroVideo.play();
-        if (promise !== undefined) {
-          promise.catch(() => {
-            // If browser blocks immediate zero-interaction autoplay, kick off on very first tap/touch
-            const triggerPlay = () => {
-              heroVideo.play();
-              window.removeEventListener('touchstart', triggerPlay);
-              window.removeEventListener('click', triggerPlay);
-            };
-            window.addEventListener('touchstart', triggerPlay, { passive: true, once: true });
-            window.addEventListener('click', triggerPlay, { passive: true, once: true });
-          });
-        }
-      };
-
-      // Run on page load and visibility change
-      startPlayback();
-      window.addEventListener('pageshow', startPlayback);
-      document.addEventListener('visibilitychange', () => {
-        if (!document.hidden) startPlayback();
-      });
-
-      if (btnVideoSound) {
-        btnVideoSound.addEventListener('click', (e) => {
-          e.stopPropagation();
-          if (heroVideo.muted) {
-            heroVideo.muted = false;
-            btnVideoSound.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span id="soundText">音声ON</span>';
-            btnVideoSound.style.background = 'var(--primary)';
-          } else {
-            heroVideo.muted = true;
-            btnVideoSound.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> <span id="soundText">消音中</span>';
-            btnVideoSound.style.background = 'rgba(26, 40, 73, 0.85)';
-          }
-        });
-      }
-
-      // Tap video to toggle play/pause
-      heroVideo.addEventListener('click', () => {
-        if (heroVideo.paused) {
-          heroVideo.play();
-        } else {
-          heroVideo.pause();
-        }
-      });
     }
   </script>
 </body>
