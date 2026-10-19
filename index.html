@@ -14,7 +14,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="slider-page-body">
 
   <!-- ==================== SITE HEADER ==================== -->
   <header class="site-header">
@@ -98,11 +98,14 @@
   </header>
 
   <main>
-    <!-- ==================== HERO SECTION (HOMEPAGE BANNER) ==================== -->
-    <section class="hp-hero">
-      <div class="container">
-        <!-- Top Full-Width Welcome Driving Stage (SVG Cartoon Animation) -->
-        <div class="welcome-stage-container" id="welcomeStage">
+    <!-- Vertical Fullpage Scroll-Snap Slider Container -->
+    <div class="vertical-slider-container" id="sliderContainer">
+
+      <!-- ==================== SLIDE 1: HERO / TOP ==================== -->
+      <section class="slider-slide slide-bg-top" id="slide-1">
+        <div class="container" style="max-width:800px; text-align:center;">
+          <!-- Top Full-Width Welcome Driving Stage (SVG Cartoon Animation) -->
+          <div class="welcome-stage-container" id="welcomeStage">
           <!-- 1. Full-Width HD Logo Banner (Expands on Car Brake) -->
           <div class="fullwidth-logo-banner">
             <div class="logo-shine-wrap">
@@ -370,786 +373,252 @@
               <i class="fa-brands fa-line"></i> LINEで在庫・お車相談
             </a>
           </div>
-          <!-- App-Style Slide-Up Hint Pill -->
-          <div class="hero-slide-hint-pill" id="heroSlideHint" role="button" tabindex="0">
-            <span class="pill-arrow"><i class="fa-solid fa-chevron-up"></i></span>
-            <span class="pill-text">下から上にスライドでクイックメニュー展開</span>
-          </div>
-        </div>
-
-        <div class="hero-visual-block">
-          <div class="hero-badge-card">
-            <div class="card-corner-ribbon">地域密着</div>
-            <div class="owner-illustration-wrap">
-              <div class="owner-icon-circle">
-                <i class="fa-solid fa-user-tie"></i>
-              </div>
-              <div class="owner-bubble">
-                <p>「大手さんでは聞きづらい小さなことでも、何でも気軽に相談してくださいね！」</p>
-                <span class="bubble-sign">— 代表（社長）</span>
-              </div>
-            </div>
-            <div class="hero-stats-grid">
-              <div class="stat-item">
-                <span class="stat-label">押し売り</span>
-                <span class="stat-value">0%</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-label">総額表示</span>
-                <span class="stat-value">100%</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-label">親身さ</span>
-                <span class="stat-value">全力!</span>
-              </div>
-            </div>
-          </div>
+          <!-- Slide Down Indicator Arrow -->
+          <a href="#slide-2" class="slide-down-indicator" aria-label="在庫情報へスライド">
+            <span>スライドして次へ</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- ==================== NEWS TICKER ==================== -->
-    <div class="news-ticker-section">
-      <div class="container news-ticker-inner">
-        <div class="news-badge"><i class="fa-solid fa-bullhorn"></i> お知らせ</div>
-        <div class="news-content">
-          <span class="news-date">2026.10.15</span>
-          <a href="stock.html" class="news-link">【新着在庫】大人気の軽自動車・コンパクトカーが新入荷しました！詳しくはこちら</a>
+      <!-- ==================== SLIDE 2: STOCK CARS ==================== -->
+      <section class="slider-slide slide-bg-warm" id="slide-2">
+        <div class="slide-card-wrap">
+          <span class="slide-badge-title">STOCK CARS</span>
+          <h2 class="slide-main-title">厳選した良質中古車</h2>
+          <p class="slide-lead-text">手頃な軽自動車からファミリーカーまで、全車総額明朗会計＆安心自社点検済み！</p>
+          
+          <div class="slide-grid-3">
+            <div class="slide-grid-item">
+              <span style="background:var(--primary); color:#fff; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:999px;">軽自動車</span>
+              <h4>ホンダ N-BOX / タント等</h4>
+              <p>通勤・子育てに一番人気のスライドドア軽</p>
+              <div class="item-price">総額 58万円〜</div>
+            </div>
+            <div class="slide-grid-item">
+              <span style="background:#3182CE; color:#fff; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:999px;">コンパクト</span>
+              <h4>トヨタ アクア / ノート等</h4>
+              <p>低燃費＆取り回し抜群の定番ハイブリッド</p>
+              <div class="item-price">総額 65万円〜</div>
+            </div>
+            <div class="slide-grid-item">
+              <span style="background:#38A169; color:#fff; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:999px;">ミニバン</span>
+              <h4>セレナ / ヴォクシー等</h4>
+              <p>家族みんなで広々お出かけできる3列シート</p>
+              <div class="item-price">総額 88万円〜</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a href="stock.html" class="btn btn-primary" style="padding:10px 24px; font-size:0.92rem;">
+              <i class="fa-solid fa-car"></i> 在庫一覧を詳しく見る <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <a href="#slide-3" class="slide-down-indicator" aria-label="注文販売へスライド">
+            <span>スライドして次へ</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
         </div>
-        <a href="stock.html" class="news-more pc-only">一覧を見る <i class="fa-solid fa-chevron-right"></i></a>
-      </div>
-    </div>
+      </section>
 
-    <!-- ==================== APP-STYLE QUICK INTERACTIVE TABS ==================== -->
-    <section class="app-tabs-section section-space bg-warm">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="sub-heading">QUICK FIND</span>
-          <h2 class="main-heading">ワンタップでサクサク探せる</h2>
-          <p class="heading-lead">知りたい情報をタップしてすぐ切り替えられます</p>
+      <!-- ==================== SLIDE 3: CUSTOM ORDER ==================== -->
+      <section class="slider-slide slide-bg-white" id="slide-3">
+        <div class="slide-card-wrap">
+          <span class="slide-badge-title" style="background:#EBF8FF; color:#3182CE; border-color:#BEE3F8;">ORDER SYSTEM</span>
+          <h2 class="slide-main-title">全国オークション注文販売</h2>
+          <p class="slide-lead-text">「この色が欲しい」「予算〇〇万円以内で」店頭にないお車でも、店主が全国会場から厳選して直接仕入れます！</p>
+
+          <div class="slide-card-box">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:left; margin-bottom:14px;">
+              <div style="background:var(--bg-warm); padding:12px; border-radius:var(--radius-md);">
+                <strong style="color:var(--navy); font-size:0.9rem;"><i class="fa-solid fa-shield-halved" style="color:#3182CE;"></i> 修復歴なし厳選</strong>
+                <p style="font-size:0.75rem; color:var(--muted-text); margin-top:2px;">プロの確かな目利きで、長く乗れる状態の良い車だけを厳選。</p>
+              </div>
+              <div style="background:var(--bg-warm); padding:12px; border-radius:var(--radius-md);">
+                <strong style="color:var(--navy); font-size:0.9rem;"><i class="fa-solid fa-tags" style="color:#3182CE;"></i> 直販価格で安心</strong>
+                <p style="font-size:0.75rem; color:var(--muted-text); margin-top:2px;">無駄な在庫保管コストをカットし、リーズナブルな価格でお届け。</p>
+              </div>
+            </div>
+            <a href="contact.html#line" class="btn btn-line-hero" style="padding:10px 24px; font-size:0.92rem; width:100%;">
+              <i class="fa-brands fa-line"></i> LINEで希望の車を相談する
+            </a>
+          </div>
+
+          <a href="#slide-4" class="slide-down-indicator" aria-label="サービス案内へスライド">
+            <span>スライドして次へ</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
         </div>
+      </section>
 
-        <div class="app-tabs-wrap">
-          <!-- Tab Navigation Buttons -->
-          <div class="app-tab-buttons" role="tablist">
-            <button type="button" class="tab-btn active" data-tab="tab-stock" role="tab" aria-selected="true">
-              <i class="fa-solid fa-car"></i> 人気の軽・良質車
-            </button>
-            <button type="button" class="tab-btn" data-tab="tab-order" role="tab" aria-selected="false">
-              <i class="fa-solid fa-magnifying-glass"></i> 全国注文販売
-            </button>
-            <button type="button" class="tab-btn" data-tab="tab-service" role="tab" aria-selected="false">
-              <i class="fa-solid fa-wrench"></i> 車検・高価買取
-            </button>
-            <button type="button" class="tab-btn" data-tab="tab-about" role="tab" aria-selected="false">
-              <i class="fa-solid fa-handshake"></i> 親身なアットホーム
-            </button>
-          </div>
 
-          <!-- Panel 1: Stock Cars -->
-          <div class="tab-content-panel active" id="tab-stock" role="tabpanel">
-            <div class="tab-card-body" style="background:var(--white); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); border:1px solid var(--border-warm);">
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
-                <div>
-                  <h3 style="font-family:var(--font-round); font-size:1.25rem; font-weight:800; color:var(--navy); margin-bottom:4px;">
-                    <i class="fa-solid fa-car" style="color:var(--primary);"></i> 厳選した良質中古車（総額明朗会計）
-                  </h3>
-                  <p style="font-size:0.85rem; color:var(--muted-text);">予算50万前後の手頃な軽自動車からファミリー向けミニバンまで多数！</p>
-                </div>
-                <a href="stock.html" class="btn btn-primary" style="padding:8px 18px; font-size:0.85rem;">全在庫を見る <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:14px;">
-                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
-                  <span style="background:var(--primary); color:#fff; font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:999px;">軽自動車</span>
-                  <h4 style="font-family:var(--font-round); font-size:1rem; margin:8px 0 4px; color:var(--navy);">ホンダ N-BOX / タント等</h4>
-                  <p style="font-size:0.8rem; color:var(--body-text);">スライドドアで子育て・通勤に大人気</p>
-                  <div style="font-family:var(--font-round); font-weight:900; color:var(--primary-dark); font-size:1.1rem; margin-top:8px;">支払総額 58万円〜</div>
-                </div>
-                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
-                  <span style="background:#3182CE; color:#fff; font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:999px;">コンパクト</span>
-                  <h4 style="font-family:var(--font-round); font-size:1rem; margin:8px 0 4px; color:var(--navy);">トヨタ アクア / ノート等</h4>
-                  <p style="font-size:0.8rem; color:var(--body-text);">低燃費＆取り回し抜群の定番人気車</p>
-                  <div style="font-family:var(--font-round); font-weight:900; color:var(--primary-dark); font-size:1.1rem; margin-top:8px;">支払総額 65万円〜</div>
-                </div>
-                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
-                  <span style="background:#38A169; color:#fff; font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:999px;">ミニバン</span>
-                  <h4 style="font-family:var(--font-round); font-size:1rem; margin:8px 0 4px; color:var(--navy);">セレナ / ヴォクシー等</h4>
-                  <p style="font-size:0.8rem; color:var(--body-text);">広々3列シートで家族ドライブに最適</p>
-                  <div style="font-family:var(--font-round); font-weight:900; color:var(--primary-dark); font-size:1.1rem; margin-top:8px;">支払総額 88万円〜</div>
-                </div>
-              </div>
+      <!-- ==================== SLIDE 4: SERVICES ==================== -->
+      <section class="slider-slide slide-bg-warm" id="slide-4">
+        <div class="slide-card-wrap">
+          <span class="slide-badge-title">SERVICES</span>
+          <h2 class="slide-main-title">車検・整備・愛車高価買取</h2>
+          <p class="slide-lead-text">購入後のアフターケアから愛車の手放しまで、街のかかりつけ医としてトータルサポート！</p>
+
+          <div class="slide-grid-2x2">
+            <div class="slide-grid-item">
+              <i class="fa-solid fa-wrench" style="color:var(--primary); font-size:1.4rem;"></i>
+              <h4>安心の車検・点検</h4>
+              <p>不要な部品交換ゼロ。明朗見積もりで安心点検。</p>
+            </div>
+            <div class="slide-grid-item">
+              <i class="fa-solid fa-hand-holding-dollar" style="color:var(--primary); font-size:1.4rem;"></i>
+              <h4>愛車の高価買取</h4>
+              <p>直販店だから中間マージンを還元して高額査定。</p>
+            </div>
+            <div class="slide-grid-item">
+              <i class="fa-solid fa-spray-can-sparkles" style="color:var(--primary); font-size:1.4rem;"></i>
+              <h4>キズ・ヘコミ板金</h4>
+              <p>ちょっとした擦り傷も予算に合わせて綺麗に修復。</p>
+            </div>
+            <div class="slide-grid-item">
+              <i class="fa-solid fa-file-invoice-dollar" style="color:var(--primary); font-size:1.4rem;"></i>
+              <h4>オートローン・保険</h4>
+              <p>頭金0円・審査が不安な方も親身にサポート。</p>
             </div>
           </div>
 
-          <!-- Panel 2: Custom Order -->
-          <div class="tab-content-panel" id="tab-order" role="tabpanel">
-            <div class="tab-card-body" style="background:var(--white); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); border:1px solid var(--border-warm);">
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
-                <div>
-                  <h3 style="font-family:var(--font-round); font-size:1.25rem; font-weight:800; color:var(--navy); margin-bottom:4px;">
-                    <i class="fa-solid fa-magnifying-glass" style="color:#3182CE;"></i> 全国オークションから希望の1台を探す
-                  </h3>
-                  <p style="font-size:0.85rem; color:var(--muted-text);">「この色がいい」「予算〇〇万円以内で」など、店主が直接オークションから仕入れます！</p>
-                </div>
-                <a href="contact.html#line" class="btn btn-line-hero" style="padding:8px 18px; font-size:0.85rem;"><i class="fa-brands fa-line"></i> LINEで探してもらう</a>
-              </div>
-              <div style="background:#F7FAFC; border-radius:var(--radius-md); padding:16px; border:1px dashed #CBD5E0;">
-                <p style="font-size:0.88rem; color:var(--body-text); line-height:1.7;">
-                  毎週数万台が出品される全国の中古車オークション会場から、プロの目利きで修復歴なし・状態の良いクルマを直接セレクト。店頭にないお車でも妥協せずにお届けできます。
-                </p>
-              </div>
-            </div>
+          <div style="margin-top:14px;">
+            <a href="service.html" class="btn btn-outline-orange" style="padding:10px 24px; font-size:0.92rem;">
+              サービス詳細・料金案内を見る <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
 
-          <!-- Panel 3: Services -->
-          <div class="tab-content-panel" id="tab-service" role="tabpanel">
-            <div class="tab-card-body" style="background:var(--white); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); border:1px solid var(--border-warm);">
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
-                <div>
-                  <h3 style="font-family:var(--font-round); font-size:1.25rem; font-weight:800; color:var(--navy); margin-bottom:4px;">
-                    <i class="fa-solid fa-wrench" style="color:#38A169;"></i> 車検・整備点検・愛車買取
-                  </h3>
-                  <p style="font-size:0.85rem; color:var(--muted-text);">買っていただいた後も安心。地域のかかりつけ車屋さんとしてサポート！</p>
-                </div>
-                <a href="service.html" class="btn btn-outline" style="padding:8px 18px; font-size:0.85rem;">サービス詳細 <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md);">
-                  <strong style="color:var(--navy); font-size:0.95rem;"><i class="fa-solid fa-clipboard-check" style="color:var(--primary);"></i> 安心の車検整備</strong>
-                  <p style="font-size:0.8rem; color:var(--muted-text); margin-top:4px;">事前の見積もりで不要な部品交換は一切なし。明朗価格で安心です。</p>
-                </div>
-                <div style="background:var(--bg-warm); padding:14px; border-radius:var(--radius-md);">
-                  <strong style="color:var(--navy); font-size:0.95rem;"><i class="fa-solid fa-hand-holding-dollar" style="color:var(--primary);"></i> 高価買取・下取り</strong>
-                  <p style="font-size:0.8rem; color:var(--muted-text); margin-top:4px;">中間マージンをカットした直販店だからこその高額査定をご提示します。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Panel 4: About Us -->
-          <div class="tab-content-panel" id="tab-about" role="tabpanel">
-            <div class="tab-card-body" style="background:var(--white); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-sm); border:1px solid var(--border-warm);">
-              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
-                <div>
-                  <h3 style="font-family:var(--font-round); font-size:1.25rem; font-weight:800; color:var(--navy); margin-bottom:4px;">
-                    <i class="fa-solid fa-handshake" style="color:var(--primary);"></i> 押し売りゼロ、親身＆アットホーム
-                  </h3>
-                  <p style="font-size:0.85rem; color:var(--muted-text);">車に詳しくない方、女性やお年寄りも安心してお越しください。</p>
-                </div>
-                <a href="about.html" class="btn btn-outline" style="padding:8px 18px; font-size:0.85rem;">社長紹介を見る <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-              <p style="font-size:0.88rem; color:var(--body-text); line-height:1.7;">
-                「大手中古車店だと緊張する…」「予算が少ないと相手にされないかも…」そんな心配は一切無用です。Car Mate Coreはお客様の味方として、本当に納得できる車選びを誠心誠意お手伝いします。
-              </p>
-            </div>
-          </div>
+          <a href="#slide-5" class="slide-down-indicator" aria-label="当店についてへスライド">
+            <span>スライドして次へ</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ==================== ABOUT SUMMARY SECTION ==================== -->
-    <section class="about-summary section-space">
-      <div class="container">
-        <div class="summary-card">
-          <div class="summary-header text-center">
-            <span class="sub-heading">ABOUT US</span>
-            <h2 class="main-heading">Car Mate Coreが大切にしていること</h2>
-            <p class="heading-lead">「自分の家族に乗せたい車かどうか」それだけを基準に厳選しています</p>
-          </div>
-          <div class="summary-body">
-            <div class="summary-text">
-              <p>
-                Car Mate Core（カーメイト コア）のホームページへようこそ！<br>
-                当店は、大手中古車店のような派手なショールームや大量販売の仕組みはありません。その代わり、<strong>「お客様一人ひとりとじっくり向き合い、ご予算と暮らしに本当に合った1台をトコトン親身に探すこと」</strong>を何よりも大切にしています。
-              </p>
-              <p>
-                「車に詳しくない」「予算が少ないから恥ずかしい」「強引な営業をされたら嫌だな」という方にこそ、安心して頼っていただけるお店でありたいと考えています。
-              </p>
-              <div class="summary-points">
-                <div class="point-box">
-                  <div class="point-num">01</div>
-                  <h4>強引な営業は一切なし</h4>
-                  <p>お客様の生活に合わない車は、プロとして「やめた方がいい」と正直にお伝えします。</p>
-                </div>
-                <div class="point-box">
-                  <div class="point-num">02</div>
-                  <h4>不透明な諸費用ゼロ</h4>
-                  <p>税金・整備・諸費用をすべて含んだ「安心の総額明示」を徹底しています。</p>
-                </div>
-                <div class="point-box">
-                  <div class="point-num">03</div>
-                  <h4>買ってからも安心</h4>
-                  <p>日頃のオイル交換、点検、車検、急なトラブルも地域のかかりつけ医として対応します。</p>
+      <!-- ==================== SLIDE 5: ABOUT US ==================== -->
+      <section class="slider-slide slide-bg-white" id="slide-5">
+        <div class="slide-card-wrap">
+          <span class="slide-badge-title" style="background:#FEFCBF; color:#B7791F; border-color:#FBD38D;">ABOUT US</span>
+          <h2 class="slide-main-title">車に詳しくなくても安心</h2>
+          <p class="slide-lead-text">「自分の家族に乗せたい車かどうか」それだけを基準に厳選。押し売りゼロ、とことん親身なお店です。</p>
+
+          <div class="slide-card-box">
+            <div style="display:flex; flex-direction:column; gap:10px; text-align:left; margin-bottom:14px;">
+              <div style="display:flex; align-items:flex-start; gap:10px;">
+                <div style="background:var(--primary); color:#fff; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:900; flex-shrink:0; margin-top:2px;">1</div>
+                <div>
+                  <strong style="color:var(--navy); font-size:0.9rem;">強引な営業・押し売りは一切なし</strong>
+                  <p style="font-size:0.78rem; color:var(--muted-text); margin:2px 0 0;">お客様の生活に合わない車は、プロとして正直にお伝えします。</p>
                 </div>
               </div>
-              <div class="text-center summary-btn-wrap">
-                <a href="about.html" class="btn btn-outline-orange">
-                  当店について・社長メッセージを詳しく見る <i class="fa-solid fa-arrow-right"></i>
+              <div style="display:flex; align-items:flex-start; gap:10px;">
+                <div style="background:var(--primary); color:#fff; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:900; flex-shrink:0; margin-top:2px;">2</div>
+                <div>
+                  <strong style="color:var(--navy); font-size:0.9rem;">税金・整備コミの総額表示を徹底</strong>
+                  <p style="font-size:0.78rem; color:var(--muted-text); margin:2px 0 0;">不明瞭なオプションや不当な諸費用の上乗せは一切ありません。</p>
+                </div>
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px;">
+                <div style="background:var(--primary); color:#fff; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:900; flex-shrink:0; margin-top:2px;">3</div>
+                <div>
+                  <strong style="color:var(--navy); font-size:0.9rem;">買ってからもずっと寄り添う相談窓口</strong>
+                  <p style="font-size:0.78rem; color:var(--muted-text); margin:2px 0 0;">納車後の小さな疑問やメンテナンスもLINE一本で社長直通対応。</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="about.html" class="btn btn-primary" style="padding:10px 24px; font-size:0.92rem; width:100%;">
+              <i class="fa-solid fa-user-tie"></i> 社長紹介・こだわりを見る <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <a href="#slide-6" class="slide-down-indicator" aria-label="店舗案内へスライド">
+            <span>スライドして次へ</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 6: SHOP & CONTACT ==================== -->
+      <section class="slider-slide slide-bg-warm" id="slide-6">
+        <div class="slide-card-wrap">
+          <span class="slide-badge-title">SHOP & ACCESS</span>
+          <h2 class="slide-main-title">店舗案内・お問い合わせ</h2>
+          <p class="slide-lead-text">在庫確認、お車探しのご相談、買取査定など、いつでもお気軽にお声がけください！</p>
+
+          <div class="slide-card-box" style="text-align:left;">
+            <table class="shop-info-table" style="font-size:0.82rem; margin-bottom:14px;">
+              <tr>
+                <th style="padding:6px 10px; width:75px;">店名</th>
+                <td style="padding:6px 10px;">Car Mate Core（カーメイト コア）</td>
+              </tr>
+              <tr>
+                <th style="padding:6px 10px;">所在地</th>
+                <td style="padding:6px 10px;">〒000-0000 〇〇県〇〇市〇〇町1-2-3<br><small class="text-muted">（お客様専用駐車場完備）</small></td>
+              </tr>
+              <tr>
+                <th style="padding:6px 10px;">営業時間</th>
+                <td style="padding:6px 10px;">10:00〜19:00（水曜定休）</td>
+              </tr>
+              <tr>
+                <th style="padding:6px 10px;">電話</th>
+                <td style="padding:6px 10px;"><a href="tel:000-000-0000" class="link-tel" style="color:var(--navy); font-weight:800;">000-000-0000</a></td>
+              </tr>
+            </table>
+
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line-hero" style="padding:11px 20px; font-size:0.92rem; width:100%; justify-content:center;">
+                <i class="fa-brands fa-line"></i> LINEで24時間在庫・来店相談
+              </a>
+              <div style="display:flex; gap:8px;">
+                <a href="tel:000-000-0000" class="btn btn-tel-banner" style="flex:1; padding:9px 12px; font-size:0.85rem; justify-content:center;">
+                  <i class="fa-solid fa-phone"></i> 電話をかける
+                </a>
+                <a href="contact.html" class="btn btn-outline" style="flex:1; padding:9px 12px; font-size:0.85rem; justify-content:center;">
+                  アクセスマップ <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
             </div>
           </div>
+
+          <p style="font-size:0.75rem; color:var(--muted-text); margin-top:12px;">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ==================== FEATURED INVENTORY ==================== -->
-    <section class="featured-inventory section-space bg-warm">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="sub-heading">INVENTORY</span>
-          <h2 class="main-heading">おすすめ・新着在庫車両</h2>
-          <p class="heading-lead">軽自動車・ファミリーカー・低価格車まで、自社点検済みの良質車をラインナップ</p>
-        </div>
-
-        <div class="car-cards-grid">
-          <!-- Car 1: 軽自動車 -->
-          <article class="car-card">
-            <div class="car-card-badge badge-kei">人気の軽自動車</div>
-            <div class="car-card-image">
-              <div class="car-img-placeholder">
-                <i class="fa-solid fa-car"></i>
-                <span>車両写真準備中</span>
-              </div>
-            </div>
-            <div class="car-card-body">
-              <span class="car-maker">ダイハツ</span>
-              <h3 class="car-model-name">タント カスタム X</h3>
-              <div class="car-specs">
-                <span>年式: 2018年</span>
-                <span>走行: 4.8万km</span>
-                <span>車検: 整備付</span>
-              </div>
-              <div class="car-price-row">
-                <div class="price-item">
-                  <span class="price-title">支払総額（税込）</span>
-                  <span class="price-num">58.8<small>万円</small></span>
-                </div>
-                <div class="price-sub">車両本体 50万円</div>
-              </div>
-              <ul class="car-equipment">
-                <li><i class="fa-solid fa-circle-check"></i> 両側パワースライドドア</li>
-                <li><i class="fa-solid fa-circle-check"></i> ナビ・バックカメラ・ETC</li>
-              </ul>
-              <a href="contact.html#line" class="btn btn-car-inquiry">
-                <i class="fa-brands fa-line"></i> この車の在庫・状態を聞く
-              </a>
-            </div>
-          </article>
-
-          <!-- Car 2: ファミリーカー -->
-          <article class="car-card">
-            <div class="car-card-badge badge-family">ファミリーに最適</div>
-            <div class="car-card-image">
-              <div class="car-img-placeholder">
-                <i class="fa-solid fa-van-shuttle"></i>
-                <span>車両写真準備中</span>
-              </div>
-            </div>
-            <div class="car-card-body">
-              <span class="car-maker">日産</span>
-              <h3 class="car-model-name">セレナ ハイウェイスター</h3>
-              <div class="car-specs">
-                <span>年式: 2017年</span>
-                <span>走行: 6.2万km</span>
-                <span>車検: 2年付</span>
-              </div>
-              <div class="car-price-row">
-                <div class="price-item">
-                  <span class="price-title">支払総額（税込）</span>
-                  <span class="price-num">89.8<small>万円</small></span>
-                </div>
-                <div class="price-sub">車両本体 78万円</div>
-              </div>
-              <ul class="car-equipment">
-                <li><i class="fa-solid fa-circle-check"></i> プロパイロット搭載</li>
-                <li><i class="fa-solid fa-circle-check"></i> 後席フリップダウンモニター</li>
-              </ul>
-              <a href="contact.html#line" class="btn btn-car-inquiry">
-                <i class="fa-brands fa-line"></i> この車の在庫・状態を聞く
-              </a>
-            </div>
-          </article>
-
-          <!-- Car 3: 低価格車 -->
-          <article class="car-card">
-            <div class="car-card-badge badge-lowprice">すぐ乗れるお値打ち車</div>
-            <div class="car-card-image">
-              <div class="car-img-placeholder">
-                <i class="fa-solid fa-tags"></i>
-                <span>車両写真準備中</span>
-              </div>
-            </div>
-            <div class="car-card-body">
-              <span class="car-maker">スズキ</span>
-              <h3 class="car-model-name">ワゴンR FXリミテッド</h3>
-              <div class="car-specs">
-                <span>年式: 2015年</span>
-                <span>走行: 7.1万km</span>
-                <span>車検: 整備付</span>
-              </div>
-              <div class="car-price-row">
-                <div class="price-item">
-                  <span class="price-title">支払総額（税込）</span>
-                  <span class="price-num">29.8<small>万円</small></span>
-                </div>
-                <div class="price-sub">車両本体 23万円</div>
-              </div>
-              <ul class="car-equipment">
-                <li><i class="fa-solid fa-circle-check"></i> スマートキー・プッシュスタート</li>
-                <li><i class="fa-solid fa-circle-check"></i> 点検整備済み・即納可能</li>
-              </ul>
-              <a href="contact.html#line" class="btn btn-car-inquiry">
-                <i class="fa-brands fa-line"></i> この車の在庫・状態を聞く
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <!-- Custom Order Banner -->
-        <div class="order-banner">
-          <div class="order-banner-content">
-            <span class="banner-badge"><i class="fa-solid fa-magnifying-glass"></i> 店頭にないお車もお任せください！</span>
-            <h3 class="banner-title">全国オークションから「ご希望の1台」をお探しします（注文販売）</h3>
-            <p class="banner-desc">
-              「この色・グレードに乗りたい」「総額〇〇万円以内で状態が良い軽を探してほしい」など、ご希望をお聞かせください。毎週数万台の中から店主が厳選してご提案します。
-            </p>
-          </div>
-          <div class="banner-action">
-            <a href="stock.html" class="btn btn-banner-action">
-              在庫・注文販売の詳細を見る <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SERVICES SECTION ==================== -->
-    <section class="services-section section-space">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="sub-heading">OUR SERVICES</span>
-          <h2 class="main-heading">Car Mate Coreのサービス</h2>
-          <p class="heading-lead">お車の購入から、日常の点検・車検・万が一の修理、愛車の手放しまでトータルサポート</p>
-        </div>
-
-        <div class="services-grid">
-          <!-- Service 1 -->
-          <div class="service-card">
-            <div class="service-icon"><i class="fa-solid fa-car-side"></i></div>
-            <h3 class="service-name">中古車・新車販売</h3>
-            <p class="service-text">軽自動車からファミリーカー、低価格良質車まで。総額表示で安心して選べる厳選中古車を取り揃えています。</p>
-            <a href="service.html#sales" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-
-          <!-- Service 2 -->
-          <div class="service-card">
-            <div class="service-icon"><i class="fa-solid fa-magnifying-glass-location"></i></div>
-            <h3 class="service-name">全国オークション注文販売</h3>
-            <p class="service-text">全国の業者専用オークションから、お客様のご予算と条件にぴったり合う1台をプロの目利きで仕入れます。</p>
-            <a href="service.html#order" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-
-          <!-- Service 3 -->
-          <div class="service-card">
-            <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
-            <h3 class="service-name">車検・点検・オイル交換</h3>
-            <p class="service-text">購入後のメンテナンスもお任せください。親身で分かりやすい説明と良心的な価格でしっかり点検いたします。</p>
-            <a href="service.html#maintenance" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-
-          <!-- Service 4 -->
-          <div class="service-card">
-            <div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-            <h3 class="service-name">キズ・ヘコミ板金修理</h3>
-            <p class="service-text">うっかり擦ってしまったキズやヘコミもきれいに修復。ご予算に応じた最適な修理方法をご提案します。</p>
-            <a href="service.html#repair" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-
-          <!-- Service 5 -->
-          <div class="service-card">
-            <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-            <h3 class="service-name">愛車の高価買取・下取り</h3>
-            <p class="service-text">大手買取店で値段がつかなかった古いお車や走行距離の多い車でも、しっかり査定してお引き取りします。</p>
-            <a href="service.html#buy" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-
-          <!-- Service 6 -->
-          <div class="service-card">
-            <div class="service-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-            <h3 class="service-name">各種オートローン・保険</h3>
-            <p class="service-text">頭金ゼロからの分割払いや月々の支払いを抑えるプランをご提案。ローン審査がご不安な方もご相談ください。</p>
-            <a href="service.html#loan" class="service-link">詳しく見る <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== FLOW SUMMARY ==================== -->
-    <section class="flow-summary section-space bg-warm">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="sub-heading">FLOW</span>
-          <h2 class="main-heading">お車選びから納車までの流れ</h2>
-          <p class="heading-lead">初めての方でも安心！4つの簡単ステップで納車までしっかりサポートします</p>
-        </div>
-
-        <div class="flow-steps-grid">
-          <div class="flow-step-item">
-            <div class="step-badge">STEP 01</div>
-            <div class="step-icon-wrap"><i class="fa-solid fa-comments"></i></div>
-            <h4>ご相談・お問い合わせ</h4>
-            <p>LINE・お電話・ご来店にて、ご希望の車種やご予算をお気軽にお聞かせください。</p>
-          </div>
-
-          <div class="flow-step-item">
-            <div class="step-badge">STEP 02</div>
-            <div class="step-icon-wrap"><i class="fa-solid fa-car-on"></i></div>
-            <h4>現車確認・ご提案</h4>
-            <p>店頭の車をじっくりご覧いただくか、注文販売の場合は条件に合う車をご提案します。</p>
-          </div>
-
-          <div class="flow-step-item">
-            <div class="step-badge">STEP 03</div>
-            <div class="step-icon-wrap"><i class="fa-solid fa-file-signature"></i></div>
-            <h4>お見積もり・ご契約</h4>
-            <p>総額費用を明確にご提示。ご納得いただいた上でご契約手続きに進みます。</p>
-          </div>
-
-          <div class="flow-step-item">
-            <div class="step-badge">STEP 04</div>
-            <div class="step-icon-wrap"><i class="fa-solid fa-key"></i></div>
-            <h4>徹底点検・ご納車</h4>
-            <p>納車前点検・消耗品交換・ルームクリーニングを徹底して行い、安心の笑顔でお渡しします。</p>
-          </div>
-        </div>
-
-        <div class="text-center" style="margin-top: 36px;">
-          <a href="flow.html" class="btn btn-outline-orange">
-            ご購入の流れ・安心保証の詳細はこちら <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== CONTACT / LINE CTA BANNER ==================== -->
-    <section class="hp-cta-banner section-space">
-      <div class="container">
-        <div class="cta-banner-box">
-          <div class="cta-badge"><i class="fa-brands fa-line"></i> 24時間いつでも受付中</div>
-          <h2 class="cta-banner-title">お車の相談・在庫のお問い合わせは<br>公式LINEからお気軽にどうぞ！</h2>
-          <p class="cta-banner-desc">
-            「こんな車ある？」「予算〇〇万円で探せる？」「今乗っている車いくらで売れる？」など、<br class="pc-only">
-            友だち追加してメッセージを送るだけ！店主が親身にお返事いたします。
-          </p>
-          <div class="cta-banner-buttons">
-            <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line-banner">
-              <i class="fa-brands fa-line"></i> LINEで在庫確認・無料相談
-            </a>
-            <a href="tel:000-000-0000" class="btn btn-tel-banner">
-              <i class="fa-solid fa-phone"></i> 000-000-0000
-            </a>
-          </div>
-          <p class="cta-banner-note"><i class="fa-solid fa-lock"></i> しつこい営業連絡や押し売りは一切いたしませんのでご安心ください。</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SHOP INFO & ACCESS ==================== -->
-    <section class="hp-shop-info section-space bg-warm">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="sub-heading">SHOP & ACCESS</span>
-          <h2 class="main-heading">店舗案内・アクセス</h2>
-        </div>
-
-        <div class="shop-grid">
-          <div class="shop-table-card">
-            <table class="shop-info-table">
-              <tr>
-                <th>店名</th>
-                <td>Car Mate Core（カーメイト コア）</td>
-              </tr>
-              <tr>
-                <th>代表者</th>
-                <td>代表（社長）</td>
-              </tr>
-              <tr>
-                <th>所在地</th>
-                <td>〒000-0000 〇〇県〇〇市〇〇町1-2-3<br><small class="text-muted">※最寄り駅より車で5分／お客様専用駐車場完備</small></td>
-              </tr>
-              <tr>
-                <th>電話番号</th>
-                <td><a href="tel:000-000-0000" class="link-tel">000-000-0000</a></td>
-              </tr>
-              <tr>
-                <th>営業時間</th>
-                <td>10:00〜19:00</td>
-              </tr>
-              <tr>
-                <th>定休日</th>
-                <td>水曜日（事前にご連絡いただければ時間外や定休日も柔軟に対応します）</td>
-              </tr>
-              <tr>
-                <th>事業内容</th>
-                <td>中古車・新車販売、オークション注文販売、車検・点検・整備、板金修理、愛車買取、オートローン</td>
-              </tr>
-              <tr>
-                <th>古物商許可</th>
-                <td>〇〇県公安委員会 第000000000000号</td>
-              </tr>
-            </table>
-          </div>
-          <div class="shop-map-card">
-            <div class="map-placeholder-box">
-              <i class="fa-solid fa-location-dot fa-3x"></i>
-              <p>Googleマップ埋め込みスペース<br><small>※実際の店舗住所に合わせてiframeマップを設置できます</small></p>
-            </div>
-            <div class="shop-access-guide">
-              <h4><i class="fa-solid fa-car"></i> お車でお越しの方へ</h4>
-              <p>店舗敷地内にお客様専用駐車場がございます。お気軽にお停めください。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <!-- ==================== SITE FOOTER ==================== -->
-  <footer class="site-footer">
-    <div class="container footer-main-inner">
-      <div class="footer-col-brand">
-        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
-        <p class="footer-intro">
-          「車に詳しくなくても大丈夫！」<br>
-          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする街のアットホームな中古車店です。
-        </p>
-        <div class="footer-contact-info">
-          <p><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</p>
-          <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
-          <p><i class="fa-regular fa-clock"></i> 10:00〜19:00（水曜定休）</p>
-        </div>
-      </div>
+  <!-- ==================== VERTICAL SLIDE DOTS NAVIGATION ==================== -->
+  <nav class="slide-dots-nav" id="slideDotsNav" aria-label="スライド切り替えナビゲーション">
+    <button class="slide-dot active" data-target="slide-1" aria-label="スライド1：トップ"></button>
+    <button class="slide-dot" data-target="slide-2" aria-label="スライド2：厳選中古車"></button>
+    <button class="slide-dot" data-target="slide-3" aria-label="スライド3：注文販売"></button>
+    <button class="slide-dot" data-target="slide-4" aria-label="スライド4：サービス"></button>
+    <button class="slide-dot" data-target="slide-5" aria-label="スライド5：当店について"></button>
+    <button class="slide-dot" data-target="slide-6" aria-label="スライド6：店舗案内"></button>
+  </nav>
 
-      <div class="footer-col-nav">
-        <h4 class="footer-nav-title">サイトマップ</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="about.html">当店について・社長紹介</a></li>
-          <li><a href="stock.html">在庫情報＆注文販売</a></li>
-          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
-          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
-          <li><a href="contact.html">店舗案内・アクセス</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col-cta">
-        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
-        <p class="footer-cta-text">在庫確認、お車探しのご相談、買取査定など、LINEまたはお電話でお気軽にご連絡ください。</p>
-        <a href="contact.html#line" class="btn btn-footer-line">
-          <i class="fa-brands fa-line"></i> LINE公式アカウント
-        </a>
-        <a href="tel:000-000-0000" class="footer-tel-link">
-          <i class="fa-solid fa-phone"></i> 000-000-0000
-        </a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ==================== APP-STYLE SMART BOTTOM DOCK ==================== -->
-  <aside class="smart-bottom-dock" id="smartBottomDock">
-    <a href="tel:000-000-0000" class="dock-item dock-tel" aria-label="電話で相談">
+  <!-- ==================== FIXED SMART BOTTOM BAR ==================== -->
+  <aside class="slider-bottom-bar" id="sliderBottomBar">
+    <a href="tel:000-000-0000" class="slider-bottom-btn btn-bottom-tel" aria-label="電話をかける">
       <i class="fa-solid fa-phone"></i>
-      <span>電話相談</span>
+      <span>電話で相談</span>
     </a>
-    <button type="button" class="dock-item dock-slide-trigger" id="dockSlideTrigger" aria-label="メニューを引き出す">
-      <i class="fa-solid fa-chevron-up"></i>
-      <span>メニュー</span>
-    </button>
-    <a href="contact.html#line" class="dock-item dock-line" aria-label="LINEで相談">
+    <a href="stock.html" class="slider-bottom-btn btn-bottom-tel" aria-label="在庫一覧を見る">
+      <i class="fa-solid fa-car"></i>
+      <span>在庫一覧</span>
+    </a>
+    <a href="contact.html#line" class="slider-bottom-btn btn-bottom-line" aria-label="LINEで相談する">
       <i class="fa-brands fa-line"></i>
       <span>LINE相談</span>
     </a>
   </aside>
 
-  <!-- ==================== SLIDE-UP BOTTOM SHEET (PANEL) ==================== -->
-  <div class="sheet-backdrop" id="sheetBackdrop"></div>
-  <div class="app-bottom-sheet" id="appBottomSheet" role="dialog" aria-modal="true" aria-label="クイックメニュー">
-    <!-- Drag Handle Area (Touch & Swipe Up/Down Target) -->
-    <div class="sheet-handle-wrap" id="sheetHandle">
-      <div class="sheet-handle-bar"></div>
-      <span class="sheet-handle-hint"><i class="fa-solid fa-arrows-up-down"></i> スライドで開閉</span>
-    </div>
-
-    <!-- Sheet Header -->
-    <div class="sheet-header">
-      <div class="sheet-title-group">
-        <img src="images/logo.jpg" alt="Car Mate Core">
-        <h3 class="sheet-title">Car Mate Core クイックメニュー</h3>
-      </div>
-      <button type="button" class="btn-sheet-close" id="btnSheetClose" aria-label="閉じる">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-
-    <!-- Sheet Scrollable Body -->
-    <div class="sheet-body">
-      <!-- 1. Quick Actions Grid -->
-      <div class="sheet-quick-grid">
-        <a href="stock.html" class="sheet-quick-card">
-          <div class="quick-card-icon"><i class="fa-solid fa-car"></i></div>
-          <span class="quick-card-title">新着在庫を見る</span>
-          <span class="quick-card-desc">軽・ファミリーカー写真付</span>
-        </a>
-        <a href="stock.html#order" class="sheet-quick-card">
-          <div class="quick-card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <span class="quick-card-title">全国注文販売</span>
-          <span class="quick-card-desc">予算に合わせてお探し</span>
-        </a>
-        <a href="service.html#inspection" class="sheet-quick-card">
-          <div class="quick-card-icon"><i class="fa-solid fa-wrench"></i></div>
-          <span class="quick-card-title">車検・メンテナンス</span>
-          <span class="quick-card-desc">明朗会計・安心点検</span>
-        </a>
-        <a href="service.html#buy" class="sheet-quick-card">
-          <div class="quick-card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-          <span class="quick-card-title">愛車高価買取</span>
-          <span class="quick-card-desc">査定無料・迅速対応</span>
-        </a>
-      </div>
-
-      <!-- 2. Immediate Contact Row -->
-      <div class="sheet-contact-box">
-        <h4>お気軽にご相談ください</h4>
-        <div class="sheet-btn-row">
-          <a href="contact.html#line" class="btn-sheet-line">
-            <i class="fa-brands fa-line"></i> LINEで在庫相談
-          </a>
-          <a href="tel:000-000-0000" class="btn-sheet-tel">
-            <i class="fa-solid fa-phone"></i> 000-000-0000
-          </a>
-        </div>
-      </div>
-
-      <!-- 3. Navigation Links List -->
-      <ul class="sheet-menu-list">
-        <li>
-          <a href="index.html">
-            <span><i class="fa-solid fa-house"></i> ホーム</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-        <li>
-          <a href="about.html">
-            <span><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-        <li>
-          <a href="stock.html">
-            <span><i class="fa-solid fa-car-side"></i> 在庫一覧＆注文販売</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-        <li>
-          <a href="service.html">
-            <span><i class="fa-solid fa-screwdriver-wrench"></i> サービス案内（車検・買取）</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-        <li>
-          <a href="flow.html">
-            <span><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-        <li>
-          <a href="contact.html">
-            <span><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Interactive Scripts (Bottom Sheet & Touch Swipes) -->
+  <!-- Scripts -->
   <script>
-    // Bottom Sheet Control Elements
-    const dockTrigger = document.getElementById('dockSlideTrigger');
-    const heroSlideHint = document.getElementById('heroSlideHint');
-    const bottomSheet = document.getElementById('appBottomSheet');
-    const sheetBackdrop = document.getElementById('sheetBackdrop');
-    const btnSheetClose = document.getElementById('btnSheetClose');
-    const sheetHandle = document.getElementById('sheetHandle');
-
-    // Open Bottom Sheet
-    function openBottomSheet() {
-      bottomSheet.classList.add('open');
-      sheetBackdrop.classList.add('active');
-      document.body.classList.add('no-scroll');
-    }
-
-    // Close Bottom Sheet
-    function closeBottomSheet() {
-      bottomSheet.classList.remove('open');
-      sheetBackdrop.classList.remove('active');
-      document.body.classList.remove('no-scroll');
-    }
-
-    if (dockTrigger) dockTrigger.addEventListener('click', openBottomSheet);
-    if (heroSlideHint) heroSlideHint.addEventListener('click', openBottomSheet);
-    if (btnSheetClose) btnSheetClose.addEventListener('click', closeBottomSheet);
-    if (sheetBackdrop) sheetBackdrop.addEventListener('click', closeBottomSheet);
-
-    // ================= Touch / Swipe Gestures =================
-    // 1. Swipe DOWN on sheet handle or header to CLOSE
-    let touchStartY = 0;
-    let touchEndY = 0;
-
-    if (sheetHandle) {
-      sheetHandle.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-      }, { passive: true });
-
-      sheetHandle.addEventListener('touchend', (e) => {
-        touchEndY = e.changedTouches[0].clientY;
-        if (touchEndY - touchStartY > 40) {
-          // Swiped down
-          closeBottomSheet();
-        }
-      }, { passive: true });
-    }
-
-    // 2. Global Swipe UP from bottom area of screen to OPEN sheet
-    let globalTouchStartY = 0;
-    let globalTouchStartX = 0;
-
-    window.addEventListener('touchstart', (e) => {
-      globalTouchStartY = e.touches[0].clientY;
-      globalTouchStartX = e.touches[0].clientX;
-    }, { passive: true });
-
-    window.addEventListener('touchend', (e) => {
-      const diffY = globalTouchStartY - e.changedTouches[0].clientY;
-      const diffX = Math.abs(globalTouchStartX - e.changedTouches[0].clientX);
-
-      // If user swipes UP by more than 60px near the bottom 30% of the screen
-      const windowHeight = window.innerHeight;
-      if (globalTouchStartY > windowHeight * 0.65 && diffY > 60 && diffX < 80) {
-        if (!bottomSheet.classList.contains('open')) {
-          openBottomSheet();
-        }
-      }
-    }, { passive: true });
-
     // ================= Mobile Drawer Navigation =================
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
@@ -1170,23 +639,44 @@
       });
     }
 
-    // ================= Interactive App Tab Switcher =================
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabPanels = document.querySelectorAll('.tab-content-panel');
+    // ================= Slide Dots & Scroll-Snap Observer =================
+    const slides = document.querySelectorAll('.slider-slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    const sliderContainer = document.getElementById('sliderContainer');
 
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('data-tab');
-        tabButtons.forEach(b => b.classList.remove('active'));
-        tabPanels.forEach(p => p.classList.remove('active'));
-
-        btn.classList.add('active');
-        const targetPanel = document.getElementById(targetId);
-        if (targetPanel) {
-          targetPanel.classList.add('active');
+    // Click dot to smooth-scroll into slide
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const targetId = dot.getAttribute('data-target');
+        const targetSlide = document.getElementById(targetId);
+        if (targetSlide) {
+          targetSlide.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
+
+    // Observe which slide is active
+    if ('IntersectionObserver' in window && sliderContainer) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.id;
+            dots.forEach(dot => {
+              if (dot.getAttribute('data-target') === currentId) {
+                dot.classList.add('active');
+              } else {
+                dot.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, {
+        root: sliderContainer,
+        threshold: 0.55
+      });
+
+      slides.forEach(slide => observer.observe(slide));
+    }
 
     // Replay Welcome Drive Animation
     function replayWelcomeDrive() {
