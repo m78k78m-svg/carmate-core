@@ -102,39 +102,22 @@
     <div class="vertical-slider-container" id="sliderContainer">
 
       <!-- ==================== SLIDE 1: HERO / TOP ==================== -->
-      <section class="slider-slide slide-bg-top" id="slide-1">
-        <div class="container" style="max-width:800px; text-align:center;">
-          <!-- Top Full-Width Welcome Driving Stage (SVG Cartoon Animation) -->
-          <div class="welcome-stage-container" id="welcomeStage">
-          <!-- 1. Full-Width HD Logo Banner (Expands on Car Brake) -->
-          <div class="fullwidth-logo-banner">
-            <div class="logo-shine-wrap">
-              <img src="images/logo_hd.png" alt="Car Mate Core カーメイト コア 公式ロゴ" class="fullwidth-logo-img">
-              <div class="fullwidth-shine-light"></div>
-            </div>
-          </div>
-
-          <!-- 2. Hero First-View Video Showcase -->
-          <div class="hero-video-stage-box" id="heroVideoStage">
-            <div class="hero-video-player-frame">
-              <video id="heroVideoPlayer" class="hero-video-element" autoplay loop muted playsinline poster="images/logo_hd.png">
-                <source src="videos/hero.mp4" type="video/mp4">
-                <source src="videos/gemini_generated_video_d22ae132.mp4" type="video/mp4">
-                <source src="videos/hero.mov" type="video/quicktime">
-                <source src="videos/hero.webm" type="video/webm">
-              </video>
-              <div class="video-overlay-controls">
-                <button type="button" class="btn-video-sound" id="btnVideoSound" aria-label="音声切替">
-                  <i class="fa-solid fa-volume-xmark"></i> <span id="soundText">消音中</span>
-                </button>
-              </div>
-            </div>
-            <div class="video-status-bar">
-              <span class="video-status-pill"><i class="fa-solid fa-circle-play text-orange"></i> OFFICIAL MOVIE</span>
-              <span class="video-status-text">Car Mate Core 公式紹介ムービー</span>
-            </div>
-          </div>
+      <section class="slider-slide slide-bg-top slide-hero-slide" id="slide-1">
+        <!-- 1. Full-Width Edge-to-Edge Hero Video (100% Width Autoplay, No Logo) -->
+        <div class="fullwidth-hero-video-wrap" id="heroVideoStage">
+          <video id="heroVideoPlayer" class="fullwidth-hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
+            <source src="videos/hero.mp4" type="video/mp4">
+            <source src="videos/gemini_generated_video_d22ae132.mp4" type="video/mp4">
+            <source src="videos/hero.mov" type="video/quicktime">
+            <source src="videos/hero.webm" type="video/webm">
+          </video>
+          <!-- Floating Audio Toggle Button -->
+          <button type="button" class="btn-video-sound-float" id="btnVideoSound" aria-label="音声切替">
+            <i class="fa-solid fa-volume-xmark"></i> <span id="soundText">消音中</span>
+          </button>
         </div>
+
+        <div class="container hero-content-container" style="max-width:800px; text-align:center; padding: 16px 20px 20px;">
 
         <div class="hero-grid">
           <div class="hero-text-block">
@@ -468,36 +451,66 @@
       slides.forEach(slide => observer.observe(slide));
     }
 
-    // ================= Hero Video Controls =================
+    // ================= Robust Video Autoplay & Controls =================
     const heroVideo = document.getElementById('heroVideoPlayer');
     const btnVideoSound = document.getElementById('btnVideoSound');
     const soundText = document.getElementById('soundText');
 
-    if (heroVideo && btnVideoSound) {
-      btnVideoSound.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (heroVideo.muted) {
-          heroVideo.muted = false;
-          btnVideoSound.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span id="soundText">音声ON</span>';
-          btnVideoSound.style.background = 'var(--primary)';
-        } else {
-          heroVideo.muted = true;
-          btnVideoSound.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> <span id="soundText">消音中</span>';
-          btnVideoSound.style.background = 'rgba(26, 40, 73, 0.85)';
+    if (heroVideo) {
+      // Force muted and inline playback for mobile browser policy compliance
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.playsInline = true;
+      heroVideo.setAttribute('muted', '');
+      heroVideo.setAttribute('playsinline', '');
+      heroVideo.setAttribute('webkit-playsinline', '');
+
+      const startPlayback = () => {
+        const promise = heroVideo.play();
+        if (promise !== undefined) {
+          promise.catch(() => {
+            // If browser blocks immediate zero-interaction autoplay, kick off on very first tap/touch
+            const triggerPlay = () => {
+              heroVideo.play();
+              window.removeEventListener('touchstart', triggerPlay);
+              window.removeEventListener('click', triggerPlay);
+            };
+            window.addEventListener('touchstart', triggerPlay, { passive: true, once: true });
+            window.addEventListener('click', triggerPlay, { passive: true, once: true });
+          });
         }
+      };
+
+      // Run on page load and visibility change
+      startPlayback();
+      window.addEventListener('pageshow', startPlayback);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) startPlayback();
       });
 
-      // Tap video frame to play/pause
-      const videoFrame = document.querySelector('.hero-video-player-frame');
-      if (videoFrame) {
-        videoFrame.addEventListener('click', () => {
-          if (heroVideo.paused) {
-            heroVideo.play();
+      if (btnVideoSound) {
+        btnVideoSound.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (heroVideo.muted) {
+            heroVideo.muted = false;
+            btnVideoSound.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span id="soundText">音声ON</span>';
+            btnVideoSound.style.background = 'var(--primary)';
           } else {
-            heroVideo.pause();
+            heroVideo.muted = true;
+            btnVideoSound.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> <span id="soundText">消音中</span>';
+            btnVideoSound.style.background = 'rgba(26, 40, 73, 0.85)';
           }
         });
       }
+
+      // Tap video to toggle play/pause
+      heroVideo.addEventListener('click', () => {
+        if (heroVideo.paused) {
+          heroVideo.play();
+        } else {
+          heroVideo.pause();
+        }
+      });
     }
   </script>
 </body>
