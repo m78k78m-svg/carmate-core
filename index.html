@@ -431,21 +431,6 @@
       });
     }
 
-    // ================= Slide Dots & Scroll-Snap Observer =================
-    const slides = document.querySelectorAll('.slider-slide');
-    const dots = document.querySelectorAll('.slide-dot');
-    const sliderContainer = document.getElementById('sliderContainer');
-
-    // Click dot to smooth-scroll into slide
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const targetId = dot.getAttribute('data-target');
-        const targetSlide = document.getElementById(targetId);
-        if (targetSlide) {
-          targetSlide.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
 
     // ================= Hero Video Control (No Sound, No Loop, Replay on Return) =================
     const heroVideo = document.getElementById('heroVideoPlayer');
