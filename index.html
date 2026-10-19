@@ -73,29 +73,29 @@
         </div>
       </div>
     </div>
+  </header>
 
-    <!-- Mobile Drawer Menu -->
-    <div class="mobile-drawer" id="mobileDrawer">
-      <div class="drawer-inner">
-        <ul class="drawer-nav">
-          <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
-          <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
-          <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
-          <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
-          <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
-        </ul>
-        <div class="drawer-contact">
-          <a href="tel:000-000-0000" class="btn btn-drawer-tel">
-            <i class="fa-solid fa-phone"></i> 000-000-0000
-          </a>
-          <a href="contact.html#line" class="btn btn-drawer-line">
-            <i class="fa-brands fa-line"></i> LINEで気軽に相談
-          </a>
-        </div>
+  <!-- Mobile Drawer Menu (Root Level Overlay) -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-inner">
+      <ul class="drawer-nav">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
+        <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
+        <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
+        <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
+        <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
+      </ul>
+      <div class="drawer-contact">
+        <a href="tel:000-000-0000" class="btn btn-drawer-tel">
+          <i class="fa-solid fa-phone"></i> 000-000-0000
+        </a>
+        <a href="contact.html#line" class="btn btn-drawer-line">
+          <i class="fa-brands fa-line"></i> LINEで気軽に相談
+        </a>
       </div>
     </div>
-  </header>
+  </div>
 
   <main>
     <!-- Vertical Fullpage Scroll-Snap Slider Container -->
@@ -393,18 +393,41 @@
     const mobileDrawer = document.getElementById('mobileDrawer');
 
     if (hamburgerBtn && mobileDrawer) {
-      hamburgerBtn.addEventListener('click', () => {
-        hamburgerBtn.classList.toggle('active');
-        mobileDrawer.classList.toggle('open');
-        document.body.classList.toggle('no-scroll');
-      });
+      let lastToggleTime = 0;
+      const toggleMenu = (e) => {
+        if (e) {
+          e.stopPropagation();
+        }
+        const now = Date.now();
+        if (now - lastToggleTime < 300) return; // Debounce rapid taps
+        lastToggleTime = now;
 
+        const isOpen = mobileDrawer.classList.contains('open');
+        if (isOpen) {
+          hamburgerBtn.classList.remove('active');
+          mobileDrawer.classList.remove('open');
+        } else {
+          hamburgerBtn.classList.add('active');
+          mobileDrawer.classList.add('open');
+        }
+      };
+
+      hamburgerBtn.addEventListener('click', toggleMenu);
+
+      // Close drawer when tapping any menu link
       mobileDrawer.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           hamburgerBtn.classList.remove('active');
           mobileDrawer.classList.remove('open');
-          document.body.classList.remove('no-scroll');
         });
+      });
+
+      // Close drawer when tapping outside drawer inner (on dark backdrop)
+      mobileDrawer.addEventListener('click', (e) => {
+        if (e.target === mobileDrawer) {
+          hamburgerBtn.classList.remove('active');
+          mobileDrawer.classList.remove('open');
+        }
       });
     }
 
@@ -466,6 +489,18 @@
         heroVideo.currentTime = 0;
         startPlayback();
       });
+
+      // 5. 動画をタップしたらまた先頭から再生（リプレイ）
+      const replayOnTap = (e) => {
+        if (e) e.stopPropagation();
+        heroVideo.currentTime = 0;
+        heroVideo.play().catch(() => {});
+      };
+      heroVideo.addEventListener('click', replayOnTap);
+      const videoStage = document.getElementById('heroVideoStage');
+      if (videoStage) {
+        videoStage.addEventListener('click', replayOnTap);
+      }
     }
 
     // ================= Slide Dots & Scroll-Snap Observer =================
