@@ -2205,3 +2205,90 @@ ul, ol {
 .breadcrumb-list a:hover {
   color: var(--primary);
 }
+
+/* ========================================================
+   Hero First-View Video Player
+   ======================================================== */
+.hero-video-stage-box {
+  width: 100%;
+  max-width: 580px;
+  margin: 12px auto 14px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(26, 40, 73, 0.12);
+  border: 1.5px solid var(--border-warm);
+}
+
+.hero-video-player-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-overlay-controls {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 10;
+}
+
+.btn-video-sound {
+  background: rgba(26, 40, 73, 0.85);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-round);
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-video-sound:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.video-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: var(--bg-warm);
+  border-top: 1px solid var(--border-color);
+  font-size: 0.78rem;
+}
+
+.video-status-pill {
+  font-family: var(--font-round);
+  font-weight: 800;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.video-status-text {
+  color: var(--muted-text);
+  font-size: 0.74rem;
+}
+

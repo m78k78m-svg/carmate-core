@@ -114,234 +114,23 @@
             </div>
           </div>
 
-          <!-- 2. SVG Character Short Animation Stage -->
-          <div class="svg-anime-stage-wrapper">
-            <div class="svg-anime-container">
-              <svg class="svg-anime-scene" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <!-- Celica Red Gradient -->
-                  <linearGradient id="celicaRed" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#FF3823"/>
-                    <stop offset="60%" stop-color="#D91E18"/>
-                    <stop offset="100%" stop-color="#9C100B"/>
-                  </linearGradient>
-                  <!-- Glass Gradient -->
-                  <linearGradient id="windowGlass" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#DDF3FF" stop-opacity="0.9"/>
-                    <stop offset="100%" stop-color="#A2D2FF" stop-opacity="0.75"/>
-                  </linearGradient>
-                  <!-- Chrome Silver -->
-                  <linearGradient id="chromeSilver" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#FFFFFF"/>
-                    <stop offset="50%" stop-color="#CBD5E0"/>
-                    <stop offset="100%" stop-color="#718096"/>
-                  </linearGradient>
-                  <!-- Tire Dark -->
-                  <radialGradient id="tireGrad" cx="50%" cy="50%" r="50%">
-                    <stop offset="40%" stop-color="#1A202C"/>
-                    <stop offset="85%" stop-color="#2D3748"/>
-                    <stop offset="100%" stop-color="#111827"/>
-                  </radialGradient>
-                  <!-- Gold Hub -->
-                  <circle id="wheelSpoke" cx="0" cy="0" r="18" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="2"/>
-                </defs>
-
-                <!-- Road Surface -->
-                <rect x="0" y="235" width="640" height="18" rx="9" fill="#CBD5E0"/>
-                <line x1="10" y1="244" x2="630" y2="244" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="24 16"/>
-
-                <!-- Exhaust Smoke Clouds (Left side) -->
-                <g class="smoke-cloud smoke-1"><circle cx="70" cy="225" r="9" fill="#E2E8F0" opacity="0.75"/></g>
-                <g class="smoke-cloud smoke-2"><circle cx="45" cy="220" r="13" fill="#E2E8F0" opacity="0.6"/></g>
-                <g class="smoke-cloud smoke-3"><circle cx="15" cy="214" r="17" fill="#E2E8F0" opacity="0.4"/></g>
-
-                <!-- ================= CAR & CHARACTERS GROUP ================= -->
-                <g class="celica-drive-actor" id="celicaActor">
-                  <!-- Ground Shadow -->
-                  <ellipse cx="280" cy="235" rx="190" ry="12" fill="#1A2849" opacity="0.28" class="car-ground-shadow"/>
-
-                  <!-- Main Celica Body with Suspension Bounce -->
-                  <g class="car-chassis-bounce">
-
-                    <!-- Back Passengers & Interior (Drawn inside windows) -->
-                    <!-- Owner (Red Jumpsuit & Top-Knot Hair) - Driver Position (Right side in Japan / RHD) -->
-                    <g class="character-owner">
-                      <!-- Body: Red Jumpsuit -->
-                      <path d="M 330 115 Q 345 105 365 115 L 375 145 L 320 145 Z" fill="#D91E18"/>
-                      <path d="M 345 110 L 345 140" stroke="#9C100B" stroke-width="2"/>
-                      <!-- Neck & Face -->
-                      <rect x="338" y="98" width="12" height="12" fill="#FBD38D" rx="3"/>
-                      <ellipse cx="344" cy="85" rx="14" ry="16" fill="#FBD38D"/>
-                      <!-- Smiling Face -->
-                      <circle cx="340" cy="82" r="2" fill="#2D3748"/>
-                      <circle cx="348" cy="82" r="2" fill="#2D3748"/>
-                      <path d="M 341 89 Q 344 94 348 89" stroke="#744210" stroke-width="2" fill="none" stroke-linecap="round"/>
-                      <!-- Beard stubble / jawline -->
-                      <path d="M 336 92 Q 344 98 352 92" stroke="#CBD5E0" stroke-width="1.5" fill="none"/>
-                      <!-- Hair: Shaved sides + Top-Knot (お団子ヘア) -->
-                      <path d="M 330 80 Q 338 68 358 80 Q 355 72 344 70 Q 335 72 330 80 Z" fill="#2D3748"/>
-                      <!-- Top Bun (お団子) -->
-                      <circle cx="344" cy="62" r="9" fill="#1A202C"/>
-                      <ellipse cx="344" cy="69" rx="7" ry="3" fill="#D69E2E"/> <!-- Hair band -->
-                      <!-- Waving Arm (Driver) -->
-                      <g class="owner-wave-arm">
-                        <path d="M 358 120 Q 375 110 380 95" stroke="#D91E18" stroke-width="8" stroke-linecap="round" fill="none"/>
-                        <circle cx="380" cy="93" r="5" fill="#FBD38D"/> <!-- Hand -->
-                      </g>
-                    </g>
-
-                    <!-- Wife (Half-up Hair, Gentle Smile) - Passenger Position (Left/Center) -->
-                    <g class="character-wife">
-                      <!-- Body -->
-                      <path d="M 275 118 Q 290 108 305 118 L 312 145 L 268 145 Z" fill="#ED8936"/>
-                      <!-- Neck & Face -->
-                      <rect x="284" y="100" width="10" height="10" fill="#FEEBC8" rx="2"/>
-                      <ellipse cx="289" cy="88" rx="12" ry="14" fill="#FEEBC8"/>
-                      <!-- Gentle Eyes & Smile -->
-                      <path d="M 283 85 Q 286 82 288 85" stroke="#2D3748" stroke-width="2" fill="none"/>
-                      <path d="M 291 85 Q 294 82 296 85" stroke="#2D3748" stroke-width="2" fill="none"/>
-                      <path d="M 286 92 Q 289 96 292 92" stroke="#DD6B20" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                      <!-- Blush -->
-                      <circle cx="282" cy="89" r="2.5" fill="#FEB2B2" opacity="0.8"/>
-                      <circle cx="296" cy="89" r="2.5" fill="#FEB2B2" opacity="0.8"/>
-                      <!-- Hair: Half-up (ハーフアップ髪型) -->
-                      <path d="M 276 96 C 274 80 278 72 289 72 C 300 72 304 80 302 96 C 298 90 294 86 289 86 C 284 86 280 90 276 96 Z" fill="#2C1810"/>
-                      <!-- Half-up Bun / Tied section in back -->
-                      <ellipse cx="289" cy="71" rx="6" ry="5" fill="#1A0F0A"/>
-                      <rect x="286" y="74" width="6" height="3" rx="1" fill="#FF7A00"/>
-                      <!-- Waving Hand (Wife) -->
-                      <g class="wife-wave-hand">
-                        <path d="M 302 120 Q 315 112 318 102" stroke="#ED8936" stroke-width="6" stroke-linecap="round" fill="none"/>
-                        <circle cx="319" cy="100" r="4.5" fill="#FEEBC8"/>
-                      </g>
-                    </g>
-
-                    <!-- French Bulldog Dog (Green Shirt with Paw Print) -->
-                    <g class="character-dog">
-                      <!-- Leaning out of window / hood -->
-                      <!-- Dog Body: Green Shirt -->
-                      <path d="M 215 130 Q 230 120 245 130 L 250 150 L 210 150 Z" fill="#2F855A"/>
-                      <!-- Paw Print on Shirt (お写真の緑の服の足跡) -->
-                      <ellipse cx="230" cy="136" rx="3.5" ry="3" fill="#FFFFFF"/>
-                      <circle cx="226" cy="132" r="1.5" fill="#FFFFFF"/>
-                      <circle cx="230" cy="130.5" r="1.5" fill="#FFFFFF"/>
-                      <circle cx="234" cy="132" r="1.5" fill="#FFFFFF"/>
-                      <!-- French Bulldog Head (Dark Brindle / Black) -->
-                      <ellipse cx="228" cy="112" rx="17" ry="15" fill="#2D3748"/>
-                      <!-- Wrinkly Muzzle -->
-                      <ellipse cx="228" cy="118" rx="11" ry="8" fill="#1A202C"/>
-                      <polygon points="225,115 231,115 228,118" fill="#4A5568"/> <!-- Nose -->
-                      <path d="M 224 121 Q 228 123 232 121" stroke="#E2E8F0" stroke-width="1.5" fill="none"/>
-                      <!-- Big Cute Round Eyes -->
-                      <circle cx="220" cy="110" r="3.5" fill="#000000"/>
-                      <circle cx="221" cy="109" r="1.2" fill="#FFFFFF"/>
-                      <circle cx="236" cy="110" r="3.5" fill="#000000"/>
-                      <circle cx="237" cy="109" r="1.2" fill="#FFFFFF"/>
-                      <!-- Big Bat Ears (コウモリ耳 - フレブルの特徴) -->
-                      <g class="dog-ears-wiggle">
-                        <!-- Left Ear -->
-                        <path d="M 214 105 C 205 92 205 78 214 82 C 219 85 220 98 221 103 Z" fill="#2D3748"/>
-                        <path d="M 213 100 C 208 92 209 83 214 85 C 217 87 217 95 218 99 Z" fill="#FEB2B2"/>
-                        <!-- Right Ear -->
-                        <path d="M 242 105 C 251 92 251 78 242 82 C 237 85 236 98 235 103 Z" fill="#2D3748"/>
-                        <path d="M 243 100 C 248 92 247 83 242 85 C 239 87 239 95 238 99 Z" fill="#FEB2B2"/>
-                      </g>
-                      <!-- Wagging Tail -->
-                      <path d="M 208 142 Q 200 138 202 132" stroke="#2D3748" stroke-width="4.5" stroke-linecap="round" fill="none" class="dog-tail-wag"/>
-                      <!-- Front Paws resting on car door -->
-                      <ellipse cx="218" cy="148" rx="4.5" ry="3.5" fill="#1A202C"/>
-                      <ellipse cx="238" cy="148" rx="4.5" ry="3.5" fill="#1A202C"/>
-
-                      <!-- "ワン！" Bark Balloon -->
-                      <g class="dog-bark-svg">
-                        <rect x="228" y="66" width="46" height="24" rx="12" fill="#FFB703" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.2))"/>
-                        <polygon points="236,88 244,88 238,94" fill="#FFB703"/>
-                        <text x="251" y="82" font-family="'M PLUS Rounded 1c', sans-serif" font-weight="900" font-size="12" fill="#1A2849" text-anchor="middle">ワン！</text>
-                      </g>
-                    </g>
-
-                    <!-- Red Celica 1st Gen Body (初代セリカ リフトバック赤) -->
-                    <!-- Roof & Pillars -->
-                    <path d="M 200 148 L 245 105 L 375 105 L 420 148 Z" fill="url(#celicaRed)" stroke="#9C100B" stroke-width="2"/>
-                    <!-- Window Frames & Glass -->
-                    <path d="M 212 145 L 250 110 L 305 110 L 305 145 Z" fill="url(#windowGlass)" stroke="#2D3748" stroke-width="2.5"/> <!-- Rear/Mid Window -->
-                    <path d="M 312 145 L 312 110 L 368 110 L 405 145 Z" fill="url(#windowGlass)" stroke="#2D3748" stroke-width="2.5"/> <!-- Front Windshield -->
-                    <!-- Center B-Pillar with classic Celica vertical slats -->
-                    <rect x="306" y="109" width="6" height="36" fill="#1A202C"/>
-                    <line x1="228" y1="125" x2="238" y2="125" stroke="#FFFFFF" stroke-width="1.5" opacity="0.6"/> <!-- Celica LB Rear Louver style -->
-
-                    <!-- Main Lower Body (Sleek Long-Nose Fastback) -->
-                    <path d="M 90 185 
-                             Q 105 145 140 145 
-                             L 435 145 
-                             Q 460 145 470 170 
-                             L 472 188 
-                             L 458 192 
-                             L 100 192 Z" 
-                          fill="url(#celicaRed)" stroke="#780A06" stroke-width="2.5"/>
-
-                    <!-- Celica Side White Racing Stripe (初代セリカGT特有のサイドストライプ) -->
-                    <path d="M 105 180 L 465 180" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-                    <text x="280" y="179" font-family="'Arial Black', sans-serif" font-weight="900" font-size="6" fill="#1A2849" letter-spacing="1">CELICA GT</text>
-
-                    <!-- Front Hood & Classic Nose Shape -->
-                    <path d="M 435 145 L 475 170 L 478 185 L 435 185 Z" fill="#D91E18"/>
-                    <!-- Classic Dual Round Headlights (丸目4灯ヘッドライト) -->
-                    <circle cx="470" cy="173" r="5" fill="#FFFBEB" stroke="#4A5568" stroke-width="1.5"/>
-                    <circle cx="463" cy="173" r="4.5" fill="#FFFBEB" stroke="#4A5568" stroke-width="1.5"/>
-                    <ellipse cx="468" cy="172" rx="2" ry="1.5" fill="#FFFFFF"/> <!-- Light glow -->
-                    <!-- Chrome Front Bumper -->
-                    <path d="M 462 184 L 480 184 L 478 190 L 460 190 Z" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="1.5"/>
-
-                    <!-- Rear Tail & Chrome Bumper -->
-                    <rect x="92" y="170" width="8" height="12" rx="2" fill="#E53E3E" stroke="#1A202C" stroke-width="1.2"/> <!-- Tail light -->
-                    <path d="M 86 184 L 104 184 L 102 190 L 88 190 Z" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="1.5"/>
-                    <!-- Chrome Side Mirror -->
-                    <ellipse cx="410" cy="142" rx="4" ry="2.5" fill="url(#chromeSilver)"/>
-                    <line x1="410" y1="144" x2="408" y2="147" stroke="#4A5568" stroke-width="1.5"/>
-
-                    <!-- Wheel Well Cutouts -->
-                    <path d="M 130 192 A 28 28 0 0 1 186 192 Z" fill="#1A202C"/>
-                    <path d="M 370 192 A 28 28 0 0 1 426 192 Z" fill="#1A202C"/>
-                  </g> <!-- /car-chassis-bounce -->
-
-                  <!-- ================= WHEELS (Rotate on drive) ================= -->
-                  <!-- Rear Wheel -->
-                  <g class="celica-wheel wheel-rear" transform="translate(158, 194)">
-                    <circle cx="0" cy="0" r="26" fill="url(#tireGrad)" stroke="#111827" stroke-width="3"/>
-                    <circle cx="0" cy="0" r="17" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="1.5"/>
-                    <!-- 8-Spoke Classic Alloy Wheel (回転するスポーク) -->
-                    <line x1="-14" y1="0" x2="14" y2="0" stroke="#2D3748" stroke-width="3"/>
-                    <line x1="0" y1="-14" x2="0" y2="14" stroke="#2D3748" stroke-width="3"/>
-                    <line x1="-10" y1="-10" x2="10" y2="10" stroke="#2D3748" stroke-width="3"/>
-                    <line x1="-10" y1="10" x2="10" y2="-10" stroke="#2D3748" stroke-width="3"/>
-                    <circle cx="0" cy="0" r="5" fill="#D69E2E" stroke="#1A202C" stroke-width="1"/> <!-- Gold Center Cap -->
-                  </g>
-
-                  <!-- Front Wheel -->
-                  <g class="celica-wheel wheel-front" transform="translate(398, 194)">
-                    <circle cx="0" cy="0" r="26" fill="url(#tireGrad)" stroke="#111827" stroke-width="3"/>
-                    <circle cx="0" cy="0" r="17" fill="url(#chromeSilver)" stroke="#4A5568" stroke-width="1.5"/>
-                    <line x1="-14" y1="0" x2="14" y2="0" stroke="#2D3748" stroke-width="3"/>
-                    <line x1="0" y1="-14" x2="0" y2="14" stroke="#2D3748" stroke-width="3"/>
-                    <line x1="-10" y1="-10" x2="10" y2="10" stroke="#2D3748" stroke-width="3"/>
-                    <line x1="-10" y1="10" x2="10" y2="-10" stroke="#2D3748" stroke-width="3"/>
-                    <circle cx="0" cy="0" r="5" fill="#D69E2E" stroke="#1A202C" stroke-width="1"/>
-                  </g>
-
-                </g> <!-- /celica-drive-actor -->
-              </svg>
-
-              <!-- Family Welcome Balloon Banner Below SVG -->
-              <div class="crew-welcome-balloon">
-                <span class="balloon-accent">＼ 初代セリカ赤＆愛犬と家族でお待ちしています！ ／</span>
-                <span class="balloon-text">「アットホームな車屋 Car Mate Core へようこそ！何でも気軽に相談してね！」</span>
+          <!-- 2. Hero First-View Video Showcase -->
+          <div class="hero-video-stage-box" id="heroVideoStage">
+            <div class="hero-video-player-frame">
+              <video id="heroVideoPlayer" class="hero-video-element" autoplay loop muted playsinline poster="images/logo_hd.png">
+                <source src="videos/hero.mp4" type="video/mp4">
+                <source src="videos/hero.mov" type="video/quicktime">
+                <source src="videos/hero.webm" type="video/webm">
+              </video>
+              <div class="video-overlay-controls">
+                <button type="button" class="btn-video-sound" id="btnVideoSound" aria-label="音声切替">
+                  <i class="fa-solid fa-volume-xmark"></i> <span id="soundText">消音中</span>
+                </button>
               </div>
-
-              <!-- Replay Animation Button -->
-              <button type="button" class="btn-replay-animation" onclick="replayWelcomeDrive()" title="アニメーションをもう一度見る">
-                <i class="fa-solid fa-rotate-right"></i> アニメをもう一度見る
-              </button>
+            </div>
+            <div class="video-status-bar">
+              <span class="video-status-pill"><i class="fa-solid fa-circle-play text-orange"></i> OFFICIAL MOVIE</span>
+              <span class="video-status-text">Car Mate Core 公式紹介ムービー</span>
             </div>
           </div>
         </div>
@@ -678,13 +467,35 @@
       slides.forEach(slide => observer.observe(slide));
     }
 
-    // Replay Welcome Drive Animation
-    function replayWelcomeDrive() {
-      const stage = document.getElementById('welcomeStage');
-      if (stage) {
-        stage.classList.remove('anim-active');
-        void stage.offsetWidth;
-        stage.classList.add('anim-active');
+    // ================= Hero Video Controls =================
+    const heroVideo = document.getElementById('heroVideoPlayer');
+    const btnVideoSound = document.getElementById('btnVideoSound');
+    const soundText = document.getElementById('soundText');
+
+    if (heroVideo && btnVideoSound) {
+      btnVideoSound.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (heroVideo.muted) {
+          heroVideo.muted = false;
+          btnVideoSound.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span id="soundText">音声ON</span>';
+          btnVideoSound.style.background = 'var(--primary)';
+        } else {
+          heroVideo.muted = true;
+          btnVideoSound.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> <span id="soundText">消音中</span>';
+          btnVideoSound.style.background = 'rgba(26, 40, 73, 0.85)';
+        }
+      });
+
+      // Tap video frame to play/pause
+      const videoFrame = document.querySelector('.hero-video-player-frame');
+      if (videoFrame) {
+        videoFrame.addEventListener('click', () => {
+          if (heroVideo.paused) {
+            heroVideo.play();
+          } else {
+            heroVideo.pause();
+          }
+        });
       }
     }
   </script>
