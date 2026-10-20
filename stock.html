@@ -114,8 +114,18 @@
         </p>
       </div>
 
+      <!-- Tab Jump Buttons -->
+      <div style="display:flex; justify-content:center; gap:12px; margin-bottom:30px; flex-wrap:wrap;">
+        <a href="#stock-list" class="btn" style="background:var(--primary); color:#fff; padding:10px 24px; font-weight:800; border-radius:999px;">
+          <i class="fa-solid fa-car"></i> 現在販売中（10台）
+        </a>
+        <a href="#sold-list" class="btn" style="background:#FFF5F5; color:#E53E3E; border:2px solid #FEB2B2; padding:10px 24px; font-weight:800; border-radius:999px;">
+          <i class="fa-solid fa-certificate"></i> ご成約・販売実績（SOLD）
+        </a>
+      </div>
+
       <!-- Inventory Grid -->
-      <div class="car-cards-grid">
+      <div class="car-cards-grid" id="stock-list">
         <!-- Car 1: ムーヴキャンバス -->
         <article class="car-card">
           <div class="car-card-badge badge-kei">軽自動車</div>
@@ -366,6 +376,187 @@
           </div>
         </article>
       </div>
+
+      <!-- ==================== SOLD OUT / 販売実績セクション ==================== -->
+      <section id="sold-list" style="margin-top: 70px; padding-top: 30px; border-top: 2px dashed var(--border-warm);">
+        <div class="text-center" style="margin-bottom: 36px;">
+          <span class="sub-heading" style="color:#C53030; background:#FED7D7; padding:4px 16px; border-radius:999px; font-weight:800;">
+            <i class="fa-solid fa-certificate"></i> PAST SALES RECORDS
+          </span>
+          <h2 class="main-heading" style="margin-top: 12px; font-size: 1.8rem;">ご成約・販売実績</h2>
+          <p class="text-muted" style="font-size: 0.92rem; max-width: 650px; margin: 8px auto 0;">
+            当店にてご成約いただいたお車の一部をご紹介いたします。<br>
+            「同じような車を探してほしい」「この予算で探せる？」など、全国オークションからお取り寄せ可能ですのでお気軽にご相談ください！
+          </p>
+        </div>
+
+        <div class="car-cards-grid">
+          <!-- Sold 1: フレアクロスオーバー -->
+          <article class="car-card" style="opacity: 0.92;">
+            <div class="car-card-badge" style="background:#E53E3E; color:#fff; font-weight:800;">SOLD OUT</div>
+            <div class="car-card-image" style="position: relative;">
+              <img src="https://picture1.goo-net.com/7000802078/30260502/P/70008020783026050200100.jpg" alt="フレアクロスオーバー ご成約済み" style="width:100%; height:100%; object-fit:cover; display:block; filter: brightness(0.9);" loading="lazy">
+              <!-- SOLD 赤文字スタンプ -->
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; background: rgba(0, 0, 0, 0.2);">
+                <span style="display: inline-block; color: #E53E3E; font-family: 'Arial Black', Impact, sans-serif; font-size: 2.2rem; font-weight: 900; letter-spacing: 0.12em; border: 4px solid #E53E3E; padding: 4px 22px; border-radius: 8px; transform: rotate(-12deg); text-shadow: 0 2px 4px rgba(0,0,0,0.25); box-shadow: 0 4px 12px rgba(0,0,0,0.25); background: rgba(255, 255, 255, 0.92); line-height: 1;">
+                  SOLD
+                </span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <span class="car-maker">マツダ</span>
+              <h3 class="car-model-name">フレアクロスオーバー</h3>
+              <div class="car-specs" style="background:#FFF5F5; color:#C53030; font-weight:700;">
+                <span><i class="fa-solid fa-check"></i> ご成約御礼</span>
+                <span>軽SUVクロスオーバー</span>
+              </div>
+              <div class="car-price-row" style="margin-top: 10px;">
+                <div class="price-item"><span class="price-title">ステータス</span><span class="price-num" style="color:#E53E3E; font-size:1.3rem;">SOLD OUT</span></div>
+              </div>
+              <ul class="car-equipment">
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> 人気のアウトドア・軽SUVスタイル</li>
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> 徹底自社点検・コーティング納車</li>
+              </ul>
+              <a href="https://www.goo-net.com/php/sales_records/detail.php?baitai=goo&area_cd=19&goo_car_id=700080207830260502001" target="_blank" rel="noopener noreferrer" class="btn btn-car-inquiry" style="background:#E2E8F0; color:var(--navy); margin-bottom:6px; font-size:0.8rem; padding:6px 12px; justify-content:center;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net実績を見る
+              </a>
+              <a href="contact.html#line" class="btn btn-car-inquiry" style="background:#4A5568;"><i class="fa-brands fa-line"></i> 同様のお車を注文相談</a>
+            </div>
+          </article>
+
+          <!-- Sold 2: ハイゼットカーゴ -->
+          <article class="car-card" style="opacity: 0.92;">
+            <div class="car-card-badge" style="background:#E53E3E; color:#fff; font-weight:800;">SOLD OUT</div>
+            <div class="car-card-image" style="position: relative;">
+              <img src="https://picture1.goo-net.com/7000802078/30260321/P/70008020783026032100100.jpg" alt="ハイゼットカーゴ ご成約済み" style="width:100%; height:100%; object-fit:cover; display:block; filter: brightness(0.9);" loading="lazy">
+              <!-- SOLD 赤文字スタンプ -->
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; background: rgba(0, 0, 0, 0.2);">
+                <span style="display: inline-block; color: #E53E3E; font-family: 'Arial Black', Impact, sans-serif; font-size: 2.2rem; font-weight: 900; letter-spacing: 0.12em; border: 4px solid #E53E3E; padding: 4px 22px; border-radius: 8px; transform: rotate(-12deg); text-shadow: 0 2px 4px rgba(0,0,0,0.25); box-shadow: 0 4px 12px rgba(0,0,0,0.25); background: rgba(255, 255, 255, 0.92); line-height: 1;">
+                  SOLD
+                </span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <span class="car-maker">ダイハツ</span>
+              <h3 class="car-model-name">ハイゼットカーゴ</h3>
+              <div class="car-specs" style="background:#FFF5F5; color:#C53030; font-weight:700;">
+                <span><i class="fa-solid fa-check"></i> ご成約御礼</span>
+                <span>軽商用バン</span>
+              </div>
+              <div class="car-price-row" style="margin-top: 10px;">
+                <div class="price-item"><span class="price-title">ステータス</span><span class="price-num" style="color:#E53E3E; font-size:1.3rem;">SOLD OUT</span></div>
+              </div>
+              <ul class="car-equipment">
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> お仕事や配送に活躍の荷室広々設計</li>
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> 機関良好・フルメンテナンス整備済み</li>
+              </ul>
+              <a href="https://www.goo-net.com/php/sales_records/detail.php?baitai=goo&area_cd=19&goo_car_id=700080207830260321001" target="_blank" rel="noopener noreferrer" class="btn btn-car-inquiry" style="background:#E2E8F0; color:var(--navy); margin-bottom:6px; font-size:0.8rem; padding:6px 12px; justify-content:center;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net実績を見る
+              </a>
+              <a href="contact.html#line" class="btn btn-car-inquiry" style="background:#4A5568;"><i class="fa-brands fa-line"></i> 同様のお車を注文相談</a>
+            </div>
+          </article>
+
+          <!-- Sold 3: デイズ -->
+          <article class="car-card" style="opacity: 0.92;">
+            <div class="car-card-badge" style="background:#E53E3E; color:#fff; font-weight:800;">SOLD OUT</div>
+            <div class="car-card-image" style="position: relative;">
+              <img src="https://picture1.goo-net.com/7000802078/30260711/P/70008020783026071100100.jpg" alt="デイズ ご成約済み" style="width:100%; height:100%; object-fit:cover; display:block; filter: brightness(0.9);" loading="lazy">
+              <!-- SOLD 赤文字スタンプ -->
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; background: rgba(0, 0, 0, 0.2);">
+                <span style="display: inline-block; color: #E53E3E; font-family: 'Arial Black', Impact, sans-serif; font-size: 2.2rem; font-weight: 900; letter-spacing: 0.12em; border: 4px solid #E53E3E; padding: 4px 22px; border-radius: 8px; transform: rotate(-12deg); text-shadow: 0 2px 4px rgba(0,0,0,0.25); box-shadow: 0 4px 12px rgba(0,0,0,0.25); background: rgba(255, 255, 255, 0.92); line-height: 1;">
+                  SOLD
+                </span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <span class="car-maker">日産</span>
+              <h3 class="car-model-name">デイズ</h3>
+              <div class="car-specs" style="background:#FFF5F5; color:#C53030; font-weight:700;">
+                <span><i class="fa-solid fa-check"></i> ご成約御礼</span>
+                <span>スタイリッシュ軽</span>
+              </div>
+              <div class="car-price-row" style="margin-top: 10px;">
+                <div class="price-item"><span class="price-title">ステータス</span><span class="price-num" style="color:#E53E3E; font-size:1.3rem;">SOLD OUT</span></div>
+              </div>
+              <ul class="car-equipment">
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> 取り回し抜群・日々の通勤お買い物に</li>
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> 内外装徹底クリーニング施工納車</li>
+              </ul>
+              <a href="https://www.goo-net.com/php/sales_records/detail.php?baitai=goo&area_cd=19&goo_car_id=700080207830260711001" target="_blank" rel="noopener noreferrer" class="btn btn-car-inquiry" style="background:#E2E8F0; color:var(--navy); margin-bottom:6px; font-size:0.8rem; padding:6px 12px; justify-content:center;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net実績を見る
+              </a>
+              <a href="contact.html#line" class="btn btn-car-inquiry" style="background:#4A5568;"><i class="fa-brands fa-line"></i> 同様のお車を注文相談</a>
+            </div>
+          </article>
+
+          <!-- Sold 4: タント -->
+          <article class="car-card" style="opacity: 0.92;">
+            <div class="car-card-badge" style="background:#E53E3E; color:#fff; font-weight:800;">SOLD OUT</div>
+            <div class="car-card-image" style="position: relative;">
+              <img src="https://picture1.goo-net.com/7000802078/30240929/P/70008020783024092900200.jpg" alt="タント ご成約済み" style="width:100%; height:100%; object-fit:cover; display:block; filter: brightness(0.9);" loading="lazy">
+              <!-- SOLD 赤文字スタンプ -->
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; background: rgba(0, 0, 0, 0.2);">
+                <span style="display: inline-block; color: #E53E3E; font-family: 'Arial Black', Impact, sans-serif; font-size: 2.2rem; font-weight: 900; letter-spacing: 0.12em; border: 4px solid #E53E3E; padding: 4px 22px; border-radius: 8px; transform: rotate(-12deg); text-shadow: 0 2px 4px rgba(0,0,0,0.25); box-shadow: 0 4px 12px rgba(0,0,0,0.25); background: rgba(255, 255, 255, 0.92); line-height: 1;">
+                  SOLD
+                </span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <span class="car-maker">ダイハツ</span>
+              <h3 class="car-model-name">タント</h3>
+              <div class="car-specs" style="background:#FFF5F5; color:#C53030; font-weight:700;">
+                <span><i class="fa-solid fa-check"></i> ご成約御礼</span>
+                <span>スライドドア軽</span>
+              </div>
+              <div class="car-price-row" style="margin-top: 10px;">
+                <div class="price-item"><span class="price-title">ステータス</span><span class="price-num" style="color:#E53E3E; font-size:1.3rem;">SOLD OUT</span></div>
+              </div>
+              <ul class="car-equipment">
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> 大開口ミラクルオープンドア</li>
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> 子育て世代に圧倒的人気モデル</li>
+              </ul>
+              <a href="https://www.goo-net.com/php/sales_records/detail.php?baitai=goo&area_cd=19&goo_car_id=700080207830240929002" target="_blank" rel="noopener noreferrer" class="btn btn-car-inquiry" style="background:#E2E8F0; color:var(--navy); margin-bottom:6px; font-size:0.8rem; padding:6px 12px; justify-content:center;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net実績を見る
+              </a>
+              <a href="contact.html#line" class="btn btn-car-inquiry" style="background:#4A5568;"><i class="fa-brands fa-line"></i> 同様のお車を注文相談</a>
+            </div>
+          </article>
+
+          <!-- Sold 5: エブリイ -->
+          <article class="car-card" style="opacity: 0.92;">
+            <div class="car-card-badge" style="background:#E53E3E; color:#fff; font-weight:800;">SOLD OUT</div>
+            <div class="car-card-image" style="position: relative;">
+              <img src="https://picture1.goo-net.com/7000802078/30251115/P/70008020783025111500100.jpg" alt="エブリイ ご成約済み" style="width:100%; height:100%; object-fit:cover; display:block; filter: brightness(0.9);" loading="lazy">
+              <!-- SOLD 赤文字スタンプ -->
+              <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; background: rgba(0, 0, 0, 0.2);">
+                <span style="display: inline-block; color: #E53E3E; font-family: 'Arial Black', Impact, sans-serif; font-size: 2.2rem; font-weight: 900; letter-spacing: 0.12em; border: 4px solid #E53E3E; padding: 4px 22px; border-radius: 8px; transform: rotate(-12deg); text-shadow: 0 2px 4px rgba(0,0,0,0.25); box-shadow: 0 4px 12px rgba(0,0,0,0.25); background: rgba(255, 255, 255, 0.92); line-height: 1;">
+                  SOLD
+                </span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <span class="car-maker">スズキ</span>
+              <h3 class="car-model-name">エブリイ</h3>
+              <div class="car-specs" style="background:#FFF5F5; color:#C53030; font-weight:700;">
+                <span><i class="fa-solid fa-check"></i> ご成約御礼</span>
+                <span>軽商用バン</span>
+              </div>
+              <div class="car-price-row" style="margin-top: 10px;">
+                <div class="price-item"><span class="price-title">ステータス</span><span class="price-num" style="color:#E53E3E; font-size:1.3rem;">SOLD OUT</span></div>
+              </div>
+              <ul class="car-equipment">
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> たっぷり積載・使い勝手抜群の軽バン</li>
+                <li><i class="fa-solid fa-circle-check" style="color:#E53E3E;"></i> 走行安定性・耐久性抜群の人気車種</li>
+              </ul>
+              <a href="https://www.goo-net.com/php/sales_records/detail.php?baitai=goo&area_cd=19&goo_car_id=700080207830251115001" target="_blank" rel="noopener noreferrer" class="btn btn-car-inquiry" style="background:#E2E8F0; color:var(--navy); margin-bottom:6px; font-size:0.8rem; padding:6px 12px; justify-content:center;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net実績を見る
+              </a>
+              <a href="contact.html#line" class="btn btn-car-inquiry" style="background:#4A5568;"><i class="fa-brands fa-line"></i> 同様のお車を注文相談</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <!-- Custom Order Section -->
       <div class="custom-order-detail bg-warm" style="border: 2px solid var(--border-warm); border-radius: var(--radius-lg); padding: 40px 24px; margin-top: 60px;">
