@@ -2359,69 +2359,104 @@ ul, ol {
     overflow: visible !important;
   }
 
-  /* Slide 1 Hero on Desktop */
+  /* Slide 1 Hero on Desktop: 2-Column Side-by-Side */
   .slide-hero-slide {
-    padding-top: 0 !important;
-    padding-bottom: 75px !important;
-  }
-
-  .fullwidth-hero-video-wrap {
-    max-height: 480px !important;
-    aspect-ratio: 21 / 9 !important;
-    width: 100% !important;
-    border-radius: 0;
-  }
-
-  .hero-content-container {
-    max-width: 960px !important;
-    margin: 0 auto !important;
-    padding: 48px 24px 0 !important;
-    text-align: center !important;
-  }
-
-  .hero-subbadge {
-    font-size: 0.95rem !important;
-    padding: 6px 20px !important;
-    margin-bottom: 16px !important;
-    display: inline-block !important;
-  }
-
-  .hero-main-copy {
-    font-size: 2.35rem !important;
-    line-height: 1.4 !important;
-    margin-bottom: 16px !important;
-  }
-
-  .hero-description {
-    font-size: 1.05rem !important;
-    line-height: 1.8 !important;
-    margin-bottom: 24px !important;
-    max-width: 780px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .hero-merits {
-    gap: 16px !important;
-    margin-bottom: 28px !important;
+    padding: 40px 0 50px !important;
+    min-height: calc(100vh - 110px) !important;
+    display: flex !important;
+    align-items: center !important;
     justify-content: center !important;
   }
 
+  .hero-stage-layout {
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    display: grid !important;
+    grid-template-columns: 1.12fr 0.88fr !important;
+    gap: 40px !important;
+    align-items: center !important;
+  }
+
+  /* Left Column: Text & Buttons */
+  .hero-stage-layout .hero-content-container {
+    order: 1 !important;
+    text-align: left !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  .hero-subbadge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 0.88rem !important;
+    padding: 5px 16px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-main-copy {
+    font-size: 2.25rem !important;
+    font-weight: 900 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 14px !important;
+    text-align: left !important;
+  }
+
+  .hero-description {
+    font-size: 0.96rem !important;
+    line-height: 1.75 !important;
+    margin-bottom: 22px !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+
+  .hero-merits {
+    display: flex !important;
+    gap: 10px !important;
+    margin-bottom: 24px !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+  }
+
   .merit-tag {
-    font-size: 0.92rem !important;
-    padding: 6px 18px !important;
+    font-size: 0.88rem !important;
+    padding: 5px 14px !important;
   }
 
   .hero-button-group {
     display: flex !important;
-    justify-content: center !important;
-    gap: 20px !important;
-    margin-top: 10px !important;
+    gap: 16px !important;
+    justify-content: flex-start !important;
+    margin-top: 0 !important;
   }
 
   .btn-primary-hero, .btn-line-hero {
-    padding: 16px 36px !important;
-    font-size: 1.05rem !important;
+    padding: 13px 26px !important;
+    font-size: 0.98rem !important;
+  }
+
+  /* Right Column: 16:9 HD Video Player Frame (ZERO cropping / squishing) */
+  .hero-stage-layout .fullwidth-hero-video-wrap {
+    order: 2 !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    max-height: none !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 16px 40px rgba(26, 40, 73, 0.16) !important;
+    border: 2px solid var(--border-warm) !important;
+    background: #000 !important;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hero-stage-layout .fullwidth-hero-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    background: #000 !important;
+    display: block;
   }
 
   /* Common Slide Titles on Desktop */
@@ -2639,12 +2674,35 @@ ul, ol {
     padding-right: 0 !important;
   }
 
-  .fullwidth-hero-video-wrap {
-    max-height: 190px !important;
+  .hero-stage-layout {
+    width: 100% !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
-  .hero-content-container {
+  .hero-stage-layout .fullwidth-hero-video-wrap {
+    order: 1 !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    max-height: 190px !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .hero-stage-layout .fullwidth-hero-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .hero-stage-layout .hero-content-container {
+    order: 2 !important;
+    width: 100% !important;
     padding: 8px 14px 8px !important;
+    text-align: center !important;
   }
 
   .hero-subbadge {
