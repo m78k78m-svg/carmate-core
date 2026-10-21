@@ -59,6 +59,8 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -69,6 +71,8 @@ body {
   letter-spacing: 0.03em;
   -webkit-font-smoothing: antialiased;
   padding-bottom: 60px; /* Space for mobile sticky bar */
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 @media (min-width: 992px) {
@@ -1978,33 +1982,55 @@ ul, ol {
 @media (max-width: 991px) {
   .slider-page-body {
     height: 100dvh;
-    overflow: hidden;
+    height: 100vh;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding-bottom: 0 !important;
+  }
+
+  .slider-page-body .site-header {
+    flex-shrink: 0 !important;
+    position: relative !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+  }
+
+  .slider-page-body main {
+    flex: 1 1 0% !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
   }
 
   .vertical-slider-container {
-    height: 100dvh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    height: 100% !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    scroll-snap-type: y mandatory !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .slider-slide {
-    height: 100vh !important;
-    height: 100dvh !important;
-    max-height: 100vh !important;
-    max-height: 100dvh !important;
-    min-height: 100vh !important;
-    min-height: 100dvh !important;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: calc(56px + 8px) 14px calc(54px + 8px) !important;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding: 10px 0 calc(54px + 8px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -2331,11 +2357,11 @@ ul, ol {
    Hero First-View Edge-to-Edge Fullwidth Video
    ======================================================== */
 .slide-hero-slide {
-  padding-top: 65px !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  padding-bottom: 70px !important;
-  justify-content: flex-start !important;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 70px;
+  justify-content: flex-start;
 }
 
 .fullwidth-hero-video-wrap {
@@ -2667,10 +2693,12 @@ ul, ol {
 
   /* Slide card wrap & box */
   .slide-card-wrap {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 0;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    padding-left: 12px !important;
+    padding-right: 28px !important; /* Space reserved for fixed right dots nav */
+    box-sizing: border-box !important;
   }
 
   .slide-badge-title {
@@ -2695,14 +2723,16 @@ ul, ol {
     padding: 10px 12px !important;
     margin-top: 6px !important;
     border-radius: 12px !important;
+    box-sizing: border-box !important;
   }
 
-  /* Slide 1 Hero Specifics on Mobile */
+  /* Slide 1 Hero Specifics on Mobile: Starts flush under header (ZERO gap) */
   .slide-hero-slide {
-    padding-top: 56px !important;
+    padding-top: 0 !important;
     padding-bottom: calc(54px + 6px) !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    justify-content: flex-start !important;
   }
 
   .hero-stage-layout {
@@ -2717,7 +2747,7 @@ ul, ol {
     order: 1 !important;
     width: 100% !important;
     aspect-ratio: 16 / 9 !important;
-    max-height: 190px !important;
+    max-height: 180px !important;
     border-radius: 0 !important;
     border: none !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
@@ -2732,8 +2762,9 @@ ul, ol {
   .hero-stage-layout .hero-content-container {
     order: 2 !important;
     width: 100% !important;
-    padding: 8px 14px 8px !important;
+    padding: 8px 28px 8px 12px !important; /* Space reserved for right dots nav */
     text-align: center !important;
+    box-sizing: border-box !important;
   }
 
   .hero-subbadge {
@@ -2767,18 +2798,22 @@ ul, ol {
   .hero-button-group {
     gap: 6px !important;
     margin-top: 4px !important;
+    display: flex !important;
+    justify-content: center !important;
   }
 
   .btn-primary-hero, .btn-line-hero {
-    padding: 8px 14px !important;
-    font-size: 0.82rem !important;
+    padding: 8px 12px !important;
+    font-size: 0.80rem !important;
   }
 
-  /* Slide 2 Stock Grid Mobile */
+  /* Slide 2 Stock Grid Mobile: Auto-shrink title, never wrap or hide prices, never overflow */
   .slide-grid-3 {
     grid-template-columns: 1fr !important;
     gap: 6px !important;
     margin-bottom: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .slide-grid-item {
@@ -2788,14 +2823,25 @@ ul, ol {
     align-items: center !important;
     justify-content: space-between !important;
     gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .slide-grid-item > span:first-child {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
   }
 
   .slide-grid-item h4 {
-    font-size: 0.82rem !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    font-size: 0.80rem !important;
     margin: 0 !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+    text-align: left !important;
   }
 
   .slide-grid-item p {
@@ -2803,31 +2849,44 @@ ul, ol {
   }
 
   .slide-grid-item .item-price {
-    font-size: 0.95rem !important;
+    flex-shrink: 0 !important;
+    font-size: 0.90rem !important;
     margin-top: 0 !important;
     white-space: nowrap !important;
+    text-align: right !important;
+    color: var(--primary-dark) !important;
+    font-weight: 900 !important;
   }
 
   /* Slide 4 Services Grid 2x2 Mobile */
   .slide-grid-2x2 {
     gap: 6px !important;
     margin-bottom: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .slide-grid-2x2 .slide-grid-item {
     padding: 6px 4px !important;
+    display: block !important;
+    text-align: center !important;
   }
 
   .slide-grid-2x2 .slide-grid-item i {
     font-size: 1.1rem !important;
     margin-bottom: 2px !important;
+    display: inline-block !important;
   }
 
   .slide-grid-2x2 .slide-grid-item h4 {
     font-size: 0.78rem !important;
+    white-space: nowrap !important;
+    margin: 2px 0 !important;
+    text-align: center !important;
   }
 
   .slide-grid-2x2 .slide-grid-item p {
+    display: block !important;
     font-size: 0.65rem !important;
     line-height: 1.25 !important;
   }
