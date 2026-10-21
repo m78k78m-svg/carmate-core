@@ -77,6 +77,9 @@
         <div class="drawer-contact">
           <a href="tel:0078-6040-4870" class="btn btn-drawer-tel"><i class="fa-solid fa-phone"></i> 0078-6040-4870</a>
           <a href="contact.html#line" class="btn btn-drawer-line"><i class="fa-brands fa-line"></i> LINEで気軽に相談</a>
+          <button type="button" class="btn btn-drawer-close" id="drawerCloseBtn" aria-label="メニューを閉じる">
+            <i class="fa-solid fa-chevron-up"></i> 閉じる
+          </button>
         </div>
       </div>
     </div>
@@ -642,7 +645,7 @@
   </footer>
 
   <aside class="mobile-sticky-bar sp-only">
-    <a href="tel:000-000-0000" class="sticky-btn sticky-tel"><i class="fa-solid fa-phone"></i><span>電話で相談</span></a>
+    <a href="tel:0078-6040-4870" class="sticky-btn sticky-tel"><i class="fa-solid fa-phone"></i><span>電話で相談</span></a>
     <a href="contact.html#line" class="sticky-btn sticky-line"><i class="fa-brands fa-line"></i><span>LINEで在庫相談</span></a>
   </aside>
 
@@ -654,6 +657,14 @@
         hamburgerBtn.classList.toggle('active');
         mobileDrawer.classList.toggle('open');
         document.body.classList.toggle('no-scroll');
+      });
+
+      mobileDrawer.querySelectorAll('a, .btn-drawer-close').forEach(elem => {
+        elem.addEventListener('click', () => {
+          hamburgerBtn.classList.remove('active');
+          mobileDrawer.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+        });
       });
     }
   </script>

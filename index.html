@@ -93,6 +93,9 @@
         <a href="contact.html#line" class="btn btn-drawer-line">
           <i class="fa-brands fa-line"></i> LINEで気軽に相談
         </a>
+        <button type="button" class="btn btn-drawer-close" id="drawerCloseBtn" aria-label="メニューを閉じる">
+          <i class="fa-solid fa-chevron-up"></i> 閉じる
+        </button>
       </div>
     </div>
   </div>
@@ -466,8 +469,8 @@
 
       hamburgerBtn.addEventListener('click', toggleMenu);
 
-      // Close drawer when tapping any menu link
-      mobileDrawer.querySelectorAll('a').forEach(link => {
+      // Close drawer when tapping any menu link or close button
+      mobileDrawer.querySelectorAll('a, .btn-drawer-close').forEach(link => {
         link.addEventListener('click', () => {
           hamburgerBtn.classList.remove('active');
           mobileDrawer.classList.remove('open');

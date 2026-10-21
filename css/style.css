@@ -598,6 +598,37 @@ ul, ol {
   font-size: 1.05rem;
 }
 
+.btn-drawer-close {
+  background: var(--bg-warm);
+  color: var(--navy);
+  border: 1.5px solid var(--border-color);
+  padding: 12px;
+  font-size: 0.98rem;
+  font-family: var(--font-round);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-full);
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.btn-drawer-close:hover,
+.btn-drawer-close:active {
+  background: #E2E8F0;
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-drawer-close i {
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
 /* ========================================================
    Homepage Hero (HP Hero) - Compact First View Fit
    ======================================================== */
