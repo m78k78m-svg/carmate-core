@@ -84,6 +84,67 @@
       color: var(--navy);
       margin-bottom: 10px;
     }
+    /* Shop Photos Gallery */
+    .about-gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .about-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+    }
+    .gallery-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-warm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .gallery-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-card:hover .gallery-img-wrap img {
+      transform: scale(1.04);
+    }
+    .gallery-caption {
+      padding: 16px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-caption h4 {
+      font-family: var(--font-round);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .gallery-caption p {
+      font-size: 0.82rem;
+      color: var(--muted-text);
+      line-height: 1.55;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -224,6 +285,47 @@
           </p>
         </div>
       </div>
+
+      <!-- Shop Photos Gallery -->
+      <section class="about-gallery-section" style="margin-bottom: 60px;">
+        <div class="section-title-wrap text-center">
+          <span class="sub-heading">SHOP GALLERY</span>
+          <h2 class="main-heading">店舗・展示場のご案内</h2>
+          <p class="heading-lead">佐賀市西田代の通り沿い、大きなオレンジの看板が目印です。展示場と自社ピットを完備しております。</p>
+        </div>
+
+        <div class="about-gallery-grid">
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/shop-exterior.jpg" alt="Car Mate Core 店舗全景・展示場" loading="lazy">
+            </div>
+            <div class="gallery-caption">
+              <h4><i class="fa-solid fa-store" style="color:var(--primary);"></i> 店舗全景・展示スペース</h4>
+              <p>通り沿いで立ち寄りやすい立地です。常時厳選した良質中古車を展示しております。</p>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/shop-sign.jpg" alt="Car Mate Core オレンジの看板" loading="lazy">
+            </div>
+            <div class="gallery-caption">
+              <h4><i class="fa-solid fa-flag" style="color:var(--primary);"></i> オレンジのシンボル看板</h4>
+              <p>遠くからでも一目でわかる大きな看板。「WELCOME いらっしゃいませ」ののぼりでお出迎えします。</p>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/shop-view.jpg" alt="Car Mate Core 展示場と自社ピット" loading="lazy">
+            </div>
+            <div class="gallery-caption">
+              <h4><i class="fa-solid fa-car-side" style="color:var(--primary);"></i> 展示車両・自社ピット</h4>
+              <p>納車前点検から日々のオイル交換・車検・メンテナンスまで、店主が自社ピットで丁寧に点検整備します。</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- 3 Commitments -->
       <div class="commitments-wrap">

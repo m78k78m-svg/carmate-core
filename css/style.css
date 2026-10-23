@@ -2645,8 +2645,19 @@ ul, ol {
 
   /* Slide 6 Shop & Access on Desktop */
   #slide-6 .slide-card-box {
-    max-width: 820px !important;
+    max-width: 880px !important;
     margin: 0 auto !important;
+  }
+
+  .slide-6-inner-grid {
+    grid-template-columns: 1fr 1.15fr !important;
+    gap: 24px !important;
+    align-items: center !important;
+  }
+
+  .slide-6-photo-col img {
+    max-height: 250px !important;
+    border-radius: 10px !important;
   }
 
   #slide-6 .shop-info-table th {
