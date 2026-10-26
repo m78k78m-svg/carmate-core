@@ -662,68 +662,7 @@
       line-height: 1.6;
     }
 
-    /* 2. Shop Philosophy / Way of Living */
-    .philosophy-section {
-      background: var(--bg-sub);
-      border-top: 1px solid var(--line);
-    }
-
-    .philosophy-card {
-      background: #FFFFFF;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 56px 48px;
-      max-width: 920px;
-      margin: 0 auto;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      position: relative;
-    }
-
-    .philosophy-catch {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.6;
-      margin-bottom: 28px;
-      text-align: center;
-    }
-
-    .philosophy-catch span {
-      color: var(--accent);
-    }
-
-    .philosophy-body {
-      font-size: 0.94rem;
-      color: var(--text-sub);
-      line-height: 2.0;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .philosophy-highlight-box {
-      margin-top: 28px;
-      padding: 24px 28px;
-      background: var(--bg-warm);
-      border-radius: var(--radius-sm);
-      border-left: 4px solid var(--accent);
-    }
-
-    .philosophy-highlight-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 8px;
-    }
-
-    .philosophy-highlight-text {
-      font-size: 0.88rem;
-      color: var(--text-sub);
-      line-height: 1.8;
-    }
-
-    /* 3. Shop Overview Table */
+    /* 2. Shop Overview Table */
     .overview-section {
       background: #FFFFFF;
       border-top: 1px solid var(--line);
@@ -1174,13 +1113,28 @@
 
       .page-hero-en { font-size: 1.95rem; }
       .gallery-grid { grid-template-columns: 1fr; }
-      .philosophy-card { padding: 36px 24px; }
       .drive-in-grid { grid-template-columns: 1fr; gap: 24px; }
       .drive-in-banner { padding: 24px 18px; }
       .drive-in-header-title { font-size: 1.15rem; }
       .access-grid { grid-template-columns: 1fr; }
-      .overview-table th { width: 35%; padding: 14px 16px; }
-      .overview-table td { padding: 14px 16px; }
+      .overview-table th,
+      .overview-table td {
+        display: block;
+        width: 100% !important;
+        box-sizing: border-box;
+      }
+      .overview-table th {
+        background: var(--bg-warm);
+        border-bottom: none;
+        padding: 12px 16px 4px;
+        color: var(--accent);
+        font-size: 0.82rem;
+      }
+      .overview-table td {
+        padding: 4px 16px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+      .pc-only { display: none !important; }
     }
   </style>
 </head>
@@ -1275,7 +1229,7 @@
       <li>
         <a href="access.html" class="drawer-nav-link" style="color:var(--accent);">
           <span class="en">SHOP & ACCESS</span>
-          <span class="jp">（店舗案内・写真・生き方）</span>
+          <span class="jp">（店舗案内・写真・アクセス）</span>
         </a>
       </li>
     </ul>
@@ -1418,46 +1372,7 @@
     </div>
   </section>
 
-  <!-- ==================== 2. OUR WAY OF LIVING / PHILOSOPHY ==================== -->
-  <section class="section-padding philosophy-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-en-title">Way of Living</h2>
-        <p class="section-jp-sub">Car Mate Core が大切にする「生き方」と約束</p>
-      </div>
-
-      <div class="philosophy-card">
-        <div class="philosophy-catch">
-          「背伸びした派手な店舗はいらない。<br>
-          目の前の一人ひとりに、<span>正直で誠実な車屋</span>でありたい。」
-        </div>
-
-        <div class="philosophy-body">
-          <p>
-            中古車販売の世界には、外見だけを豪華に飾ったショールームや、一見安く見せて後から高額なオプション・諸費用を上乗せするような売り方がいまだに存在します。
-          </p>
-          <p>
-            しかし、私たちが暮らす佐賀の街において、クルマは単なる見栄や贅沢品ではありません。通勤に、子どもの送り迎えに、日々の買い物に……クルマなしの生活は考えられない、家族の暮らしを毎日支える「かけがえのない大切な生活の一部」です。
-          </p>
-          <p>
-            だからこそ、Car Mate Core（カーメイト コア）は無駄なショールーム維持費や過度な広告費をかけません。その浮いたコストのすべてを「車両の入念な仕入れ」と「徹底した点検整備」、そして「お求めやすい適正価格」へと還元しています。
-          </p>
-          <p>
-            「安く買えたけれど、すぐに壊れた」「説明されていなかったキズや費用があった」――そんな悲しい想いをお客様にさせることは、私たちのプライドが絶対に許しません。
-          </p>
-        </div>
-
-        <div class="philosophy-highlight-box">
-          <div class="philosophy-highlight-title">「街のかかりつけ医」のような存在を目指して</div>
-          <div class="philosophy-highlight-text">
-            車を売ったら終わり、ではなく、納車してからが本当のお付き合い。ちょっとした異音や空気圧のチェック、毎年のオイル交換から数年後の車検まで、「困ったときは三好さんに聞けば大丈夫」と言っていただける身近な頼れるパートナーであり続けます。
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 3. SHOP OVERVIEW TABLE ==================== -->
+  <!-- ==================== 2. SHOP OVERVIEW TABLE ==================== -->
   <section class="section-padding overview-section">
     <div class="container">
       <div class="section-header">
@@ -1537,7 +1452,7 @@
         <div class="drive-in-header">
           <div class="drive-in-header-icon"><i class="fa-solid fa-car-side"></i></div>
           <div>
-            <div class="drive-in-header-title">お車でお越しのお客様へ（そのまま店舗敷地内へお入りください）</div>
+            <div class="drive-in-header-title">お車でお越しのお客様へ（敷地内へそのまま進入OK）</div>
             <div class="drive-in-header-sub">一見入りづらく見えますが、お車ごとそのまま中に入って大丈夫です！</div>
           </div>
         </div>
