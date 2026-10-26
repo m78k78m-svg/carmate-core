@@ -3,371 +3,1600 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ご購入の流れ・安心保証 | Car Mate Core（カーメイト コア）</title>
-  <meta name="description" content="Car Mate Coreのお車ご購入の流れ。ご相談から現車確認、お見積もり、納車前点検、納車後の安心アフター保証まで親切丁寧にサポート。">
+  <title>ご購入までの流れ・必要書類 | Car Mate Core - 佐賀市の中古車販売</title>
+  <meta name="description" content="Car Mate Core（カーメイト コア）の中古車ご購入手順をご案内。お問い合わせ・現車確認から、追加費用なしの安心お見積もり、自社ピット点検整備、ピカピカ納車までの5ステップと必要書類を丁寧に解説します。">
+
+  <!-- Google Fonts: Playfair Display (Serif), Montserrat (Sans), Noto Sans JP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
-    .flow-timeline {
-      max-width: 860px;
-      margin: 0 auto 60px;
+    :root {
+      --bg-main: #FFFFFF;
+      --bg-sub: #FAF9F6;
+      --bg-warm: #F4EFEB;
+      --bg-dark: #1A1D20;
+      --text-main: #1A1D20;
+      --text-sub: #555B62;
+      --text-muted: #8C939D;
+      --text-light: #FFFFFF;
+      --accent: #E06D26;
+      --accent-hover: #C55716;
+      --line: #E8EBF0;
+      --line-subtle: #F1F4F8;
+      --font-serif: 'Playfair Display', 'Yu Mincho', serif;
+      --font-en: 'Montserrat', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-jp);
+      color: var(--text-main);
+      background-color: var(--bg-main);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 90px 0;
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-en-title {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+      display: inline-block;
       position: relative;
     }
-    .timeline-item {
-      background: var(--white);
-      border-radius: var(--radius-md);
-      padding: 30px 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-color);
-      display: grid;
-      grid-template-columns: 1fr;
+
+    .section-en-title::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1.5px;
+      background: var(--accent);
+      margin: 12px auto 0;
+    }
+
+    .section-jp-sub {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-top: 14px;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--line);
+      font-size: 0.72rem;
+      color: var(--text-sub);
+      padding: 8px 0;
+      letter-spacing: 0.08em;
+      font-family: var(--font-en);
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-info {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Site Header */
+    .site-header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+      gap: 20px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
       gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      width: 60px;
+      height: 46px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-main);
+      line-height: 1.15;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Header Right Actions */
+    .header-right-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-tel-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 7px 15px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--bg-sub);
+      transition: all 0.25s ease;
+    }
+
+    .header-tel-box:hover {
+      border-color: var(--accent);
+      background: #FFFFFF;
+    }
+
+    .header-tel-icon {
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .header-tel-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .header-tel-num {
+      font-family: var(--font-en);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+    }
+
+    .header-tel-sub {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-header-insta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      color: #E1306C;
+      font-size: 1.25rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-header-insta:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(225, 48, 108, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-header-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #06C755;
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 3px 10px rgba(6, 199, 85, 0.2);
+    }
+
+    .btn-header-line:hover {
+      background: #05AB49;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(6, 199, 85, 0.35);
+      color: #FFFFFF;
+    }
+
+    .header-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      border: 1px solid var(--bg-dark);
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      transition: all 0.25s ease;
+    }
+
+    .header-menu-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .header-menu-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 16px;
+    }
+
+    .header-menu-bars span {
+      display: block;
+      height: 2px;
+      background: #FFFFFF;
+      border-radius: 1px;
+    }
+
+    /* Drawer Menu Overlay & Aside */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1999;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -360px;
+      width: 340px;
+      max-width: 85vw;
+      height: 100vh;
+      background: #FFFFFF;
+      z-index: 2000;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 24px;
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.active {
+      right: 0;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 24px;
+    }
+
+    .drawer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+    }
+
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      line-height: 1;
+      color: var(--text-sub);
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .drawer-close-btn:hover {
+      color: var(--accent);
+    }
+
+    .drawer-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+
+    .drawer-nav-link {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-en);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+
+    .drawer-nav-link .jp {
+      font-family: var(--font-jp);
+      font-size: 0.74rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+
+    .drawer-nav-link:hover {
+      background: var(--bg-sub);
+      color: var(--accent);
+      padding-left: 18px;
+    }
+
+    .drawer-links-section {
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .drawer-section-title {
+      font-family: var(--font-en);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-section-title .sub {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .drawer-link-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--bg-sub);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .drawer-link-card:hover {
+      background: #FFFFFF;
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .drawer-link-card .link-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .drawer-link-card.line-card .link-icon {
+      background: #06C755;
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card.insta-card .link-icon {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card.goo-card .link-icon {
+      background: #E60012;
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card.sensor-card .link-icon {
+      background: #C30D23;
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card.stamp-card .link-icon {
+      background: #8B5CF6;
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card .link-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer-link-card .link-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .drawer-link-card .link-desc {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .drawer-link-card .link-arrow {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .stamp-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #8B5CF6;
+      background: #F3E8FF;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      width: fit-content;
+      margin-bottom: 2px;
+    }
+
+    .drawer-bottom-card {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .drawer-tel-card {
+      background: var(--bg-sub);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      background: var(--bg-warm);
+      padding: 64px 0 52px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-hero-en {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .page-hero-jp {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-bar {
+      background: var(--bg-main);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+      font-size: 0.76rem;
+      font-family: var(--font-en);
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      color: var(--text-muted);
+    }
+
+    .breadcrumb-list a {
+      color: var(--text-sub);
+    }
+
+    .breadcrumb-list a:hover {
+      color: var(--accent);
+    }
+
+    /* Step Timeline Flow */
+    .steps-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
       position: relative;
     }
-    @media (min-width: 769px) {
-      .timeline-item {
-        grid-template-columns: 140px 1fr;
-        padding: 36px 32px;
-      }
+
+    .step-card {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 32px;
+      align-items: start;
+      position: relative;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
     }
-    .timeline-badge-col {
+
+    .step-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+
+    .step-number-box {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: var(--primary-light);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      text-align: center;
-      border: 1px solid var(--border-warm);
-    }
-    .timeline-step-label {
-      font-family: var(--font-round);
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-    }
-    .timeline-step-num {
-      font-family: var(--font-round);
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--primary);
-      line-height: 1;
-      margin-top: 4px;
-    }
-    .timeline-content-col h3 {
-      font-family: var(--font-round);
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-    .document-box {
       background: var(--bg-warm);
-      border-radius: var(--radius-md);
-      padding: 30px 24px;
-      border: 1px solid var(--border-warm);
-      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 16px 10px;
+      text-align: center;
     }
-    .document-box h4 {
-      font-family: var(--font-round);
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--navy);
+
+    .step-label {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .step-num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text-main);
+    }
+
+    .step-body h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
       margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
-    .document-list {
+
+    .step-highlight-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: #FFF1E6;
+      color: var(--accent);
+      padding: 2px 10px;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .step-body p {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .step-subpoints {
+      list-style: none;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      font-size: 0.88rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      background: var(--bg-sub);
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
     }
-    @media (min-width: 769px) {
-      .document-list { grid-template-columns: repeat(2, 1fr); }
-    }
-    .document-list li {
+
+    .step-subpoints li {
+      font-size: 0.84rem;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .document-list i {
-      color: var(--primary);
+
+    .step-subpoints li i {
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    /* Document Guide Section */
+    .doc-section {
+      background: var(--bg-sub);
+      border-top: 1px solid var(--line);
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .doc-card {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .doc-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--bg-warm);
+      margin-bottom: 20px;
+    }
+
+    .doc-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--bg-warm);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .doc-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .doc-card-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .doc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .doc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .doc-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tag-user {
+      background: #E0F2FE;
+      color: #0284C7;
+    }
+
+    .tag-shop {
+      background: #F3E8FF;
+      color: #7E22CE;
+    }
+
+    .doc-note-box {
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: var(--bg-warm);
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* Payment & FAQ Section */
+    .payment-section {
+      background: #FFFFFF;
+      border-top: 1px solid var(--line);
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto 60px;
+    }
+
+    .payment-card {
+      background: var(--bg-sub);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .payment-card:hover {
+      border-color: var(--accent);
+      background: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .payment-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+
+    .payment-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .payment-card p {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* FAQ List */
+    .faq-container {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .faq-q {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .faq-q-badge {
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .faq-a {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+      padding-left: 28px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-en);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border: 1px solid var(--bg-dark);
+    }
+
+    .btn-dark:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--text-main);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--text-main);
+      color: #fff;
+    }
+
+    /* CTA Banner & Footer */
+    .stylish-cta-banner {
+      background: #1A1D20;
+      color: #FFFFFF;
+      padding: 70px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .stylish-cta-banner h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .stylish-cta-banner p {
+      font-size: 0.94rem;
+      color: #A0AEC0;
+      margin-bottom: 32px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer {
+      background: #111417;
+      color: #8C9BAE;
+      font-size: 0.82rem;
+      padding: 50px 0 30px;
+      border-top: 1px solid #23272D;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #23272D;
+      margin-bottom: 24px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #FFFFFF;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-copy {
+      text-align: center;
+      font-size: 0.74rem;
+      color: #556272;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .top-bar { display: none; }
+      .header-inner { height: 72px; }
+      .brand-logo-img { width: 50px; height: 38px; }
+      .brand-title { font-size: 1.32rem; }
+      .brand-subtitle { font-size: 0.62rem; }
+      .header-tel-box { display: none; }
+      .btn-header-line span { display: none; }
+      .btn-header-line { padding: 9px 12px; }
+      .header-menu-btn .header-menu-text { display: none; }
+      .header-menu-btn { padding: 10px 12px; }
+
+      .page-hero-en { font-size: 1.95rem; }
+      .step-card { grid-template-columns: 1fr; gap: 20px; padding: 28px 24px; }
+      .step-number-box { flex-direction: row; gap: 12px; padding: 10px 16px; justify-content: flex-start; }
+      .doc-grid { grid-template-columns: 1fr; }
+      .payment-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== HEADER ==================== -->
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-info">
+        <span><i class="fa-regular fa-clock"></i> OPEN 9:30 - 18:30 / WEDNESDAY CLOSED</span>
+        <span><i class="fa-solid fa-location-dot"></i> SAGA CITY, NISHITASHIRO 1-4-13</span>
+      </div>
+      <div>
+        <span><i class="fa-solid fa-phone"></i> 0078-6040-4870（通話無料）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
   <header class="site-header">
-    <div class="header-topbar pc-only">
-      <div class="container topbar-inner">
-        <p class="topbar-tagline">軽自動車・ファミリーカー・低価格車まで、あなたの街の親身な車屋さん</p>
-        <div class="topbar-links">
-          <span><i class="fa-regular fa-clock"></i> 営業時間 9:30〜18:30（水曜定休）</span>
-          <span><i class="fa-solid fa-location-dot"></i> 〒840-0045 佐賀県佐賀市西田代１−４−１３</span>
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="brand-logo-img">
+        <div>
+          <span class="brand-title">CAR MATE CORE</span>
+          <span class="brand-subtitle">Selected Cars & Life</span>
         </div>
-      </div>
-    </div>
+      </a>
 
-    <div class="header-main">
-      <div class="container header-inner">
-        <div class="header-logo">
-          <a href="index.html" class="logo-link">
-            <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="header-logo-img">
-            <div class="logo-text-group">
-              <span class="logo-sub">地域密着・アットホーム中古車販売</span>
-              <span class="logo-main">Car Mate Core</span>
-            </div>
-          </a>
-        </div>
+      <div class="header-right-group">
+        <a href="tel:0078-6040-4870" class="header-tel-box">
+          <i class="fa-solid fa-phone header-tel-icon"></i>
+          <div class="header-tel-info">
+            <span class="header-tel-num">0078-6040-4870</span>
+            <span class="header-tel-sub">（通話無料）</span>
+          </div>
+        </a>
 
-        <nav class="global-nav pc-only">
-          <ul class="nav-list">
-            <li class="nav-item"><a href="index.html">ホーム</a></li>
-            <li class="nav-item"><a href="about.html">当店について</a></li>
-            <li class="nav-item"><a href="stock.html">在庫・注文</a></li>
-            <li class="nav-item"><a href="service.html">サービス</a></li>
-            <li class="nav-item current"><a href="flow.html">購入の流れ</a></li>
-            <li class="nav-item"><a href="contact.html">アクセス</a></li>
-          </ul>
-        </nav>
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="btn-header-insta" title="公式Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
 
-        <div class="header-actions">
-          <a href="tel:0078-6040-4870" class="header-tel pc-only">
-            <span class="tel-label"><i class="fa-solid fa-phone"></i> お電話でのご相談</span>
-            <span class="tel-number">0078-6040-4870</span>
-          </a>
-          <a href="contact.html#line" class="btn btn-header-line">
-            <i class="fa-brands fa-line"></i> <span>LINE在庫相談</span>
-          </a>
-          <button type="button" class="hamburger-btn sp-only" id="hamburgerBtn" aria-label="メニューを開く">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </div>
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-header-line" title="LINEで気軽に相談">
+          <i class="fa-brands fa-line" style="font-size:1.1rem;"></i>
+          <span>LINE相談</span>
+        </a>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-      <div class="drawer-inner">
-        <ul class="drawer-nav">
-          <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
-          <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
-          <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
-          <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
-          <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
-        </ul>
-        <div class="drawer-contact">
-          <a href="tel:0078-6040-4870" class="btn btn-drawer-tel"><i class="fa-solid fa-phone"></i> 0078-6040-4870</a>
-          <a href="contact.html#line" class="btn btn-drawer-line"><i class="fa-brands fa-line"></i> LINEで気軽に相談</a>
-          <button type="button" class="btn btn-drawer-close" id="drawerCloseBtn" aria-label="メニューを閉じる">
-            <i class="fa-solid fa-chevron-up"></i> 閉じる
-          </button>
-        </div>
+        <button type="button" class="header-menu-btn" id="hamburgerBtn" aria-label="メニューを開く">
+          <div class="header-menu-bars">
+            <span></span>
+            <span></span>
+          </div>
+          <span class="header-menu-text">MENU</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- ==================== PAGE HERO & BREADCRUMB ==================== -->
-  <div class="page-hero">
-    <div class="container">
-      <h1 class="page-hero-title">ご購入の流れ・安心保証</h1>
-      <p class="page-hero-sub">PURCHASE FLOW & WARRANTY</p>
+  <!-- Mobile & Desktop Drawer Menu (5 Dedicated Pages) -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">CAR MATE CORE</span>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="閉じる">&times;</button>
     </div>
-  </div>
 
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="index.html" class="drawer-nav-link">
+          <span class="en">MAIN</span>
+          <span class="jp">（メイン・トップ）</span>
+        </a>
+      </li>
+      <li>
+        <a href="concept.html" class="drawer-nav-link">
+          <span class="en">CONCEPT & PROFILE</span>
+          <span class="jp">（コンセプト・代表紹介・サービス）</span>
+        </a>
+      </li>
+      <li>
+        <a href="stock.html" class="drawer-nav-link">
+          <span class="en">STOCK & SALES</span>
+          <span class="jp">（販売・在庫・注文販売）</span>
+        </a>
+      </li>
+      <li>
+        <a href="flow.html" class="drawer-nav-link" style="color:var(--accent);">
+          <span class="en">PURCHASE FLOW</span>
+          <span class="jp">（ご購入までの流れ）</span>
+        </a>
+      </li>
+      <li>
+        <a href="access.html" class="drawer-nav-link">
+          <span class="en">SHOP & ACCESS</span>
+          <span class="jp">（店舗案内・写真・生き方）</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Links Section -->
+    <div class="drawer-links-section">
+      <div class="drawer-section-title">
+        <span>Official Links & Stamp</span>
+        <span class="sub">公式リンク集 ＆ おすすめ</span>
+      </div>
+
+      <div class="drawer-links-grid">
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="drawer-link-card line-card">
+          <div class="link-icon"><i class="fa-brands fa-line"></i></div>
+          <div class="link-info">
+            <span class="link-name">公式 LINE</span>
+            <span class="link-desc">在庫・商談・無料相談はこちら</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="drawer-link-card insta-card">
+          <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
+          <div class="link-info">
+            <span class="link-name">公式 Instagram</span>
+            <span class="link-desc">@carmate_core 日常＆新着車</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <a href="https://www.goo-net.com/usedcar_shop/0802078/detail.html" target="_blank" rel="noopener noreferrer" class="drawer-link-card goo-card">
+          <div class="link-icon"><i class="fa-solid fa-car"></i></div>
+          <div class="link-info">
+            <span class="link-name">グーネット（Goo-net）</span>
+            <span class="link-desc">公式在庫一覧＆総額鑑定書</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <a href="https://www.carsensor.net/shop/saga/324457001/" target="_blank" rel="noopener noreferrer" class="drawer-link-card sensor-card">
+          <div class="link-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <div class="link-info">
+            <span class="link-name">カーセンサー（Carsensor）</span>
+            <span class="link-desc">公式店舗ページ＆アフター保証</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <a href="https://store.line.me/stickershop/" target="_blank" rel="noopener noreferrer" class="drawer-link-card stamp-card" title="義理の弟様が作成したLINEスタンプ">
+          <div class="link-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="link-info">
+            <div class="stamp-badge">義理の弟様 作成</div>
+            <span class="link-name">特製 LINEスタンプ</span>
+            <span class="link-desc">日常で使えるオリジナルスタンプ</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Bottom Contact Cards -->
+    <div class="drawer-bottom-card">
+      <div class="drawer-tel-card">
+        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:4px;">お電話でのご相談（通話無料）</div>
+        <a href="tel:0078-6040-4870" style="font-family:var(--font-en); font-size:1.15rem; font-weight:700; color:var(--text-main); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          <i class="fa-solid fa-phone" style="color:var(--accent);"></i> 0078-6040-4870
+        </a>
+        <div style="font-size:0.72rem; color:var(--text-muted); margin-top:4px;">営業時間 9:30 - 18:30（水曜定休）</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-en">Purchase Flow</h1>
+      <p class="page-hero-jp">お車選びからご納車までのステップ ＆ 必要書類ガイド</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumbs -->
   <div class="breadcrumb-bar">
     <div class="container">
       <ul class="breadcrumb-list">
-        <li><a href="index.html">ホーム</a></li>
-        <li><i class="fa-solid fa-chevron-right"></i></li>
-        <li>購入の流れ</li>
+        <li><a href="index.html">HOME</a></li>
+        <li><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i></li>
+        <li>PURCHASE FLOW</li>
       </ul>
     </div>
   </div>
 
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <main class="section-space">
+  <!-- ==================== 1. PURCHASE STEPS ==================== -->
+  <section class="section-padding">
     <div class="container">
-      <div class="section-title-wrap text-center" style="margin-bottom: 50px;">
-        <span class="sub-heading">STEP BY STEP</span>
-        <h2 class="main-heading">初めての方でも迷わない！ご購入の4ステップ</h2>
-        <p class="heading-lead">お問い合わせからご納車、そして購入後のアフターケアまで、店主がマンツーマンで丁寧にご案内いたします。</p>
+      <div class="section-header">
+        <h2 class="section-en-title">5 Steps to Delivery</h2>
+        <p class="section-jp-sub">初めての中古車選びでも安心。納得して進める5つのステップ</p>
       </div>
 
-      <!-- Timeline -->
-      <div class="flow-timeline">
+      <div class="steps-timeline">
         <!-- Step 1 -->
-        <div class="timeline-item">
-          <div class="timeline-badge-col">
-            <span class="timeline-step-label">STEP</span>
-            <span class="timeline-step-num">01</span>
+        <div class="step-card">
+          <div class="step-number-box">
+            <span class="step-label">Step</span>
+            <span class="step-num">01</span>
           </div>
-          <div class="timeline-content-col">
-            <h3>ご相談・お問い合わせ</h3>
+          <div class="step-body">
+            <h3>
+              お問い合わせ・在庫確認・ご相談
+              <span class="step-highlight-badge">LINE・お電話大歓迎</span>
+            </h3>
             <p>
-              まずはLINE、お電話、または店頭にてお気軽にご連絡ください。<br>
-              「こんな車を探している」「予算〇〇万円以内で乗れる車はある？」「今乗っている車を下取りしてほしい」など、どんな些細なことでも結構です。無理な営業は一切ありませんのでご安心ください。
+              気になるお車がございましたら、まずはお気軽にお問い合わせください。「まだ買うか決めていないけれど、相談だけしてみたい」「予算に合う車を探してほしい」といったご相談も大歓迎です。LINEなら写真や詳細情報をすぐにお送りできます。
             </p>
+            <ul class="step-subpoints">
+              <li><i class="fa-solid fa-check"></i> 公式LINE・通話無料電話対応</li>
+              <li><i class="fa-solid fa-check"></i> 気になる箇所の追加写真送付も可能</li>
+              <li><i class="fa-solid fa-check"></i> 在庫以外の車種探しも相談OK</li>
+            </ul>
           </div>
         </div>
 
         <!-- Step 2 -->
-        <div class="timeline-item">
-          <div class="timeline-badge-col">
-            <span class="timeline-step-label">STEP</span>
-            <span class="timeline-step-num">02</span>
+        <div class="step-card">
+          <div class="step-number-box">
+            <span class="step-label">Step</span>
+            <span class="step-num">02</span>
           </div>
-          <div class="timeline-content-col">
-            <h3>現車の確認・ご試乗（または候補車のご提案）</h3>
+          <div class="step-body">
+            <h3>
+              ご来店・現車確認・ご試乗
+              <span class="step-highlight-badge">じっくり確認OK</span>
+            </h3>
             <p>
-              店頭の在庫車をじっくりご覧いただき、エンジン音や室内の清潔感をご確認いただけます。ご希望に応じて敷地内での試乗も可能です。<br>
-              店頭にない車種の場合は、全国オークションから写真や状態評価票を取り寄せてご提案いたします。
+              佐賀市西田代の店舗にて、実際の車両のコンディションをじっくりお確かめいただけます。エンジンの始動状態やエアコンの効き、車内の清潔感やシートの座り心地など、気になるポイントを丁寧にご案内します。敷地内での試乗もお気軽にお申し付けください。
             </p>
+            <ul class="step-subpoints">
+              <li><i class="fa-solid fa-check"></i> 傷や使用感も隠さず率直にお伝え</li>
+              <li><i class="fa-solid fa-check"></i> 代表自ら丁寧に車両状態を解説</li>
+              <li><i class="fa-solid fa-check"></i> 敷地内での試乗・操作確認OK</li>
+            </ul>
           </div>
         </div>
 
         <!-- Step 3 -->
-        <div class="timeline-item">
-          <div class="timeline-badge-col">
-            <span class="timeline-step-label">STEP</span>
-            <span class="timeline-step-num">03</span>
+        <div class="step-card">
+          <div class="step-number-box">
+            <span class="step-label">Step</span>
+            <span class="step-num">03</span>
           </div>
-          <div class="timeline-content-col">
-            <h3>明朗なお見積もり・ご契約手続き</h3>
+          <div class="step-body">
+            <h3>
+              後から増えない安心お見積もり ＆ ご契約
+              <span class="step-highlight-badge">追加費用なしの安心総額</span>
+            </h3>
             <p>
-              車両価格だけでなく、登録諸費用や税金を含めた「乗り出し総額」のお見積書を作成します。後から増える費用は一切ありません。<br>
-              お見積もりにご納得いただけましたらご契約となります。各種オートローンや頭金なしプランも柔軟に対応可能です。
+              当店では、車両本体価格だけでなく、車検・税金・登録代行まで含めた「乗り出しコミコミ総額」を分かりやすくご提示いたします。後から不要なオプションを追加請求することは一切ございません。内訳の細かな項目まで十分にご納得いただいた上でご契約へ進みます。
             </p>
-            <div class="document-box">
-              <h4><i class="fa-solid fa-file-lines"></i> ご契約時に必要なもの（目安）</h4>
-              <ul class="document-list">
-                <li><i class="fa-solid fa-check"></i> <strong>軽自動車</strong>：住民票（発行から3ヶ月以内）、認印</li>
-                <li><i class="fa-solid fa-check"></i> <strong>普通車</strong>：印鑑証明書、実印、車庫証明</li>
-                <li><i class="fa-solid fa-check"></i> <strong>下取り車がある場合</strong>：車検証、自賠責保険証</li>
-                <li><i class="fa-solid fa-check"></i> <strong>ローン利用時</strong>：銀行口座情報、銀行届出印</li>
-              </ul>
-              <small class="text-muted" style="display: block; margin-top: 8px;">※書類の取得方法や車庫証明の書き方も親身にサポートしますのでご安心ください。</small>
-            </div>
+            <ul class="step-subpoints">
+              <li><i class="fa-solid fa-check"></i> 追加費用なしの安心総額をご提示</li>
+              <li><i class="fa-solid fa-check"></i> 強引な営業や即決の催促はゼロ</li>
+              <li><i class="fa-solid fa-check"></i> ローン試算・下取り査定もその場で可能</li>
+            </ul>
           </div>
         </div>
 
         <!-- Step 4 -->
-        <div class="timeline-item">
-          <div class="timeline-badge-col">
-            <span class="timeline-step-label">STEP</span>
-            <span class="timeline-step-num">04</span>
+        <div class="step-card">
+          <div class="step-number-box">
+            <span class="step-label">Step</span>
+            <span class="step-num">04</span>
           </div>
-          <div class="timeline-content-col">
-            <h3>徹底整備・ルームクリーニング・ご納車</h3>
+          <div class="step-body">
+            <h3>
+              自社ピット徹底点検整備 ＆ ピカピカ美車仕上げ
+              <span class="step-highlight-badge">妥協のない整備</span>
+            </h3>
             <p>
-              自社点検・整備を行い、オイル等の消耗品をチェック・交換します。最後に外装の洗車と車内の徹底除菌・クリーニングを行い、ピカピカの状態で店頭にてお引き渡しいたします。（ご希望に応じてご自宅への納車も承ります）
+              ご契約後は、自社ピットにて国家資格を持つ整備士が1台1台入念に点検・整備を実施。エンジンオイルやバッテリー、ブレーキパッドなどの消耗品を点検し、必要に応じて新品交換を行います。内外装の徹底クリーニングとボディ磨きを行い、最高の状態に仕上げます。
             </p>
+            <ul class="step-subpoints">
+              <li><i class="fa-solid fa-check"></i> 自社リフト完備ピットでの入念整備</li>
+              <li><i class="fa-solid fa-check"></i> エンジンオイル・消耗品のチェック＆交換</li>
+              <li><i class="fa-solid fa-check"></i> 室内除菌消臭 ＆ 外装ポリッシュ仕上げ</li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <!-- Warranty Section -->
-      <div class="summary-card text-center" style="margin-top: 40px;">
-        <span class="sub-heading">AFTER SUPPORT</span>
-        <h2 class="main-heading">納車後も安心！Car Mate Coreのアフター保証</h2>
-        <p class="heading-lead" style="margin-bottom: 24px;">
-          中古車だからこそ、購入後の安心感が何よりも重要です。当店では納車後も責任を持ってお付き合いいたします。
-        </p>
-        <div class="summary-points">
-          <div class="point-box">
-            <div class="point-num"><i class="fa-solid fa-shield-halved"></i></div>
-            <h4>安心の保証付き販売</h4>
-            <p>全車、万が一の初期トラブルにも迅速に対応する保証プランをご用意しています。</p>
+        <!-- Step 5 -->
+        <div class="step-card">
+          <div class="step-number-box">
+            <span class="step-label">Step</span>
+            <span class="step-num">05</span>
           </div>
-          <div class="point-box">
-            <div class="point-num"><i class="fa-solid fa-oil-can"></i></div>
-            <h4>定期メンテナンスもお任せ</h4>
-            <p>オイル交換やタイヤ空気圧点検など、日常のメンテナンスもお気軽にお立ち寄りください。</p>
+          <div class="step-body">
+            <h3>
+              ご納車 ＆ これから始まる安心のアフターケア
+              <span class="step-highlight-badge">お引き渡し後も安心</span>
+            </h3>
+            <p>
+              名義変更などの登録手続きを完了させ、店頭またはご指定の場所にてお車をお引き渡しいたします。操作方法や今後のメンテナンス周期などを丁寧にご説明。Car Mate Coreでは納車が終わりではなく、お客様のカーライフのスタートです。車検やオイル交換もいつでもお任せください。
+            </p>
+            <ul class="step-subpoints">
+              <li><i class="fa-solid fa-check"></i> 店頭納車またはご自宅納車に対応</li>
+              <li><i class="fa-solid fa-check"></i> 車両操作や安全装備の丁寧なレクチャー</li>
+              <li><i class="fa-solid fa-check"></i> 車検・定期点検・板金塗装まで生涯サポート</li>
+            </ul>
           </div>
-          <div class="point-box">
-            <div class="point-num"><i class="fa-solid fa-phone-volume"></i></div>
-            <h4>いつでも相談できる安心感</h4>
-            <p>「変な音がする」「警告灯がついた」など困った時は、LINEですぐに店主に相談できます。</p>
-          </div>
-        </div>
-        <div style="margin-top: 30px;">
-          <a href="contact.html#line" class="btn btn-primary-hero">
-            <i class="fa-brands fa-line"></i> LINEで店主に相談する
-          </a>
         </div>
       </div>
     </div>
-  </main>
+  </section>
+
+  <!-- ==================== 2. REQUIRED DOCUMENTS ==================== -->
+  <section class="section-padding doc-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Required Documents</h2>
+        <p class="section-jp-sub">ご購入時の必要書類ガイド（軽自動車／普通車）</p>
+      </div>
+
+      <div class="doc-grid">
+        <!-- 軽自動車 -->
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon"><i class="fa-solid fa-car-side"></i></div>
+            <div>
+              <div class="doc-card-title">軽自動車の場合</div>
+              <div class="doc-card-sub">手続きが比較的シンプルでスピーディー</div>
+            </div>
+          </div>
+          <ul class="doc-list">
+            <li class="doc-item">
+              <span class="doc-tag tag-user">お客様</span>
+              <div>
+                <strong>住民票（発行から3ヶ月以内の原本）</strong>
+                <p style="font-size:0.8rem; color:var(--text-sub); margin-top:2px;">マイナンバー記載のないものをご用意ください（マイナンバーカードがあればコンビニ交付も可能です）。</p>
+              </div>
+            </li>
+            <li class="doc-item">
+              <span class="doc-tag tag-user">お客様</span>
+              <div>
+                <strong>ご認印（シャチハタ不可）</strong>
+                <p style="font-size:0.8rem; color:var(--text-sub); margin-top:2px;">申請書類の所定欄にご捺印いただきます。</p>
+              </div>
+            </li>
+            <li class="doc-item">
+              <span class="doc-tag tag-user">お客様</span>
+              <div>
+                <strong>運転免許証のコピー</strong>
+                <p style="font-size:0.8rem; color:var(--text-sub); margin-top:2px;">ご本人確認のためにご提示いただきます。</p>
+              </div>
+            </li>
+            <li class="doc-item">
+              <span class="doc-tag tag-shop">当店準備</span>
+              <div>
+                <strong>自動車検査証記入申請書・自賠責保険等</strong>
+                <p style="font-size:0.8rem; color:var(--text-sub); margin-top:2px;">名義変更や登録に必要な書類一式は当店が作成・代行いたします。</p>
+              </div>
+            </li>
+          </ul>
+          <div class="doc-note-box">
+            <i class="fa-solid fa-circle-info" style="color:var(--accent);"></i>
+            ※佐賀市などの適用地域では、納車後に保管場所届出（車庫証明）が必要となる場合があります。手続きは当店でサポートいたします。
+          </div>
+        </div>
+
+        <!-- 普通乗用車 -->
+        <div class="doc-card">
+          <div class="doc-card-header">
+            <div class="doc-card-icon"><i class="fa-solid fa-car"></i></div>
+            <div>
+              <div class="doc-card-title">普通自動車の場合</div>
+              <div class="doc-card-sub">実印と印鑑証明書のご用意が必要です</div>
+            </div>
+          </div>
+          <ul class="doc-list">
+            <li class="doc-item">
+              <span class="doc-tag tag-user">お客様</span>
+              <div>
+                <strong>印鑑登録証明書（発行から3ヶ月以内）</strong>
+                <p style="font-size:0.8rem; color:var(--text-sub); margin-top:2px;">お住まいの市役所・支所またはコンビニ交付でご取得いただけます。</p>
+              </div>
+            </li>
+            <li class="doc-item">
+              <span class="doc-tag tag-user">お客様</span>
+              <div>
+                <strong>実印（役所に登録している印鑑）</strong>
+                <p style="font-size:0.8rem; color:var(--text-sub); margin-top:2px;">委任状や譲渡証明書にご捺印いただきます。</p>
+              </div>
+            </li>
+            <li class="doc-item">
+              <span class="doc-tag tag-user">お客様</span>
+              <div>
+                <strong>車庫証明書（自動車保管場所証明書）</strong>
+                <p style="font-size:0.8rem; color:var(--text-sub); margin-top:2px;">警察署への申請が必要です。当店で申請代行も承りますのでご安心ください。</p>
+              </div>
+            </li>
+            <li class="doc-item">
+              <span class="doc-tag tag-shop">当店準備</span>
+              <div>
+                <strong>委任状・譲渡証明書・OCR申請書等</strong>
+                <p style="font-size:0.8rem; color:var(--text-sub); margin-top:2px;">陸運局での名義変更手続きに必要な書類はすべて当店がご用意いたします。</p>
+              </div>
+            </li>
+          </ul>
+          <div class="doc-note-box">
+            <i class="fa-solid fa-circle-info" style="color:var(--accent);"></i>
+            ※下取り車がある場合は「下取り車の車検証・自賠責・リサイクル券・実印・印鑑証明書」も併せて必要となります。詳しくご案内いたします。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. PAYMENT & FAQ ==================== -->
+  <section class="section-padding payment-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Payment & FAQ</h2>
+        <p class="section-jp-sub">お支払い方法 ＆ よくあるご質問</p>
+      </div>
+
+      <!-- Payment Cards -->
+      <div class="payment-grid">
+        <div class="payment-card">
+          <div class="payment-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+          <h4>現金・銀行振込</h4>
+          <p>
+            ご契約時の手付金と、ご納車前までの残金お振込みによるお支払いです。明細を分かりやすく明記した受領書・領収書を発行いたします。
+          </p>
+        </div>
+
+        <div class="payment-card">
+          <div class="payment-icon"><i class="fa-solid fa-credit-card"></i></div>
+          <h4>各種オートローン</h4>
+          <p>
+            頭金0円から最長84回・120回払いまで柔軟に対応。月々の支払額を抑えたプランなど、お客様の家計に無理のない返済計画をご提案します。
+          </p>
+        </div>
+
+        <div class="payment-card">
+          <div class="payment-icon"><i class="fa-solid fa-handshake"></i></div>
+          <h4>愛車の下取り・相殺</h4>
+          <p>
+            今お乗りの愛車をその場で高価査定。下取り金額をご購入代金からそのまま相殺可能です。ローン残債があるお車もお気軽にご相談ください。
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Container -->
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q.</span>
+            <span>「追加費用なしの安心総額」とありますが、本当に後から請求される費用はありませんか？</span>
+          </div>
+          <div class="faq-a">
+            はい、当店では車検代、法定費用、各種税金、登録手続き代行費用、納車前点検整備費用まで含めた「乗り出しコミコミ総額」をご提示しております。お客様が追加の任意オプション（希望ナンバーや追加コーティング等）をご希望されない限り、お見積もり金額から1円も増えることはございません。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q.</span>
+            <span>佐賀県外や遠方に住んでいるのですが、購入することはできますか？</span>
+          </div>
+          <div class="faq-a">
+            もちろん可能です。福岡・長崎・熊本をはじめ全国への陸送納車実績が多数ございます。LINEやお電話でお車の詳細写真・動画・状態チェック票をお送りし、ご納得いただけるまで丁寧にご説明いたします。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q.</span>
+            <span>購入時のオートローン審査にはどれくらい時間がかかりますか？</span>
+          </div>
+          <div class="faq-a">
+            WEBや店頭でのお申し込み後、通常30分〜1時間程度で審査結果が判明いたします。頭金なしや月々1万円台からのお支払いプランもご提案可能ですので、お気軽にお申し付けください。
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-badge">Q.</span>
+            <span>契約から納車まで、通常どれくらいの日数がかかりますか？</span>
+          </div>
+          <div class="faq-a">
+            必要書類（住民票や印鑑証明等）が揃ってから、自社ピットでの法定点検・消耗品交換・名義変更を行い、通常約1週間〜2週間前後でお引き渡しとなります。お急ぎのご都合がある場合は可能な限り調整いたしますので事前にご相談ください。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="stylish-cta-banner">
+    <div class="container">
+      <h2>お車選びのご相談は、いつでもお気軽に</h2>
+      <p>
+        「この車の状態をもっと知りたい」「ローンの相談をしたい」など、どんな小さなことでも丁寧にお応えします。無理な営業は一切いたしません。
+      </p>
+      <div class="cta-button-group">
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-header-line" style="font-size:0.95rem; padding:16px 36px;">
+          <i class="fa-brands fa-line" style="font-size:1.3rem;"></i>
+          <span>公式LINEで気軽に相談する</span>
+        </a>
+        <a href="tel:0078-6040-4870" class="btn btn-outline-dark" style="color:#FFFFFF; border-color:rgba(255,255,255,0.4);">
+          <i class="fa-solid fa-phone"></i>
+          <span>0078-6040-4870（通話無料）</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="site-footer">
-    <div class="container footer-main-inner">
-      <div class="footer-col-brand">
-        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
-        <p class="footer-intro">
-          「車に詳しくなくても大丈夫！」<br>
-          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする街のアットホームな中古車店です。
-        </p>
-        <div class="footer-contact-info">
-          <p><i class="fa-solid fa-location-dot"></i> 〇〇県〇〇市〇〇町1-2-3</p>
-          <p><i class="fa-solid fa-phone"></i> 000-000-0000</p>
-          <p><i class="fa-regular fa-clock"></i> 10:00〜19:00（水曜定休）</p>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">CAR MATE CORE</div>
+          <p style="font-size:0.75rem; margin-top:6px; color:#6B7A90;">佐賀市西田代1-4-13 | 暮らしに寄り添う良質中古車</p>
         </div>
-      </div>
-      <div class="footer-col-nav">
-        <h4 class="footer-nav-title">サイトマップ</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="about.html">当店について・社長紹介</a></li>
-          <li><a href="stock.html">在庫情報＆注文販売</a></li>
-          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
-          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
-          <li><a href="contact.html">店舗案内・アクセス</a></li>
+        <ul class="footer-nav">
+          <li><a href="index.html">メイン</a></li>
+          <li><a href="concept.html">コンセプト・プロフィール</a></li>
+          <li><a href="stock.html">販売、在庫</a></li>
+          <li><a href="flow.html" style="color:#FFFFFF; font-weight:700;">購入までの流れ</a></li>
+          <li><a href="access.html">店舗案内</a></li>
         </ul>
       </div>
-      <div class="footer-col-cta">
-        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
-        <p class="footer-cta-text">LINEまたはお電話でお気軽にご連絡ください。</p>
-        <a href="contact.html#line" class="btn btn-footer-line"><i class="fa-brands fa-line"></i> LINE公式アカウント</a>
-        <a href="tel:000-000-0000" class="footer-tel-link"><i class="fa-solid fa-phone"></i> 000-000-0000</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+      <div class="footer-copy">
+        &copy; 2026 Car Mate Core. All Rights Reserved.
       </div>
     </div>
   </footer>
 
-  <aside class="mobile-sticky-bar sp-only">
-    <a href="tel:0078-6040-4870" class="sticky-btn sticky-tel"><i class="fa-solid fa-phone"></i><span>電話で相談</span></a>
-    <a href="contact.html#line" class="sticky-btn sticky-line"><i class="fa-brands fa-line"></i><span>LINEで在庫相談</span></a>
-  </aside>
-
+  <!-- Scripts -->
   <script>
+    // Drawer Menu Toggle
     const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
-    if (hamburgerBtn && mobileDrawer) {
-      hamburgerBtn.addEventListener('click', () => {
-        hamburgerBtn.classList.toggle('active');
-        mobileDrawer.classList.toggle('open');
-        document.body.classList.toggle('no-scroll');
-      });
+    const drawerOverlay = document.getElementById('drawerOverlay');
 
-      mobileDrawer.querySelectorAll('a, .btn-drawer-close').forEach(elem => {
-        elem.addEventListener('click', () => {
-          hamburgerBtn.classList.remove('active');
-          mobileDrawer.classList.remove('open');
-          document.body.classList.remove('no-scroll');
-        });
-      });
+    function openDrawer() {
+      mobileDrawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openDrawer);
+    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
   </script>
 </body>
 </html>

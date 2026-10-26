@@ -3,604 +3,2303 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>中古車販売 Car Mate Core（カーメイト コア）| 親身＆アットホームな街の車屋さん</title>
-  <meta name="description" content="軽自動車・ファミリーカー・格安良質車まで幅広く取り扱い！車の知識ゼロでも安心、社長が親身に相談に乗るアットホームな中古車店「Car Mate Core（カーメイト コア）」。総額明朗会計・注文販売・車検整備・高価買取。">
-  <!-- Google Fonts -->
+  <title>Car Mate Core - 佐賀市の中古車販売・注文販売・車検整備</title>
+  <meta name="description" content="佐賀市西田代のアットホームな中古車店 Car Mate Core（カーメイト コア）。軽自動車からファミリーカーまで、追加費用なしの安心総額と丁寧な自社点検整備でお届けします。">
+
+  <!-- Google Fonts: Playfair Display (Serif), Montserrat (Sans), Noto Sans JP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ========================================================
+       Design Tokens & Variables (Minimal & Stylish / Reference: MOSAIC)
+       ======================================================== */
+    :root {
+      --bg-main: #FFFFFF;
+      --bg-sub: #FBFBFC;
+      --bg-warm: #FAF8F5;
+      --bg-dark: #1A1D20;
+      
+      --text-main: #24292E;
+      --text-sub: #6A737D;
+      --text-muted: #959DA5;
+      --text-light: #FFFFFF;
+      
+      --accent: #E65C00;         /* Refined warm terracotta orange */
+      --accent-hover: #CC5200;
+      --accent-soft: #FFF4ED;
+      
+      --line: #E1E4E8;
+      --line-subtle: #ECEFF2;
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-en: 'Montserrat', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
+
+      --container: 1140px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    /* Base Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-jp);
+      font-weight: 400;
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Headers (Editorial Serif Style) */
+    .section-header {
+      text-align: center;
+      margin-bottom: 54px;
+    }
+
+    .section-en-title {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-en-title::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1.5px;
+      background: var(--accent);
+      margin: 12px auto 0;
+    }
+
+    .section-jp-sub {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-top: 14px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-en);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border: 1px solid var(--bg-dark);
+    }
+
+    .btn-dark:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--text-main);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--text-main);
+      color: #fff;
+    }
+
+    .btn-line {
+      background: #06C755;
+      color: #fff;
+      border: 1px solid #06C755;
+    }
+
+    .btn-line:hover {
+      background: #05AC49;
+      border-color: #05AC49;
+      color: #fff;
+    }
+
+    /* ========================================================
+       Top Bar & Site Header
+       ======================================================== */
+    .top-bar {
+      border-bottom: 1px solid var(--line-subtle);
+      background: var(--bg-main);
+      font-size: 0.76rem;
+      color: var(--text-sub);
+      padding: 8px 0;
+      font-family: var(--font-en);
+      letter-spacing: 0.05em;
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-info {
+      display: flex;
+      gap: 20px;
+    }
+
+    .top-bar-info span i {
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .site-header {
+      background: var(--bg-main);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--line);
+      transition: all 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      width: 60px;
+      height: 46px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-main);
+      line-height: 1.15;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Header Right Actions */
+    .header-right-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Header Tel Box */
+    .header-tel-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 7px 15px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--bg-sub);
+      transition: all 0.25s ease;
+    }
+
+    .header-tel-box:hover {
+      border-color: var(--accent);
+      background: #FFFFFF;
+    }
+
+    .header-tel-icon {
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .header-tel-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .header-tel-num {
+      font-family: var(--font-en);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+    }
+
+    .header-tel-sub {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* Instagram Button */
+    .btn-header-insta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      color: #E1306C;
+      font-size: 1.25rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-header-insta:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(225, 48, 108, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* LINE Button */
+    .btn-header-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #06C755;
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 3px 10px rgba(6, 199, 85, 0.2);
+    }
+
+    .btn-header-line:hover {
+      background: #05AB49;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(6, 199, 85, 0.35);
+      color: #FFFFFF;
+    }
+
+    /* Hamburger / Menu Button (Desktop & Mobile) */
+    .header-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      border: 1px solid var(--bg-dark);
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      transition: all 0.25s ease;
+    }
+
+    .header-menu-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .header-menu-bars {
+      width: 17px;
+      height: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .header-menu-bars span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #FFFFFF;
+      border-radius: 1px;
+      transition: all 0.25s ease;
+    }
+
+    /* Drawer Menu */
+    .mobile-drawer {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 86%;
+      max-width: 400px;
+      height: 100%;
+      background: #FFFFFF;
+      z-index: 2000;
+      box-shadow: -6px 0 32px rgba(0,0,0,0.15);
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 28px 24px;
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .drawer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+    }
+
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--text-sub);
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+      transition: color 0.2s ease;
+    }
+
+    .drawer-close-btn:hover {
+      color: var(--accent);
+    }
+
+    .drawer-nav-list {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .drawer-nav-link {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--line-subtle);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .drawer-nav-link .en {
+      font-family: var(--font-en);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+    }
+
+    .drawer-nav-link .jp {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      letter-spacing: 0.02em;
+    }
+
+    .drawer-nav-link:hover .en,
+    .drawer-nav-link:hover .jp {
+      color: var(--accent);
+    }
+
+    .drawer-bottom-card {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .drawer-tel-card {
+      background: var(--bg-sub);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    /* Links Section in Drawer */
+    .drawer-links-section {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .drawer-section-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 12px;
+    }
+
+    .drawer-section-title span:first-child {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .drawer-section-title .sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+    }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .drawer-link-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--bg-main);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .drawer-link-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .drawer-link-card .link-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .drawer-link-card.line-card .link-icon { background: #06C755; color: #fff; }
+    .drawer-link-card.insta-card .link-icon { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: #fff; }
+    .drawer-link-card.goo-card .link-icon { background: #E60012; color: #fff; }
+    .drawer-link-card.sensor-card .link-icon { background: #FF5A00; color: #fff; }
+    .drawer-link-card.stamp-card .link-icon { background: #8B5CF6; color: #fff; }
+
+    .drawer-link-card .link-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .drawer-link-card .link-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.02em;
+    }
+
+    .drawer-link-card .link-desc {
+      font-size: 0.68rem;
+      color: var(--text-sub);
+    }
+
+    .drawer-link-card .link-arrow {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .drawer-link-card:hover .link-arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    .stamp-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #8B5CF6;
+      background: #F3E8FF;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      width: fit-content;
+      margin-bottom: 2px;
+    }
+
+    /* ========================================================
+       Hero Stage (Minimalist Elegant Framing)
+       ======================================================== */
+    .hero-section {
+      padding: 60px 0 70px;
+      background: var(--bg-warm);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .hero-video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-content {
+      padding-left: 10px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .hero-lead-title {
+      font-family: var(--font-serif);
+      font-size: 2.45rem;
+      line-height: 1.35;
+      color: var(--text-main);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-lead-title span {
+      display: block;
+      font-family: var(--font-jp);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-top: 8px;
+      color: var(--text-main);
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+
+    .hero-merit-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .hero-merit-item {
+      font-size: 0.82rem;
+      color: var(--text-main);
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-merit-item i {
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ========================================================
+       Concept / About Section (Editorial Layout)
+       ======================================================== */
+    .section-padding {
+      padding: 90px 0;
+    }
+
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+
+    .about-main-photo {
+      width: 100%;
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .about-badge-card {
+      position: absolute;
+      bottom: -20px;
+      right: 20px;
+      background: var(--bg-main);
+      padding: 18px 24px;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border: 1px solid var(--line-subtle);
+      text-align: center;
+    }
+
+    .about-badge-card .num {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .about-badge-card .txt {
+      font-size: 0.74rem;
+      color: var(--text-sub);
+      font-weight: 600;
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .about-text-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    .about-text-content p {
+      font-size: 0.94rem;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    /* 3 Commitments (Minimal Cards) */
+    .commitments-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .commit-box {
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 32px 26px;
+      transition: all 0.25s ease;
+    }
+
+    .commit-box:hover {
+      border-color: var(--text-main);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+    }
+
+    .commit-num {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .commit-box h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .commit-box p {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      line-height: 1.75;
+    }
+
+    /* ========================================================
+       Representative Profile Section
+       ======================================================== */
+    .profile-section {
+      padding: 90px 0;
+      background: var(--bg-main);
+      border-top: 1px solid var(--line);
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 56px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .profile-visual-card {
+      background: var(--bg-warm);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+
+    .profile-main-photo-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      margin-bottom: 20px;
+    }
+
+    .profile-main-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-meta-header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .profile-role-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .profile-name-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .profile-name-jp {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.06em;
+    }
+
+    .profile-name-en {
+      font-family: var(--font-en);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .profile-data-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.84rem;
+    }
+
+    .profile-data-item {
+      display: flex;
+      gap: 12px;
+      line-height: 1.5;
+    }
+
+    .profile-data-label {
+      width: 60px;
+      font-weight: 700;
+      color: var(--text-sub);
+      flex-shrink: 0;
+    }
+
+    .profile-data-value {
+      color: var(--text-main);
+      flex: 1;
+    }
+
+    /* Celica Mini Showcase */
+    .profile-celica-box {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #FFFFFF;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    .profile-celica-img {
+      width: 72px;
+      height: 52px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+
+    .profile-celica-info {
+      line-height: 1.35;
+    }
+
+    .profile-celica-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: block;
+    }
+
+    .profile-celica-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .profile-celica-desc {
+      font-size: 0.7rem;
+      color: var(--text-sub);
+    }
+
+    /* Profile Message (Right Column) */
+    .profile-message-wrap {
+      padding-top: 8px;
+    }
+
+    .profile-lead-eyebrow {
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .profile-lead-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--text-main);
+      margin-bottom: 24px;
+    }
+
+    .profile-lead-title span {
+      display: block;
+      color: var(--accent);
+    }
+
+    .profile-message-body {
+      font-size: 0.94rem;
+      line-height: 1.95;
+      color: var(--text-sub);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .profile-message-body p {
+      margin: 0;
+    }
+
+    .profile-message-body strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .profile-sign-row {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .profile-sign-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.08em;
+    }
+
+    .profile-sign-role {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      margin-right: 8px;
+    }
+
+    /* ========================================================
+       Stock Cars (Gallery Style)
+       ======================================================== */
+    .bg-sub {
+      background: var(--bg-sub);
+    }
+
+    .stock-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .stock-card {
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stock-card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+
+    .stock-img-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #E8ECEF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stock-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .stock-card:hover .stock-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .stock-category-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(26, 29, 32, 0.88);
+      color: #fff;
+      font-family: var(--font-en);
+      font-size: 0.70rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .stock-body {
+      padding: 22px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stock-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .stock-feature {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .stock-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-top: 1px solid var(--line-subtle);
+      padding-top: 14px;
+    }
+
+    .stock-price-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .stock-price-value {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ========================================================
+       Order System (Auction Custom Order)
+       ======================================================== */
+    .order-box {
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 48px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    .order-header-text {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 0.94rem;
+      color: var(--text-sub);
+      line-height: 1.85;
+    }
+
+    .order-step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .order-step-item {
+      background: var(--bg-warm);
+      border-radius: var(--radius-sm);
+      padding: 28px 22px;
+      text-align: center;
+      position: relative;
+    }
+
+    .order-step-num {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .order-step-item h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .order-step-item p {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* ========================================================
+       Services (Minimal 4 Grid)
+       ======================================================== */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 36px 20px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--text-main);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      transition: color 0.25s ease;
+    }
+
+    .service-card:hover .service-icon {
+      color: var(--accent);
+    }
+
+    .service-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .service-card p {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* ========================================================
+       Shop Photo Gallery (Clean Grid)
+       ======================================================== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--bg-main);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+
+    .gallery-item-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-item:hover .gallery-item-img {
+      transform: scale(1.04);
+    }
+
+    .gallery-item-caption {
+      padding: 16px 18px;
+      font-size: 0.84rem;
+      color: var(--text-main);
+      font-weight: 600;
+      border-top: 1px solid var(--line-subtle);
+      background: var(--bg-main);
+    }
+
+    /* ========================================================
+       Access & Contact Section
+       ======================================================== */
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      padding: 36px;
+    }
+
+    .access-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .access-table th {
+      width: 90px;
+      padding: 14px 10px 14px 0;
+      color: var(--text-sub);
+      font-weight: 600;
+      border-bottom: 1px solid var(--line-subtle);
+      vertical-align: top;
+      white-space: nowrap;
+    }
+
+    .access-table td {
+      padding: 14px 0;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--line-subtle);
+    }
+
+    .access-map-frame {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      height: 100%;
+      min-height: 280px;
+    }
+
+    .access-map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* ========================================================
+       CTA Banner
+       ======================================================== */
+    .stylish-cta-banner {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 70px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .stylish-cta-banner .en-sub {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      color: #D1D5DB;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .stylish-cta-banner h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .stylish-cta-banner p {
+      font-size: 0.94rem;
+      color: #A0AEC0;
+      margin-bottom: 32px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ========================================================
+       Footer
+       ======================================================== */
+    .site-footer {
+      background: #111417;
+      color: #8C9BAE;
+      font-size: 0.82rem;
+      padding: 50px 0 30px;
+      border-top: 1px solid #23272D;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #23272D;
+      margin-bottom: 24px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer-nav a:hover {
+      color: #fff;
+    }
+
+    .footer-copy {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #5B6876;
+    }
+
+    /* ========================================================
+       Responsive Styles (Mobile & Tablet)
+       ======================================================== */
+    @media (max-width: 991px) {
+      .top-bar {
+        display: none;
+      }
+
+      .header-inner {
+        height: 72px;
+      }
+
+      .brand-logo-img {
+        width: 50px;
+        height: 38px;
+      }
+
+      .brand-title {
+        font-size: 1.32rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.62rem;
+      }
+
+      .header-tel-box {
+        display: none;
+      }
+
+      .btn-header-line span {
+        display: none;
+      }
+
+      .btn-header-line {
+        padding: 9px 12px;
+      }
+
+      .header-menu-btn .header-menu-text {
+        display: none;
+      }
+
+      .header-menu-btn {
+        padding: 10px 12px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .commitments-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .stock-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .order-step-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .access-grid {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 24px;
+      }
+
+      .hero-lead-title {
+        font-size: 1.85rem;
+      }
+
+      .hero-lead-title span {
+        font-size: 1.35rem;
+      }
+
+      .section-en-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
-<body class="slider-page-body">
+<body>
 
-  <!-- ==================== SITE HEADER ==================== -->
-  <header class="site-header">
-    <!-- Top Utility Bar (PC) -->
-    <div class="header-topbar pc-only">
-      <div class="container topbar-inner">
-        <p class="topbar-tagline">軽自動車・ファミリーカー・低価格車まで、あなたの街の親身な車屋さん</p>
-        <div class="topbar-links">
-          <span><i class="fa-regular fa-clock"></i> 営業時間 9:30〜18:30（水曜定休）</span>
-          <span><i class="fa-solid fa-location-dot"></i> 〒840-0045 佐賀県佐賀市西田代１−４−１３</span>
-        </div>
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-info">
+        <span><i class="fa-regular fa-clock"></i> OPEN 9:30 - 18:30 / WEDNESDAY CLOSED</span>
+        <span><i class="fa-solid fa-location-dot"></i> SAGA CITY, NISHITASHIRO 1-4-13</span>
       </div>
-    </div>
-
-    <!-- Main Header -->
-    <div class="header-main">
-      <div class="container header-inner">
-        <!-- Logo -->
-        <div class="header-logo">
-          <a href="index.html" class="logo-link">
-            <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="header-logo-img">
-            <div class="logo-text-group">
-              <span class="logo-sub">地域密着・アットホーム中古車販売</span>
-              <span class="logo-main">Car Mate Core</span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Global Navigation (PC) -->
-        <nav class="global-nav pc-only">
-          <ul class="nav-list">
-            <li class="nav-item current"><a href="index.html">ホーム</a></li>
-            <li class="nav-item"><a href="about.html">当店について</a></li>
-            <li class="nav-item"><a href="stock.html">在庫・注文</a></li>
-            <li class="nav-item"><a href="service.html">サービス</a></li>
-            <li class="nav-item"><a href="flow.html">購入の流れ</a></li>
-            <li class="nav-item"><a href="contact.html">アクセス</a></li>
-          </ul>
-        </nav>
-
-        <!-- Header Actions -->
-        <div class="header-actions">
-          <a href="tel:0078-6040-4870" class="header-tel pc-only">
-            <span class="tel-label"><i class="fa-solid fa-phone"></i> お電話でのご相談</span>
-            <span class="tel-number">0078-6040-4870</span>
-          </a>
-          <a href="contact.html#line" class="btn btn-header-line">
-            <i class="fa-brands fa-line"></i> <span>LINE在庫相談</span>
-          </a>
-          <!-- Mobile Hamburger Button -->
-          <button type="button" class="hamburger-btn sp-only" id="hamburgerBtn" aria-label="メニューを開く">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Drawer Menu (Root Level Overlay) -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div class="drawer-inner">
-      <ul class="drawer-nav">
-        <li><a href="index.html"><i class="fa-solid fa-house"></i> ホーム</a></li>
-        <li><a href="about.html"><i class="fa-solid fa-user-tie"></i> 当店について・社長紹介</a></li>
-        <li><a href="stock.html"><i class="fa-solid fa-car"></i> 在庫情報＆注文販売</a></li>
-        <li><a href="service.html"><i class="fa-solid fa-wrench"></i> サービス案内（車検・買取）</a></li>
-        <li><a href="flow.html"><i class="fa-solid fa-clipboard-check"></i> ご購入の流れ・安心保証</a></li>
-        <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> 店舗案内・アクセス</a></li>
-      </ul>
-      <div class="drawer-contact">
-        <a href="tel:0078-6040-4870" class="btn btn-drawer-tel">
-          <i class="fa-solid fa-phone"></i> 0078-6040-4870
-        </a>
-        <a href="contact.html#line" class="btn btn-drawer-line">
-          <i class="fa-brands fa-line"></i> LINEで気軽に相談
-        </a>
-        <button type="button" class="btn btn-drawer-close" id="drawerCloseBtn" aria-label="メニューを閉じる">
-          <i class="fa-solid fa-chevron-up"></i> 閉じる
-        </button>
+      <div>
+        <span><i class="fa-solid fa-phone"></i> 0078-6040-4870（通話無料）</span>
       </div>
     </div>
   </div>
 
-  <main>
-    <!-- Vertical Fullpage Scroll-Snap Slider Container -->
-    <div class="vertical-slider-container" id="sliderContainer">
-
-      <!-- ==================== SLIDE 1: HERO / TOP ==================== -->
-      <!-- ==================== SLIDE 1: HERO / TOP ==================== -->
-      <section class="slider-slide slide-bg-top slide-hero-slide" id="slide-1">
-        <div class="hero-stage-layout container">
-          
-          <!-- Hero Text Block (Left on PC, Bottom on Mobile) -->
-          <div class="hero-content-container">
-            <div class="hero-subbadge">
-              <i class="fa-solid fa-heart"></i> 車の知識ゼロでも安心！押し売り一切なし
-            </div>
-            <h1 class="hero-main-copy">
-              あなたのご予算に<br>
-              <span class="text-orange">一番ちょうどいい1台</span>を、<br>
-              店主が親身にお探しします。
-            </h1>
-            <p class="hero-description">
-              通勤用の軽自動車からファミリーカーまで、<br class="sp-only">
-              お客様とのお付き合いを大切にする佐賀の中古車店です。
-            </p>
-            <div class="hero-merits">
-              <span class="merit-tag"><i class="fa-solid fa-check"></i> 総額明朗会計</span>
-              <span class="merit-tag"><i class="fa-solid fa-check"></i> 丁寧な自社点検整備</span>
-              <span class="merit-tag"><i class="fa-solid fa-check"></i> 全国オークション注文販売</span>
-            </div>
-            <div class="hero-button-group">
-              <a href="stock.html" class="btn btn-primary-hero">
-                <i class="fa-solid fa-car"></i> 在庫一覧を見る
-              </a>
-              <a href="contact.html#line" class="btn btn-line-hero">
-                <i class="fa-brands fa-line"></i> LINEで在庫・お車相談
-              </a>
-            </div>
-            <!-- Slide Down Indicator Arrow -->
-            <a href="#slide-2" class="slide-down-indicator" aria-label="在庫情報へスライド">
-              <span>スライドして次へ</span>
-              <i class="fa-solid fa-chevron-down"></i>
-            </a>
-          </div>
-
-          <!-- Hero Video Frame (Right on PC, Top on Mobile) -->
-          <div class="fullwidth-hero-video-wrap" id="heroVideoStage">
-            <video id="heroVideoPlayer" class="fullwidth-hero-video" autoplay muted playsinline webkit-playsinline preload="auto">
-              <source src="videos/hero.mp4" type="video/mp4">
-              <source src="videos/gemini_generated_video_d22ae132.mp4" type="video/mp4">
-              <source src="videos/hero.mov" type="video/quicktime">
-              <source src="videos/hero.webm" type="video/webm">
-            </video>
-          </div>
-
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Brand Logo (Enlarged) -->
+      <a href="index.html" class="brand-logo-wrap">
+        <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="brand-logo-img">
+        <div>
+          <span class="brand-title">CAR MATE CORE</span>
+          <span class="brand-subtitle">Selected Cars & Life</span>
         </div>
-      </section>
+      </a>
 
-      <!-- ==================== SLIDE 2: STOCK CARS ==================== -->
-      <section class="slider-slide slide-bg-warm" id="slide-2">
-        <div class="slide-card-wrap">
-          <span class="slide-badge-title">STOCK CARS</span>
-          <h2 class="slide-main-title">厳選した良質中古車</h2>
-          <p class="slide-lead-text">手頃な軽自動車からファミリーカーまで、<br class="sp-only">全車総額明朗会計＆安心自社点検済み！</p>
-          
-          <div class="slide-grid-3">
-            <div class="slide-grid-item">
-              <span style="background:var(--primary); color:#fff; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:999px;">軽自動車</span>
-              <h4>ムーヴ / タント / キャンバス等</h4>
-              <p>支払総額35万円〜！人気のスライドドア・ナビ付多数</p>
-              <div class="item-price">総額 35万円〜</div>
-            </div>
-            <div class="slide-grid-item">
-              <span style="background:#3182CE; color:#fff; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:999px;">コンパクト</span>
-              <h4>ダイハツ トール G</h4>
-              <p>両側パワースライド・メモリーナビ・ETC付</p>
-              <div class="item-price">総額 75万円</div>
-            </div>
-            <div class="slide-grid-item">
-              <span style="background:#38A169; color:#fff; font-size:0.68rem; font-weight:800; padding:2px 8px; border-radius:999px;">ミニバン</span>
-              <h4>トヨタ ヴォクシー ZS 煌</h4>
-              <p>9インチ大画面ナビ・フリップダウン後席モニター付</p>
-              <div class="item-price">総額 208万円</div>
-            </div>
+      <!-- Header Right Actions: Tel, Instagram, LINE, Hamburger Menu -->
+      <div class="header-right-group">
+        <!-- Phone Contact with Free Call Notice -->
+        <a href="tel:0078-6040-4870" class="header-tel-box">
+          <i class="fa-solid fa-phone header-tel-icon"></i>
+          <div class="header-tel-info">
+            <span class="header-tel-num">0078-6040-4870</span>
+            <span class="header-tel-sub">（通話無料）</span>
           </div>
+        </a>
 
-          <div style="margin-top:10px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
-            <a href="stock.html" class="btn btn-primary" style="padding:8px 16px; font-size:0.84rem;">
-              <i class="fa-solid fa-car"></i> 在庫一覧を見る
-            </a>
-            <a href="stock.html#sold-list" class="btn" style="padding:8px 14px; font-size:0.82rem; border:2px solid #FEB2B2; color:#E53E3E; background:#FFF5F5; font-weight:800; border-radius:999px;">
-              <i class="fa-solid fa-certificate"></i> ご成約実績（SOLD）
-            </a>
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="btn-header-insta" title="公式Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <!-- LINE Button -->
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-header-line" title="LINEで気軽に相談">
+          <i class="fa-brands fa-line" style="font-size:1.1rem;"></i>
+          <span>LINE相談</span>
+        </a>
+
+        <!-- Hamburger Menu Button -->
+        <button type="button" class="header-menu-btn" id="hamburgerBtn" aria-label="メニューを開く">
+          <div class="header-menu-bars">
+            <span></span>
+            <span></span>
           </div>
-
-          <a href="#slide-3" class="slide-down-indicator" aria-label="注文販売へスライド">
-            <span>スライドして次へ</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-        </div>
-      </section>
-
-      <!-- ==================== SLIDE 3: CUSTOM ORDER ==================== -->
-      <section class="slider-slide slide-bg-white" id="slide-3">
-        <div class="slide-card-wrap">
-          <span class="slide-badge-title" style="background:#EBF8FF; color:#3182CE; border-color:#BEE3F8;">ORDER SYSTEM</span>
-          <h2 class="slide-main-title">全国オークション注文販売</h2>
-          <p class="slide-lead-text">店頭にないお車でも、ご希望の車種やご予算に合わせて<br class="sp-only">全国オートオークションから店主が厳選仕入れ！</p>
-
-          <div class="slide-card-box">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; text-align:left; margin-bottom:10px;">
-              <div style="background:var(--bg-warm); padding:10px; border-radius:var(--radius-md);">
-                <strong style="color:var(--navy); font-size:0.85rem;"><i class="fa-solid fa-shield-halved" style="color:#3182CE;"></i> 修復歴なし厳選</strong>
-                <p style="font-size:0.72rem; color:var(--muted-text); margin-top:2px;">プロの確かな目利きで、長く乗れる状態の良い車だけを厳選。</p>
-              </div>
-              <div style="background:var(--bg-warm); padding:10px; border-radius:var(--radius-md);">
-                <strong style="color:var(--navy); font-size:0.85rem;"><i class="fa-solid fa-tags" style="color:#3182CE;"></i> 直販価格で安心</strong>
-                <p style="font-size:0.72rem; color:var(--muted-text); margin-top:2px;">無駄な在庫保管コストをカットし、安心価格でお届け。</p>
-              </div>
-            </div>
-            <a href="contact.html#line" class="btn btn-line-hero" style="padding:9px 18px; font-size:0.88rem; width:100%;">
-              <i class="fa-brands fa-line"></i> LINEで希望の車を相談する
-            </a>
-          </div>
-
-          <a href="#slide-4" class="slide-down-indicator" aria-label="サービス案内へスライド">
-            <span>スライドして次へ</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-        </div>
-      </section>
-
-      <!-- ==================== SLIDE 4: SERVICES ==================== -->
-      <section class="slider-slide slide-bg-warm" id="slide-4">
-        <div class="slide-card-wrap">
-          <span class="slide-badge-title">SERVICES</span>
-          <h2 class="slide-main-title">車検・整備・愛車高価買取</h2>
-          <p class="slide-lead-text">購入後のアフターケアから愛車の手放しまで、<br class="sp-only">街のかかりつけ店としてトータルサポート！</p>
-
-          <div class="slide-grid-2x2">
-            <div class="slide-grid-item">
-              <i class="fa-solid fa-wrench" style="color:var(--primary);"></i>
-              <h4>安心の車検・点検</h4>
-              <p>不要な交換ゼロ。明朗見積もりで安心。</p>
-            </div>
-            <div class="slide-grid-item">
-              <i class="fa-solid fa-hand-holding-dollar" style="color:var(--primary);"></i>
-              <h4>愛車の高価買取</h4>
-              <p>直販店だからマージン還元で高額査定。</p>
-            </div>
-            <div class="slide-grid-item">
-              <i class="fa-solid fa-spray-can-sparkles" style="color:var(--primary);"></i>
-              <h4>キズ・ヘコミ板金</h4>
-              <p>擦り傷も予算に合わせて綺麗に修復。</p>
-            </div>
-            <div class="slide-grid-item">
-              <i class="fa-solid fa-file-invoice-dollar" style="color:var(--primary);"></i>
-              <h4>オートローン・保険</h4>
-              <p>頭金0円・審査が不安な方も親身対応。</p>
-            </div>
-          </div>
-
-          <div style="margin-top:10px;">
-            <a href="service.html" class="btn btn-outline-orange" style="padding:8px 18px; font-size:0.84rem;">
-              サービス詳細・料金案内を見る <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-
-          <a href="#slide-5" class="slide-down-indicator" aria-label="当店についてへスライド">
-            <span>スライドして次へ</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-        </div>
-      </section>
-
-      <!-- ==================== SLIDE 5: ABOUT US ==================== -->
-      <section class="slider-slide slide-bg-white" id="slide-5">
-        <div class="slide-card-wrap">
-          <span class="slide-badge-title" style="background:#FEFCBF; color:#B7791F; border-color:#FBD38D;">ABOUT US</span>
-          <h2 class="slide-main-title">車に詳しくなくても安心</h2>
-          <p class="slide-lead-text">「自分の家族に乗せたい車かどうか」それだけを基準に厳選。<br class="sp-only">押し売りゼロ、とことん親身なお店です。</p>
-
-          <div class="slide-card-box">
-            <!-- 店主紹介ミニバナー -->
-            <div style="display:flex; align-items:center; gap:10px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:6px 10px; margin-bottom:8px;">
-              <img src="images/owner.jpg" alt="Car Mate Core 店主" style="width:38px; height:38px; border-radius:50%; object-fit:cover; border:2px solid var(--primary); flex-shrink:0;">
-              <div style="text-align:left;">
-                <div style="font-size:0.70rem; color:var(--primary); font-weight:700;">Car Mate Core 代表</div>
-                <div style="font-size:0.84rem; font-weight:800; color:var(--navy);">店主（社長）</div>
-              </div>
-            </div>
-
-            <div style="display:flex; flex-direction:column; gap:8px; text-align:left; margin-bottom:10px;">
-              <div style="display:flex; align-items:flex-start; gap:8px;">
-                <div style="background:var(--primary); color:#fff; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:900; flex-shrink:0; margin-top:2px;">1</div>
-                <div>
-                  <strong style="color:var(--navy); font-size:0.85rem;">強引な営業・押し売りは一切なし</strong>
-                  <p style="font-size:0.74rem; color:var(--muted-text); margin:1px 0 0;">お客様に合わない車は、プロとして正直にお伝えします。</p>
-                </div>
-              </div>
-              <div style="display:flex; align-items:flex-start; gap:8px;">
-                <div style="background:var(--primary); color:#fff; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:900; flex-shrink:0; margin-top:2px;">2</div>
-                <div>
-                  <strong style="color:var(--navy); font-size:0.85rem;">税金・整備コミの総額表示を徹底</strong>
-                  <p style="font-size:0.74rem; color:var(--muted-text); margin:1px 0 0;">不明瞭なオプションや不当な諸費用の上乗せは一切なし。</p>
-                </div>
-              </div>
-              <div style="display:flex; align-items:flex-start; gap:8px;">
-                <div style="background:var(--primary); color:#fff; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:900; flex-shrink:0; margin-top:2px;">3</div>
-                <div>
-                  <strong style="color:var(--navy); font-size:0.85rem;"><span style="display:inline-block;">納車後も安心・</span><span style="display:inline-block;">親身な相談窓口</span></strong>
-                  <p style="font-size:0.74rem; color:var(--muted-text); margin:1px 0 0;">納車後の疑問や点検整備もLINE一本で社長直通対応。</p>
-                </div>
-              </div>
-            </div>
-
-            <a href="about.html" class="btn btn-primary" style="padding:8px 18px; font-size:0.86rem; width:100%;">
-              <i class="fa-solid fa-user-tie"></i> 社長紹介・こだわりを見る <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-
-          <a href="#slide-6" class="slide-down-indicator" aria-label="店舗案内へスライド">
-            <span>スライドして次へ</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </a>
-        </div>
-      </section>
-
-      <!-- ==================== SLIDE 6: SHOP & CONTACT ==================== -->
-      <section class="slider-slide slide-bg-warm" id="slide-6">
-        <div class="slide-card-wrap">
-          <span class="slide-badge-title">SHOP & ACCESS</span>
-          <h2 class="slide-main-title">店舗案内・お問い合わせ</h2>
-          <p class="slide-lead-text">在庫確認、お車探しのご相談、買取査定など、<br class="sp-only">いつでもお気軽にお声がけください！</p>
-
-          <div class="slide-card-box" style="text-align:left;">
-            <div class="slide-6-inner-grid" style="display:grid; grid-template-columns:1fr; gap:10px; margin-bottom:8px;">
-              <div class="slide-6-photo-col" style="border-radius:8px; overflow:hidden; border:1px solid var(--border-color); background:#000;">
-                <img src="images/shop-exterior.jpg" alt="Car Mate Core 店舗外観" style="width:100%; height:100%; max-height:115px; object-fit:cover; display:block;" loading="lazy">
-              </div>
-              <div class="slide-6-info-col">
-            <table class="shop-info-table" style="font-size:0.78rem; margin-bottom:8px; width:100%;">
-              <tr>
-                <th style="padding:4px 8px; width:68px; white-space:nowrap;">店名</th>
-                <td style="padding:4px 8px;">Car Mate Core <small style="white-space:nowrap; font-size:0.74rem;">（カーメイト コア）</small></td>
-              </tr>
-              <tr>
-                <th style="padding:4px 8px; white-space:nowrap;">所在地</th>
-                <td style="padding:4px 8px;">〒840-0045 佐賀県佐賀市西田代1-4-13<br><small class="text-muted" style="white-space:nowrap;">（お客様専用駐車場完備）</small></td>
-              </tr>
-              <tr>
-                <th style="padding:4px 8px; white-space:nowrap;">営業時間</th>
-                <td style="padding:4px 8px;">9:30〜18:30 <small class="text-muted" style="white-space:nowrap;">（水曜定休）</small></td>
-              </tr>
-              <tr>
-                <th style="padding:4px 8px; white-space:nowrap;">電話</th>
-                <td style="padding:4px 8px;"><a href="tel:0078-6040-4870" class="link-tel" style="color:var(--navy); font-weight:800; text-decoration:none;">0078-6040-4870</a> <small class="text-muted" style="white-space:nowrap;">（通話無料）</small></td>
-              </tr>
-            </table>
-              </div>
-            </div>
-
-            <div style="display:flex; flex-direction:column; gap:6px;">
-              <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line-hero" style="padding:8px 16px; font-size:0.86rem; width:100%; justify-content:center;">
-                <i class="fa-brands fa-line"></i> LINEで24時間在庫・来店相談
-              </a>
-              <div style="display:flex; gap:6px;">
-                <a href="tel:0078-6040-4870" class="btn btn-tel-banner" style="flex:1; padding:7px 10px; font-size:0.80rem; justify-content:center;">
-                  <i class="fa-solid fa-phone"></i> 電話をかける
-                </a>
-                <a href="contact.html" class="btn btn-outline" style="flex:1; padding:7px 10px; font-size:0.80rem; justify-content:center;">
-                  アクセスマップ <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <p style="font-size:0.68rem; color:var(--muted-text); margin-top:6px;">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
-        </div>
-      </section>
-
+          <span class="header-menu-text">MENU</span>
+        </button>
+      </div>
     </div>
-  </main>
+  </header>
 
-  <!-- ==================== SITE FOOTER (Desktop) ==================== -->
-  <footer class="site-footer">
-    <div class="container footer-main-inner">
-      <div class="footer-col-brand">
-        <span class="footer-logo"><i class="fa-solid fa-car-side"></i> Car Mate Core</span>
-        <p class="footer-intro">
-          「車に詳しくなくても大丈夫！」<br>
-          軽自動車・ファミリーカー・低価格車まで、社長が親身にとことんお応えする佐賀市のアットホームな中古車店です。
+  <!-- Mobile & Desktop Drawer Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">CAR MATE CORE</span>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="閉じる">&times;</button>
+    </div>
+
+    <!-- Navigation List with Japanese Translations in Parentheses (5 Dedicated Pages) -->
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="index.html" class="drawer-nav-link">
+          <span class="en">MAIN</span>
+          <span class="jp">（メイン・トップ）</span>
+        </a>
+      </li>
+      <li>
+        <a href="concept.html" class="drawer-nav-link">
+          <span class="en">CONCEPT & PROFILE</span>
+          <span class="jp">（コンセプト・代表紹介・サービス）</span>
+        </a>
+      </li>
+      <li>
+        <a href="stock.html" class="drawer-nav-link">
+          <span class="en">STOCK & SALES</span>
+          <span class="jp">（販売・在庫・注文販売）</span>
+        </a>
+      </li>
+      <li>
+        <a href="flow.html" class="drawer-nav-link">
+          <span class="en">PURCHASE FLOW</span>
+          <span class="jp">（ご購入までの流れ）</span>
+        </a>
+      </li>
+      <li>
+        <a href="access.html" class="drawer-nav-link">
+          <span class="en">SHOP & ACCESS</span>
+          <span class="jp">（店舗案内・写真・生き方）</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Links Section (LINE, Instagram, Goo-net, Carsensor, Stamp) -->
+    <div class="drawer-links-section">
+      <div class="drawer-section-title">
+        <span>Official Links & Stamp</span>
+        <span class="sub">公式リンク集 ＆ おすすめ</span>
+      </div>
+
+      <div class="drawer-links-grid">
+        <!-- 1. LINE -->
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="drawer-link-card line-card">
+          <div class="link-icon"><i class="fa-brands fa-line"></i></div>
+          <div class="link-info">
+            <span class="link-name">公式 LINE</span>
+            <span class="link-desc">在庫・商談・無料相談はこちら</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- 2. Instagram -->
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="drawer-link-card insta-card">
+          <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
+          <div class="link-info">
+            <span class="link-name">公式 Instagram</span>
+            <span class="link-desc">@carmate_core 日常＆新着車</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- 3. Goo-net -->
+        <a href="https://www.goo-net.com/usedcar_shop/0802078/detail.html" target="_blank" rel="noopener noreferrer" class="drawer-link-card goo-card">
+          <div class="link-icon"><i class="fa-solid fa-car"></i></div>
+          <div class="link-info">
+            <span class="link-name">グーネット（Goo-net）</span>
+            <span class="link-desc">公式在庫一覧＆総額鑑定書</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- 4. Carsensor -->
+        <a href="https://www.carsensor.net/shop/saga/324457001/" target="_blank" rel="noopener noreferrer" class="drawer-link-card sensor-card">
+          <div class="link-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <div class="link-info">
+            <span class="link-name">カーセンサー（Carsensor）</span>
+            <span class="link-desc">公式店舗ページ＆アフター保証</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- 5. Brother-in-law LINE Stamp -->
+        <a href="https://store.line.me/stickershop/" target="_blank" rel="noopener noreferrer" class="drawer-link-card stamp-card" title="義理の弟様が作成したLINEスタンプ">
+          <div class="link-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="link-info">
+            <div class="stamp-badge">義理の弟様 作成</div>
+            <span class="link-name">特製 LINEスタンプ</span>
+            <span class="link-desc">日常で使えるオリジナルスタンプ</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Bottom Contact Cards -->
+    <div class="drawer-bottom-card">
+      <div class="drawer-tel-card">
+        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:4px;">お電話でのご相談（通話無料）</div>
+        <a href="tel:0078-6040-4870" style="font-family:var(--font-en); font-size:1.15rem; font-weight:700; color:var(--text-main); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          <i class="fa-solid fa-phone" style="color:var(--accent);"></i> 0078-6040-4870
+        </a>
+        <div style="font-size:0.72rem; color:var(--text-muted); margin-top:4px;">営業時間 9:30 - 18:30（水曜定休）</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <!-- Video Player Frame -->
+      <div class="hero-video-frame" id="heroVideoFrame" title="クリックして再生 / 一時停止">
+        <video id="heroVideo" autoplay muted playsinline preload="auto">
+          <source src="videos/hero.mp4" type="video/mp4">
+          <source src="videos/gemini_generated_video_d22ae132.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Content -->
+      <div class="hero-content">
+        <span class="hero-eyebrow">Reliable Car Life in Saga</span>
+        <h1 class="hero-lead-title">
+          Smart Choice.
+          <span>あなたのご予算に、一番ちょうどいい1台を。</span>
+        </h1>
+        <p class="hero-description">
+          通勤用の軽自動車からファミリー向けミニバンまで。<br>
+          大手チェーンにはないアットホームな距離感で、<br class="pc-only">
+          店主が一人ひとりのお客様に親身にお応えする佐賀市の中古車店です。
         </p>
-        <div class="footer-contact-info">
-          <p><i class="fa-solid fa-location-dot"></i> 〒840-0045 佐賀県佐賀市西田代１−４−１３</p>
-          <p><i class="fa-solid fa-phone"></i> 0078-6040-4870（通話無料）</p>
-          <p><i class="fa-regular fa-clock"></i> 9:30〜18:30（水曜定休）</p>
+
+        <div class="hero-merit-list">
+          <span class="hero-merit-item"><i class="fa-solid fa-check"></i> 追加費用なしの安心総額</span>
+          <span class="hero-merit-item"><i class="fa-solid fa-check"></i> 丁寧な自社点検整備</span>
+          <span class="hero-merit-item"><i class="fa-solid fa-check"></i> 全国有料オークション注文</span>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="stock.html" class="btn btn-dark">
+            <i class="fa-solid fa-car"></i> 在庫一覧・販売実績を見る <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line">
+            <i class="fa-brands fa-line"></i> LINEで気軽に相談
+          </a>
         </div>
       </div>
-      <div class="footer-col-nav">
-        <h4 class="footer-nav-title">サイトマップ</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="about.html">当店について・社長紹介</a></li>
-          <li><a href="stock.html">在庫情報＆注文販売</a></li>
-          <li><a href="service.html">サービス案内（車検・買取・整備）</a></li>
-          <li><a href="flow.html">ご購入の流れ・安心保証</a></li>
-          <li><a href="contact.html">店舗案内・アクセス</a></li>
-        </ul>
+    </div>
+  </section>
+
+  <!-- ==================== CONCEPT & ABOUT ==================== -->
+  <section class="section-padding" id="concept">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Concept & Story</h2>
+        <p class="section-jp-sub">「ちょうどいい」が、一番心地いい。</p>
       </div>
-      <div class="footer-col-cta">
-        <h4 class="footer-nav-title">ご相談・お問い合わせ</h4>
-        <p class="footer-cta-text">LINEまたはお電話でお気軽にご連絡ください。</p>
-        <a href="contact.html#line" class="btn btn-footer-line"><i class="fa-brands fa-line"></i> LINE公式アカウント</a>
-        <a href="tel:0078-6040-4870" class="footer-tel-link"><i class="fa-solid fa-phone"></i> 0078-6040-4870</a>
+
+      <div class="about-story-grid">
+        <div class="about-photo-wrap">
+          <img src="images/concept-story.jpg" alt="暮らしに寄り添う心地いいお車 | Car Mate Core" class="about-main-photo">
+          <div class="about-badge-card">
+            <div class="num">Sincerity</div>
+            <div class="txt">気取らず、誠実に</div>
+          </div>
+        </div>
+
+        <div class="about-text-content">
+          <h3>高すぎる新車や、派手な装備はいらない。<br>暮らしのサイズに寄り添う一台を。</h3>
+          <p>
+            毎日の通勤やお買い物、週末の家族とのドライブに、心から満足できるちょうどいいお車を。
+          </p>
+          <p>
+            Car Mate Coreは、気取らず、背伸びせず、あなたの日々の暮らしに自然と馴染む佐賀市の中古車店です。大手のような過剰な営業や、不必要なオプションのおすすめは一切いたしません。
+          </p>
+          <p>
+            「この予算で、長く安心して乗れる車を探してほしい」——その想いだけを、自社ピットでの丁寧な点検整備とともに誠実に形にします。
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 Commitments -->
+      <div class="commitments-row">
+        <div class="commit-box">
+          <div class="commit-num">01</div>
+          <h4>誇張のない、誠実な提案</h4>
+          <p>「売りたい車」ではなく、あなたの用途とご予算に真にフィットする一台だけを厳選。背伸びのない等身大のカーライフをご提案します。</p>
+        </div>
+        <div class="commit-box">
+          <div class="commit-num">02</div>
+          <h4>後から増えない、分かりやすい安心総額</h4>
+          <p>点検整備代、各種税金、登録諸費用を含めた安心のコミコミ総額を最初から透明にご提示。後から不明瞭な追加費用が発生することはありません。</p>
+        </div>
+        <div class="commit-box">
+          <div class="commit-num">03</div>
+          <h4>自社ピットによる確かな手入れ</h4>
+          <p>国家整備士・中古自動車販売士の資格を持つ店主自らが点検・整備を担当。納車後もオイル交換や車検など気軽に頼れる場所であり続けます。</p>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <p class="copyright">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+  </section>
+
+  <!-- ==================== REPRESENTATIVE PROFILE ==================== -->
+  <section class="profile-section" id="profile">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Representative Profile</h2>
+        <p class="section-jp-sub">代表紹介・ご挨拶</p>
       </div>
+
+      <div class="profile-grid">
+        <!-- Visual & Data Card (Left Column) -->
+        <div class="profile-visual-card">
+          <div class="profile-main-photo-wrap">
+            <img src="images/owner.jpg" alt="Car Mate Core 代表 三好 恭次" loading="lazy">
+          </div>
+          
+          <div class="profile-meta-header">
+            <span class="profile-role-badge">Representative</span>
+            <div class="profile-name-row">
+              <h3 class="profile-name-jp">三好 恭次</h3>
+              <span class="profile-name-en">Kyoji Miyoshi</span>
+            </div>
+          </div>
+
+          <div class="profile-data-list">
+            <div class="profile-data-item">
+              <span class="profile-data-label">役職</span>
+              <span class="profile-data-value">Car Mate Core 代表</span>
+            </div>
+            <div class="profile-data-item">
+              <span class="profile-data-label">出身</span>
+              <span class="profile-data-value">佐賀県佐賀市</span>
+            </div>
+            <div class="profile-data-item">
+              <span class="profile-data-label">愛車</span>
+              <span class="profile-data-value">トヨタ セリカ（CELICA）</span>
+            </div>
+            <div class="profile-data-item">
+              <span class="profile-data-label">趣味</span>
+              <span class="profile-data-value">愛車のメンテナンス、愛犬の散歩</span>
+            </div>
+          </div>
+
+          <!-- Celica Mini Showcase -->
+          <div class="profile-celica-box">
+            <img src="images/car_celica.jpg" alt="代表の愛車 トヨタ セリカ" class="profile-celica-img" loading="lazy">
+            <div class="profile-celica-info">
+              <span class="profile-celica-tag">Owner's Beloved Car</span>
+              <span class="profile-celica-title">TOYOTA CELICA</span>
+              <span class="profile-celica-desc">自ら手をかけて大切に乗り続ける愛車です</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message Body (Right Column) -->
+        <div class="profile-message-wrap">
+          <span class="profile-lead-eyebrow">Greeting & Philosophy</span>
+          <h3 class="profile-lead-title">
+            「車を買う」のではなく、「納得と安心」をお届けしたい。
+            <span>地元・佐賀の皆さまの暮らしに、とことん誠実に寄り添います。</span>
+          </h3>
+
+          <div class="profile-message-body">
+            <p>
+              はじめまして。Car Mate Core 代表の<strong>三好 恭次（みよし きょうじ）</strong>です。
+            </p>
+            <p>
+              佐賀で生まれ育った私にとって、車は昔から暮らしの一番身近にある乗り物でした。<br>
+              ここ佐賀では車なしの生活は考えられず、毎日の通勤やお買い物、ご家族の送り迎えなど、日々の生活を支えるまさに必需品です。
+            </p>
+            <p>
+              生活に欠かせない大切なものだからこそ、当店では<strong>お客様との対話とお気持ちを何よりも大事にしています。</strong>
+            </p>
+            <p>
+              「車の状態や維持費のことはよく分からない」<br>
+              「諸費用を含めて総額いくらかかるのか不安」<br>
+              「自分たちの生活や予算に本当にぴったりの車を選びたい」
+            </p>
+            <p>
+              車選びには、分からないことや不安がつきものです。<br>
+              だからこそ、お車の良いところも気をつけるべき点も包み隠さず丁寧にご説明し、<strong>「これなら本当に安心だ」「三好さんに任せてよかった」と心からご納得いただいて初めて、お車をお渡しいたします。</strong>
+            </p>
+            <p>
+              大手のようなノルマや強引な営業は一切ございません。<br>
+              「ちょっと相談に乗ってほしい」「近くを通ったから顔を出してみた」と、いつでも笑顔でお立ち寄りいただけるアットホームなお店であり続けたいと思っています。
+            </p>
+            <p>
+              あなたの毎日に、一番ちょうどいい一台を。どうぞお気軽にお声がけください。
+            </p>
+          </div>
+
+          <div class="profile-sign-row">
+            <div class="profile-sign-info">
+              <span class="profile-sign-role">Car Mate Core 代表</span>
+              <span class="profile-sign-name">三好 恭次</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STOCK CARS ==================== -->
+  <section class="section-padding bg-sub" id="stock">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Selected Stock</h2>
+        <p class="section-jp-sub">厳選仕入れ・追加費用なしの安心総額 ＆ 丁寧な自社点検済み</p>
+      </div>
+
+      <div class="stock-grid">
+        <!-- Stock 1: ムーヴキャンバス -->
+        <div class="stock-card">
+          <div class="stock-img-wrap">
+            <span class="stock-category-tag">Kei Car</span>
+            <img src="https://picture1.goo-net.com/7000802078/30260510/Q/70008020783026051000100.jpg" alt="ダイハツ ムーヴキャンバス Gメイクアップ SAII" loading="lazy">
+          </div>
+          <div class="stock-body">
+            <div>
+              <h3 class="stock-title">ダイハツ ムーヴキャンバス</h3>
+              <p class="stock-feature">Gメイクアップ SAII / 社外ナビ・バックカメラ・両側パワスラ・LEDヘッドライト・シートヒーター</p>
+            </div>
+            <div class="stock-price-row">
+              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
+              <span class="stock-price-value">70<small style="font-size:0.85rem;">万円</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stock 2: ヴォクシー -->
+        <div class="stock-card">
+          <div class="stock-img-wrap">
+            <span class="stock-category-tag">Minivan</span>
+            <img src="https://picture1.goo-net.com/7000802078/30260324/Q/70008020783026032400100.jpg" alt="トヨタ ヴォクシー ZS 煌" loading="lazy">
+          </div>
+          <div class="stock-body">
+            <div>
+              <h3 class="stock-title">トヨタ ヴォクシー ZS 煌</h3>
+              <p class="stock-feature">社外9インチ大画面ナビ・フリップダウン後席モニター・両側パワスラ・LEDライト・7人乗り</p>
+            </div>
+            <div class="stock-price-row">
+              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
+              <span class="stock-price-value">208<small style="font-size:0.85rem;">万円</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stock 3: トール -->
+        <div class="stock-card">
+          <div class="stock-img-wrap">
+            <span class="stock-category-tag">Compact</span>
+            <img src="https://picture1.goo-net.com/7000802078/30260328/Q/70008020783026032800200.jpg" alt="ダイハツ トール G" loading="lazy">
+          </div>
+          <div class="stock-body">
+            <div>
+              <h3 class="stock-title">ダイハツ トール G</h3>
+              <p class="stock-feature">両側パワースライドドア・メモリーナビ・Bluetooth・ETC・プッシュスタート・アイドリングストップ</p>
+            </div>
+            <div class="stock-price-row">
+              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
+              <span class="stock-price-value">75<small style="font-size:0.85rem;">万円</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stock 4: ハスラー -->
+        <div class="stock-card">
+          <div class="stock-img-wrap">
+            <span class="stock-category-tag">Kei SUV</span>
+            <img src="https://picture1.goo-net.com/7000802078/30260901/Q/70008020783026090100100.jpg" alt="スズキ ハスラー ハイブリッドX" loading="lazy">
+          </div>
+          <div class="stock-body">
+            <div>
+              <h3 class="stock-title">スズキ ハスラー ハイブリッドX</h3>
+              <p class="stock-feature">純正9インチナビ・全方位モニター・Bluetooth・スマートアシスト・温熱シート・LEDオート</p>
+            </div>
+            <div class="stock-price-row">
+              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
+              <span class="stock-price-value">145<small style="font-size:0.85rem;">万円</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stock 5: タント カスタムX -->
+        <div class="stock-card">
+          <div class="stock-img-wrap">
+            <span class="stock-category-tag">Kei Car</span>
+            <img src="https://picture1.goo-net.com/7000802078/30260807/Q/70008020783026080700100.jpg" alt="ダイハツ タント カスタムX" loading="lazy">
+          </div>
+          <div class="stock-body">
+            <div>
+              <h3 class="stock-title">ダイハツ タント カスタムX</h3>
+              <p class="stock-feature">低走行2.2万km・両側パワスラ・全方位カメラ・コーナーセンサー・純正アルミ・スマートアシスト</p>
+            </div>
+            <div class="stock-price-row">
+              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
+              <span class="stock-price-value">123<small style="font-size:0.85rem;">万円</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stock 6: eKワゴン -->
+        <div class="stock-card">
+          <div class="stock-img-wrap">
+            <span class="stock-category-tag">Best Value</span>
+            <img src="https://picture1.goo-net.com/7000802078/30260924/Q/70008020783026092400100.jpg" alt="三菱 eKワゴン E" loading="lazy">
+          </div>
+          <div class="stock-body">
+            <div>
+              <h3 class="stock-title">三菱 eKワゴン E</h3>
+              <p class="stock-feature">支払総額35万円のお値打ち良質車・社外CDオーディオ・ETC・運転席シートヒーター・キーレス</p>
+            </div>
+            <div class="stock-price-row">
+              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
+              <span class="stock-price-value">35<small style="font-size:0.85rem;">万円</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:center; gap:16px; margin-top:44px; flex-wrap:wrap;">
+        <a href="stock.html" class="btn btn-dark" style="padding:14px 28px;">
+          <i class="fa-solid fa-car"></i> 在庫一覧＆過去の販売実績をすべて見る <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="https://www.goo-net.com/usedcar_shop/0802078/stock.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" style="padding:14px 28px;">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> グーネット公式 在庫一覧を開く
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ORDER SYSTEM ==================== -->
+  <section class="section-padding" id="order">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Auction Order</h2>
+        <p class="section-jp-sub">全国オークションから、ご希望の1台をダイレクトにお探しします</p>
+      </div>
+
+      <div class="order-box">
+        <p class="order-header-text">
+          店頭にご希望のお車がない場合でもご安心ください。<br>
+          全国のオートオークション流通網から、店主自らが修復歴の有無や状態を徹底チェックし、ご予算に合わせたベストな1台を買い付けます。
+        </p>
+
+        <div class="order-step-grid">
+          <div class="order-step-item">
+            <div class="order-step-num">STEP 01</div>
+            <h4>ご要望ヒアリング</h4>
+            <p>ご希望の車種・ご予算・年式・装備など、LINEやお電話でお気軽にお伝えください。</p>
+          </div>
+          <div class="order-step-item">
+            <div class="order-step-num">STEP 02</div>
+            <h4>プロの目利きで厳選</h4>
+            <p>毎週数万台の全国オークションから、無事故・修復歴なしの上質車だけを候補としてご提案。</p>
+          </div>
+          <div class="order-step-item">
+            <div class="order-step-num">STEP 03</div>
+            <h4>自社点検・車検整備納車</h4>
+            <p>落札後は自社ピットで徹底的に消耗品交換・点検を行い、安心の総額明示で納車いたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICE ==================== -->
+  <section class="section-padding bg-sub" id="service">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Services</h2>
+        <p class="section-jp-sub">ご購入後も安心が続く、充実のトータルサポート</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-car-on"></i></div>
+          <h4>車検・法定点検</h4>
+          <p>長持ち自社整備。事前見積もりで余計な部品交換はおすすめしません。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <h4>高価買取・下取</h4>
+          <p>中間マージンをカットした直販価格査定。動かない車もお気軽にご相談ください。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>アフター保証</h4>
+          <p>ご予算や走行距離に合わせて選べる安心の中古車保証プランをご用意。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
+          <h4>日常メンテ・板金</h4>
+          <p>オイル交換、バッテリー点検、急な擦り傷・ヘコミの補修まで丁寧に対応。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SHOP GALLERY ==================== -->
+  <section class="section-padding" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Shop Gallery</h2>
+        <p class="section-jp-sub">店舗・展示場・ピットの様子</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/shop-exterior.jpg" alt="Car Mate Core 店舗全景" class="gallery-item-img" loading="lazy">
+          <div class="gallery-item-caption">通り沿い店舗全景・お客様駐車場完備</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/shop-sign.jpg" alt="Car Mate Core 看板" class="gallery-item-img" loading="lazy">
+          <div class="gallery-item-caption">目印の「Car Mate CORE」オレンジ看板</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/shop-view.jpg" alt="Car Mate Core 展示場と自社ピット" class="gallery-item-img" loading="lazy">
+          <div class="gallery-item-caption">展示スペース＆自社点検整備ピット</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ACCESS & CONTACT ==================== -->
+  <section class="section-padding bg-sub" id="access">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Access & Info</h2>
+        <p class="section-jp-sub">店舗案内・所在地・営業時間</p>
+      </div>
+
+      <div class="access-grid">
+        <div>
+          <table class="access-table">
+            <tr>
+              <th>店名</th>
+              <td>Car Mate Core（カーメイト コア）</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>三好 恭次（みよし きょうじ）</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>〒840-0044 佐賀県佐賀市西田代1-4-13</td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><a href="tel:0078-6040-4870" style="color:var(--text-main); font-weight:700;">0078-6040-4870</a> <small style="color:var(--accent); font-weight:600;">（通話無料）</small></td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td>9:30 〜 18:30</td>
+            </tr>
+            <tr>
+              <th>定休日</th>
+              <td>水曜日（事前にご連絡いただければ柔軟に対応します）</td>
+            </tr>
+            <tr>
+              <th>お車での進入・駐車場</th>
+              <td>
+                敷地内無料駐車場あり<br>
+                <span style="font-size:0.82rem; color:var(--accent); font-weight:600;">
+                  ※一見入りづらく見えますが、お車ごとそのまま敷地内へお入りください。奥での切り返しや駐車は店主が代行いたします。
+                </span>
+                <div style="margin-top:6px;">
+                  <a href="access.html" style="font-size:0.8rem; color:var(--text-main); text-decoration:underline; font-weight:600;">
+                    詳しい進入写真・アクセス案内はこちら ➔
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="access-map-frame">
+          <iframe src="https://maps.google.com/maps?q=佐賀県佐賀市西田代1-4-13&hl=ja&z=16&output=embed" loading="lazy" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="stylish-cta-banner">
+    <div class="container">
+      <span class="en-sub">Feel Free To Contact</span>
+      <h2>お車のご相談は、LINEまたはお電話でお気軽に</h2>
+      <p>
+        「こんな車を探している」「予算内に収まるか聞いてみたい」など、些細な疑問でも店主が丁寧にお答えします。無理な営業は一切ございません。
+      </p>
+      <div class="cta-button-group">
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="font-size:0.95rem; padding:15px 36px;">
+          <i class="fa-brands fa-line" style="font-size:1.2rem;"></i> LINEで24時間在庫・お車相談
+        </a>
+        <a href="tel:0078-6040-4870" class="btn btn-dark" style="background:#2C3136; border-color:#2C3136; font-size:0.95rem; padding:15px 36px;">
+          <i class="fa-solid fa-phone"></i> 0078-6040-4870
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          CAR MATE CORE
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">メイン</a>
+          <a href="concept.html">コンセプト・プロフィール</a>
+          <a href="stock.html">販売、在庫</a>
+          <a href="flow.html">購入までの流れ</a>
+          <a href="access.html">店舗案内</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- ==================== VERTICAL SLIDE DOTS NAVIGATION (Mobile & Tablet) ==================== -->
-  <nav class="slide-dots-nav" id="slideDotsNav" aria-label="スライド切り替えナビゲーション">
-    <button class="slide-dot active" data-target="slide-1" aria-label="スライド1：トップ"></button>
-    <button class="slide-dot" data-target="slide-2" aria-label="スライド2：厳選中古車"></button>
-    <button class="slide-dot" data-target="slide-3" aria-label="スライド3：注文販売"></button>
-    <button class="slide-dot" data-target="slide-4" aria-label="スライド4：サービス"></button>
-    <button class="slide-dot" data-target="slide-5" aria-label="スライド5：当店について"></button>
-    <button class="slide-dot" data-target="slide-6" aria-label="スライド6：店舗案内"></button>
-  </nav>
-
-  <!-- ==================== FIXED SMART BOTTOM BAR (Mobile & Tablet) ==================== -->
-  <aside class="slider-bottom-bar" id="sliderBottomBar">
-    <a href="tel:0078-6040-4870" class="slider-bottom-btn btn-bottom-tel" aria-label="電話をかける">
-      <i class="fa-solid fa-phone"></i>
-      <span>電話で相談</span>
-    </a>
-    <a href="stock.html" class="slider-bottom-btn btn-bottom-tel" aria-label="在庫一覧を見る">
-      <i class="fa-solid fa-car"></i>
-      <span>在庫一覧</span>
-    </a>
-    <a href="contact.html#line" class="slider-bottom-btn btn-bottom-line" aria-label="LINEで相談する">
-      <i class="fa-brands fa-line"></i>
-      <span>LINE相談</span>
-    </a>
-  </aside>
-
   <!-- Scripts -->
   <script>
-    // ================= Mobile Drawer Navigation =================
+    // Mobile Drawer Toggle
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+
+    function openDrawer() {
+      mobileDrawer.classList.add('open');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
 
     if (hamburgerBtn && mobileDrawer) {
-      let lastToggleTime = 0;
-      const toggleMenu = (e) => {
-        if (e) {
-          e.stopPropagation();
-        }
-        const now = Date.now();
-        if (now - lastToggleTime < 300) return; // Debounce rapid taps
-        lastToggleTime = now;
+      hamburgerBtn.addEventListener('click', openDrawer);
+      drawerCloseBtn.addEventListener('click', closeDrawer);
+      drawerOverlay.addEventListener('click', closeDrawer);
 
-        const isOpen = mobileDrawer.classList.contains('open');
-        if (isOpen) {
-          hamburgerBtn.classList.remove('active');
-          mobileDrawer.classList.remove('open');
+      mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeDrawer);
+      });
+    }
+
+    // Video Click to Play / Pause / Replay
+    const heroVideo = document.getElementById('heroVideo');
+    const heroVideoFrame = document.getElementById('heroVideoFrame');
+
+    if (heroVideo && heroVideoFrame) {
+      // Click on frame/video to toggle play/replay/pause
+      heroVideoFrame.addEventListener('click', () => {
+        if (heroVideo.ended) {
+          heroVideo.currentTime = 0;
+          heroVideo.play();
+        } else if (heroVideo.paused) {
+          heroVideo.play();
         } else {
-          hamburgerBtn.classList.add('active');
-          mobileDrawer.classList.add('open');
-        }
-      };
-
-      hamburgerBtn.addEventListener('click', toggleMenu);
-
-      // Close drawer when tapping any menu link or close button
-      mobileDrawer.querySelectorAll('a, .btn-drawer-close').forEach(link => {
-        link.addEventListener('click', () => {
-          hamburgerBtn.classList.remove('active');
-          mobileDrawer.classList.remove('open');
-        });
-      });
-
-      // Close drawer when tapping outside drawer inner (on dark backdrop)
-      mobileDrawer.addEventListener('click', (e) => {
-        if (e.target === mobileDrawer) {
-          hamburgerBtn.classList.remove('active');
-          mobileDrawer.classList.remove('open');
+          heroVideo.pause();
         }
       });
-    }
-
-
-    // ================= Hero Video Control (No Sound, No Loop, Replay on Return) =================
-    const heroVideo = document.getElementById('heroVideoPlayer');
-
-    if (heroVideo) {
-      // 1. 完全消音（音は流れない）
-      heroVideo.muted = true;
-      heroVideo.defaultMuted = true;
-      heroVideo.volume = 0;
-      heroVideo.loop = false; // ループしない
-      heroVideo.playsInline = true;
-      heroVideo.setAttribute('muted', '');
-      heroVideo.setAttribute('playsinline', '');
-      heroVideo.setAttribute('webkit-playsinline', '');
-
-      // 2. 開いた瞬間に1回だけ先頭から自動再生
-      const startPlayback = () => {
-        const promise = heroVideo.play();
-        if (promise !== undefined) {
-          promise.catch(() => {
-            const triggerPlay = () => {
-              heroVideo.play();
-              window.removeEventListener('touchstart', triggerPlay);
-              window.removeEventListener('click', triggerPlay);
-            };
-            window.addEventListener('touchstart', triggerPlay, { passive: true, once: true });
-            window.addEventListener('click', triggerPlay, { passive: true, once: true });
-          });
-        }
-      };
-
-      startPlayback();
-
-      // 3. 動画終了時は最後の画面をそのまま維持（endedイベントで何もしない＝最終フレームで静止維持）
-      heroVideo.addEventListener('ended', () => {
-        // 自然に最後の画面のままキープ
-      });
-
-      // 4. 他のページから戻ってきたとき（ブラウザ戻るボタン等）
-      window.addEventListener('pageshow', () => {
-        heroVideo.currentTime = 0;
-        startPlayback();
-      });
-
-      // 5. 動画をタップしたらまた先頭から再生（リプレイ）
-      const replayOnTap = (e) => {
-        if (e) e.stopPropagation();
-        heroVideo.currentTime = 0;
-        heroVideo.play().catch(() => {});
-      };
-      heroVideo.addEventListener('click', replayOnTap);
-      const videoStage = document.getElementById('heroVideoStage');
-      if (videoStage) {
-        videoStage.addEventListener('click', replayOnTap);
-      }
-    }
-
-    // ================= Slide Dots & Scroll-Snap Observer =================
-    const slides = document.querySelectorAll('.slider-slide');
-    const dots = document.querySelectorAll('.slide-dot');
-    const sliderContainer = document.getElementById('sliderContainer');
-    let isSlide1Active = true;
-
-    // Click dot to smooth-scroll into slide
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const targetId = dot.getAttribute('data-target');
-        const targetSlide = document.getElementById(targetId);
-        if (targetSlide) {
-          targetSlide.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Observe which slide is active (Automatic detection for Mobile & Desktop)
-    if ('IntersectionObserver' in window && sliderContainer) {
-      const isMobile = () => window.innerWidth < 992;
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const currentId = entry.target.id;
-            dots.forEach(dot => {
-              if (dot.getAttribute('data-target') === currentId) {
-                dot.classList.add('active');
-              } else {
-                dot.classList.remove('active');
-              }
-            });
-
-            // 画面を切り替えて、またホーム（スライド1）に戻ったときのみ先頭から再開
-            if (currentId === 'slide-1') {
-              if (!isSlide1Active && heroVideo) {
-                heroVideo.currentTime = 0;
-                heroVideo.play().catch(() => {});
-              }
-              isSlide1Active = true;
-            } else {
-              isSlide1Active = false;
-            }
-          }
-        });
-      }, {
-        root: isMobile() ? sliderContainer : null,
-        threshold: isMobile() ? 0.55 : 0.3
-      });
-
-      slides.forEach(slide => observer.observe(slide));
     }
   </script>
 </body>
 </html>
+

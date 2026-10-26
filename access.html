@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>店舗案内・アクセス・写真・お店の生き方 | Car Mate Core - 佐賀市の中古車販売</title>
+  <meta name="description" content="Car Mate Core（カーメイト コア）の店舗情報・写真ギャラリー・アクセス案内（佐賀市西田代1-4-13）。飾らず誠実にお客様と向き合う私たちの生き方・お店の想いをご紹介します。">
+
+  <!-- Google Fonts: Playfair Display (Serif), Montserrat (Sans), Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-main: #FFFFFF;
+      --bg-sub: #FAF9F6;
+      --bg-warm: #F4EFEB;
+      --bg-dark: #1A1D20;
+      --text-main: #1A1D20;
+      --text-sub: #555B62;
+      --text-muted: #8C939D;
+      --text-light: #FFFFFF;
+      --accent: #E06D26;
+      --accent-hover: #C55716;
+      --line: #E8EBF0;
+      --line-subtle: #F1F4F8;
+      --font-serif: 'Playfair Display', 'Yu Mincho', serif;
+      --font-en: 'Montserrat', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-jp);
+      color: var(--text-main);
+      background-color: var(--bg-main);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 90px 0;
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-en-title {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+      display: inline-block;
+      position: relative;
+    }
+
+    .section-en-title::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1.5px;
+      background: var(--accent);
+      margin: 12px auto 0;
+    }
+
+    .section-jp-sub {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-top: 14px;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--line);
+      font-size: 0.72rem;
+      color: var(--text-sub);
+      padding: 8px 0;
+      letter-spacing: 0.08em;
+      font-family: var(--font-en);
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-info {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Site Header */
+    .site-header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+      gap: 20px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      width: 60px;
+      height: 46px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-main);
+      line-height: 1.15;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Header Right Actions */
+    .header-right-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-tel-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 7px 15px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--bg-sub);
+      transition: all 0.25s ease;
+    }
+
+    .header-tel-box:hover {
+      border-color: var(--accent);
+      background: #FFFFFF;
+    }
+
+    .header-tel-icon {
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .header-tel-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .header-tel-num {
+      font-family: var(--font-en);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+    }
+
+    .header-tel-sub {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-header-insta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      color: #E1306C;
+      font-size: 1.25rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-header-insta:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(225, 48, 108, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-header-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #06C755;
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 3px 10px rgba(6, 199, 85, 0.2);
+    }
+
+    .btn-header-line:hover {
+      background: #05AB49;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(6, 199, 85, 0.35);
+      color: #FFFFFF;
+    }
+
+    .header-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      border: 1px solid var(--bg-dark);
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      transition: all 0.25s ease;
+    }
+
+    .header-menu-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .header-menu-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 16px;
+    }
+
+    .header-menu-bars span {
+      display: block;
+      height: 2px;
+      background: #FFFFFF;
+      border-radius: 1px;
+    }
+
+    /* Drawer Menu */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1999;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -360px;
+      width: 340px;
+      max-width: 85vw;
+      height: 100vh;
+      background: #FFFFFF;
+      z-index: 2000;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 24px;
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.active {
+      right: 0;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 24px;
+    }
+
+    .drawer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+    }
+
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      line-height: 1;
+      color: var(--text-sub);
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .drawer-close-btn:hover {
+      color: var(--accent);
+    }
+
+    .drawer-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+
+    .drawer-nav-link {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-en);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+
+    .drawer-nav-link .jp {
+      font-family: var(--font-jp);
+      font-size: 0.74rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+
+    .drawer-nav-link:hover {
+      background: var(--bg-sub);
+      color: var(--accent);
+      padding-left: 18px;
+    }
+
+    .drawer-links-section {
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .drawer-section-title {
+      font-family: var(--font-en);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-section-title .sub {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .drawer-link-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--bg-sub);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .drawer-link-card:hover {
+      background: #FFFFFF;
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .drawer-link-card .link-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .drawer-link-card.line-card .link-icon {
+      background: #06C755;
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card.insta-card .link-icon {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card.goo-card .link-icon {
+      background: #E60012;
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card.sensor-card .link-icon {
+      background: #C30D23;
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card.stamp-card .link-icon {
+      background: #8B5CF6;
+      color: #FFFFFF;
+    }
+
+    .drawer-link-card .link-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer-link-card .link-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .drawer-link-card .link-desc {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .drawer-link-card .link-arrow {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .stamp-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #8B5CF6;
+      background: #F3E8FF;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      width: fit-content;
+      margin-bottom: 2px;
+    }
+
+    .drawer-bottom-card {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .drawer-tel-card {
+      background: var(--bg-sub);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    /* Page Hero */
+    .page-hero {
+      background: var(--bg-warm);
+      padding: 64px 0 52px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-hero-en {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .page-hero-jp {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-bar {
+      background: var(--bg-main);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+      font-size: 0.76rem;
+      font-family: var(--font-en);
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      color: var(--text-muted);
+    }
+
+    .breadcrumb-list a {
+      color: var(--text-sub);
+    }
+
+    .breadcrumb-list a:hover {
+      color: var(--accent);
+    }
+
+    /* 1. Shop Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gallery-item {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .gallery-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #E5E7EB;
+    }
+
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover .gallery-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      padding: 18px 20px;
+    }
+
+    .gallery-caption-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .gallery-caption-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* 2. Shop Philosophy / Way of Living */
+    .philosophy-section {
+      background: var(--bg-sub);
+      border-top: 1px solid var(--line);
+    }
+
+    .philosophy-card {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 56px 48px;
+      max-width: 920px;
+      margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      position: relative;
+    }
+
+    .philosophy-catch {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .philosophy-catch span {
+      color: var(--accent);
+    }
+
+    .philosophy-body {
+      font-size: 0.94rem;
+      color: var(--text-sub);
+      line-height: 2.0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .philosophy-highlight-box {
+      margin-top: 28px;
+      padding: 24px 28px;
+      background: var(--bg-warm);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--accent);
+    }
+
+    .philosophy-highlight-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .philosophy-highlight-text {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+
+    /* 3. Shop Overview Table */
+    .overview-section {
+      background: #FFFFFF;
+      border-top: 1px solid var(--line);
+    }
+
+    .overview-table-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    }
+
+    .overview-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .overview-table th,
+    .overview-table td {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .overview-table tr:last-child th,
+    .overview-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .overview-table th {
+      width: 28%;
+      background: var(--bg-sub);
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 0.88rem;
+    }
+
+    .overview-table td {
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* 4. Access Guide & Map */
+    .access-section {
+      background: var(--bg-sub);
+      border-top: 1px solid var(--line);
+    }
+
+    /* Vehicle Entrance & Parking Guide */
+    .drive-in-banner {
+      background: linear-gradient(135deg, #FFF8F3 0%, #FFFFFF 100%);
+      border: 2px solid #FCD9C0;
+      border-radius: var(--radius-md);
+      padding: 36px;
+      margin-bottom: 48px;
+      box-shadow: 0 8px 30px rgba(224, 109, 38, 0.08);
+    }
+
+    .drive-in-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed #FCD9C0;
+    }
+
+    .drive-in-header-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .drive-in-header-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .drive-in-header-sub {
+      font-size: 0.84rem;
+      color: var(--accent-hover);
+      font-weight: 600;
+    }
+
+    .drive-in-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .drive-in-visual-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      background: #1A1D20;
+    }
+
+    .drive-in-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.92);
+    }
+
+    /* Animated Driving Path Overlay */
+    .drive-in-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%);
+    }
+
+    .drive-in-badge-top {
+      align-self: flex-start;
+      background: rgba(224, 109, 38, 0.95);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    .drive-in-arrow-area {
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: auto;
+      margin-bottom: 12px;
+    }
+
+    .drive-arrow-svg {
+      width: 64px;
+      height: 72px;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+      animation: arrowBounce 1.6s ease-in-out infinite;
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .drive-in-badge-bottom {
+      background: rgba(26, 29, 32, 0.92);
+      color: #FFFFFF;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    }
+
+    .drive-in-points-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drive-in-point-card {
+      background: #FFFFFF;
+      border: 1px solid #EAECEF;
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      position: relative;
+      border-left: 4px solid var(--accent);
+    }
+
+    .drive-in-point-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .drive-in-point-card p {
+      font-size: 0.86rem;
+      color: var(--text-sub);
+      line-height: 1.75;
+    }
+
+    .drive-in-help-note {
+      background: #FFF1E6;
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 0.82rem;
+      color: #9A3412;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .access-card {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .access-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--bg-warm);
+    }
+
+    .route-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+
+    .route-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .route-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--bg-warm);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .route-content h4 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .route-content p {
+      font-size: 0.86rem;
+      color: var(--text-sub);
+      line-height: 1.75;
+    }
+
+    .map-frame-wrap {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .map-frame-wrap iframe {
+      width: 100%;
+      height: 440px;
+      border: 0;
+      display: block;
+    }
+
+    .map-info-bar {
+      padding: 16px 20px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .map-address {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-en);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border: 1px solid var(--bg-dark);
+    }
+
+    .btn-dark:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--text-main);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--text-main);
+      color: #fff;
+    }
+
+    /* CTA Banner & Footer */
+    .stylish-cta-banner {
+      background: #1A1D20;
+      color: #FFFFFF;
+      padding: 70px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .stylish-cta-banner h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .stylish-cta-banner p {
+      font-size: 0.94rem;
+      color: #A0AEC0;
+      margin-bottom: 32px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer {
+      background: #111417;
+      color: #8C9BAE;
+      font-size: 0.82rem;
+      padding: 50px 0 30px;
+      border-top: 1px solid #23272D;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #23272D;
+      margin-bottom: 24px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #FFFFFF;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-copy {
+      text-align: center;
+      font-size: 0.74rem;
+      color: #556272;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .top-bar { display: none; }
+      .header-inner { height: 72px; }
+      .brand-logo-img { width: 50px; height: 38px; }
+      .brand-title { font-size: 1.32rem; }
+      .brand-subtitle { font-size: 0.62rem; }
+      .header-tel-box { display: none; }
+      .btn-header-line span { display: none; }
+      .btn-header-line { padding: 9px 12px; }
+      .header-menu-btn .header-menu-text { display: none; }
+      .header-menu-btn { padding: 10px 12px; }
+
+      .page-hero-en { font-size: 1.95rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .philosophy-card { padding: 36px 24px; }
+      .drive-in-grid { grid-template-columns: 1fr; gap: 24px; }
+      .drive-in-banner { padding: 24px 18px; }
+      .drive-in-header-title { font-size: 1.15rem; }
+      .access-grid { grid-template-columns: 1fr; }
+      .overview-table th { width: 35%; padding: 14px 16px; }
+      .overview-table td { padding: 14px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-info">
+        <span><i class="fa-regular fa-clock"></i> OPEN 9:30 - 18:30 / WEDNESDAY CLOSED</span>
+        <span><i class="fa-solid fa-location-dot"></i> SAGA CITY, NISHITASHIRO 1-4-13</span>
+      </div>
+      <div>
+        <span><i class="fa-solid fa-phone"></i> 0078-6040-4870（通話無料）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="brand-logo-img">
+        <div>
+          <span class="brand-title">CAR MATE CORE</span>
+          <span class="brand-subtitle">Selected Cars & Life</span>
+        </div>
+      </a>
+
+      <div class="header-right-group">
+        <a href="tel:0078-6040-4870" class="header-tel-box">
+          <i class="fa-solid fa-phone header-tel-icon"></i>
+          <div class="header-tel-info">
+            <span class="header-tel-num">0078-6040-4870</span>
+            <span class="header-tel-sub">（通話無料）</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="btn-header-insta" title="公式Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-header-line" title="LINEで気軽に相談">
+          <i class="fa-brands fa-line" style="font-size:1.1rem;"></i>
+          <span>LINE相談</span>
+        </a>
+
+        <button type="button" class="header-menu-btn" id="hamburgerBtn" aria-label="メニューを開く">
+          <div class="header-menu-bars">
+            <span></span>
+            <span></span>
+          </div>
+          <span class="header-menu-text">MENU</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile & Desktop Drawer Menu (5 Dedicated Pages) -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">CAR MATE CORE</span>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="閉じる">&times;</button>
+    </div>
+
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="index.html" class="drawer-nav-link">
+          <span class="en">MAIN</span>
+          <span class="jp">（メイン・トップ）</span>
+        </a>
+      </li>
+      <li>
+        <a href="concept.html" class="drawer-nav-link">
+          <span class="en">CONCEPT & PROFILE</span>
+          <span class="jp">（コンセプト・代表紹介・サービス）</span>
+        </a>
+      </li>
+      <li>
+        <a href="stock.html" class="drawer-nav-link">
+          <span class="en">STOCK & SALES</span>
+          <span class="jp">（販売・在庫・注文販売）</span>
+        </a>
+      </li>
+      <li>
+        <a href="flow.html" class="drawer-nav-link">
+          <span class="en">PURCHASE FLOW</span>
+          <span class="jp">（ご購入までの流れ）</span>
+        </a>
+      </li>
+      <li>
+        <a href="access.html" class="drawer-nav-link" style="color:var(--accent);">
+          <span class="en">SHOP & ACCESS</span>
+          <span class="jp">（店舗案内・写真・生き方）</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Links Section -->
+    <div class="drawer-links-section">
+      <div class="drawer-section-title">
+        <span>Official Links & Stamp</span>
+        <span class="sub">公式リンク集 ＆ おすすめ</span>
+      </div>
+
+      <div class="drawer-links-grid">
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="drawer-link-card line-card">
+          <div class="link-icon"><i class="fa-brands fa-line"></i></div>
+          <div class="link-info">
+            <span class="link-name">公式 LINE</span>
+            <span class="link-desc">在庫・商談・無料相談はこちら</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="drawer-link-card insta-card">
+          <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
+          <div class="link-info">
+            <span class="link-name">公式 Instagram</span>
+            <span class="link-desc">@carmate_core 日常＆新着車</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <a href="https://www.goo-net.com/usedcar_shop/0802078/detail.html" target="_blank" rel="noopener noreferrer" class="drawer-link-card goo-card">
+          <div class="link-icon"><i class="fa-solid fa-car"></i></div>
+          <div class="link-info">
+            <span class="link-name">グーネット（Goo-net）</span>
+            <span class="link-desc">公式在庫一覧＆総額鑑定書</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <a href="https://www.carsensor.net/shop/saga/324457001/" target="_blank" rel="noopener noreferrer" class="drawer-link-card sensor-card">
+          <div class="link-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <div class="link-info">
+            <span class="link-name">カーセンサー（Carsensor）</span>
+            <span class="link-desc">公式店舗ページ＆アフター保証</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <a href="https://store.line.me/stickershop/" target="_blank" rel="noopener noreferrer" class="drawer-link-card stamp-card" title="義理の弟様が作成したLINEスタンプ">
+          <div class="link-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="link-info">
+            <div class="stamp-badge">義理の弟様 作成</div>
+            <span class="link-name">特製 LINEスタンプ</span>
+            <span class="link-desc">日常で使えるオリジナルスタンプ</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Bottom Contact Cards -->
+    <div class="drawer-bottom-card">
+      <div class="drawer-tel-card">
+        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:4px;">お電話でのご相談（通話無料）</div>
+        <a href="tel:0078-6040-4870" style="font-family:var(--font-en); font-size:1.15rem; font-weight:700; color:var(--text-main); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          <i class="fa-solid fa-phone" style="color:var(--accent);"></i> 0078-6040-4870
+        </a>
+        <div style="font-size:0.72rem; color:var(--text-muted); margin-top:4px;">営業時間 9:30 - 18:30（水曜定休）</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-en">Shop & Access</h1>
+      <p class="page-hero-jp">店舗写真・アクセス案内 ＆ 私たちの生き方・想い</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">HOME</a></li>
+        <li><i class="fa-solid fa-chevron-right" style="font-size:0.65rem;"></i></li>
+        <li>SHOP & ACCESS</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==================== 1. SHOP PHOTOS GALLERY ==================== -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Shop Gallery</h2>
+        <p class="section-jp-sub">開放的な展示場と清潔な自社整備ピット</p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Photo 1: 店舗外観 -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="images/shop-exterior.jpg" alt="Car Mate Core 店舗外観・展示場">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">オープンな展示場</div>
+            <div class="gallery-caption-desc">
+              佐賀市西田代の通りに面した展示場。軽自動車からコンパクトカー、実用的なミニバンまで厳選した特選車両を展示しています。
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 2: 店舗看板 -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="images/shop-sign.jpg" alt="Car Mate Core 看板・エントランス">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">オレンジと黒の店舗看板</div>
+            <div class="gallery-caption-desc">
+              通り沿いからひと目で分かる大きな看板が目印。お車でお越しの際も迷わずスムーズにご進入いただけます。
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 3: 自社ピット・展示スペース -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrap">
+            <img src="images/shop-view.jpg" alt="Car Mate Core 自社ピット・展示スペース">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">自社ピット＆商談スペース</div>
+            <div class="gallery-caption-desc">
+              車両のリフトアップ点検が可能なピットを完備。納車前整備はもちろん、車検やオイル交換もその場で素早く対応いたします。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. OUR WAY OF LIVING / PHILOSOPHY ==================== -->
+  <section class="section-padding philosophy-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Way of Living</h2>
+        <p class="section-jp-sub">Car Mate Core が大切にする「生き方」と約束</p>
+      </div>
+
+      <div class="philosophy-card">
+        <div class="philosophy-catch">
+          「背伸びした派手な店舗はいらない。<br>
+          目の前の一人ひとりに、<span>正直で誠実な車屋</span>でありたい。」
+        </div>
+
+        <div class="philosophy-body">
+          <p>
+            中古車販売の世界には、外見だけを豪華に飾ったショールームや、一見安く見せて後から高額なオプション・諸費用を上乗せするような売り方がいまだに存在します。
+          </p>
+          <p>
+            しかし、私たちが暮らす佐賀の街において、クルマは単なる見栄や贅沢品ではありません。通勤に、子どもの送り迎えに、日々の買い物に……クルマなしの生活は考えられない、家族の暮らしを毎日支える「かけがえのない大切な生活の一部」です。
+          </p>
+          <p>
+            だからこそ、Car Mate Core（カーメイト コア）は無駄なショールーム維持費や過度な広告費をかけません。その浮いたコストのすべてを「車両の入念な仕入れ」と「徹底した点検整備」、そして「お求めやすい適正価格」へと還元しています。
+          </p>
+          <p>
+            「安く買えたけれど、すぐに壊れた」「説明されていなかったキズや費用があった」――そんな悲しい想いをお客様にさせることは、私たちのプライドが絶対に許しません。
+          </p>
+        </div>
+
+        <div class="philosophy-highlight-box">
+          <div class="philosophy-highlight-title">「街のかかりつけ医」のような存在を目指して</div>
+          <div class="philosophy-highlight-text">
+            車を売ったら終わり、ではなく、納車してからが本当のお付き合い。ちょっとした異音や空気圧のチェック、毎年のオイル交換から数年後の車検まで、「困ったときは三好さんに聞けば大丈夫」と言っていただける身近な頼れるパートナーであり続けます。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. SHOP OVERVIEW TABLE ==================== -->
+  <section class="section-padding overview-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">Shop Information</h2>
+        <p class="section-jp-sub">店舗基本情報・古物商許可番号</p>
+      </div>
+
+      <div class="overview-table-wrap">
+        <table class="overview-table">
+          <tbody>
+            <tr>
+              <th>屋号 / 店名</th>
+              <td><strong>CAR MATE CORE（カーメイト コア）</strong></td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>三好 恭次（みよし きょうじ）</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>
+                〒840-0044 佐賀県佐賀市西田代1-4-13<br>
+                <span style="font-size:0.8rem; color:var(--text-muted);">※国道208号線沿い / 店舗前お客様用駐車場完備</span>
+              </td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td>
+                <a href="tel:0078-6040-4870" style="color:var(--accent); font-weight:700; font-family:var(--font-en); font-size:1.05rem;">
+                  0078-6040-4870
+                </a>
+                <span style="font-size:0.75rem; color:var(--accent); margin-left:6px; font-weight:600;">（通話無料）</span>
+              </td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td>9:30 ～ 18:30</td>
+            </tr>
+            <tr>
+              <th>定休日</th>
+              <td>毎週水曜日</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>
+                良質中古車の販売（軽自動車・コンパクトカー・ミニバン・セダン等）<br>
+                全国オートオークションからの注文販売・バックオーダー<br>
+                国産車・輸入車の高価現金買取・下取り査定<br>
+                車検代行・法定点検・オイル交換・各種消耗品交換<br>
+                板金塗装・キズへこみ修理・ガラスコーティング・ルームクリーニング<br>
+                各種オートローン取扱（頭金0円・最長120回OK）・自動車保険取扱
+              </td>
+            </tr>
+            <tr>
+              <th>資格・登録認可</th>
+              <td>
+                佐賀県公安委員会 古物商許可証 第911010008544号<br>
+                一般社団法人 日本中古自動車販売協会連合会（JU中販連）適正販売店
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. ACCESS GUIDE & MAP ==================== -->
+  <section class="section-padding access-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-en-title">How to Access</h2>
+        <p class="section-jp-sub">店舗へのアクセス・お車での進入方法</p>
+      </div>
+
+      <!-- ==================== お車での進入・駐車ガイド ==================== -->
+      <div class="drive-in-banner">
+        <div class="drive-in-header">
+          <div class="drive-in-header-icon"><i class="fa-solid fa-car-side"></i></div>
+          <div>
+            <div class="drive-in-header-title">お車でお越しのお客様へ（そのまま店舗敷地内へお入りください）</div>
+            <div class="drive-in-header-sub">一見入りづらく見えますが、お車ごとそのまま中に入って大丈夫です！</div>
+          </div>
+        </div>
+
+        <div class="drive-in-grid">
+          <!-- Visual with Animated Entrance Arrow -->
+          <div class="drive-in-visual-wrap">
+            <img src="images/shop-exterior.jpg" alt="Car Mate Core 入口・敷地内への進入案内" class="drive-in-photo">
+            <div class="drive-in-overlay">
+              <div class="drive-in-badge-top">
+                <i class="fa-solid fa-circle-check"></i> お車ごとそのまま進入OK
+              </div>
+
+              <div class="drive-in-arrow-area">
+                <!-- Glowing Directional Arrow SVG -->
+                <svg class="drive-arrow-svg" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 68 V24" stroke="#FFA500" stroke-width="7" stroke-linecap="round" stroke-dasharray="6 4"/>
+                  <path d="M14 32 L32 12 L50 32" stroke="#FFA500" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polygon points="32,6 52,28 12,28" fill="#FF8A00"/>
+                </svg>
+              </div>
+
+              <div class="drive-in-badge-bottom">
+                <i class="fa-solid fa-arrow-up" style="color:var(--accent); margin-right:4px;"></i>
+                歩道からそのまま敷地（屋根の下・奥）へお進みください
+              </div>
+            </div>
+          </div>
+
+          <!-- Points list -->
+          <div class="drive-in-points-list">
+            <div class="drive-in-point-card">
+              <h4>
+                <i class="fa-solid fa-circle-check" style="color:var(--accent);"></i>
+                頭から前進でそのまま入って大丈夫です
+              </h4>
+              <p>
+                「敷地内に入っていいのかな？」と迷われるかもしれませんが、歩道からそのままお車ごと敷地内・屋根の下へスッとお進みください。道路際で停車したり、バックで進入する必要はまったくございません。
+              </p>
+            </div>
+
+            <div class="drive-in-point-card">
+              <h4>
+                <i class="fa-solid fa-arrows-rotate" style="color:var(--accent);"></i>
+                奥での切り返し・駐車は店主が代行いたします
+              </h4>
+              <p>
+                「奥でUターンできるか不安」「バック駐車が苦手」というお客様もご安心ください。お車を停めてお声がけいただければ、店主（三好）が代わりにハンドルを握り、敷地内での切り返しやお車の移動・駐車をすべて行います。
+              </p>
+            </div>
+
+            <div class="drive-in-help-note">
+              <i class="fa-solid fa-phone" style="font-size:1.15rem; flex-shrink:0;"></i>
+              <div>
+                <strong>入るのが不安な時はお気軽にお電話ください：</strong><br>
+                <a href="tel:0078-6040-4870" style="color:#C2410C; font-weight:700; text-decoration:underline;">0078-6040-4870（通話無料）</a> にて道路まで誘導・お迎えにお伺いします。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="access-grid">
+        <!-- Access Directions -->
+        <div class="access-card">
+          <h3>交通アクセス・道順</h3>
+
+          <div class="route-item">
+            <div class="route-icon"><i class="fa-solid fa-car"></i></div>
+            <div class="route-content">
+              <h4>お車でお越しの場合</h4>
+              <p>
+                国道208号線「西田代」交差点すぐ。佐賀駅南口から車で約7〜8分、佐賀大和ICからは約20分です。一見入りづらく見えますが、歩道からそのまま店舗敷地内へ頭からお入りいただけます。敷地内での切り返しや駐車は店主（三好）が代行いたしますのでご安心ください。
+              </p>
+            </div>
+          </div>
+
+          <div class="route-item">
+            <div class="route-icon"><i class="fa-solid fa-bus"></i></div>
+            <div class="route-content">
+              <h4>バスでお越しの場合</h4>
+              <p>
+                JR佐賀駅バスセンターより佐賀市営バスに乗車、「西田代」停留所にて下車後、徒歩約2分です。
+              </p>
+            </div>
+          </div>
+
+          <div class="route-item">
+            <div class="route-icon"><i class="fa-solid fa-train"></i></div>
+            <div class="route-content">
+              <h4>電車でお越しの場合（送迎サービス）</h4>
+              <p>
+                JR「佐賀駅」までお越しいただければ、店舗スタッフまたは代表自ら無料でお車にてお迎えに上がります。ご来店の前日までにLINEまたはお電話にてお気軽にお申し付けください。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Map Iframe -->
+        <div class="map-frame-wrap">
+          <iframe 
+            src="https://maps.google.com/maps?q=%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E8%A5%BF%E7%94%B0%E4%BB%A31-4-13&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Car Mate Core 店舗所在地マップ">
+          </iframe>
+          <div class="map-info-bar">
+            <div class="map-address">
+              <i class="fa-solid fa-location-dot" style="color:var(--accent); margin-right:6px;"></i>
+              佐賀県佐賀市西田代1-4-13（駐車場完備）
+            </div>
+            <a href="https://maps.google.com/maps?q=%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E8%A5%BF%E7%94%B0%E4%BB%A31-4-13" target="_blank" rel="noopener noreferrer" style="font-size:0.82rem; font-weight:700; color:var(--accent);">
+              Googleマップで経路案内 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="stylish-cta-banner">
+    <div class="container">
+      <h2>皆様のご来店を心よりお待ちしております</h2>
+      <p>
+        「ちょっと車を見にきた」「車検の相談をしたい」など、どうぞ気兼ねなくお立ち寄りください。温かいお茶をご用意してお待ちしております。
+      </p>
+      <div class="cta-button-group">
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-header-line" style="font-size:0.95rem; padding:16px 36px;">
+          <i class="fa-brands fa-line" style="font-size:1.3rem;"></i>
+          <span>公式LINEで来店予約・相談</span>
+        </a>
+        <a href="tel:0078-6040-4870" class="btn btn-outline-dark" style="color:#FFFFFF; border-color:rgba(255,255,255,0.4);">
+          <i class="fa-solid fa-phone"></i>
+          <span>0078-6040-4870（通話無料）</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">CAR MATE CORE</div>
+          <p style="font-size:0.75rem; margin-top:6px; color:#6B7A90;">佐賀市西田代1-4-13 | 暮らしに寄り添う良質中古車</p>
+        </div>
+        <ul class="footer-nav">
+          <li><a href="index.html">メイン</a></li>
+          <li><a href="concept.html">コンセプト・プロフィール</a></li>
+          <li><a href="stock.html">販売、在庫</a></li>
+          <li><a href="flow.html">購入までの流れ</a></li>
+          <li><a href="access.html" style="color:#FFFFFF; font-weight:700;">店舗案内</a></li>
+        </ul>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Car Mate Core. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Drawer Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+
+    function openDrawer() {
+      mobileDrawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openDrawer);
+    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在庫情報＆販売実績 | Car Mate Core - 佐賀市の中古車販売</title>
+  <meta name="description" content="Car Mate Coreの厳選中古車ラインナップ（軽自動車・コンパクト・ミニバン）。全車追加費用なしの安心総額＆丁寧な自社点検整備済み。店頭にない車も全国オークションからお探しします。">
+
+  <!-- Google Fonts: Playfair Display (Serif), Montserrat (Sans), Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ========================================================
+       Design Tokens & Variables (Minimal & Stylish / Reference: MOSAIC)
+       ======================================================== */
+    :root {
+      --bg-main: #FFFFFF;
+      --bg-sub: #FBFBFC;
+      --bg-warm: #FAF8F5;
+      --bg-dark: #1A1D20;
+      
+      --text-main: #24292E;
+      --text-sub: #6A737D;
+      --text-muted: #959DA5;
+      --text-light: #FFFFFF;
+      
+      --accent: #E65C00;
+      --accent-hover: #CC5200;
+      --accent-soft: #FFF4ED;
+      
+      --line: #E1E4E8;
+      --line-subtle: #ECEFF2;
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-en: 'Montserrat', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
+
+      --container: 1140px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-jp);
+      font-weight: 400;
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Headers (Editorial Serif Style) */
+    .section-header {
+      text-align: center;
+      margin-bottom: 54px;
+    }
+
+    .section-en-title {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-en-title::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1.5px;
+      background: var(--accent);
+      margin: 12px auto 0;
+    }
+
+    .section-jp-sub {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-top: 14px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-en);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 13px 28px;
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border: 1px solid var(--bg-dark);
+    }
+
+    .btn-dark:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--text-main);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--text-main);
+      color: #fff;
+    }
+
+    .btn-line {
+      background: #06C755;
+      color: #fff;
+      border: 1px solid #06C755;
+    }
+
+    .btn-line:hover {
+      background: #05AC49;
+      border-color: #05AC49;
+      color: #fff;
+    }
+
+    /* ========================================================
+       Top Bar & Site Header
+       ======================================================== */
+    .top-bar {
+      border-bottom: 1px solid var(--line-subtle);
+      background: var(--bg-main);
+      font-size: 0.76rem;
+      color: var(--text-sub);
+      padding: 8px 0;
+      font-family: var(--font-en);
+      letter-spacing: 0.05em;
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-info {
+      display: flex;
+      gap: 20px;
+    }
+
+    .top-bar-info span i {
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .site-header {
+      background: var(--bg-main);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--line);
+      transition: all 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      width: 60px;
+      height: 46px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-main);
+      line-height: 1.15;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Header Right Actions */
+    .header-right-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Header Tel Box */
+    .header-tel-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 7px 15px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--bg-sub);
+      transition: all 0.25s ease;
+    }
+
+    .header-tel-box:hover {
+      border-color: var(--accent);
+      background: #FFFFFF;
+    }
+
+    .header-tel-icon {
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .header-tel-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .header-tel-num {
+      font-family: var(--font-en);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+    }
+
+    .header-tel-sub {
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* Instagram Button */
+    .btn-header-insta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      color: #E1306C;
+      font-size: 1.25rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-header-insta:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(225, 48, 108, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* LINE Button */
+    .btn-header-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #06C755;
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 3px 10px rgba(6, 199, 85, 0.2);
+    }
+
+    .btn-header-line:hover {
+      background: #05AB49;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(6, 199, 85, 0.35);
+      color: #FFFFFF;
+    }
+
+    /* Hamburger / Menu Button (Desktop & Mobile) */
+    .header-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      border: 1px solid var(--bg-dark);
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      transition: all 0.25s ease;
+    }
+
+    .header-menu-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .header-menu-bars {
+      width: 17px;
+      height: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .header-menu-bars span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #FFFFFF;
+      border-radius: 1px;
+      transition: all 0.25s ease;
+    }
+
+    /* Drawer Menu */
+    .mobile-drawer {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 86%;
+      max-width: 400px;
+      height: 100%;
+      background: #FFFFFF;
+      z-index: 2000;
+      box-shadow: -6px 0 32px rgba(0,0,0,0.15);
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 28px 24px;
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .drawer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+    }
+
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--text-sub);
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+      transition: color 0.2s ease;
+    }
+
+    .drawer-close-btn:hover {
+      color: var(--accent);
+    }
+
+    .drawer-nav-list {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .drawer-nav-link {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--line-subtle);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .drawer-nav-link .en {
+      font-family: var(--font-en);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-main);
+    }
+
+    .drawer-nav-link .jp {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      letter-spacing: 0.02em;
+    }
+
+    .drawer-nav-link:hover .en,
+    .drawer-nav-link:hover .jp {
+      color: var(--accent);
+    }
+
+    .drawer-bottom-card {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .drawer-tel-card {
+      background: var(--bg-sub);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    /* Links Section in Drawer */
+    .drawer-links-section {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .drawer-section-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 12px;
+    }
+
+    .drawer-section-title span:first-child {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .drawer-section-title .sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+    }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .drawer-link-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--bg-main);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .drawer-link-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .drawer-link-card .link-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .drawer-link-card.line-card .link-icon { background: #06C755; color: #fff; }
+    .drawer-link-card.insta-card .link-icon { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: #fff; }
+    .drawer-link-card.goo-card .link-icon { background: #E60012; color: #fff; }
+    .drawer-link-card.sensor-card .link-icon { background: #FF5A00; color: #fff; }
+    .drawer-link-card.stamp-card .link-icon { background: #8B5CF6; color: #fff; }
+
+    .drawer-link-card .link-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .drawer-link-card .link-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.02em;
+    }
+
+    .drawer-link-card .link-desc {
+      font-size: 0.68rem;
+      color: var(--text-sub);
+    }
+
+    .drawer-link-card .link-arrow {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .drawer-link-card:hover .link-arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    .stamp-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #8B5CF6;
+      background: #F3E8FF;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      width: fit-content;
+      margin-bottom: 2px;
+    }
+
+    /* ========================================================
+       Page Hero & Breadcrumbs
+       ======================================================== */
+    .page-hero {
+      background: var(--bg-warm);
+      padding: 56px 0 46px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-hero-en {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .page-hero-jp {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    .breadcrumb-bar {
+      border-bottom: 1px solid var(--line-subtle);
+      background: var(--bg-main);
+      padding: 10px 0;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      font-family: var(--font-en);
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb-list a:hover {
+      color: var(--accent);
+    }
+
+    /* ========================================================
+       Sub-nav Tab Bar
+       ======================================================== */
+    .stock-tab-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 44px 0 54px;
+      flex-wrap: wrap;
+    }
+
+    .tab-pill {
+      font-family: var(--font-en);
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--bg-main);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .tab-pill:hover,
+    .tab-pill.active {
+      background: var(--text-main);
+      color: #fff;
+      border-color: var(--text-main);
+    }
+
+    .tab-pill-goo {
+      background: var(--bg-warm);
+      border-color: var(--line);
+      color: var(--text-main);
+    }
+
+    .tab-pill-goo:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ========================================================
+       Car Cards Grid (Modern Gallery Style)
+       ======================================================== */
+    .section-padding {
+      padding: 60px 0 90px;
+    }
+
+    .stock-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .car-card {
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .car-card:hover {
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+
+    .car-card-img-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #E8ECEF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .car-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .car-card:hover .car-card-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .car-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(26, 29, 32, 0.88);
+      color: #fff;
+      font-family: var(--font-en);
+      font-size: 0.70rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .car-tag-sold {
+      background: #D92D20;
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    /* Sold Out Watermark / Overlay */
+    .sold-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(18, 20, 24, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .sold-label {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: #D92D20; /* 赤文字 */
+      border: 2.5px solid #D92D20;
+      background: rgba(255, 255, 255, 0.94);
+      padding: 6px 24px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      transform: rotate(-5deg);
+      display: inline-block;
+    }
+
+    .car-card-body {
+      padding: 22px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .car-maker-label {
+      font-family: var(--font-en);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .car-model-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .car-spec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .car-spec-tags span {
+      font-size: 0.72rem;
+      background: var(--bg-sub);
+      color: var(--text-sub);
+      padding: 3px 8px;
+      border-radius: 2px;
+      border: 1px solid var(--line-subtle);
+    }
+
+    .car-feature-desc {
+      font-size: 0.80rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      min-height: 38px;
+    }
+
+    .car-price-box {
+      border-top: 1px solid var(--line-subtle);
+      padding-top: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .car-price-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .car-price-num {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .car-action-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btn-action-goo {
+      background: var(--bg-sub);
+      color: var(--text-main);
+      border: 1px solid var(--line);
+      font-size: 0.74rem;
+      padding: 9px 4px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-weight: 600;
+    }
+
+    .btn-action-goo:hover {
+      background: var(--text-main);
+      color: #fff;
+      border-color: var(--text-main);
+    }
+
+    .btn-action-line {
+      background: #06C755;
+      color: #fff;
+      border: 1px solid #06C755;
+      font-size: 0.74rem;
+      padding: 9px 4px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-weight: 600;
+    }
+
+    .btn-action-line:hover {
+      background: #05AC49;
+    }
+
+    /* ========================================================
+       Order System Section
+       ======================================================== */
+    .bg-sub {
+      background: var(--bg-sub);
+    }
+
+    .order-box {
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 48px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    .order-header-text {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 0.94rem;
+      color: var(--text-sub);
+      line-height: 1.85;
+    }
+
+    .order-step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .order-step-item {
+      background: var(--bg-warm);
+      border-radius: var(--radius-sm);
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .order-step-num {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .order-step-item h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .order-step-item p {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* ========================================================
+       CTA Banner & Footer
+       ======================================================== */
+    .stylish-cta-banner {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .stylish-cta-banner .en-sub {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      color: #D1D5DB;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .stylish-cta-banner h2 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .stylish-cta-banner p {
+      font-size: 0.94rem;
+      color: #A0AEC0;
+      margin-bottom: 32px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer {
+      background: #111417;
+      color: #8C9BAE;
+      font-size: 0.82rem;
+      padding: 50px 0 30px;
+      border-top: 1px solid #23272D;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #23272D;
+      margin-bottom: 24px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer-nav a:hover {
+      color: #fff;
+    }
+
+    .footer-copy {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #5B6876;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .top-bar {
+        display: none;
+      }
+
+      .header-inner {
+        height: 72px;
+      }
+
+      .brand-logo-img {
+        width: 50px;
+        height: 38px;
+      }
+
+      .brand-title {
+        font-size: 1.32rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.62rem;
+      }
+
+      .header-tel-box {
+        display: none;
+      }
+
+      .btn-header-line span {
+        display: none;
+      }
+
+      .btn-header-line {
+        padding: 9px 12px;
+      }
+
+      .header-menu-btn .header-menu-text {
+        display: none;
+      }
+
+      .header-menu-btn {
+        padding: 10px 12px;
+      }
+
+      .stock-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .order-step-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .page-hero-en {
+        font-size: 1.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-info">
+        <span><i class="fa-regular fa-clock"></i> OPEN 9:30 - 18:30 / WEDNESDAY CLOSED</span>
+        <span><i class="fa-solid fa-location-dot"></i> SAGA CITY, NISHITASHIRO 1-4-13</span>
+      </div>
+      <div>
+        <span><i class="fa-solid fa-phone"></i> 0078-6040-4870（通話無料）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Brand Logo (Enlarged) -->
+      <a href="index.html" class="brand-logo-wrap">
+        <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="brand-logo-img">
+        <div>
+          <span class="brand-title">CAR MATE CORE</span>
+          <span class="brand-subtitle">Selected Cars & Life</span>
+        </div>
+      </a>
+
+      <!-- Header Right Actions: Tel, Instagram, LINE, Hamburger Menu -->
+      <div class="header-right-group">
+        <!-- Phone Contact with Free Call Notice -->
+        <a href="tel:0078-6040-4870" class="header-tel-box">
+          <i class="fa-solid fa-phone header-tel-icon"></i>
+          <div class="header-tel-info">
+            <span class="header-tel-num">0078-6040-4870</span>
+            <span class="header-tel-sub">（通話無料）</span>
+          </div>
+        </a>
+
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="btn-header-insta" title="公式Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <!-- LINE Button -->
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-header-line" title="LINEで気軽に相談">
+          <i class="fa-brands fa-line" style="font-size:1.1rem;"></i>
+          <span>LINE相談</span>
+        </a>
+
+        <!-- Hamburger Menu Button -->
+        <button type="button" class="header-menu-btn" id="hamburgerBtn" aria-label="メニューを開く">
+          <div class="header-menu-bars">
+            <span></span>
+            <span></span>
+          </div>
+          <span class="header-menu-text">MENU</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile & Desktop Drawer Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <span class="drawer-brand">CAR MATE CORE</span>
+      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="閉じる">&times;</button>
+    </div>
+
+    <!-- Navigation List with Japanese Translations in Parentheses (5 Dedicated Pages) -->
+    <ul class="drawer-nav-list">
+      <li>
+        <a href="index.html" class="drawer-nav-link">
+          <span class="en">MAIN</span>
+          <span class="jp">（メイン・トップ）</span>
+        </a>
+      </li>
+      <li>
+        <a href="concept.html" class="drawer-nav-link">
+          <span class="en">CONCEPT & PROFILE</span>
+          <span class="jp">（コンセプト・代表紹介・サービス）</span>
+        </a>
+      </li>
+      <li>
+        <a href="stock.html" class="drawer-nav-link" style="color:var(--accent);">
+          <span class="en">STOCK & SALES</span>
+          <span class="jp">（販売・在庫・注文販売）</span>
+        </a>
+      </li>
+      <li>
+        <a href="flow.html" class="drawer-nav-link">
+          <span class="en">PURCHASE FLOW</span>
+          <span class="jp">（ご購入までの流れ）</span>
+        </a>
+      </li>
+      <li>
+        <a href="access.html" class="drawer-nav-link">
+          <span class="en">SHOP & ACCESS</span>
+          <span class="jp">（店舗案内・写真・生き方）</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Links Section (LINE, Instagram, Goo-net, Carsensor, Stamp) -->
+    <div class="drawer-links-section">
+      <div class="drawer-section-title">
+        <span>Official Links & Stamp</span>
+        <span class="sub">公式リンク集 ＆ おすすめ</span>
+      </div>
+
+      <div class="drawer-links-grid">
+        <!-- 1. LINE -->
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="drawer-link-card line-card">
+          <div class="link-icon"><i class="fa-brands fa-line"></i></div>
+          <div class="link-info">
+            <span class="link-name">公式 LINE</span>
+            <span class="link-desc">在庫・商談・無料相談はこちら</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- 2. Instagram -->
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="drawer-link-card insta-card">
+          <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
+          <div class="link-info">
+            <span class="link-name">公式 Instagram</span>
+            <span class="link-desc">@carmate_core 日常＆新着車</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- 3. Goo-net -->
+        <a href="https://www.goo-net.com/usedcar_shop/0802078/detail.html" target="_blank" rel="noopener noreferrer" class="drawer-link-card goo-card">
+          <div class="link-icon"><i class="fa-solid fa-car"></i></div>
+          <div class="link-info">
+            <span class="link-name">グーネット（Goo-net）</span>
+            <span class="link-desc">公式在庫一覧＆総額鑑定書</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- 4. Carsensor -->
+        <a href="https://www.carsensor.net/shop/saga/324457001/" target="_blank" rel="noopener noreferrer" class="drawer-link-card sensor-card">
+          <div class="link-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <div class="link-info">
+            <span class="link-name">カーセンサー（Carsensor）</span>
+            <span class="link-desc">公式店舗ページ＆アフター保証</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- 5. Brother-in-law LINE Stamp -->
+        <a href="https://store.line.me/stickershop/" target="_blank" rel="noopener noreferrer" class="drawer-link-card stamp-card" title="義理の弟様が作成したLINEスタンプ">
+          <div class="link-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="link-info">
+            <div class="stamp-badge">義理の弟様 作成</div>
+            <span class="link-name">特製 LINEスタンプ</span>
+            <span class="link-desc">日常で使えるオリジナルスタンプ</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Bottom Contact Cards -->
+    <div class="drawer-bottom-card">
+      <div class="drawer-tel-card">
+        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:4px;">お電話でのご相談（通話無料）</div>
+        <a href="tel:0078-6040-4870" style="font-family:var(--font-en); font-size:1.15rem; font-weight:700; color:var(--text-main); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          <i class="fa-solid fa-phone" style="color:var(--accent);"></i> 0078-6040-4870
+        </a>
+        <div style="font-size:0.72rem; color:var(--text-muted); margin-top:4px;">営業時間 9:30 - 18:30（水曜定休）</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-en">Stock Cars & Archive</h1>
+      <p class="page-hero-jp">厳選中古車ラインナップ ＆ ご成約・販売実績</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">HOME</a></li>
+        <li><i class="fa-solid fa-chevron-right" style="font-size:0.65rem; color:var(--text-muted);"></i></li>
+        <li>STOCK CARS & ARCHIVE</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="section-padding">
+    <div class="container">
+
+      <!-- Sub Tabs Jump Bar -->
+      <div class="stock-tab-bar">
+        <a href="#inventory" class="tab-pill active">
+          <i class="fa-solid fa-car"></i> 現在販売中（10台）
+        </a>
+        <a href="#archive" class="tab-pill">
+          <i class="fa-solid fa-certificate"></i> ご成約・販売実績
+        </a>
+        <a href="https://www.goo-net.com/usedcar_shop/0802078/stock.html" target="_blank" rel="noopener noreferrer" class="tab-pill tab-pill-goo">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> グーネット公式 在庫一覧を開く
+        </a>
+      </div>
+
+      <!-- ==================== 1. ACTIVE INVENTORY ==================== -->
+      <section id="inventory" style="margin-bottom: 90px;">
+        <div class="section-header">
+          <h2 class="section-en-title" style="font-family: var(--font-jp); font-weight: 700; letter-spacing: 0.04em;">販売中の在庫車両</h2>
+          <p class="section-jp-sub">全車追加費用なしの安心コミコミ総額・自社点検整備済み。気になる車両はお気軽にお問い合わせください。</p>
+        </div>
+
+        <div class="stock-grid">
+
+          <!-- Car 1: ムーヴキャンバス -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Kei Car</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260510/Q/70008020783026051000100.jpg" alt="ダイハツ ムーヴキャンバス Gメイクアップ SAII" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">DAIHATSU</span>
+                <h3 class="car-model-title">ムーヴキャンバス Gメイクアップ SAII</h3>
+                <div class="car-spec-tags">
+                  <span>2016(H28)年</span>
+                  <span>9.4万km</span>
+                  <span>車検R9年7月</span>
+                </div>
+                <p class="car-feature-desc">社外ナビ・バックカメラ・両側パワースライドドア・スマートアシスト・シートヒーター完備。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">70<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260510001.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 2: トール -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Compact</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260328/Q/70008020783026032800200.jpg" alt="ダイハツ トール G" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">DAIHATSU</span>
+                <h3 class="car-model-title">トール G</h3>
+                <div class="car-spec-tags">
+                  <span>2018(H30)年</span>
+                  <span>9.1万km</span>
+                  <span>車検R9年8月</span>
+                </div>
+                <p class="car-feature-desc">両側パワスラ・メモリーナビ・Bluetooth・ETC・プッシュスタート・アイドリングストップ完備。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">75<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260328002.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 3: ヴォクシー -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Minivan</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260324/Q/70008020783026032400100.jpg" alt="トヨタ ヴォクシー ZS 煌" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">TOYOTA</span>
+                <h3 class="car-model-title">ヴォクシー ZS 煌</h3>
+                <div class="car-spec-tags">
+                  <span>2017(H29)年</span>
+                  <span>7.6万km</span>
+                  <span>車検整備付</span>
+                </div>
+                <p class="car-feature-desc">9インチ大画面ナビ・フリップダウン後席モニター・両側パワスラ・LEDライト・7人乗り。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">208<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260324001.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 4: スペーシア 福祉車両 -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Welfare</span>
+              <img src="https://picture1.goo-net.com/7000802078/30251026/Q/70008020783025102600100.jpg" alt="スペーシア ハイブリッドX 福祉車両" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">SUZUKI</span>
+                <h3 class="car-model-title">スペーシア ハイブリッドX（車椅子移動車）</h3>
+                <div class="car-spec-tags">
+                  <span>2018(H30)年</span>
+                  <span>8.7万km</span>
+                  <span>車検整備付</span>
+                </div>
+                <p class="car-feature-desc">車椅子乗降スロープ完備の安心福祉車両。純正ナビ・ドラレコ・左パワースライドドア。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">95<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830251026001.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 5: タント カスタムX -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Kei Car</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260807/Q/70008020783026080700100.jpg" alt="タント カスタムX" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">DAIHATSU</span>
+                <h3 class="car-model-title">タント カスタムX</h3>
+                <div class="car-spec-tags">
+                  <span>2019(R1)年</span>
+                  <span>2.2万km</span>
+                  <span>車検整備付</span>
+                </div>
+                <p class="car-feature-desc">走行わずか2.2万kmの極上美車。両側パワスラ・全方位カメラ・純正アルミホイール・スマートアシスト。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">123<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260807001.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 6: ムーヴ L SAIII -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Kei Car</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260807/Q/70008020783026080700200.jpg" alt="ムーヴ L SAIII" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">DAIHATSU</span>
+                <h3 class="car-model-title">ムーヴ L SAIII</h3>
+                <div class="car-spec-tags">
+                  <span>2021(R3)年</span>
+                  <span>3.4万km</span>
+                  <span>車検整備付</span>
+                </div>
+                <p class="car-feature-desc">高年式令和3年式・走行3.4万km。社外ナビ・Bluetooth対応・ETC・スマートアシストIII。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">95<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260807002.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 7: eKワゴン E e-アシスト -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Best Value</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260904/Q/70008020783026090400100.jpg" alt="eKワゴン E e-アシスト" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">MITSUBISHI</span>
+                <h3 class="car-model-title">eKワゴン E e-アシスト</h3>
+                <div class="car-spec-tags">
+                  <span>2019(H31)年</span>
+                  <span>5.5万km</span>
+                  <span>車検R10年1月</span>
+                </div>
+                <p class="car-feature-desc">車検が令和10年1月まで超ロング！Bluetooth対応CDオーディオ・運転席温熱シート・コーナーセンサー。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">60<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260904001.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 8: eKワゴン E -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Best Value</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260924/Q/70008020783026092400100.jpg" alt="eKワゴン E" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">MITSUBISHI</span>
+                <h3 class="car-model-title">eKワゴン E</h3>
+                <div class="car-spec-tags">
+                  <span>2016(H28)年</span>
+                  <span>8.8万km</span>
+                  <span>車検整備付</span>
+                </div>
+                <p class="car-feature-desc">支払総額35万円のお値打ち良質車！社外CDオーディオ・ETC・シートヒーター（運転席）・キーレス。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">35<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260924001.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 9: ハスラー -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Kei SUV</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260901/Q/70008020783026090100100.jpg" alt="スズキ ハスラー ハイブリッドX" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">SUZUKI</span>
+                <h3 class="car-model-title">ハスラー ハイブリッドX</h3>
+                <div class="car-spec-tags">
+                  <span>2020(R2)年</span>
+                  <span>3.2万km</span>
+                  <span>車検整備付</span>
+                </div>
+                <p class="car-feature-desc">純正9インチ大画面ナビ・全方位モニター・Bluetooth・温熱シート・オートLEDヘッドライト。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">145<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260901001.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 10: NV100クリッパーバン -->
+          <article class="car-card">
+            <div class="car-card-img-wrap">
+              <span class="car-tag">Commercial</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260915/Q/70008020783026091500100.jpg" alt="NV100クリッパーバン DX GLパッケージ" loading="lazy">
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">NISSAN</span>
+                <h3 class="car-model-title">NV100クリッパーバン DX GLパッケージ</h3>
+                <div class="car-spec-tags">
+                  <span>2023(R5)年</span>
+                  <span>8.7万km</span>
+                  <span>車検整備付</span>
+                </div>
+                <p class="car-feature-desc">高年式令和5年式！お仕事や荷物運びに大活躍。スマートアシスト・コーナーセンサー・ETC・キーレス。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">乗り出しコミコミ総額（税込）</span>
+                  <span class="car-price-num">85<small style="font-size:0.85rem;">万円</small></span>
+                </div>
+                <div class="car-action-group">
+                  <a href="https://www.goo-net.com/usedcar/spread/goo/19/700080207830260915001.html" target="_blank" rel="noopener noreferrer" class="btn-action-goo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Goo-net詳細
+                  </a>
+                  <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-action-line">
+                    <i class="fa-brands fa-line"></i> LINE相談
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ==================== 2. PAST SALES RECORDS (ARCHIVE) ==================== -->
+      <section id="archive" style="margin-bottom: 90px; padding-top: 30px; border-top: 1px solid var(--line);">
+        <div class="section-header">
+          <h2 class="section-en-title" style="font-family: var(--font-jp); font-weight: 700; letter-spacing: 0.04em;">過去の販売実績（ご成約車両）</h2>
+          <p class="section-jp-sub">当店にてご成約いただいたお車の一部をご紹介いたします。「同様の車を探してほしい」などのご相談も大歓迎です。</p>
+        </div>
+
+        <div class="stock-grid">
+
+          <!-- Sold 1: フレアクロスオーバー -->
+          <article class="car-card" style="opacity: 0.92;">
+            <div class="car-card-img-wrap">
+              <span class="car-tag car-tag-sold">SOLD OUT</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260502/P/70008020783026050200100.jpg" alt="フレアクロスオーバー ご成約済み" loading="lazy">
+              <div class="sold-overlay">
+                <span class="sold-label">SOLD OUT</span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">MAZDA</span>
+                <h3 class="car-model-title">フレアクロスオーバー</h3>
+                <div class="car-spec-tags">
+                  <span>ご成約御礼</span>
+                  <span>軽SUVスタイル</span>
+                </div>
+                <p class="car-feature-desc">人気のアウトドア軽SUV。徹底的な自社点検・コーティング施工のうえ納車いたしました。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">販売ステータス</span>
+                  <span class="car-price-num" style="color:#D92D20; font-size:1.15rem; font-weight:700;">SOLD OUT</span>
+                </div>
+                <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" style="width:100%; padding:9px; font-size:0.78rem;">
+                  <i class="fa-brands fa-line"></i> 同様のお車をお探し相談
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sold 2: ハイゼットカーゴ -->
+          <article class="car-card" style="opacity: 0.92;">
+            <div class="car-card-img-wrap">
+              <span class="car-tag car-tag-sold">SOLD OUT</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260321/P/70008020783026032100100.jpg" alt="ハイゼットカーゴ ご成約済み" loading="lazy">
+              <div class="sold-overlay">
+                <span class="sold-label">SOLD OUT</span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">DAIHATSU</span>
+                <h3 class="car-model-title">ハイゼットカーゴ</h3>
+                <div class="car-spec-tags">
+                  <span>ご成約御礼</span>
+                  <span>軽商用バン</span>
+                </div>
+                <p class="car-feature-desc">お仕事や配達に大活躍の荷室広々設計。消耗品交換・フルメンテナンス整備済みで納車。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">販売ステータス</span>
+                  <span class="car-price-num" style="color:#D92D20; font-size:1.15rem; font-weight:700;">SOLD OUT</span>
+                </div>
+                <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" style="width:100%; padding:9px; font-size:0.78rem;">
+                  <i class="fa-brands fa-line"></i> 同様のお車をお探し相談
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sold 3: デイズ -->
+          <article class="car-card" style="opacity: 0.92;">
+            <div class="car-card-img-wrap">
+              <span class="car-tag car-tag-sold">SOLD OUT</span>
+              <img src="https://picture1.goo-net.com/7000802078/30260711/P/70008020783026071100100.jpg" alt="日産 デイズ ご成約済み" loading="lazy">
+              <div class="sold-overlay">
+                <span class="sold-label">SOLD OUT</span>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div>
+                <span class="car-maker-label">NISSAN</span>
+                <h3 class="car-model-title">デイズ</h3>
+                <div class="car-spec-tags">
+                  <span>ご成約御礼</span>
+                  <span>スタイリッシュ軽</span>
+                </div>
+                <p class="car-feature-desc">取り回し抜群で日々の通勤やお買い物に最適な一台。内外装の徹底クリーニング実施。</p>
+              </div>
+              <div>
+                <div class="car-price-box">
+                  <span class="car-price-label">販売ステータス</span>
+                  <span class="car-price-num" style="color:#D92D20; font-size:1.15rem; font-weight:700;">SOLD OUT</span>
+                </div>
+                <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" style="width:100%; padding:9px; font-size:0.78rem;">
+                  <i class="fa-brands fa-line"></i> 同様のお車をお探し相談
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ==================== 3. AUCTION ORDER ==================== -->
+      <section id="order">
+        <div class="section-header">
+          <h2 class="section-en-title">Custom Order</h2>
+          <p class="section-jp-sub">全国オートオークションから、ご希望の1台をダイレクトにお探しします</p>
+        </div>
+
+        <div class="order-box">
+          <p class="order-header-text">
+            店頭にご希望のお車がない場合でもご安心ください。<br>
+            全国のオートオークション流通網から、店主自らが修復歴の有無や状態を徹底チェックし、ご予算に合わせたベストな1台を買い付けます。
+          </p>
+
+          <div class="order-step-grid">
+            <div class="order-step-item">
+              <div class="order-step-num">STEP 01</div>
+              <h4>ご要望ヒアリング</h4>
+              <p>ご希望の車種・ご予算・年式・装備など、LINEやお電話でお気軽にお伝えください。</p>
+            </div>
+            <div class="order-step-item">
+              <div class="order-step-num">STEP 02</div>
+              <h4>プロの目利きで厳選</h4>
+              <p>毎週数万台の全国オークションから、無事故・修復歴なしの上質車だけを候補としてご提案。</p>
+            </div>
+            <div class="order-step-item">
+              <div class="order-step-num">STEP 03</div>
+              <h4>自社点検・車検整備納車</h4>
+              <p>落札後は自社ピットで徹底的に消耗品交換・点検を行い、安心の総額明示で納車いたします。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== CTA BANNER ==================== -->
+  <section class="stylish-cta-banner">
+    <div class="container">
+      <span class="en-sub">Feel Free To Contact</span>
+      <h2>お車のご相談は、LINEまたはお電話でお気軽に</h2>
+      <p>
+        「こんな車を探している」「予算内に収まるか聞いてみたい」など、些細な疑問でも店主が丁寧にお答えします。無理な営業は一切ございません。
+      </p>
+      <div class="cta-button-group">
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="font-size:0.95rem; padding:15px 36px;">
+          <i class="fa-brands fa-line" style="font-size:1.2rem;"></i> LINEで24時間在庫・お車相談
+        </a>
+        <a href="tel:0078-6040-4870" class="btn btn-dark" style="background:#2C3136; border-color:#2C3136; font-size:0.95rem; padding:15px 36px;">
+          <i class="fa-solid fa-phone"></i> 0078-6040-4870
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          CAR MATE CORE
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">メイン</a>
+          <a href="concept.html">コンセプト・プロフィール</a>
+          <a href="stock.html" style="color:#FFFFFF; font-weight:700;">販売、在庫</a>
+          <a href="flow.html">購入までの流れ</a>
+          <a href="access.html">店舗案内</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 Car Mate Core. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+
+    function openDrawer() {
+      mobileDrawer.classList.add('open');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', openDrawer);
+      drawerCloseBtn.addEventListener('click', closeDrawer);
+      drawerOverlay.addEventListener('click', closeDrawer);
+
+      mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeDrawer);
+      });
+    }
+  </script>
+</body>
+</html>
+
