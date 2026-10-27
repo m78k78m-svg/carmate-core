@@ -1613,6 +1613,148 @@
         font-size: 1.7rem;
       }
     }
+
+    /* ==========================================================================
+       3-CARD PORTAL NAVIGATION (Concept, Stock, Flow)
+       ========================================================================== */
+    .portal-nav-section {
+      background: var(--bg-main);
+      padding: 70px 0 90px;
+    }
+
+    .portal-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .portal-nav-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 420px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    }
+
+    .portal-nav-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18);
+    }
+
+    .portal-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .portal-nav-card:hover .portal-card-bg {
+      transform: scale(1.08);
+    }
+
+    .portal-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(18, 22, 28, 0.45) 0%, rgba(18, 22, 28, 0.72) 100%);
+      transition: background 0.4s ease;
+    }
+
+    .portal-nav-card:hover .portal-card-overlay {
+      background: linear-gradient(180deg, rgba(18, 22, 28, 0.35) 0%, rgba(18, 22, 28, 0.82) 100%);
+    }
+
+    .portal-card-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 32px 24px;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .portal-card-en {
+      font-family: var(--font-en);
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .portal-card-jp {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #F9FAFB;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .portal-card-desc {
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+      max-width: 320px;
+    }
+
+    .portal-card-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      padding: 9px 22px;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+    }
+
+    .portal-nav-card:hover .portal-card-pill {
+      background: #FFFFFF;
+      color: #111827;
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 992px) {
+      .portal-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 22px;
+      }
+      .portal-nav-card {
+        min-height: 290px;
+      }
+      .home-entrance-card > div {
+        grid-template-columns: 1fr !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1823,348 +1965,50 @@
     </div>
   </section>
 
-  <!-- ==================== CONCEPT & ABOUT ==================== -->
-  <section class="section-padding" id="concept">
+  <!-- ==================== 3-CARD PORTAL NAVIGATION ==================== -->
+  <section class="section-padding portal-nav-section" id="portalNav">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-en-title">Concept & Story</h2>
-        <p class="section-jp-sub">「ちょうどいい」が、一番心地いい。</p>
+      <div class="section-header text-center">
+        <h2 class="section-en-title">Navigation</h2>
+        <p class="section-jp-sub">店舗のご案内・在庫車両・ご購入サポート</p>
       </div>
 
-      <div class="about-story-grid">
-        <div class="about-photo-wrap">
-          <img src="images/concept-story.jpg" alt="暮らしに寄り添う心地いいお車 | Car Mate Core" class="about-main-photo">
-        </div>
-
-        <div class="about-text-content">
-          <h3>高すぎる新車や派手な装備はいらない。暮らしのサイズに寄り添う一台を。</h3>
-          <p>
-            毎日の通勤やお買い物、週末の家族とのドライブに、心から満足できるちょうどいいお車を。
-          </p>
-          <p>
-            Car Mate Coreは、気取らず、背伸びせず、あなたの日々の暮らしに自然と馴染む佐賀市の中古車店です。大手のような過剰な営業や、不必要なオプションのおすすめは一切いたしません。
-          </p>
-          <p>
-            「この予算で、長く安心して乗れる車を探してほしい」——その想いだけを、自社ピットでの丁寧な点検整備とともに誠実に形にします。
-          </p>
-        </div>
-      </div>
-
-      <!-- 3 Commitments -->
-      <div class="commitments-row">
-        <div class="commit-box">
-          <div class="commit-num">01</div>
-          <h4>誇張のない、誠実な提案</h4>
-          <p>「売りたい車」ではなく、あなたの用途とご予算に真にフィットする一台だけを厳選。背伸びのない等身大のカーライフをご提案します。</p>
-        </div>
-        <div class="commit-box">
-          <div class="commit-num">02</div>
-          <h4>後から増えない、分かりやすい安心総額</h4>
-          <p>点検整備代、各種税金、登録諸費用を含めた安心のコミコミ総額を最初から透明にご提示。後から不明瞭な追加費用が発生することはありません。</p>
-        </div>
-        <div class="commit-box">
-          <div class="commit-num">03</div>
-          <h4>自社ピットによる確かな手入れ</h4>
-          <p>国家整備士・中古自動車販売士の資格を持つ店主自らが点検・整備を担当。納車後もオイル交換や車検など気軽に頼れる場所であり続けます。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== REPRESENTATIVE PROFILE ==================== -->
-  <section class="profile-section" id="profile">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-en-title">Representative Profile</h2>
-        <p class="section-jp-sub">代表紹介・ご挨拶</p>
-      </div>
-
-      <div class="profile-grid">
-        <!-- Visual & Data Card (Left Column) -->
-        <div class="profile-visual-card">
-          <div class="profile-main-photo-wrap">
-            <img src="images/owner.jpg" alt="Car Mate Core 代表 三好 恭次" loading="lazy">
+      <div class="portal-cards-grid">
+        <!-- 1. Concept Card -->
+        <a href="concept.html" class="portal-nav-card" title="コンセプト・想い・代表挨拶へ">
+          <div class="portal-card-bg" style="background-image: url('images/concept-story.jpg');"></div>
+          <div class="portal-card-overlay"></div>
+          <div class="portal-card-content">
+            <span class="portal-card-en">CONCEPT</span>
+            <h3 class="portal-card-jp">コンセプト・想い・代表挨拶</h3>
+            <p class="portal-card-desc">「ちょうどいい」が、一番心地いい。<br>私たちの原点とお車選びへの想い。</p>
+            <span class="portal-card-pill">詳しく見る <i class="fa-solid fa-arrow-right"></i></span>
           </div>
-          
-          <div class="profile-meta-header">
-            <span class="profile-role-badge">Representative</span>
-            <div class="profile-name-row">
-              <h3 class="profile-name-jp">三好 恭次</h3>
-              <span class="profile-name-en">Kyoji Miyoshi</span>
-            </div>
-          </div>
-
-          <div class="profile-data-list">
-            <div class="profile-data-item">
-              <span class="profile-data-label">役職</span>
-              <span class="profile-data-value">Car Mate Core 代表</span>
-            </div>
-            <div class="profile-data-item">
-              <span class="profile-data-label">出身</span>
-              <span class="profile-data-value">佐賀県佐賀市</span>
-            </div>
-            <div class="profile-data-item">
-              <span class="profile-data-label">愛車</span>
-              <span class="profile-data-value">トヨタ セリカ（CELICA）</span>
-            </div>
-            <div class="profile-data-item">
-              <span class="profile-data-label">趣味</span>
-              <span class="profile-data-value">愛車のメンテナンス、愛犬の散歩</span>
-            </div>
-          </div>
-
-          <!-- Celica Mini Showcase -->
-          <div class="profile-celica-box">
-            <img src="images/car_celica.jpg" alt="代表の愛車 トヨタ セリカ" class="profile-celica-img" loading="lazy">
-            <div class="profile-celica-info">
-              <span class="profile-celica-tag">Owner's Beloved Car</span>
-              <span class="profile-celica-title">TOYOTA CELICA</span>
-              <span class="profile-celica-desc">自ら手をかけて大切に乗り続ける愛車です</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Message Body (Right Column) -->
-        <div class="profile-message-wrap">
-          <span class="profile-lead-eyebrow">Greeting & Philosophy</span>
-          <h3 class="profile-lead-title">
-            「車を買う」のではなく、「納得と安心」をお届けしたい。
-            <span>地元・佐賀の皆さまの暮らしに、とことん誠実に寄り添います。</span>
-          </h3>
-
-          <div class="profile-message-body">
-            <p>
-              はじめまして。Car Mate Core 代表の三好です。
-            </p>
-            <p>
-              佐賀で生まれ育った私にとって、車は昔から暮らしの一番身近にある乗り物で、<br>
-              毎日の通勤やお買い物、ご家族の送り迎えなど、日々の生活を支えるまさに必需品です。
-            </p>
-            <p>
-              生活に欠かせない大切なものだからこそ、当店では<strong>お客様との対話とお気持ちを何よりも大事にしています。</strong>
-            </p>
-            <p>
-              「車の状態や維持費のことはよく分からない」<br>
-              「諸費用を含めて総額いくらかかるのか不安」<br>
-              「自分たちの生活や予算に本当にぴったりの車を選びたい」
-            </p>
-            <p>
-              車選びには、分からないことや不安がつきものです。<br>
-              だからこそ、お車の良いところも気をつけるべき点も包み隠さず丁寧にご説明し、<strong>「これなら本当に安心だ」「coreさんに任せてよかった」と心からご納得いただいて初めて、お車をお渡しいたします。</strong>
-            </p>
-            <p>
-              大手のようなノルマや強引な営業は一切ございません。<br>
-              「ちょっと相談に乗ってほしい」「近くを通ったから顔を出してみた」と、いつでも笑顔でお立ち寄りいただけるアットホームなお店であり続けたいと思っています。
-            </p>
-            <p>
-              あなたの毎日に、一番ちょうどいい一台を。どうぞお気軽にお声がけください。
-            </p>
-          </div>
-
-          <div class="profile-sign-row">
-            <div class="profile-sign-info">
-              <span class="profile-sign-role">Car Mate Core 代表</span>
-              <span class="profile-sign-name">三好 恭次</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== STOCK CARS ==================== -->
-  <section class="section-padding bg-sub" id="stock">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-en-title">Selected Stock</h2>
-        <p class="section-jp-sub">厳選仕入れ・追加費用なしの安心総額 ＆ 丁寧な自社点検済み</p>
-      </div>
-
-      <div class="stock-grid">
-        <!-- Stock 1: ムーヴキャンバス -->
-        <div class="stock-card">
-          <div class="stock-img-wrap">
-            <span class="stock-category-tag">Kei Car</span>
-            <img src="https://picture1.goo-net.com/7000802078/30260510/Q/70008020783026051000100.jpg" alt="ダイハツ ムーヴキャンバス Gメイクアップ SAII" loading="lazy">
-          </div>
-          <div class="stock-body">
-            <div>
-              <h3 class="stock-title">ダイハツ ムーヴキャンバス</h3>
-              <p class="stock-feature">Gメイクアップ SAII / 社外ナビ・バックカメラ・両側パワスラ・LEDヘッドライト・シートヒーター</p>
-            </div>
-            <div class="stock-price-row">
-              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
-              <span class="stock-price-value">70<small style="font-size:0.85rem;">万円</small></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stock 2: ヴォクシー -->
-        <div class="stock-card">
-          <div class="stock-img-wrap">
-            <span class="stock-category-tag">Minivan</span>
-            <img src="https://picture1.goo-net.com/7000802078/30260324/Q/70008020783026032400100.jpg" alt="トヨタ ヴォクシー ZS 煌" loading="lazy">
-          </div>
-          <div class="stock-body">
-            <div>
-              <h3 class="stock-title">トヨタ ヴォクシー ZS 煌</h3>
-              <p class="stock-feature">社外9インチ大画面ナビ・フリップダウン後席モニター・両側パワスラ・LEDライト・7人乗り</p>
-            </div>
-            <div class="stock-price-row">
-              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
-              <span class="stock-price-value">208<small style="font-size:0.85rem;">万円</small></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stock 3: トール -->
-        <div class="stock-card">
-          <div class="stock-img-wrap">
-            <span class="stock-category-tag">Compact</span>
-            <img src="https://picture1.goo-net.com/7000802078/30260328/Q/70008020783026032800200.jpg" alt="ダイハツ トール G" loading="lazy">
-          </div>
-          <div class="stock-body">
-            <div>
-              <h3 class="stock-title">ダイハツ トール G</h3>
-              <p class="stock-feature">両側パワースライドドア・メモリーナビ・Bluetooth・ETC・プッシュスタート・アイドリングストップ</p>
-            </div>
-            <div class="stock-price-row">
-              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
-              <span class="stock-price-value">75<small style="font-size:0.85rem;">万円</small></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stock 4: ハスラー -->
-        <div class="stock-card">
-          <div class="stock-img-wrap">
-            <span class="stock-category-tag">Kei SUV</span>
-            <img src="https://picture1.goo-net.com/7000802078/30260901/Q/70008020783026090100100.jpg" alt="スズキ ハスラー ハイブリッドX" loading="lazy">
-          </div>
-          <div class="stock-body">
-            <div>
-              <h3 class="stock-title">スズキ ハスラー ハイブリッドX</h3>
-              <p class="stock-feature">純正9インチナビ・全方位モニター・Bluetooth・スマートアシスト・温熱シート・LEDオート</p>
-            </div>
-            <div class="stock-price-row">
-              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
-              <span class="stock-price-value">145<small style="font-size:0.85rem;">万円</small></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stock 5: タント カスタムX -->
-        <div class="stock-card">
-          <div class="stock-img-wrap">
-            <span class="stock-category-tag">Kei Car</span>
-            <img src="https://picture1.goo-net.com/7000802078/30260807/Q/70008020783026080700100.jpg" alt="ダイハツ タント カスタムX" loading="lazy">
-          </div>
-          <div class="stock-body">
-            <div>
-              <h3 class="stock-title">ダイハツ タント カスタムX</h3>
-              <p class="stock-feature">低走行2.2万km・両側パワスラ・全方位カメラ・コーナーセンサー・純正アルミ・スマートアシスト</p>
-            </div>
-            <div class="stock-price-row">
-              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
-              <span class="stock-price-value">123<small style="font-size:0.85rem;">万円</small></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stock 6: eKワゴン -->
-        <div class="stock-card">
-          <div class="stock-img-wrap">
-            <span class="stock-category-tag">Best Value</span>
-            <img src="https://picture1.goo-net.com/7000802078/30260924/Q/70008020783026092400100.jpg" alt="三菱 eKワゴン E" loading="lazy">
-          </div>
-          <div class="stock-body">
-            <div>
-              <h3 class="stock-title">三菱 eKワゴン E</h3>
-              <p class="stock-feature">支払総額35万円のお値打ち良質車・社外CDオーディオ・ETC・運転席シートヒーター・キーレス</p>
-            </div>
-            <div class="stock-price-row">
-              <span class="stock-price-label">乗り出しコミコミ総額（税込）</span>
-              <span class="stock-price-value">35<small style="font-size:0.85rem;">万円</small></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style="display:flex; justify-content:center; gap:16px; margin-top:44px; flex-wrap:wrap;">
-        <a href="stock.html" class="btn btn-dark" style="padding:14px 28px;">
-          <i class="fa-solid fa-car"></i> 在庫一覧＆過去の販売実績をすべて見る <i class="fa-solid fa-arrow-right"></i>
         </a>
-        <a href="https://www.goo-net.com/usedcar_shop/0802078/stock.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" style="padding:14px 28px;">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> グーネット公式 在庫一覧を開く
+
+        <!-- 2. Stock Card -->
+        <a href="stock.html" class="portal-nav-card" title="販売・在庫車両一覧へ">
+          <div class="portal-card-bg" style="background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=80');"></div>
+          <div class="portal-card-overlay"></div>
+          <div class="portal-card-content">
+            <span class="portal-card-en">STOCK</span>
+            <h3 class="portal-card-jp">販売・在庫・成約実績</h3>
+            <p class="portal-card-desc">安心の支払総額表示。<br>暮らしに寄り添う特選ラインナップ。</p>
+            <span class="portal-card-pill">在庫一覧を見る <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
         </a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ==================== ORDER SYSTEM ==================== -->
-  <section class="section-padding" id="order">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-en-title">Auction Order</h2>
-        <p class="section-jp-sub">全国オークションから、ご希望の1台をダイレクトにお探しします</p>
-      </div>
-
-      <div class="order-box">
-        <p class="order-header-text">
-          店頭にご希望のお車がない場合でもご安心ください。<br>
-          全国のオートオークション流通網から、店主自らが修復歴の有無や状態を徹底チェックし、ご予算に合わせたベストな1台を買い付けます。
-        </p>
-
-        <div class="order-step-grid">
-          <div class="order-step-item">
-            <div class="order-step-num">STEP 01</div>
-            <h4>ご要望ヒアリング</h4>
-            <p>ご希望の車種・ご予算・年式・装備など、LINEやお電話でお気軽にお伝えください。</p>
+        <!-- 3. Flow Card -->
+        <a href="flow.html" class="portal-nav-card" title="ご購入までの流れへ">
+          <div class="portal-card-bg" style="background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1000&q=80');"></div>
+          <div class="portal-card-overlay"></div>
+          <div class="portal-card-content">
+            <span class="portal-card-en">FLOW</span>
+            <h3 class="portal-card-jp">ご購入までの流れ</h3>
+            <p class="portal-card-desc">ご相談からご納車・アフター保証まで。<br>初めての方も安心のステップ。</p>
+            <span class="portal-card-pill">流れを見る <i class="fa-solid fa-arrow-right"></i></span>
           </div>
-          <div class="order-step-item">
-            <div class="order-step-num">STEP 02</div>
-            <h4>プロの目利きで厳選</h4>
-            <p>毎週数万台の全国オークションから、無事故・修復歴なしの上質車だけを候補としてご提案。</p>
-          </div>
-          <div class="order-step-item">
-            <div class="order-step-num">STEP 03</div>
-            <h4>自社点検・車検整備納車</h4>
-            <p>落札後は自社ピットで徹底的に消耗品交換・点検を行い、安心の総額明示で納車いたします。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SERVICE ==================== -->
-  <section class="section-padding bg-sub" id="service">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-en-title">Services</h2>
-        <p class="section-jp-sub">ご購入後も安心が続く、充実のトータルサポート</p>
-      </div>
-
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-car-on"></i></div>
-          <h4>車検・法定点検</h4>
-          <p>長持ち自社整備。事前見積もりで余計な部品交換はおすすめしません。</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-          <h4>高価買取・下取</h4>
-          <p>中間マージンをカットした直販価格査定。動かない車もお気軽にご相談ください。</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <h4>アフター保証</h4>
-          <p>ご予算や走行距離に合わせて選べる安心の中古車保証プランをご用意。</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
-          <h4>日常メンテ・板金</h4>
-          <p>オイル交換、バッテリー点検、急な擦り傷・ヘコミの補修まで丁寧に対応。</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -2195,11 +2039,33 @@
   </section>
 
   <!-- ==================== ACCESS & CONTACT ==================== -->
-  <section class="section-padding bg-sub" id="access">
+  <section class="section-padding" id="access">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header text-center">
         <h2 class="section-en-title">Access & Info</h2>
-        <p class="section-jp-sub">店舗案内・所在地・営業時間</p>
+        <p class="section-jp-sub">店舗案内・所在地・アクセス</p>
+      </div>
+
+      <!-- Drive-in entrance notice card -->
+      <div class="home-entrance-card" style="margin-bottom: 36px; background: #FFFFFF; border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; padding: 20px;">
+          <div style="position: relative; border-radius: var(--radius-sm); overflow: hidden; max-height: 280px;">
+            <img src="images/shop-entrance-guide.jpg" alt="Car Mate Core 門と看板の間の入口・お車進入案内" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div style="position: absolute; top: 12px; left: 12px; background: #16A34A; color: #FFFFFF; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 9999px;">
+              <i class="fa-solid fa-circle-check"></i> お車ごと進入OK
+            </div>
+          </div>
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;">Drive-in Guide</span>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin: 6px 0 10px; font-family: var(--font-serif);">「門」と「看板」の間からそのままお入りください</h3>
+            <p style="font-size: 0.85rem; color: var(--text-sub); line-height: 1.6; margin-bottom: 14px;">
+              通り沿いの白い看板と、左側の展示場の間が車の進入路となっております。敷地内にお客様用駐車スペースがございます。奥での切り返しや駐車は店主が代行いたしますので、安心してお越しください。
+            </p>
+            <a href="access.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.82rem;">
+              詳細なアクセス・道順案内を見る <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="access-grid">
@@ -2230,18 +2096,8 @@
               <td>水曜日（事前にご連絡いただければ柔軟に対応します）</td>
             </tr>
             <tr>
-              <th>お車での進入・駐車場</th>
-              <td>
-                敷地内無料駐車場あり<br>
-                <span style="font-size:0.82rem; color:var(--accent); font-weight:600;">
-                  ※一見入りづらく見えますが、看板と門の間からそのままお入りください。奥での切り返しや駐車は店主が代行いたします。
-                </span>
-                <div style="margin-top:6px;">
-                  <a href="access.html" style="font-size:0.8rem; color:var(--text-main); text-decoration:underline; font-weight:600;">
-                    詳しい進入写真・アクセス案内はこちら ➔
-                  </a>
-                </div>
-              </td>
+              <th>駐車場</th>
+              <td>敷地内に無料お客様駐車場完備</td>
             </tr>
           </table>
         </div>
@@ -2249,25 +2105,6 @@
         <div class="access-map-frame">
           <iframe src="https://maps.google.com/maps?q=佐賀県佐賀市西田代1-4-13&hl=ja&z=16&output=embed" loading="lazy" allowfullscreen></iframe>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CTA BANNER ==================== -->
-  <section class="stylish-cta-banner">
-    <div class="container">
-      <span class="en-sub">Feel Free To Contact</span>
-      <h2>お車のご相談は、LINEまたはお電話でお気軽に</h2>
-      <p>
-        「こんな車を探している」「予算内に収まるか聞いてみたい」など、些細な疑問でも店主が丁寧にお答えします。無理な営業は一切ございません。
-      </p>
-      <div class="cta-button-group">
-        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="font-size:0.95rem; padding:15px 36px;">
-          <i class="fa-brands fa-line" style="font-size:1.2rem;"></i> LINEで24時間在庫・お車相談
-        </a>
-        <a href="tel:0078-6040-4870" class="btn btn-dark" style="background:#2C3136; border-color:#2C3136; font-size:0.95rem; padding:15px 36px;">
-          <i class="fa-solid fa-phone"></i> 0078-6040-4870
-        </a>
       </div>
     </div>
   </section>
