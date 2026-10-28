@@ -2710,6 +2710,93 @@
       }
     }
 
+
+    /* ==========================================================================
+       MOBILE HORIZONTAL SWIPE CAROUSEL (INVENTORY, MENU, WHY US, REVIEWS)
+       ========================================================================== */
+    .mobile-swipe-badge {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      /* Visual Swipe Indicator Badge (Shown on Mobile Only) */
+      .mobile-swipe-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        color: var(--accent);
+        background: rgba(224, 90, 43, 0.08);
+        border: 1px solid rgba(224, 90, 43, 0.28);
+        padding: 4px 12px;
+        border-radius: 9999px;
+        margin-top: 10px;
+        box-shadow: 0 2px 8px rgba(224, 90, 43, 0.06);
+      }
+      .mobile-swipe-badge i {
+        font-size: 0.85rem;
+        animation: swipeBounce 1.4s infinite alternate ease-in-out;
+      }
+      @keyframes swipeBounce {
+        0% { transform: translateX(-4px); }
+        100% { transform: translateX(4px); }
+      }
+
+      /* Horizontal Scroll Containers on Mobile */
+      .purpose-cards-grid,
+      .featured-stock-grid,
+      .why-us-grid,
+      .voices-grid {
+        display: flex !important;
+        grid-template-columns: none !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 14px !important;
+        padding: 8px 16px 20px !important;
+        margin: 0 -16px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: thin !important;
+        scrollbar-color: var(--accent) #E5E7EB !important;
+      }
+
+      /* Custom Accent Scrollbar for visual feedback on mobile */
+      .purpose-cards-grid::-webkit-scrollbar,
+      .featured-stock-grid::-webkit-scrollbar,
+      .why-us-grid::-webkit-scrollbar,
+      .voices-grid::-webkit-scrollbar {
+        height: 5px !important;
+        display: block !important;
+      }
+      .purpose-cards-grid::-webkit-scrollbar-track,
+      .featured-stock-grid::-webkit-scrollbar-track,
+      .why-us-grid::-webkit-scrollbar-track,
+      .voices-grid::-webkit-scrollbar-track {
+        background: #F3F4F6 !important;
+        border-radius: 9999px !important;
+        margin: 0 24px !important;
+      }
+      .purpose-cards-grid::-webkit-scrollbar-thumb,
+      .featured-stock-grid::-webkit-scrollbar-thumb,
+      .why-us-grid::-webkit-scrollbar-thumb,
+      .voices-grid::-webkit-scrollbar-thumb {
+        background: var(--accent) !important;
+        border-radius: 9999px !important;
+      }
+
+      /* Card Peek Effect (84% width so 16% of next card peeks into view) */
+      .purpose-cards-grid .purpose-card,
+      .featured-stock-grid .car-card,
+      .why-us-grid .why-us-card,
+      .voices-grid .voice-card {
+        flex: 0 0 84% !important;
+        max-width: 330px !important;
+        scroll-snap-align: start !important;
+        box-sizing: border-box !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2936,6 +3023,7 @@
       <div class="section-header text-center">
         <h2 class="section-en-title">Service Menu</h2>
         <p class="section-jp-sub">目的から探す・ご相談メニュー</p>
+        <div style="text-align:center;"><span class="mobile-swipe-badge"><i class="fa-solid fa-arrows-left-right"></i> 左右にスワイプできます</span></div>
       </div>
 
       <div class="purpose-cards-grid">
@@ -2981,6 +3069,7 @@
       <div class="section-header text-center">
         <h2 class="section-en-title">Featured Stock</h2>
         <p class="section-jp-sub">おすすめの特選在庫車両（全車総額表示・試乗点検済）</p>
+        <div style="text-align:center;"><span class="mobile-swipe-badge"><i class="fa-solid fa-arrows-left-right"></i> 左右にスワイプできます</span></div>
       </div>
 
       <div class="featured-stock-grid">
@@ -3135,6 +3224,7 @@
       <div class="section-header text-center">
         <h2 class="section-en-title">Why Core?</h2>
         <p class="section-jp-sub">Car Mate Core が選ばれる3つの安心の理由</p>
+        <div style="text-align:center;"><span class="mobile-swipe-badge"><i class="fa-solid fa-arrows-left-right"></i> 左右にスワイプできます</span></div>
       </div>
 
       <div class="why-us-grid">
@@ -3260,7 +3350,8 @@
     <div class="container">
       <div class="section-header text-center">
         <h2 class="section-en-title">Shop Gallery</h2>
-        <p class="section-jp-sub">店舗・展示場・自社ピットの様子（スワイプでご覧いただけます）</p>
+        <p class="section-jp-sub">店舗・展示場・自社ピットの様子</p>
+        <div style="text-align:center;"><span class="mobile-swipe-badge"><i class="fa-solid fa-arrows-left-right"></i> 左右にスワイプできます</span></div>
       </div>
 
       <div class="gallery-scroll-container">
