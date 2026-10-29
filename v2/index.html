@@ -3120,7 +3120,7 @@
     <div class="container hero-grid">
       <!-- Video & Visual Frame -->
       <div class="hero-video-frame" id="heroVideoFrame" title="クリックして再生 / 一時停止">
-        <video id="heroVideo" autoplay muted playsinline preload="auto">
+        <video id="heroVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/hero-poster.jpg">
           <source src="videos/hero.mp4" type="video/mp4">
           <source src="videos/gemini_generated_video_d22ae132.mp4" type="video/mp4">
         </video>
@@ -3645,11 +3645,43 @@
       });
     }
 
-    // Video Click to Play / Pause / Replay
+    // Video Robust Autoplay for iPhone / iOS / LINE in-app WebKit
     const heroVideo = document.getElementById('heroVideo');
     const heroVideoFrame = document.getElementById('heroVideoFrame');
 
     if (heroVideo && heroVideoFrame) {
+      // Force muted properties required by iOS WebKit & LINE browser
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.playsInline = true;
+
+      const attemptPlay = () => {
+        heroVideo.muted = true;
+        const p = heroVideo.play();
+        if (p !== undefined) {
+          p.catch((err) => {
+            // If autoplay is blocked by iOS Low Power Mode or LINE policy,
+            // immediately trigger play on user's first touch or scroll
+            const onFirstTouch = () => {
+              heroVideo.muted = true;
+              heroVideo.play().catch(() => {});
+              window.removeEventListener('touchstart', onFirstTouch);
+              window.removeEventListener('scroll', onFirstTouch);
+              window.removeEventListener('click', onFirstTouch);
+            };
+            window.addEventListener('touchstart', onFirstTouch, { passive: true, once: true });
+            window.addEventListener('scroll', onFirstTouch, { passive: true, once: true });
+            window.addEventListener('click', onFirstTouch, { passive: true, once: true });
+          });
+        }
+      };
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        attemptPlay();
+      } else {
+        document.addEventListener('DOMContentLoaded', attemptPlay);
+      }
+
       // Click on frame/video to toggle play/replay/pause
       heroVideoFrame.addEventListener('click', () => {
         if (heroVideo.ended) {
