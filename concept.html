@@ -18,7 +18,7 @@
 
     /* Global Page Horizontal Wobble Lock */
     html, body {
-      overflow-x: hidden !important;
+      overflow-x: clip !important;
       max-width: 100% !important;
       width: 100% !important;
       overscroll-behavior-x: none !important;
@@ -811,44 +811,54 @@
       padding-top: 16px;
       border-top: 1px dashed var(--line);
       display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .profile-companion-card {
+      display: flex;
       align-items: center;
       gap: 14px;
       background: #FFFFFF;
-      padding: 12px;
+      padding: 12px 14px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--line);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      transition: all 0.25s ease;
     }
 
-    .profile-celica-img {
+    .profile-companion-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .profile-companion-img {
       width: 72px;
-      height: 52px;
-      border-radius: 4px;
+      height: 54px;
+      border-radius: 6px;
       object-fit: cover;
       border: 1px solid var(--line);
       flex-shrink: 0;
     }
 
-    .profile-celica-info {
-      line-height: 1.35;
+    .profile-companion-info {
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .profile-celica-tag {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      display: block;
-    }
-
-    .profile-celica-title {
-      font-size: 0.82rem;
+    .profile-companion-title {
+      font-size: 0.84rem;
       font-weight: 700;
       color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .profile-celica-desc {
-      font-size: 0.7rem;
+    .profile-companion-desc {
+      font-size: 0.74rem;
       color: var(--text-sub);
     }
 
@@ -1105,7 +1115,74 @@
       .profile-lead-title { font-size: 1.15rem; line-height: 1.6; }
       .pc-only { display: none !important; }
     }
-  </style>
+  
+    /* Unified Desktop Nav & Sticky Header */
+    .site-header {
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(12px) !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+      border-bottom: 1px solid var(--line) !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .header-desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin: 0 16px;
+      flex-shrink: 1;
+    }
+    .header-desktop-nav a {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      position: relative;
+      padding: 6px 2px;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+    .header-desktop-nav a:hover,
+    .header-desktop-nav a.active {
+      color: var(--accent);
+    }
+    .header-desktop-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+    .header-desktop-nav a:hover::after,
+    .header-desktop-nav a.active::after {
+      width: 100%;
+    }
+
+    @media (max-width: 1149.98px) {
+      .header-desktop-nav {
+        display: none !important;
+      }
+      .header-menu-btn {
+        display: inline-flex !important;
+      }
+    }
+    @media (min-width: 1150px) {
+      .header-desktop-nav {
+        display: flex !important;
+      }
+      .header-menu-btn {
+        display: none !important;
+      }
+    }
+
+</style>
 </head>
 <body>
 
@@ -1117,37 +1194,53 @@
         <span><i class="fa-solid fa-location-dot"></i> SAGA CITY, NISHITASHIRO 1-4-13</span>
       </div>
       <div>
-        <span><i class="fa-solid fa-phone"></i> 080-5281-8384（代表直通）</span>
+        <span><i class="fa-solid fa-phone"></i> 0952-65-5654（代表直通）</span>
       </div>
     </div>
   </div>
 
   <!-- Header -->
+    <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
+      <!-- Brand Logo -->
       <a href="index.html" class="brand-logo-wrap">
         <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="brand-logo-img">
         <span class="brand-title">CAR MATE CORE</span>
       </a>
 
+      <!-- Desktop Global Navigation (Wide PC: >= 1150px) -->
+      <nav class="header-desktop-nav">
+        <a href="index.html">ホーム</a>
+        <a href="concept.html" class="active">コンセプト</a>
+        <a href="stock.html">在庫車両</a>
+        <a href="flow.html">ご購入の流れ</a>
+        <a href="access.html">店舗案内</a>
+      </nav>
+
+      <!-- Header Right Actions: Tel, Instagram, LINE, Hamburger -->
       <div class="header-right-group">
-        <a href="tel:08052818384" class="header-tel-box">
+        <!-- Phone Contact Button -->
+        <a href="tel:0952655654" class="header-tel-box">
           <i class="fa-solid fa-phone header-tel-icon"></i>
           <div class="header-tel-info">
-            <span class="header-tel-num">080-5281-8384</span>
-            <span class="header-tel-sub">（代表直通）</span>
+            <span class="header-tel-num">0952-65-5654</span>
+            <span class="header-tel-sub">店舗直通 9:30-18:30</span>
           </div>
         </a>
 
+        <!-- Instagram Button -->
         <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="btn-header-insta" title="公式Instagram">
           <i class="fa-brands fa-instagram"></i>
         </a>
 
+        <!-- LINE Button -->
         <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn-header-line" title="LINEで気軽に相談">
           <i class="fa-brands fa-line" style="font-size:1.1rem;"></i>
           <span>LINE相談</span>
         </a>
 
+        <!-- Hamburger Menu Button (Shown on <= 1149px) -->
         <button type="button" class="header-menu-btn" id="hamburgerBtn" aria-label="メニューを開く">
           <div class="header-menu-bars">
             <span></span>
@@ -1160,6 +1253,7 @@
   </header>
 
   <!-- Mobile & Desktop Drawer Menu (5 Dedicated Pages) -->
+    <!-- Mobile & Desktop Drawer Menu -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
   <aside class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
@@ -1167,40 +1261,36 @@
       <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="閉じる">&times;</button>
     </div>
 
+    <!-- Navigation List (5 Dedicated Pages) -->
     <ul class="drawer-nav-list">
       <li>
         <a href="index.html" class="drawer-nav-link">
-          <span class="en">main</span>
-          <span class="jp">（メイン）</span>
+          <span class="jp">ホーム</span>
         </a>
       </li>
       <li>
-        <a href="concept.html" class="drawer-nav-link" style="color:var(--accent);">
-          <span class="en">Concept</span>
-          <span class="jp">（コンセプト）</span>
+        <a href="concept.html" class="drawer-nav-link" style="color:var(--accent); font-weight:700;">
+          <span class="jp">コンセプト（想い・代表紹介）</span>
         </a>
       </li>
       <li>
         <a href="stock.html" class="drawer-nav-link">
-          <span class="en">Stock</span>
-          <span class="jp">（在庫・販売）</span>
+          <span class="jp">在庫車両（販売中・成約実績）</span>
         </a>
       </li>
       <li>
         <a href="flow.html" class="drawer-nav-link">
-          <span class="en">Flow</span>
-          <span class="jp">（ご購入の流れ）</span>
+          <span class="jp">ご購入の流れ（安心ステップ）</span>
         </a>
       </li>
       <li>
         <a href="access.html" class="drawer-nav-link">
-          <span class="en">Access</span>
-          <span class="jp">（店舗・アクセス）</span>
+          <span class="jp">店舗案内（アクセス・進入路）</span>
         </a>
       </li>
     </ul>
 
-    <!-- Links Section -->
+    <!-- Links Section (LINE, Instagram, Goo-net, Carsensor, Stamp) -->
     <div class="drawer-links-section">
       <div class="drawer-section-title">
         <span>Official Links & Stamp</span>
@@ -1208,6 +1298,7 @@
       </div>
 
       <div class="drawer-links-grid">
+        <!-- 1. LINE -->
         <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="drawer-link-card line-card">
           <div class="link-icon"><i class="fa-brands fa-line"></i></div>
           <div class="link-info">
@@ -1217,6 +1308,7 @@
           <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
         </a>
 
+        <!-- 2. Instagram -->
         <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="drawer-link-card insta-card">
           <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
           <div class="link-info">
@@ -1226,6 +1318,7 @@
           <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
         </a>
 
+        <!-- 3. Goo-net -->
         <a href="https://www.goo-net.com/usedcar_shop/0802078/detail.html" target="_blank" rel="noopener noreferrer" class="drawer-link-card goo-card">
           <div class="link-icon"><i class="fa-solid fa-car"></i></div>
           <div class="link-info">
@@ -1235,6 +1328,7 @@
           <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
         </a>
 
+        <!-- 4. Carsensor -->
         <a href="https://www.carsensor.net/shop/saga/324457001/" target="_blank" rel="noopener noreferrer" class="drawer-link-card sensor-card">
           <div class="link-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
           <div class="link-info">
@@ -1244,6 +1338,7 @@
           <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
         </a>
 
+        <!-- 5. Original LINE Stamp -->
         <a href="https://store.line.me/stickershop/author/6778666/ja" target="_blank" rel="noopener noreferrer" class="drawer-link-card stamp-card" title="特製LINEスタンプ" onclick="window.open(this.href, '_blank'); return true;">
           <div class="link-icon"><i class="fa-solid fa-face-smile"></i></div>
           <div class="link-info">
@@ -1258,9 +1353,9 @@
     <!-- Drawer Bottom Contact Cards -->
     <div class="drawer-bottom-card">
       <div class="drawer-tel-card">
-        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:4px;">お電話でのご相談（代表直通）</div>
-        <a href="tel:08052818384" style="font-family:var(--font-en); font-size:1.15rem; font-weight:700; color:var(--text-main); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
-          <i class="fa-solid fa-phone" style="color:var(--accent);"></i> 080-5281-8384
+        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:4px;">お電話でのご相談（店舗直通）</div>
+        <a href="tel:0952655654" style="font-family:var(--font-en); font-size:1.15rem; font-weight:700; color:var(--text-main); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          <i class="fa-solid fa-phone" style="color:var(--accent);"></i> 0952-65-5654
         </a>
         <div style="font-size:0.72rem; color:var(--text-muted); margin-top:4px;">営業時間 9:30 - 18:30（水曜定休）</div>
       </div>
@@ -1371,18 +1466,32 @@
               <span class="profile-data-value">トヨタ セリカ（CELICA）</span>
             </div>
             <div class="profile-data-item">
+              <span class="profile-data-label">愛犬</span>
+              <span class="profile-data-value">看板犬（ほぼ毎日出勤中）</span>
+            </div>
+            <div class="profile-data-item">
               <span class="profile-data-label">趣味</span>
-              <span class="profile-data-value">愛車のメンテナンス、愛犬の散歩</span>
+              <span class="profile-data-value">愛車のメンテナンス、愛犬との散歩</span>
             </div>
           </div>
 
-          <!-- Celica Mini Showcase -->
+          <!-- Beloved Car & Dog Showcase -->
           <div class="profile-celica-box">
-            <img src="images/car_celica.jpg" alt="代表の愛車 トヨタ セリカ" class="profile-celica-img" loading="lazy">
-            <div class="profile-celica-info">
-              <span class="profile-celica-tag">Owner's Beloved Car</span>
-              <span class="profile-celica-title">TOYOTA CELICA</span>
-              <span class="profile-celica-desc">自ら手をかけて大切に乗り続ける愛車です</span>
+            <!-- 愛車 -->
+            <div class="profile-companion-card">
+              <img src="images/car_celica.jpg" alt="代表の愛車 トヨタ セリカ" class="profile-companion-img" loading="lazy">
+              <div class="profile-companion-info">
+                <span class="profile-companion-title"><i class="fa-solid fa-car" style="color:var(--accent); font-size:0.78rem;"></i> 愛車（トヨタ セリカ）</span>
+                <span class="profile-companion-desc">二十歳から自ら手をかけ大切にしている</span>
+              </div>
+            </div>
+            <!-- 愛犬 -->
+            <div class="profile-companion-card">
+              <img src="images/dog.jpg" alt="看板犬の愛犬" class="profile-companion-img" loading="lazy">
+              <div class="profile-companion-info">
+                <span class="profile-companion-title"><i class="fa-solid fa-dog" style="color:var(--accent); font-size:0.78rem;"></i> 愛犬（看板犬）</span>
+                <span class="profile-companion-desc">たまにお休みしますが、ほぼ毎日出勤してます！</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1505,8 +1614,8 @@
         <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="btn btn-line" style="padding:16px 36px; font-size:0.95rem;">
           <i class="fa-brands fa-line" style="font-size:1.3rem;"></i> 公式LINEで無料相談する
         </a>
-        <a href="tel:08052818384" class="btn btn-outline-dark" style="color:#FFFFFF; border-color:#FFFFFF; padding:16px 32px;">
-          <i class="fa-solid fa-phone"></i> 080-5281-8384（代表直通）
+        <a href="tel:0952655654" class="btn btn-outline-dark" style="color:#FFFFFF; border-color:#FFFFFF; padding:16px 32px;">
+          <i class="fa-solid fa-phone"></i> 0952-65-5654（代表直通）
         </a>
       </div>
     </div>
