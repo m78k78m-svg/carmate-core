@@ -1235,6 +1235,166 @@
       }
     }
 
+
+    /* ==========================================================================
+       ROBUST HEADER & NAVIGATION FIXES (NO OVERLAP AT ANY SCREEN WIDTH - MATCHING HOME)
+       ========================================================================== */
+    .brand-logo-wrap {
+      flex-shrink: 0 !important;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem !important;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      white-space: nowrap !important;
+    }
+    .brand-logo-img {
+      height: 38px !important;
+      width: auto !important;
+      border-radius: 4px;
+      flex-shrink: 0 !important;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px !important;
+      gap: 16px !important;
+    }
+    .header-desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px !important;
+      margin: 0 12px !important;
+      flex-shrink: 1 !important;
+    }
+    .header-desktop-nav a {
+      font-family: var(--font-sans);
+      font-size: 0.88rem !important;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 6px 2px;
+      white-space: nowrap !important;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    .header-desktop-nav a:hover,
+    .header-desktop-nav a.active {
+      color: var(--accent) !important;
+    }
+    .header-desktop-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+    .header-desktop-nav a:hover::after,
+    .header-desktop-nav a.active::after {
+      width: 100%;
+    }
+    .header-right-group {
+      display: flex;
+      align-items: center;
+      gap: 10px !important;
+      flex-shrink: 0 !important;
+    }
+    .header-tel-box {
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+      padding: 6px 14px !important;
+    }
+    .header-tel-num {
+      font-size: 0.95rem !important;
+      font-weight: 700;
+      white-space: nowrap !important;
+    }
+    .btn-header-insta {
+      flex-shrink: 0 !important;
+      width: 36px !important;
+      height: 36px !important;
+    }
+    .btn-header-line {
+      flex-shrink: 0 !important;
+      padding: 7px 14px !important;
+      white-space: nowrap !important;
+    }
+    .header-menu-btn {
+      flex-shrink: 0 !important;
+    }
+
+    @media (max-width: 1149.98px) {
+      .header-desktop-nav {
+        display: none !important;
+      }
+      .header-menu-btn {
+        display: inline-flex !important;
+      }
+    }
+    @media (min-width: 1150px) {
+      .header-desktop-nav {
+        display: flex !important;
+      }
+      .header-menu-btn {
+        display: none !important;
+      }
+    }
+
+
+    /* Prominent 2-Row Eye-Catching Price Display (No Text-Wrapping Bugs) */
+    .car-price-box {
+      border-top: 1px solid var(--line-subtle) !important;
+      padding-top: 10px !important;
+      margin-bottom: 14px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+    }
+
+    .car-price-label {
+      font-size: 0.74rem !important;
+      color: var(--text-muted) !important;
+      font-weight: 600 !important;
+      white-space: nowrap !important;
+      letter-spacing: 0.02em !important;
+      display: block !important;
+      text-align: left !important;
+    }
+
+    .car-price-num {
+      display: block !important;
+      text-align: right !important;
+      font-family: var(--font-serif) !important;
+      font-size: 1.95rem !important;
+      font-weight: 800 !important;
+      color: var(--accent) !important;
+      line-height: 1.05 !important;
+      white-space: nowrap !important;
+      letter-spacing: 0.02em !important;
+      text-shadow: 0 1px 2px rgba(194, 65, 12, 0.08);
+    }
+
+    .car-price-num small {
+      font-family: var(--font-jp) !important;
+      font-size: 1.0rem !important;
+      font-weight: 700 !important;
+      color: var(--accent) !important;
+      margin-left: 4px !important;
+      white-space: nowrap !important;
+    }
+
 </style>
 </head>
 <body>

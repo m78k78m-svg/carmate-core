@@ -2890,6 +2890,51 @@
       }
     }
 
+
+    /* Prominent 2-Row Eye-Catching Price Display (No Text-Wrapping Bugs) */
+    .car-price-box {
+      border-top: 1px solid var(--line-subtle) !important;
+      padding-top: 10px !important;
+      margin-bottom: 14px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+    }
+
+    .car-price-label {
+      font-size: 0.74rem !important;
+      color: var(--text-muted) !important;
+      font-weight: 600 !important;
+      white-space: nowrap !important;
+      letter-spacing: 0.02em !important;
+      display: block !important;
+      text-align: left !important;
+    }
+
+    .car-price-num {
+      display: block !important;
+      text-align: right !important;
+      font-family: var(--font-serif) !important;
+      font-size: 1.95rem !important;
+      font-weight: 800 !important;
+      color: var(--accent) !important;
+      line-height: 1.05 !important;
+      white-space: nowrap !important;
+      letter-spacing: 0.02em !important;
+      text-shadow: 0 1px 2px rgba(194, 65, 12, 0.08);
+    }
+
+    .car-price-num small {
+      font-family: var(--font-jp) !important;
+      font-size: 1.0rem !important;
+      font-weight: 700 !important;
+      color: var(--accent) !important;
+      margin-left: 4px !important;
+      white-space: nowrap !important;
+    }
+
 </style>
 </head>
 <body>
