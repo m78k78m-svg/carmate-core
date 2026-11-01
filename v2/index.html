@@ -3120,7 +3120,7 @@
     <div class="container hero-grid">
       <!-- Video & Visual Frame -->
       <div class="hero-video-frame" id="heroVideoFrame" title="クリックして再生 / 一時停止">
-        <video id="heroVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="images/hero-poster.jpg">
+        <video id="heroVideo" autoplay muted playsinline webkit-playsinline preload="auto" poster="images/hero-poster.jpg">
           <source src="videos/hero.mp4" type="video/mp4">
           <source src="videos/gemini_generated_video_d22ae132.mp4" type="video/mp4">
         </video>
@@ -3682,9 +3682,17 @@
         document.addEventListener('DOMContentLoaded', attemptPlay);
       }
 
+      // Ensure video stays on final frame when finished
+      let isEnded = false;
+      heroVideo.addEventListener('ended', () => {
+        isEnded = true;
+        heroVideo.pause();
+      });
+
       // Click on frame/video to toggle play/replay/pause
       heroVideoFrame.addEventListener('click', () => {
-        if (heroVideo.ended) {
+        if (heroVideo.ended || isEnded || heroVideo.currentTime >= heroVideo.duration - 0.3) {
+          isEnded = false;
           heroVideo.currentTime = 0;
           heroVideo.play();
         } else if (heroVideo.paused) {
