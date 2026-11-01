@@ -1059,7 +1059,11 @@
       .pc-only { display: none !important; }
     }
   
-    /* Unified Desktop Nav & Sticky Header */
+    
+    
+    /* ==========================================================================
+       ROBUST HEADER & NAVIGATION FIXES (NO OVERLAP AT ANY SCREEN WIDTH)
+       ========================================================================== */
     .site-header {
       background: rgba(255, 255, 255, 0.98) !important;
       backdrop-filter: blur(12px) !important;
@@ -1070,24 +1074,51 @@
       transition: all 0.3s ease;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     }
-
+    .brand-logo-wrap {
+      flex-shrink: 0 !important;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 16px;
+    }
     .header-desktop-nav {
       display: flex;
       align-items: center;
-      gap: 22px;
-      margin: 0 16px;
+      gap: 20px;
+      margin: 0 12px;
       flex-shrink: 1;
     }
     .header-desktop-nav a {
       font-family: var(--font-sans);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--text-main);
       text-decoration: none;
-      position: relative;
       padding: 6px 2px;
-      transition: color 0.2s ease;
       white-space: nowrap;
+      position: relative;
+      transition: color 0.2s ease;
     }
     .header-desktop-nav a:hover,
     .header-desktop-nav a.active {
@@ -1107,122 +1138,35 @@
     .header-desktop-nav a.active::after {
       width: 100%;
     }
-
-    @media (max-width: 1149.98px) {
-      .header-desktop-nav {
-        display: none !important;
-      }
-      .header-menu-btn {
-        display: inline-flex !important;
-      }
-    }
-    @media (min-width: 1150px) {
-      .header-desktop-nav {
-        display: flex !important;
-      }
-      .header-menu-btn {
-        display: none !important;
-      }
-    }
-
-
-    /* ==========================================================================
-       ROBUST HEADER & NAVIGATION FIXES (NO OVERLAP AT ANY SCREEN WIDTH - MATCHING HOME)
-       ========================================================================== */
-    .brand-logo-wrap {
-      flex-shrink: 0 !important;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .brand-title {
-      font-family: var(--font-serif);
-      font-size: 1.45rem !important;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--text-main);
-      white-space: nowrap !important;
-    }
-    .brand-logo-img {
-      height: 38px !important;
-      width: auto !important;
-      border-radius: 4px;
-      flex-shrink: 0 !important;
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 76px !important;
-      gap: 16px !important;
-    }
-    .header-desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 20px !important;
-      margin: 0 12px !important;
-      flex-shrink: 1 !important;
-    }
-    .header-desktop-nav a {
-      font-family: var(--font-sans);
-      font-size: 0.88rem !important;
-      font-weight: 600;
-      color: var(--text-main);
-      text-decoration: none;
-      padding: 6px 2px;
-      white-space: nowrap !important;
-      position: relative;
-      transition: color 0.2s ease;
-    }
-    .header-desktop-nav a:hover,
-    .header-desktop-nav a.active {
-      color: var(--accent) !important;
-    }
-    .header-desktop-nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.25s ease;
-    }
-    .header-desktop-nav a:hover::after,
-    .header-desktop-nav a.active::after {
-      width: 100%;
-    }
     .header-right-group {
       display: flex;
       align-items: center;
-      gap: 10px !important;
+      gap: 10px;
       flex-shrink: 0 !important;
     }
     .header-tel-box {
       flex-shrink: 0 !important;
       white-space: nowrap !important;
-      padding: 6px 14px !important;
+      padding: 6px 14px;
     }
     .header-tel-num {
-      font-size: 0.95rem !important;
+      font-size: 0.95rem;
       font-weight: 700;
-      white-space: nowrap !important;
     }
     .btn-header-insta {
       flex-shrink: 0 !important;
-      width: 36px !important;
-      height: 36px !important;
+      width: 36px;
+      height: 36px;
     }
     .btn-header-line {
       flex-shrink: 0 !important;
-      padding: 7px 14px !important;
-      white-space: nowrap !important;
+      padding: 7px 14px;
     }
     .header-menu-btn {
       flex-shrink: 0 !important;
     }
 
+    /* Breakpoint rule: Use 1150px to ensure wide nav never overlaps logo or buttons */
     @media (max-width: 1149.98px) {
       .header-desktop-nav {
         display: none !important;
@@ -1240,7 +1184,41 @@
       }
     }
 
-</style>
+    /* Tablet & Mobile header layout (<= 991px) */
+    @media (max-width: 991.98px) {
+      .header-inner {
+        height: 64px;
+      }
+      .header-tel-box {
+        display: none !important;
+      }
+      .brand-title {
+        font-size: 1.2rem;
+      }
+      .brand-logo-img {
+        height: 32px;
+      }
+      .header-menu-btn {
+        padding: 7px 9px !important;
+        font-size: 0.72rem !important;
+        gap: 5px !important;
+      }
+      .header-menu-btn .header-menu-text {
+        display: none !important;
+      }
+    }
+
+    /* Small Mobile (<= 400px) */
+    @media (max-width: 400px) {
+      .brand-title {
+        font-size: 1.05rem;
+      }
+      .btn-header-insta {
+        display: none !important;
+      }
+    }
+
+    </style>
 </head>
 <body>
 
@@ -1258,7 +1236,6 @@
   </div>
 
   <!-- Header -->
-    <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <!-- Brand Logo -->

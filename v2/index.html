@@ -2604,9 +2604,20 @@
     }
 
 
+    
     /* ==========================================================================
        ROBUST HEADER & NAVIGATION FIXES (NO OVERLAP AT ANY SCREEN WIDTH)
        ========================================================================== */
+    .site-header {
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(12px) !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+      border-bottom: 1px solid var(--line) !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
     .brand-logo-wrap {
       flex-shrink: 0 !important;
       display: flex;
@@ -2656,6 +2667,20 @@
     .header-desktop-nav a:hover,
     .header-desktop-nav a.active {
       color: var(--accent);
+    }
+    .header-desktop-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+    .header-desktop-nav a:hover::after,
+    .header-desktop-nav a.active::after {
+      width: 100%;
     }
     .header-right-group {
       display: flex;
@@ -2717,6 +2742,14 @@
       .brand-logo-img {
         height: 32px;
       }
+      .header-menu-btn {
+        padding: 7px 9px !important;
+        font-size: 0.72rem !important;
+        gap: 5px !important;
+      }
+      .header-menu-btn .header-menu-text {
+        display: none !important;
+      }
     }
 
     /* Small Mobile (<= 400px) */
@@ -2728,7 +2761,6 @@
         display: none !important;
       }
     }
-
 
     /* ==========================================================================
        MOBILE HORIZONTAL SWIPE CAROUSEL (INVENTORY, MENU, WHY US, REVIEWS)
