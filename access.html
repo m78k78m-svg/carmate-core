@@ -1259,6 +1259,9 @@
 
     /* Breakpoint rule: Use 1150px to ensure wide nav never overlaps logo or buttons */
     @media (max-width: 1149.98px) {
+      .header-menu-btn {
+        display: inline-flex !important;
+      }
       .header-desktop-nav {
         display: none !important;
       }
@@ -1309,7 +1312,387 @@
       }
     }
 
-    </style>
+    
+    /* ==========================================================================
+       LUXURY EARTH & ECRU COLOR PALETTE (MATCHING REFERENCE DESIGN)
+       ========================================================================== */
+    :root {
+      --bg-main: #F7F5F0;          /* Warm elegant ecru / cream background */
+      --bg-card: #FFFFFF;          /* Pure clean white for elevated cards */
+      --bg-sub: #EFECE3;           /* Muted warm sand beige */
+      --bg-warm: #F2EFE8;
+      --bg-dark: #38352B;          /* Deep olive khaki (matching reference drawer) */
+      --bg-dark-surface: #423F34;
+      
+      --text-main: #2C2922;        /* Rich dark olive charcoal */
+      --text-sub: #6E685C;         /* Muted earthy greige */
+      --text-muted: #9C9485;
+      --text-light: #F7F5F0;
+      
+      --accent: #A69279;           /* Sophisticated champagne sand gold */
+      --accent-hover: #8F7B63;
+      --accent-soft: #ECE6DC;
+      
+      --line: #E2DDD2;             /* Subtle warm beige border */
+      --line-subtle: #ECE7DC;
+      --frame-border: #C8BFB0;     /* Elegant exterior border frame */
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-en: 'Montserrat', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
+
+      --container: 1140px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    /* Elegant Greige Outer Frame (Matching Image 2 Border) */
+    html {
+      box-sizing: border-box;
+      background-color: var(--frame-border);
+    }
+    body {
+      background-color: var(--bg-main) !important;
+      color: var(--text-main);
+      border: 8px solid var(--frame-border);
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    @media (max-width: 768px) {
+      body {
+        border-width: 5px;
+      }
+    }
+
+    /* Sticky Header Style */
+    .site-header {
+      background: rgba(247, 245, 240, 0.96) !important;
+      backdrop-filter: blur(12px) !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+      border-bottom: 1px solid var(--line) !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(44, 41, 34, 0.03);
+    }
+    .top-bar {
+      background: var(--bg-sub) !important;
+      border-bottom: 1px solid var(--line) !important;
+      color: var(--text-sub) !important;
+    }
+
+    /* ==========================================================================
+       4-SQUARE GRID MENU BUTTON (MATCHING IMAGE 2 TOP RIGHT)
+       ========================================================================== */
+    .header-menu-btn {
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 3px !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 4px 6px !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
+      flex-shrink: 0 !important;
+    }
+    .menu-grid-icon {
+      display: grid !important;
+      grid-template-columns: repeat(2, 7px) !important;
+      grid-template-rows: repeat(2, 7px) !important;
+      gap: 3px !important;
+    }
+    .menu-grid-icon span {
+      display: block !important;
+      width: 7px !important;
+      height: 7px !important;
+      background: #A69279 !important;
+      border-radius: 1px !important;
+      transition: transform 0.2s ease, background 0.2s ease !important;
+    }
+    .header-menu-btn:hover .menu-grid-icon span {
+      background: #2C2922 !important;
+      transform: scale(1.1) !important;
+    }
+    .header-menu-btn .header-menu-text {
+      font-family: var(--font-en) !important;
+      font-size: 0.62rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      color: #A69279 !important;
+      display: block !important;
+      line-height: 1 !important;
+      margin-top: 1px !important;
+    }
+
+    /* Desktop Navigation */
+    .header-desktop-nav a {
+      color: var(--text-main) !important;
+    }
+    .header-desktop-nav a:hover,
+    .header-desktop-nav a.active {
+      color: var(--accent) !important;
+    }
+    .header-desktop-nav a::after {
+      background: var(--accent) !important;
+    }
+
+    /* ==========================================================================
+       FULLSCREEN LUXURY DRAWER MENU (MATCHING IMAGE 1)
+       ========================================================================== */
+    .mobile-drawer {
+      display: block !important;
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      background: #38352B !important; /* Deep Olive Khaki matching reference */
+      z-index: 9999 !important;
+      overflow-y: auto !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: scale(0.98) !important;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      padding: 24px 24px 80px !important;
+      color: #F7F5F0 !important;
+      box-sizing: border-box !important;
+      right: 0 !important;
+    }
+    .mobile-drawer.open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: scale(1) !important;
+    }
+    .drawer-overlay {
+      display: none !important; /* Fullscreen drawer handles background natively */
+    }
+    .drawer-inner-container {
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .drawer-brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .drawer-logo-img {
+      height: 34px;
+      width: auto;
+      border-radius: 4px;
+    }
+    .drawer-brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+    }
+    .drawer-close-btn {
+      background: none !important;
+      border: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 4px !important;
+      color: #C2B7A3 !important;
+      cursor: pointer !important;
+      padding: 4px !important;
+      line-height: 1;
+    }
+    .close-x-icon {
+      position: relative;
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+    .close-x-icon::before,
+    .close-x-icon::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 22px;
+      height: 1.5px;
+      background: #C2B7A3;
+      transition: background 0.2s ease;
+    }
+    .close-x-icon::before { transform: rotate(45deg); }
+    .close-x-icon::after { transform: rotate(-45deg); }
+    .drawer-close-btn:hover .close-x-icon::before,
+    .drawer-close-btn:hover .close-x-icon::after {
+      background: #FFFFFF;
+    }
+    .close-text {
+      font-family: var(--font-en);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: #C2B7A3;
+    }
+
+    /* 2-Column Grid Navigation */
+    .drawer-grid-nav {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 28px 20px !important;
+      padding: 36px 4px 28px !important;
+    }
+    .drawer-grid-item {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 5px !important;
+      text-decoration: none !important;
+      transition: transform 0.2s ease !important;
+    }
+    .drawer-grid-item:hover {
+      transform: translateX(4px) !important;
+    }
+    .drawer-grid-item .en {
+      font-family: var(--font-en) !important;
+      font-size: 1.25rem !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.08em !important;
+      color: #FFFFFF !important;
+      line-height: 1.15 !important;
+    }
+    .drawer-grid-item .jp {
+      font-family: var(--font-jp) !important;
+      font-size: 0.76rem !important;
+      color: #B5A893 !important;
+      letter-spacing: 0.04em !important;
+    }
+    .drawer-grid-item.active .en {
+      color: var(--accent) !important;
+    }
+
+    /* White Rounded Action Cards */
+    .drawer-action-cards {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 12px !important;
+      margin-top: 10px !important;
+    }
+    .drawer-white-card {
+      background: #FFFFFF !important;
+      border-radius: 14px !important;
+      padding: 14px 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+    .drawer-white-card:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25) !important;
+    }
+    .drawer-white-card .card-main-en {
+      font-family: var(--font-en) !important;
+      font-size: 0.88rem !important;
+      font-weight: 700 !important;
+      color: #2C2922 !important;
+      letter-spacing: 0.05em !important;
+      display: block !important;
+    }
+    .drawer-white-card .card-sub-jp {
+      font-family: var(--font-jp) !important;
+      font-size: 0.66rem !important;
+      color: #8C8475 !important;
+      display: block !important;
+      margin-top: 2px !important;
+    }
+    .drawer-white-card .card-icon {
+      font-size: 1.45rem !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Divider & SNS Icons */
+    .drawer-divider {
+      width: 100% !important;
+      height: 1px !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      margin: 32px 0 24px !important;
+    }
+    .drawer-sns-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 16px !important;
+    }
+    .drawer-sns-circle {
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #FFFFFF !important;
+      font-size: 1.15rem !important;
+      text-decoration: none !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      transition: all 0.25s ease !important;
+    }
+    .drawer-sns-circle:hover {
+      background: #FFFFFF !important;
+      color: #38352B !important;
+      transform: translateY(-2px) !important;
+    }
+
+    /* ==========================================================================
+       BOTTOM FIXED 2-SPLIT ACTION BAR (MATCHING IMAGE 2 FOOTER)
+       ========================================================================== */
+    .bottom-fixed-bar {
+      display: none;
+    }
+    @media (max-width: 991.98px) {
+      .bottom-fixed-bar {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 52px !important;
+        background: #FFFFFF !important;
+        border-top: 1px solid var(--line) !important;
+        z-index: 1500 !important;
+        box-shadow: 0 -3px 14px rgba(44, 41, 34, 0.08) !important;
+      }
+      .bottom-bar-btn {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-family: var(--font-en), var(--font-jp) !important;
+        font-size: 0.84rem !important;
+        font-weight: 700 !important;
+        color: var(--text-main) !important;
+        text-decoration: none !important;
+        letter-spacing: 0.05em !important;
+        transition: background 0.2s ease !important;
+      }
+      .bottom-bar-btn:first-child {
+        border-right: 1px solid var(--line) !important;
+      }
+      .bottom-bar-btn:active {
+        background: var(--bg-sub) !important;
+      }
+      body {
+        padding-bottom: 56px !important;
+      }
+    }
+
+</style>
 </head>
 <body>
 
@@ -1368,9 +1751,9 @@
 
         <!-- Hamburger Menu Button (Shown on <= 1149px) -->
         <button type="button" class="header-menu-btn" id="hamburgerBtn" aria-label="メニューを開く">
-          <div class="header-menu-bars">
-            <span></span>
-            <span></span>
+          <div class="menu-grid-icon">
+            <span></span><span></span>
+            <span></span><span></span>
           </div>
           <span class="header-menu-text">MENU</span>
         </button>
@@ -1379,114 +1762,97 @@
   </header>
 
   <!-- Mobile & Desktop Drawer Menu (5 Dedicated Pages) -->
-    <!-- Mobile & Desktop Drawer Menu -->
-  <div class="drawer-overlay" id="drawerOverlay"></div>
+      <!-- Fullscreen Luxury Drawer Menu (Matching Reference Image) -->
   <aside class="mobile-drawer" id="mobileDrawer">
-    <div class="drawer-header">
-      <span class="drawer-brand">CAR MATE CORE</span>
-      <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="閉じる">&times;</button>
-    </div>
-
-    <!-- Navigation List (5 Dedicated Pages) -->
-    <ul class="drawer-nav-list">
-      <li>
-        <a href="index.html" class="drawer-nav-link">
-          <span class="jp">ホーム</span>
-        </a>
-      </li>
-      <li>
-        <a href="concept.html" class="drawer-nav-link">
-          <span class="jp">コンセプト（想い・代表紹介）</span>
-        </a>
-      </li>
-      <li>
-        <a href="stock.html" class="drawer-nav-link">
-          <span class="jp">在庫車両（販売中・成約実績）</span>
-        </a>
-      </li>
-      <li>
-        <a href="flow.html" class="drawer-nav-link">
-          <span class="jp">ご購入の流れ（安心ステップ）</span>
-        </a>
-      </li>
-      <li>
-        <a href="access.html" class="drawer-nav-link" style="color:var(--accent); font-weight:700;">
-          <span class="jp">店舗案内（アクセス・進入路）</span>
-        </a>
-      </li>
-    </ul>
-
-    <!-- Links Section (LINE, Instagram, Goo-net, Carsensor, Stamp) -->
-    <div class="drawer-links-section">
-      <div class="drawer-section-title">
-        <span>Official Links & Stamp</span>
-        <span class="sub">公式リンク集 ＆ おすすめ</span>
+    <div class="drawer-inner-container">
+      <!-- Drawer Top Header -->
+      <div class="drawer-header">
+        <div class="drawer-brand-wrap">
+          <img src="images/logo.jpg" alt="Car Mate Core ロゴ" class="drawer-logo-img">
+          <span class="drawer-brand-title">CAR MATE CORE</span>
+        </div>
+        <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="閉じる">
+          <span class="close-x-icon"></span>
+          <span class="close-text">CLOSE</span>
+        </button>
       </div>
 
-      <div class="drawer-links-grid">
-        <!-- 1. LINE -->
-        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="drawer-link-card line-card">
-          <div class="link-icon"><i class="fa-brands fa-line"></i></div>
-          <div class="link-info">
-            <span class="link-name">公式 LINE</span>
-            <span class="link-desc">在庫・商談・無料相談はこちら</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+      <!-- Main Navigation (2-Column Grid as in Reference Image) -->
+      <nav class="drawer-grid-nav">
+        <a href="index.html" class="drawer-grid-item">
+          <span class="en">TOP PAGE</span>
+          <span class="jp">- トップページ</span>
         </a>
-
-        <!-- 2. Instagram -->
-        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="drawer-link-card insta-card">
-          <div class="link-icon"><i class="fa-brands fa-instagram"></i></div>
-          <div class="link-info">
-            <span class="link-name">公式 Instagram</span>
-            <span class="link-desc">@carmate_core 日常＆新着車</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        <a href="concept.html" class="drawer-grid-item">
+          <span class="en">CONCEPT</span>
+          <span class="jp">- 想い・代表紹介</span>
         </a>
-
-        <!-- 3. Goo-net -->
-        <a href="https://www.goo-net.com/usedcar_shop/0802078/detail.html" target="_blank" rel="noopener noreferrer" class="drawer-link-card goo-card">
-          <div class="link-icon"><i class="fa-solid fa-car"></i></div>
-          <div class="link-info">
-            <span class="link-name">グーネット（Goo-net）</span>
-            <span class="link-desc">公式在庫一覧＆総額鑑定書</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        <a href="stock.html" class="drawer-grid-item">
+          <span class="en">STOCK</span>
+          <span class="jp">- 在庫車両一覧</span>
         </a>
-
-        <!-- 4. Carsensor -->
-        <a href="https://www.carsensor.net/shop/saga/324457001/" target="_blank" rel="noopener noreferrer" class="drawer-link-card sensor-card">
-          <div class="link-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <div class="link-info">
-            <span class="link-name">カーセンサー（Carsensor）</span>
-            <span class="link-desc">公式店舗ページ＆アフター保証</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        <a href="flow.html" class="drawer-grid-item">
+          <span class="en">FLOW</span>
+          <span class="jp">- ご購入の流れ</span>
         </a>
+        <a href="concept.html#service-section" class="drawer-grid-item">
+          <span class="en">SERVICE</span>
+          <span class="jp">- 車検・整備・買取</span>
+        </a>
+        <a href="access.html" class="drawer-grid-item active">
+          <span class="en">ACCESS</span>
+          <span class="jp">- 店舗案内・進入路</span>
+        </a>
+      </nav>
 
-        <!-- 5. Original LINE Stamp -->
-        <a href="https://store.line.me/stickershop/author/6778666/ja" target="_blank" rel="noopener noreferrer" class="drawer-link-card stamp-card" title="特製LINEスタンプ" onclick="window.open(this.href, '_blank'); return true;">
-          <div class="link-icon"><i class="fa-solid fa-face-smile"></i></div>
-          <div class="link-info">
-            <span class="link-name">特製 LINEスタンプ</span>
-            <span class="link-desc">日常で使えるオリジナルスタンプ</span>
+      <!-- White Rounded Action Cards (Matching Image 1: RECRUIT / MOVIE Cards) -->
+      <div class="drawer-action-cards">
+        <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="drawer-white-card">
+          <div class="card-text-wrap">
+            <span class="card-main-en">LINE INQUIRY</span>
+            <span class="card-sub-jp">- 公式LINEで気軽に相談</span>
           </div>
-          <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+          <i class="fa-brands fa-line card-icon" style="color:#06C755;"></i>
+        </a>
+        <a href="tel:0952655654" class="drawer-white-card">
+          <div class="card-text-wrap">
+            <span class="card-main-en">CALL US</span>
+            <span class="card-sub-jp">- 0952-65-5654</span>
+          </div>
+          <i class="fa-solid fa-phone card-icon" style="color:var(--accent);"></i>
         </a>
       </div>
-    </div>
 
-    <!-- Drawer Bottom Contact Cards -->
-    <div class="drawer-bottom-card">
-      <div class="drawer-tel-card">
-        <div style="font-size:0.75rem; color:var(--text-sub); margin-bottom:4px;">お電話でのご相談（店舗直通）</div>
-        <a href="tel:0952655654" style="font-family:var(--font-en); font-size:1.15rem; font-weight:700; color:var(--text-main); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
-          <i class="fa-solid fa-phone" style="color:var(--accent);"></i> 0952-65-5654
+      <!-- Divider Line -->
+      <div class="drawer-divider"></div>
+
+      <!-- SNS & Portal Links (Circular Icon Style) -->
+      <div class="drawer-sns-row">
+        <a href="https://www.instagram.com/carmate_core/" target="_blank" rel="noopener noreferrer" class="drawer-sns-circle" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
         </a>
-        <div style="font-size:0.72rem; color:var(--text-muted); margin-top:4px;">営業時間 9:30 - 18:30（水曜定休）</div>
+        <a href="https://www.goo-net.com/usedcar_shop/0802078/detail.html" target="_blank" rel="noopener noreferrer" class="drawer-sns-circle" title="グーネット">
+          <i class="fa-solid fa-car"></i>
+        </a>
+        <a href="https://www.carsensor.net/shop/saga/324457001/" target="_blank" rel="noopener noreferrer" class="drawer-sns-circle" title="カーセンサー">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+        <a href="https://store.line.me/stickershop/author/6778666/ja" target="_blank" rel="noopener noreferrer" class="drawer-sns-circle" title="特製LINEスタンプ">
+          <i class="fa-solid fa-face-smile"></i>
+        </a>
       </div>
     </div>
   </aside>
+
+  <!-- Bottom Fixed 2-Split Action Bar (Matching Image 2 Footer) -->
+  <div class="bottom-fixed-bar">
+    <a href="https://line.me/R/ti/p/" target="_blank" rel="noopener noreferrer" class="bottom-bar-btn">
+      <i class="fa-brands fa-line" style="color:#06C755; margin-right:6px; font-size:1.15rem;"></i> LINE 相談
+    </a>
+    <a href="stock.html" class="bottom-bar-btn">
+      <i class="fa-solid fa-car" style="color:var(--accent); margin-right:6px; font-size:1.05rem;"></i> 在庫車両
+    </a>
+  </div>
 
   <!-- ==================== PAGE HERO ==================== -->
   <section class="page-hero">
