@@ -2137,20 +2137,37 @@
     const drawerOverlay = document.getElementById('drawerOverlay');
 
     function openDrawer() {
-      mobileDrawer.classList.add('active');
-      drawerOverlay.classList.add('active');
+      if (mobileDrawer) {
+        mobileDrawer.classList.add('open');
+        mobileDrawer.classList.add('active');
+      }
+      if (drawerOverlay) drawerOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
     function closeDrawer() {
-      mobileDrawer.classList.remove('active');
-      drawerOverlay.classList.remove('active');
+      if (mobileDrawer) {
+        mobileDrawer.classList.remove('open');
+        mobileDrawer.classList.remove('active');
+      }
+      if (drawerOverlay) drawerOverlay.classList.remove('active');
       document.body.style.overflow = '';
     }
 
-    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openDrawer);
-    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
-    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', openDrawer);
+    }
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', closeDrawer);
+    }
+    if (drawerOverlay) {
+      drawerOverlay.addEventListener('click', closeDrawer);
+    }
+    if (mobileDrawer) {
+      mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeDrawer);
+      });
+    }
   </script>
 </body>
 </html>
